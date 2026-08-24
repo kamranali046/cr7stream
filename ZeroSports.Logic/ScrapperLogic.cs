@@ -1,4 +1,5 @@
 using ZeroSports.Logic.Models;
+using ZeroSports.Logic.Scrapers;
 using ZeroSports.Logic.Services;
 
 namespace ZeroSports.Logic;
@@ -6,6 +7,7 @@ namespace ZeroSports.Logic;
 public interface IScrapperLogic
 {
     Task<FixtureData> GetFixturesAsync();
+    Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default);
     Task<List<Sport>> GetSportsAsync();
     Task<List<League>> GetLeaguesAsync();
     Task<List<Team>> GetTeamsAsync();
@@ -15,28 +17,30 @@ public interface IScrapperLogic
 public class ScrapperLogic : IScrapperLogic
 {
     private readonly IFixtureProvider _provider;
+    private readonly ITotalSportekScraper _scraper;
     private readonly TimeSpan _liveWindow = TimeSpan.FromHours(3);
 
-    public ScrapperLogic(IFixtureProvider provider)
+    public ScrapperLogic(IFixtureProvider provider, ITotalSportekScraper scraper)
     {
         _provider = provider;
+        _scraper = scraper;
     }
 
     public async Task<FixtureData> GetFixturesAsync()
     {
         var raw = await _provider.LoadRawAsync();
 
-        // The dummy JSON is anchored to a fixed reference time. To keep the demo
-        // always showing live events and realistic countdowns regardless of when it
-        // is opened, we rebase every timestamp relative to the current UTC time.
-        // When a real scraper replaces the JSON source this block simply becomes a
-        // pass-through (or the place where raw HTML is parsed into FixtureData).
-        var drift = DateTime.UtcNow - NormalizeGeneratedAt(raw);
-
-        foreach (var match in raw.Matches)
+        // Dummy data is anchored to a fixed reference time; rebase it relative to
+        // "now" so the demo always shows live events + countdowns. Scraped data
+        // already carries real absolute timestamps and skips this step.
+        if (raw.NormalizeTimes)
         {
-            match.StartTimeUtc = match.StartTimeUtc.Add(drift);
-            match.Status = ResolveStatus(match.StartTimeUtc);
+            var drift = DateTime.UtcNow - NormalizeGeneratedAt(raw);
+            foreach (var match in raw.Matches)
+            {
+                match.StartTimeUtc = match.StartTimeUtc.Add(drift);
+                match.Status = ResolveStatus(match.StartTimeUtc);
+            }
         }
 
         raw.Matches = raw.Matches
@@ -45,6 +49,15 @@ public class ScrapperLogic : IScrapperLogic
             .ToList();
 
         return raw;
+    }
+
+    public async Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default)
+    {
+        var data = await _scraper.ScrapeAsync(cancellationToken);
+        data.NormalizeTimes = false;
+        data.ScrapedAtUtc = DateTime.UtcNow;
+        await _provider.SaveAsync(data, cancellationToken);
+        return data;
     }
 
     public async Task<List<Sport>> GetSportsAsync()

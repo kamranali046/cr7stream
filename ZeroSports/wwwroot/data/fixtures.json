@@ -1,176 +1,1398 @@
 {
-  "generatedAtUtc": "2026-08-24T18:00:00Z",
-  "sports": [
-    { "slug": "nfl", "name": "NFL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NFL" },
-    { "slug": "nba", "name": "NBA", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NBA" },
-    { "slug": "nhl", "name": "NHL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NHL" },
-    { "slug": "ufc", "name": "UFC", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC" },
-    { "slug": "f1", "name": "F1", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=F1" },
-    { "slug": "boxing", "name": "BOXING", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX" },
-    { "slug": "football", "name": "FOOTBALL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FB" }
-  ],
-  "leagues": [
-    { "slug": "nfl", "name": "NFL", "sportSlug": "nfl", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NFL" },
-    { "slug": "nba", "name": "NBA", "sportSlug": "nba", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NBA" },
-    { "slug": "nhl", "name": "NHL", "sportSlug": "nhl", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NHL" },
-    { "slug": "ufc", "name": "UFC", "sportSlug": "ufc", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC" },
-    { "slug": "formula-1", "name": "Formula 1", "sportSlug": "f1", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=F1" },
-    { "slug": "boxing", "name": "Boxing", "sportSlug": "boxing", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX" },
-    { "slug": "english-premier-league", "name": "English Premier League", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=EPL" },
-    { "slug": "la-liga", "name": "La Liga", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LL" },
-    { "slug": "serie-a", "name": "Serie A", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=SA" },
-    { "slug": "bundesliga", "name": "Bundesliga", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BL" },
-    { "slug": "ligue-1", "name": "Ligue 1", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=L1" },
-    { "slug": "uefa-champions-league", "name": "UEFA Champions League", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UCL" }
-  ],
-  "teams": [
-    { "slug": "tennessee-titans", "name": "Tennessee Titans", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=TEN" },
-    { "slug": "seattle-seahawks", "name": "Seattle Seahawks", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=SEA" },
-    { "slug": "kansas-city-chiefs", "name": "Kansas City Chiefs", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=KC" },
-    { "slug": "buffalo-bills", "name": "Buffalo Bills", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BUF" },
-    { "slug": "los-angeles-lakers", "name": "Los Angeles Lakers", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LAL" },
-    { "slug": "boston-celtics", "name": "Boston Celtics", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOS" },
-    { "slug": "toronto-maple-leafs", "name": "Toronto Maple Leafs", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=TOR" },
-    { "slug": "montreal-canadiens", "name": "Montreal Canadiens", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MTL" },
-    { "slug": "bologna", "name": "Bologna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOL" },
-    { "slug": "lazio", "name": "Lazio", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LAZ" },
-    { "slug": "roma", "name": "Roma", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=ROM" },
-    { "slug": "fiorentina", "name": "Fiorentina", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FIO" },
-    { "slug": "osasuna", "name": "Osasuna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=OSA" },
-    { "slug": "levante", "name": "Levante", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LEV" },
-    { "slug": "malaga", "name": "Malaga", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MAL" },
-    { "slug": "deportivo-de-a-coruna", "name": "Deportivo de A Coruna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=DEP" },
-    { "slug": "fulham", "name": "Fulham", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FUL" },
-    { "slug": "chelsea", "name": "Chelsea", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=CHE" },
-    { "slug": "arsenal", "name": "Arsenal", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=ARS" },
-    { "slug": "liverpool", "name": "Liverpool", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LIV" },
-    { "slug": "barcelona", "name": "Barcelona", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR" },
-    { "slug": "real-madrid", "name": "Real Madrid", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=RMA" },
-    { "slug": "bayern-munich", "name": "Bayern Munich", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BAY" },
-    { "slug": "borussia-dortmund", "name": "Borussia Dortmund", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=DOR" },
-    { "slug": "pSG", "name": "PSG", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=PSG" },
-    { "slug": "manchester-city", "name": "Manchester City", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MCI" },
-    { "slug": "inter-miami", "name": "Inter Miami", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MIA" }
-  ],
-  "matches": [
+  "Sports": [
     {
-      "id": "m1", "slug": "tennessee-titans-vs-seattle-seahawks", "leagueSlug": "nfl", "sportSlug": "nfl",
-      "homeTeam": "Tennessee Titans", "awayTeam": "Seattle Seahawks",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=TEN", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=SEA",
-      "startTimeUtc": "2026-08-24T17:30:00Z", "status": "live",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nfl1" }, { "label": "HD Stream 2", "url": "https://example.com/embed/nfl2" } ]
+      "Slug": "featured",
+      "Name": "Featured",
+      "Logo": "https://placehold.co/120x120/1f2937/ffffff?text=FEA"
     },
     {
-      "id": "m2", "slug": "kansas-city-chiefs-vs-buffalo-bills", "leagueSlug": "nfl", "sportSlug": "nfl",
-      "homeTeam": "Kansas City Chiefs", "awayTeam": "Buffalo Bills",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=KC", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BUF",
-      "startTimeUtc": "2026-08-24T23:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nfl3" } ]
+      "Slug": "football",
+      "Name": "Football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp"
     },
     {
-      "id": "m3", "slug": "los-angeles-lakers-vs-boston-celtics", "leagueSlug": "nba", "sportSlug": "nba",
-      "homeTeam": "Los Angeles Lakers", "awayTeam": "Boston Celtics",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LAL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOS",
-      "startTimeUtc": "2026-08-24T19:30:00Z", "status": "live",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nba1" } ]
+      "Slug": "cricket",
+      "Name": "Cricket",
+      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp"
     },
     {
-      "id": "m4", "slug": "toronto-maple-leafs-vs-montreal-canadiens", "leagueSlug": "nhl", "sportSlug": "nhl",
-      "homeTeam": "Toronto Maple Leafs", "awayTeam": "Montreal Canadiens",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=TOR", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MTL",
-      "startTimeUtc": "2026-08-24T21:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nhl1" } ]
+      "Slug": "tennis",
+      "Name": "Tennis",
+      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp"
     },
     {
-      "id": "m5", "slug": "bologna-vs-lazio", "leagueSlug": "serie-a", "sportSlug": "football",
-      "homeTeam": "Bologna", "awayTeam": "Lazio",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LAZ",
-      "startTimeUtc": "2026-08-24T20:42:35Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/sa1" } ]
+      "Slug": "wwe",
+      "Name": "WWE",
+      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp"
     },
     {
-      "id": "m6", "slug": "roma-vs-fiorentina", "leagueSlug": "serie-a", "sportSlug": "football",
-      "homeTeam": "Roma", "awayTeam": "Fiorentina",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=ROM", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=FIO",
-      "startTimeUtc": "2026-08-24T22:57:35Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/sa2" } ]
+      "Slug": "basketball",
+      "Name": "Basketball",
+      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp"
     },
     {
-      "id": "m7", "slug": "osasuna-vs-levante", "leagueSlug": "la-liga", "sportSlug": "football",
-      "homeTeam": "Osasuna", "awayTeam": "Levante",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=OSA", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LEV",
-      "startTimeUtc": "2026-08-24T21:42:35Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll1" } ]
-    },
-    {
-      "id": "m8", "slug": "malaga-vs-deportivo-de-a-coruna", "leagueSlug": "la-liga", "sportSlug": "football",
-      "homeTeam": "Malaga", "awayTeam": "Deportivo de A Coruna",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MAL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=DEP",
-      "startTimeUtc": "2026-08-25T00:42:35Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll2" } ]
-    },
-    {
-      "id": "m9", "slug": "fulham-vs-chelsea", "leagueSlug": "english-premier-league", "sportSlug": "football",
-      "homeTeam": "Fulham", "awayTeam": "Chelsea",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=FUL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=CHE",
-      "startTimeUtc": "2026-08-25T01:12:35Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/epl1" } ]
-    },
-    {
-      "id": "m10", "slug": "arsenal-vs-liverpool", "leagueSlug": "english-premier-league", "sportSlug": "football",
-      "homeTeam": "Arsenal", "awayTeam": "Liverpool",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=ARS", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LIV",
-      "startTimeUtc": "2026-08-25T03:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/epl2" } ]
-    },
-    {
-      "id": "m11", "slug": "barcelona-vs-real-madrid", "leagueSlug": "la-liga", "sportSlug": "football",
-      "homeTeam": "Barcelona", "awayTeam": "Real Madrid",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=RMA",
-      "startTimeUtc": "2026-08-25T19:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll3" } ]
-    },
-    {
-      "id": "m12", "slug": "bayern-munich-vs-borussia-dortmund", "leagueSlug": "bundesliga", "sportSlug": "football",
-      "homeTeam": "Bayern Munich", "awayTeam": "Borussia Dortmund",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAY", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=DOR",
-      "startTimeUtc": "2026-08-25T21:30:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/bl1" } ]
-    },
-    {
-      "id": "m13", "slug": "psg-vs-manchester-city", "leagueSlug": "uefa-champions-league", "sportSlug": "football",
-      "homeTeam": "PSG", "awayTeam": "Manchester City",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=PSG", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MCI",
-      "startTimeUtc": "2026-08-26T19:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ucl1" } ]
-    },
-    {
-      "id": "m14", "slug": "inter-miami-vs-barcelona", "leagueSlug": "uefa-champions-league", "sportSlug": "football",
-      "homeTeam": "Inter Miami", "awayTeam": "Barcelona",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MIA", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR",
-      "startTimeUtc": "2026-08-26T21:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ucl2" } ]
-    },
-    {
-      "id": "m15", "slug": "ufc-main-event", "leagueSlug": "ufc", "sportSlug": "ufc",
-      "homeTeam": "Fighter A", "awayTeam": "Fighter B",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC",
-      "startTimeUtc": "2026-08-24T22:00:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ufc1" } ]
-    },
-    {
-      "id": "m16", "slug": "formula-1-grand-prix", "leagueSlug": "formula-1", "sportSlug": "f1",
-      "homeTeam": "Race", "awayTeam": "Live",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=F1", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=F1",
-      "startTimeUtc": "2026-08-24T18:00:00Z", "status": "live",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/f11" } ]
-    },
-    {
-      "id": "m17", "slug": "boxing-title-fight", "leagueSlug": "boxing", "sportSlug": "boxing",
-      "homeTeam": "Champion", "awayTeam": "Challenger",
-      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX",
-      "startTimeUtc": "2026-08-24T23:30:00Z", "status": "upcoming",
-      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/box1" } ]
+      "Slug": "baseball",
+      "Name": "Baseball",
+      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp"
     }
-  ]
+  ],
+  "Leagues": [
+    {
+      "Slug": "featured",
+      "Name": "Featured",
+      "SportSlug": "featured",
+      "Logo": ""
+    },
+    {
+      "Slug": "la-liga",
+      "Name": "La-Liga",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp"
+    },
+    {
+      "Slug": "serie-a",
+      "Name": "Serie-A",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/serie-a.webp"
+    },
+    {
+      "Slug": "cricket",
+      "Name": "Cricket",
+      "SportSlug": "cricket",
+      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp"
+    },
+    {
+      "Slug": "tennis",
+      "Name": "tennis",
+      "SportSlug": "tennis",
+      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp"
+    },
+    {
+      "Slug": "wwe",
+      "Name": "WWE",
+      "SportSlug": "wwe",
+      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp"
+    },
+    {
+      "Slug": "wnba",
+      "Name": "WNBA",
+      "SportSlug": "basketball",
+      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp"
+    },
+    {
+      "Slug": "superlig",
+      "Name": "superlig",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/superlig.webp"
+    },
+    {
+      "Slug": "saudi-pro-league",
+      "Name": "Saudi Pro League",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/saudi pro league.webp"
+    },
+    {
+      "Slug": "mls-next-pro",
+      "Name": "MLS Next Pro",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/mls next pro.webp"
+    },
+    {
+      "Slug": "mls",
+      "Name": "mls",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/mls.webp"
+    },
+    {
+      "Slug": "ligue-2",
+      "Name": "Ligue 2",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/ligue 2.webp"
+    },
+    {
+      "Slug": "la-liga-2",
+      "Name": "La Liga 2",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/la liga 2.webp"
+    },
+    {
+      "Slug": "dfb-pokal-german-cup",
+      "Name": "DFB Pokal (German Cup)",
+      "SportSlug": "football",
+      "Logo": "https://total-sportek.st/assets2/images/categories/dfb pokal (german cup).webp"
+    },
+    {
+      "Slug": "mlb",
+      "Name": "mlb",
+      "SportSlug": "baseball",
+      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp"
+    }
+  ],
+  "Teams": [
+    {
+      "Slug": "fulham",
+      "Name": "Fulham",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Fulham.webp"
+    },
+    {
+      "Slug": "chelsea",
+      "Name": "Chelsea",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Chelsea.webp"
+    },
+    {
+      "Slug": "osasuna",
+      "Name": "Osasuna",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Osasuna.webp"
+    },
+    {
+      "Slug": "levante",
+      "Name": "Levante",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "malaga",
+      "Name": "Malaga",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Malaga.webp"
+    },
+    {
+      "Slug": "deportivo-la-coruna",
+      "Name": "Deportivo La Coruna",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "bologna",
+      "Name": "Bologna",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Bologna.webp"
+    },
+    {
+      "Slug": "lazio",
+      "Name": "Lazio",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Lazio.webp"
+    },
+    {
+      "Slug": "roma",
+      "Name": "Roma",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Roma.webp"
+    },
+    {
+      "Slug": "fiorentina",
+      "Name": "Fiorentina",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Fiorentina.webp"
+    },
+    {
+      "Slug": "australia",
+      "Name": "Australia",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Australia.webp"
+    },
+    {
+      "Slug": "bangladesh",
+      "Name": "Bangladesh",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Bangladesh.webp"
+    },
+    {
+      "Slug": "sri-lanka",
+      "Name": "Sri Lanka",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Sri Lanka.webp"
+    },
+    {
+      "Slug": "india",
+      "Name": "India",
+      "Logo": "https://total-sportek.st/assets2/images/premier/India.webp"
+    },
+    {
+      "Slug": "cincinnati-open",
+      "Name": "Cincinnati Open",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "tennis",
+      "Name": "Tennis",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Tennis.webp"
+    },
+    {
+      "Slug": "winston-salem-open",
+      "Name": "Winston Salem Open",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "us-open",
+      "Name": "US Open",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "wwe",
+      "Name": "WWE",
+      "Logo": "https://total-sportek.st/assets2/images/premier/WWE.webp"
+    },
+    {
+      "Slug": "summer-tour",
+      "Name": "Summer Tour",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "monday-night-raw",
+      "Name": "Monday Night RAW",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "portland-fire",
+      "Name": "Portland Fire",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "washington-mystics",
+      "Name": "Washington Mystics",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "toronto-tempo",
+      "Name": "Toronto tempo",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "las-vegas-aces",
+      "Name": "Las Vegas Aces",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "chicago-sky",
+      "Name": "Chicago Sky",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "indiana-fever",
+      "Name": "Indiana Fever",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "minnesota-lynx",
+      "Name": "Minnesota Lynx",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "golden-state-valkyries",
+      "Name": "Golden State Valkyries",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "kocaelispor",
+      "Name": "Kocaelispor",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "amed-sk",
+      "Name": "Amed SK",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "neom",
+      "Name": "NEOM",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "al-quadisiya",
+      "Name": "Al Quadisiya",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "al-ittihad",
+      "Name": "Al Ittihad",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Al Ittihad.webp"
+    },
+    {
+      "Slug": "al-hazm",
+      "Name": "Al Hazm",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Al Hazm.webp"
+    },
+    {
+      "Slug": "crown-legacy",
+      "Name": "Crown Legacy",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "chattanooga",
+      "Name": "Chattanooga",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "huntsville-city",
+      "Name": "Huntsville City",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "columbus-crew-ii",
+      "Name": "Columbus Crew II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "new-york-rb-ii",
+      "Name": "New York RB II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "toronto-ii",
+      "Name": "Toronto II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "st-louis-city-ii",
+      "Name": "St Louis City II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "houston-dynamo-fc-ii",
+      "Name": "Houston Dynamo FC II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "colorado-rapids-ii",
+      "Name": "Colorado Rapids II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "real-monarchs",
+      "Name": "Real Monarchs",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "austin-ii",
+      "Name": "Austin II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "san-jose-earthquakes-ii",
+      "Name": "San Jose Earthquakes II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "ventura-county",
+      "Name": "Ventura County",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "portland-timbers-ii",
+      "Name": "Portland Timbers II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "atlanta-united",
+      "Name": "Atlanta United",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Atlanta United.webp"
+    },
+    {
+      "Slug": "sporting-kc",
+      "Name": "Sporting KC",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Sporting KC.webp"
+    },
+    {
+      "Slug": "reims",
+      "Name": "Reims",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Reims.webp"
+    },
+    {
+      "Slug": "annecy",
+      "Name": "Annecy",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "celta-de-vigo-ii",
+      "Name": "Celta de Vigo II",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "fc-andorra",
+      "Name": "FC Andorra",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "granada",
+      "Name": "Granada",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Granada.webp"
+    },
+    {
+      "Slug": "mallorca",
+      "Name": "Mallorca",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Mallorca.webp"
+    },
+    {
+      "Slug": "verl",
+      "Name": "Verl",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "hamburger-sv",
+      "Name": "Hamburger SV",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Hamburger SV.webp"
+    },
+    {
+      "Slug": "wurzburger-kickers",
+      "Name": "Wurzburger Kickers",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "koln",
+      "Name": "Koln",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Koln.webp"
+    },
+    {
+      "Slug": "altglienicke",
+      "Name": "Altglienicke",
+      "Logo": "https://total-sportek.st/assets2/images/logo.svg"
+    },
+    {
+      "Slug": "wolfsburg",
+      "Name": "Wolfsburg",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Wolfsburg.webp"
+    },
+    {
+      "Slug": "milwaukee-brewers",
+      "Name": "Milwaukee Brewers",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp"
+    },
+    {
+      "Slug": "atlanta-braves",
+      "Name": "Atlanta Braves",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Atlanta Braves.webp"
+    },
+    {
+      "Slug": "detroit-tigers",
+      "Name": "Detroit Tigers",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp"
+    },
+    {
+      "Slug": "tampa-bay-rays",
+      "Name": "Tampa Bay Rays",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp"
+    },
+    {
+      "Slug": "miami-marlins",
+      "Name": "Miami Marlins",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Miami Marlins.webp"
+    },
+    {
+      "Slug": "boston-red-sox",
+      "Name": "Boston Red Sox",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp"
+    },
+    {
+      "Slug": "washington-nationals",
+      "Name": "Washington Nationals",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Washington Nationals.webp"
+    },
+    {
+      "Slug": "colorado-rockies",
+      "Name": "Colorado Rockies",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Colorado Rockies.webp"
+    },
+    {
+      "Slug": "los-angeles-angels",
+      "Name": "Los Angeles Angels",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Los Angeles Angels.webp"
+    },
+    {
+      "Slug": "cleveland-guardians",
+      "Name": "Cleveland Guardians",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp"
+    },
+    {
+      "Slug": "seattle-mariners",
+      "Name": "Seattle Mariners",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Seattle Mariners.webp"
+    },
+    {
+      "Slug": "philadelphia-phillies",
+      "Name": "Philadelphia Phillies",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Philadelphia Phillies.webp"
+    },
+    {
+      "Slug": "san-diego-padres",
+      "Name": "San Diego Padres",
+      "Logo": "https://total-sportek.st/assets2/images/premier/San Diego Padres.webp"
+    },
+    {
+      "Slug": "pittsburgh-pirates",
+      "Name": "Pittsburgh Pirates",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp"
+    },
+    {
+      "Slug": "arizona-diamondbacks",
+      "Name": "Arizona Diamondbacks",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Arizona Diamondbacks.webp"
+    },
+    {
+      "Slug": "chicago-cubs",
+      "Name": "Chicago Cubs",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp"
+    },
+    {
+      "Slug": "oakland-athletics",
+      "Name": "Oakland Athletics",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Oakland Athletics.webp"
+    },
+    {
+      "Slug": "minnesota-twins",
+      "Name": "Minnesota Twins",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp"
+    },
+    {
+      "Slug": "san-francisco-giants",
+      "Name": "San Francisco Giants",
+      "Logo": "https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp"
+    },
+    {
+      "Slug": "cincinnati-reds",
+      "Name": "Cincinnati Reds",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Cincinnati Reds.webp"
+    },
+    {
+      "Slug": "chicago-white-sox",
+      "Name": "Chicago White Sox",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp"
+    },
+    {
+      "Slug": "texas-rangers",
+      "Name": "Texas Rangers",
+      "Logo": "https://total-sportek.st/assets2/images/premier/Texas Rangers.webp"
+    }
+  ],
+  "Matches": [
+    {
+      "Id": "52612b4018",
+      "Slug": "fulham-vs-chelsea",
+      "LeagueSlug": "featured",
+      "SportSlug": "featured",
+      "HomeTeam": "Fulham",
+      "AwayTeam": "Chelsea",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Fulham.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chelsea.webp",
+      "StartTimeUtc": "2026-08-24T19:15:05.6025769Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/fulham-vs-chelsea/72039/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/fulham-vs-chelsea/72039/"
+        }
+      ]
+    },
+    {
+      "Id": "b35e5ef492",
+      "Slug": "osasuna-vs-levante",
+      "LeagueSlug": "la-liga",
+      "SportSlug": "football",
+      "HomeTeam": "Osasuna",
+      "AwayTeam": "Levante",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Osasuna.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T17:45:05.6079187Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/osasuna-vs-levante/72138/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/osasuna-vs-levante/72138/"
+        }
+      ]
+    },
+    {
+      "Id": "899e05e0fd",
+      "Slug": "malaga-vs-deportivo-la-coruna",
+      "LeagueSlug": "la-liga",
+      "SportSlug": "football",
+      "HomeTeam": "Malaga",
+      "AwayTeam": "Deportivo La Coruna",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Malaga.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T19:45:05.6081946Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/malaga-vs-deportivo-la-coruna/72139/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/malaga-vs-deportivo-la-coruna/72139/"
+        }
+      ]
+    },
+    {
+      "Id": "01e8462457",
+      "Slug": "bologna-vs-lazio",
+      "LeagueSlug": "serie-a",
+      "SportSlug": "football",
+      "HomeTeam": "Bologna",
+      "AwayTeam": "Lazio",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Bologna.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Lazio.webp",
+      "StartTimeUtc": "2026-08-24T16:45:05.6083165Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/bologna-vs-lazio/72049/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/bologna-vs-lazio/72049/"
+        }
+      ]
+    },
+    {
+      "Id": "8a41173827",
+      "Slug": "roma-vs-fiorentina",
+      "LeagueSlug": "serie-a",
+      "SportSlug": "football",
+      "HomeTeam": "Roma",
+      "AwayTeam": "Fiorentina",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Roma.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Fiorentina.webp",
+      "StartTimeUtc": "2026-08-24T19:00:05.6083968Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/roma-vs-fiorentina/72050/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/roma-vs-fiorentina/72050/"
+        }
+      ]
+    },
+    {
+      "Id": "ab8d0a67c1",
+      "Slug": "australia-vs-bangladesh",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "Australia",
+      "AwayTeam": "Bangladesh",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Australia.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Bangladesh.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.608644Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/australia-vs-bangladesh/71303/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/australia-vs-bangladesh/71303/"
+        }
+      ]
+    },
+    {
+      "Id": "8590aa4e9e",
+      "Slug": "sri-lanka-vs-india",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "Sri Lanka",
+      "AwayTeam": "India",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Sri Lanka.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/India.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6087287Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/sri-lanka-vs-india/71304/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/sri-lanka-vs-india/71304/"
+        }
+      ]
+    },
+    {
+      "Id": "025d65eae2",
+      "Slug": "cincinnati-open-vs-tennis",
+      "LeagueSlug": "tennis",
+      "SportSlug": "tennis",
+      "HomeTeam": "Cincinnati Open",
+      "AwayTeam": "Tennis",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6088223Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/cincinnati-open-vs-tennis/66778/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/cincinnati-open-vs-tennis/66778/"
+        }
+      ]
+    },
+    {
+      "Id": "56c3bea66a",
+      "Slug": "winston-salem-open-vs-tennis",
+      "LeagueSlug": "tennis",
+      "SportSlug": "tennis",
+      "HomeTeam": "Winston Salem Open",
+      "AwayTeam": "Tennis",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6089001Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/winston-salem-open-vs-tennis/66779/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/winston-salem-open-vs-tennis/66779/"
+        }
+      ]
+    },
+    {
+      "Id": "016021566e",
+      "Slug": "us-open-vs-tennis",
+      "LeagueSlug": "tennis",
+      "SportSlug": "tennis",
+      "HomeTeam": "US Open",
+      "AwayTeam": "Tennis",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6089664Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/us-open-vs-tennis/66780/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/us-open-vs-tennis/66780/"
+        }
+      ]
+    },
+    {
+      "Id": "597268b5aa",
+      "Slug": "wwe-vs-summer-tour",
+      "LeagueSlug": "wwe",
+      "SportSlug": "wwe",
+      "HomeTeam": "WWE",
+      "AwayTeam": "Summer Tour",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/WWE.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6090432Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/wwe-vs-summer-tour/70920/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/wwe-vs-summer-tour/70920/"
+        }
+      ]
+    },
+    {
+      "Id": "f704c4bc5c",
+      "Slug": "wwe-vs-monday-night-raw",
+      "LeagueSlug": "wwe",
+      "SportSlug": "wwe",
+      "HomeTeam": "WWE",
+      "AwayTeam": "Monday Night RAW",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/WWE.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T22:45:05.6091253Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/wwe-vs-monday-night-raw/68381/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/wwe-vs-monday-night-raw/68381/"
+        }
+      ]
+    },
+    {
+      "Id": "a6c924cc09",
+      "Slug": "portland-fire-vs-washington-mystics",
+      "LeagueSlug": "wnba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Portland Fire",
+      "AwayTeam": "Washington Mystics",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6092153Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/portland-fire-vs-washington-mystics/68209/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/portland-fire-vs-washington-mystics/68209/"
+        }
+      ]
+    },
+    {
+      "Id": "fa4355a99f",
+      "Slug": "toronto-tempo-vs-las-vegas-aces",
+      "LeagueSlug": "wnba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Toronto tempo",
+      "AwayTeam": "Las Vegas Aces",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6092903Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/toronto-tempo-vs-las-vegas-aces/68210/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/toronto-tempo-vs-las-vegas-aces/68210/"
+        }
+      ]
+    },
+    {
+      "Id": "84ea716a86",
+      "Slug": "chicago-sky-vs-indiana-fever",
+      "LeagueSlug": "wnba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Chicago Sky",
+      "AwayTeam": "Indiana Fever",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6093633Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/chicago-sky-vs-indiana-fever/68211/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/chicago-sky-vs-indiana-fever/68211/"
+        }
+      ]
+    },
+    {
+      "Id": "6085f34ab3",
+      "Slug": "minnesota-lynx-vs-golden-state-valkyries",
+      "LeagueSlug": "wnba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Minnesota Lynx",
+      "AwayTeam": "Golden State Valkyries",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T23:15:05.6094425Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/minnesota-lynx-vs-golden-state-valkyries/68245/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/minnesota-lynx-vs-golden-state-valkyries/68245/"
+        }
+      ]
+    },
+    {
+      "Id": "2a4a022c12",
+      "Slug": "kocaelispor-vs-amed-sk",
+      "LeagueSlug": "superlig",
+      "SportSlug": "football",
+      "HomeTeam": "Kocaelispor",
+      "AwayTeam": "Amed SK",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T18:45:05.609527Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/kocaelispor-vs-amed-sk/75026/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/kocaelispor-vs-amed-sk/75026/"
+        }
+      ]
+    },
+    {
+      "Id": "5343c66444",
+      "Slug": "neom-vs-al-quadisiya",
+      "LeagueSlug": "saudi-pro-league",
+      "SportSlug": "football",
+      "HomeTeam": "NEOM",
+      "AwayTeam": "Al Quadisiya",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T16:55:05.6096174Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/neom-vs-al-quadisiya/75487/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/neom-vs-al-quadisiya/75487/"
+        }
+      ]
+    },
+    {
+      "Id": "9604cecf8d",
+      "Slug": "al-ittihad-vs-al-hazm",
+      "LeagueSlug": "saudi-pro-league",
+      "SportSlug": "football",
+      "HomeTeam": "Al Ittihad",
+      "AwayTeam": "Al Hazm",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Al Ittihad.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Al Hazm.webp",
+      "StartTimeUtc": "2026-08-24T18:15:05.6096797Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/al-ittihad-vs-al-hazm/75488/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/al-ittihad-vs-al-hazm/75488/"
+        }
+      ]
+    },
+    {
+      "Id": "7b4c8ec4ab",
+      "Slug": "crown-legacy-vs-chattanooga",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "Crown Legacy",
+      "AwayTeam": "Chattanooga",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6097698Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/crown-legacy-vs-chattanooga/71191/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/crown-legacy-vs-chattanooga/71191/"
+        }
+      ]
+    },
+    {
+      "Id": "b7d2346bd2",
+      "Slug": "huntsville-city-vs-columbus-crew-ii",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "Huntsville City",
+      "AwayTeam": "Columbus Crew II",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6098314Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/huntsville-city-vs-columbus-crew-ii/71192/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/huntsville-city-vs-columbus-crew-ii/71192/"
+        }
+      ]
+    },
+    {
+      "Id": "b6fcf45e9c",
+      "Slug": "new-york-rb-ii-vs-toronto-ii",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "New York RB II",
+      "AwayTeam": "Toronto II",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6098915Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/new-york-rb-ii-vs-toronto-ii/71193/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/new-york-rb-ii-vs-toronto-ii/71193/"
+        }
+      ]
+    },
+    {
+      "Id": "f1951120b1",
+      "Slug": "st-louis-city-ii-vs-houston-dynamo-fc-ii",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "St Louis City II",
+      "AwayTeam": "Houston Dynamo FC II",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6099619Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/st-louis-city-ii-vs-houston-dynamo-fc-ii/71194/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/st-louis-city-ii-vs-houston-dynamo-fc-ii/71194/"
+        }
+      ]
+    },
+    {
+      "Id": "3aabb11c40",
+      "Slug": "colorado-rapids-ii-vs-real-monarchs",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "Colorado Rapids II",
+      "AwayTeam": "Real Monarchs",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6100661Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/colorado-rapids-ii-vs-real-monarchs/71196/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/colorado-rapids-ii-vs-real-monarchs/71196/"
+        }
+      ]
+    },
+    {
+      "Id": "4e1b3d90c9",
+      "Slug": "austin-ii-vs-san-jose-earthquakes-ii",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "Austin II",
+      "AwayTeam": "San Jose Earthquakes II",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.610133Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/austin-ii-vs-san-jose-earthquakes-ii/71197/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/austin-ii-vs-san-jose-earthquakes-ii/71197/"
+        }
+      ]
+    },
+    {
+      "Id": "4769290a4b",
+      "Slug": "ventura-county-vs-portland-timbers-ii",
+      "LeagueSlug": "mls-next-pro",
+      "SportSlug": "football",
+      "HomeTeam": "Ventura County",
+      "AwayTeam": "Portland Timbers II",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T10:01:05.6101959Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/ventura-county-vs-portland-timbers-ii/71195/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/ventura-county-vs-portland-timbers-ii/71195/"
+        }
+      ]
+    },
+    {
+      "Id": "25138908b0",
+      "Slug": "atlanta-united-vs-sporting-kc",
+      "LeagueSlug": "mls",
+      "SportSlug": "football",
+      "HomeTeam": "Atlanta United",
+      "AwayTeam": "Sporting KC",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta United.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Sporting KC.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6102684Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/atlanta-united-vs-sporting-kc/68052/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/atlanta-united-vs-sporting-kc/68052/"
+        }
+      ]
+    },
+    {
+      "Id": "b12b53e8c7",
+      "Slug": "reims-vs-annecy",
+      "LeagueSlug": "ligue-2",
+      "SportSlug": "football",
+      "HomeTeam": "Reims",
+      "AwayTeam": "Annecy",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Reims.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T19:00:05.6103443Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/reims-vs-annecy/75489/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/reims-vs-annecy/75489/"
+        }
+      ]
+    },
+    {
+      "Id": "73cba64e91",
+      "Slug": "celta-de-vigo-ii-vs-fc-andorra",
+      "LeagueSlug": "la-liga-2",
+      "SportSlug": "football",
+      "HomeTeam": "Celta de Vigo II",
+      "AwayTeam": "FC Andorra",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "StartTimeUtc": "2026-08-24T17:15:05.6104262Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/celta-de-vigo-ii-vs-fc-andorra/75001/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/celta-de-vigo-ii-vs-fc-andorra/75001/"
+        }
+      ]
+    },
+    {
+      "Id": "a2805e8621",
+      "Slug": "granada-vs-mallorca",
+      "LeagueSlug": "la-liga-2",
+      "SportSlug": "football",
+      "HomeTeam": "Granada",
+      "AwayTeam": "Mallorca",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Granada.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Mallorca.webp",
+      "StartTimeUtc": "2026-08-24T19:45:05.6104973Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/granada-vs-mallorca/75002/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/granada-vs-mallorca/75002/"
+        }
+      ]
+    },
+    {
+      "Id": "53c4e7cf97",
+      "Slug": "verl-vs-hamburger-sv",
+      "LeagueSlug": "dfb-pokal-german-cup",
+      "SportSlug": "football",
+      "HomeTeam": "Verl",
+      "AwayTeam": "Hamburger SV",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Hamburger SV.webp",
+      "StartTimeUtc": "2026-08-24T16:15:05.6105804Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/verl-vs-hamburger-sv/75490/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/verl-vs-hamburger-sv/75490/"
+        }
+      ]
+    },
+    {
+      "Id": "4e2e150e1c",
+      "Slug": "wurzburger-kickers-vs-koln",
+      "LeagueSlug": "dfb-pokal-german-cup",
+      "SportSlug": "football",
+      "HomeTeam": "Wurzburger Kickers",
+      "AwayTeam": "Koln",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Koln.webp",
+      "StartTimeUtc": "2026-08-24T16:15:05.6106443Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/wurzburger-kickers-vs-koln/75491/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/wurzburger-kickers-vs-koln/75491/"
+        }
+      ]
+    },
+    {
+      "Id": "0562a84e41",
+      "Slug": "altglienicke-vs-wolfsburg",
+      "LeagueSlug": "dfb-pokal-german-cup",
+      "SportSlug": "football",
+      "HomeTeam": "Altglienicke",
+      "AwayTeam": "Wolfsburg",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Wolfsburg.webp",
+      "StartTimeUtc": "2026-08-24T16:15:05.610706Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/altglienicke-vs-wolfsburg/75492/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/altglienicke-vs-wolfsburg/75492/"
+        }
+      ]
+    },
+    {
+      "Id": "111660c03d",
+      "Slug": "milwaukee-brewers-vs-atlanta-braves",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Milwaukee Brewers",
+      "AwayTeam": "Atlanta Braves",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta Braves.webp",
+      "StartTimeUtc": "2026-08-24T10:01:05.6107753Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/milwaukee-brewers-vs-atlanta-braves/68132/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/milwaukee-brewers-vs-atlanta-braves/68132/"
+        }
+      ]
+    },
+    {
+      "Id": "cc0464ec92",
+      "Slug": "detroit-tigers-vs-tampa-bay-rays",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Detroit Tigers",
+      "AwayTeam": "Tampa Bay Rays",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp",
+      "StartTimeUtc": "2026-08-24T22:55:05.6108379Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/detroit-tigers-vs-tampa-bay-rays/68139/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/detroit-tigers-vs-tampa-bay-rays/68139/"
+        }
+      ]
+    },
+    {
+      "Id": "22d399bba7",
+      "Slug": "miami-marlins-vs-boston-red-sox",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Miami Marlins",
+      "AwayTeam": "Boston Red Sox",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Miami Marlins.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp",
+      "StartTimeUtc": "2026-08-24T22:55:05.6111261Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/miami-marlins-vs-boston-red-sox/68140/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/miami-marlins-vs-boston-red-sox/68140/"
+        }
+      ]
+    },
+    {
+      "Id": "ac1f00240c",
+      "Slug": "washington-nationals-vs-colorado-rockies",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Washington Nationals",
+      "AwayTeam": "Colorado Rockies",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Washington Nationals.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Colorado Rockies.webp",
+      "StartTimeUtc": "2026-08-24T23:00:05.6112044Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/washington-nationals-vs-colorado-rockies/68141/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/washington-nationals-vs-colorado-rockies/68141/"
+        }
+      ]
+    },
+    {
+      "Id": "04d3a6891c",
+      "Slug": "los-angeles-angels-vs-cleveland-guardians",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Los Angeles Angels",
+      "AwayTeam": "Cleveland Guardians",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Los Angeles Angels.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6117425Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/los-angeles-angels-vs-cleveland-guardians/68143/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/los-angeles-angels-vs-cleveland-guardians/68143/"
+        }
+      ]
+    },
+    {
+      "Id": "cd57b12d21",
+      "Slug": "seattle-mariners-vs-philadelphia-phillies",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Seattle Mariners",
+      "AwayTeam": "Philadelphia Phillies",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Seattle Mariners.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Philadelphia Phillies.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6119745Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/seattle-mariners-vs-philadelphia-phillies/68144/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/seattle-mariners-vs-philadelphia-phillies/68144/"
+        }
+      ]
+    },
+    {
+      "Id": "775e1521a2",
+      "Slug": "san-diego-padres-vs-pittsburgh-pirates",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "San Diego Padres",
+      "AwayTeam": "Pittsburgh Pirates",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/San Diego Padres.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6121114Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/san-diego-padres-vs-pittsburgh-pirates/68145/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/san-diego-padres-vs-pittsburgh-pirates/68145/"
+        }
+      ]
+    },
+    {
+      "Id": "40c61512ad",
+      "Slug": "arizona-diamondbacks-vs-chicago-cubs",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Arizona Diamondbacks",
+      "AwayTeam": "Chicago Cubs",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Arizona Diamondbacks.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6122743Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/arizona-diamondbacks-vs-chicago-cubs/68146/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/arizona-diamondbacks-vs-chicago-cubs/68146/"
+        }
+      ]
+    },
+    {
+      "Id": "76465489dd",
+      "Slug": "oakland-athletics-vs-minnesota-twins",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Oakland Athletics",
+      "AwayTeam": "Minnesota Twins",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Oakland Athletics.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6123712Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/oakland-athletics-vs-minnesota-twins/68147/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/oakland-athletics-vs-minnesota-twins/68147/"
+        }
+      ]
+    },
+    {
+      "Id": "e284cb079a",
+      "Slug": "san-francisco-giants-vs-cincinnati-reds",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "San Francisco Giants",
+      "AwayTeam": "Cincinnati Reds",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Cincinnati Reds.webp",
+      "StartTimeUtc": "2026-08-24T23:15:05.6124752Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/san-francisco-giants-vs-cincinnati-reds/68148/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/san-francisco-giants-vs-cincinnati-reds/68148/"
+        }
+      ]
+    },
+    {
+      "Id": "796e711759",
+      "Slug": "chicago-white-sox-vs-texas-rangers",
+      "LeagueSlug": "mlb",
+      "SportSlug": "baseball",
+      "HomeTeam": "Chicago White Sox",
+      "AwayTeam": "Texas Rangers",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Texas Rangers.webp",
+      "StartTimeUtc": "2026-08-24T23:55:05.6125802Z",
+      "Status": "upcoming",
+      "SourceUrl": "https://total-sportek.st/game/chicago-white-sox-vs-texas-rangers/68142/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/chicago-white-sox-vs-texas-rangers/68142/"
+        }
+      ]
+    }
+  ],
+  "NormalizeTimes": false,
+  "ScrapedAtUtc": "2026-08-24T10:01:05.6147777Z"
 }

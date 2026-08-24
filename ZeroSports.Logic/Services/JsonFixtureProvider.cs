@@ -32,4 +32,23 @@ public class JsonFixtureProvider : IFixtureProvider
         var data = await JsonSerializer.DeserializeAsync<FixtureData>(stream, options);
         return data ?? new FixtureData();
     }
+
+    public async Task SaveAsync(FixtureData data, CancellationToken cancellationToken = default)
+    {
+        var path = Path.Combine(_environment.WebRootPath, RelativePath);
+        var directory = Path.GetDirectoryName(path);
+        if (!string.IsNullOrEmpty(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PropertyNameCaseInsensitive = true
+        };
+
+        await using var stream = File.Create(path);
+        await JsonSerializer.SerializeAsync(stream, data, options, cancellationToken);
+    }
 }

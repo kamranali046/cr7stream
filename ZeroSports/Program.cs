@@ -1,3 +1,8 @@
+// Load .env (if present) into environment variables so settings such as
+// Admin:Username / Admin:Password resolve from it. Env vars take precedence
+// over appsettings.json. Must run before the builder reads configuration.
+LoadDotEnv();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,12 +10,72 @@ builder.Services.AddControllersWithViews();
 
 // ZeroSports: register logic layer with DI. Controllers depend only on the
 // clean interfaces; the messy data/scraping work lives in ZeroSports.Logic.
+builder.Services.AddHttpClient<ZeroSports.Logic.Scrapers.ITotalSportekScraper, ZeroSports.Logic.Scrapers.TotalSportekScraper>();
 builder.Services.AddScoped<ZeroSports.Logic.Services.IFixtureProvider, ZeroSports.Logic.Services.JsonFixtureProvider>();
 builder.Services.AddScoped<ZeroSports.Logic.IScrapperLogic, ZeroSports.Logic.ScrapperLogic>();
 builder.Services.AddScoped<ZeroSports.Logic.IHomeControllerLogic, ZeroSports.Logic.HomeControllerLogic>();
 builder.Services.AddScoped<ZeroSports.Logic.IMatchesControllerLogic, ZeroSports.Logic.MatchesControllerLogic>();
+builder.Services.AddScoped<ZeroSports.Logic.IAdminLogic, ZeroSports.Logic.AdminLogic>();
+
+// Admin panel uses its own cookie authentication scheme.
+builder.Services.AddAuthentication("Admin")
+    .AddCookie("Admin", options =>
+    {
+        options.LoginPath = "/admin/login";
+        options.LogoutPath = "/admin/logout";
+        options.AccessDeniedPath = "/admin/login";
+        options.ExpireTimeSpan = TimeSpan.FromHours(8);
+        options.Cookie.Name = "ZeroSportsAdmin";
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    });
 
 var app = builder.Build();
+
+// Reads KEY=VALUE pairs from a .env file (project root when running via
+// `dotnet run`) and promotes them to environment variables. Known ADMIN_*
+// keys are mapped to the "Admin:*" configuration section (ASP.NET maps the
+// "__" separator in env var names to the ":" config separator).
+static void LoadDotEnv()
+{
+    var path = Path.Combine(Directory.GetCurrentDirectory(), ".env");
+    if (!File.Exists(path))
+    {
+        path = Path.Combine(AppContext.BaseDirectory, ".env");
+    }
+
+    if (!File.Exists(path))
+    {
+        return;
+    }
+
+    foreach (var raw in File.ReadAllLines(path))
+    {
+        var line = raw.Trim();
+        if (line.Length == 0 || line.StartsWith('#'))
+        {
+            continue;
+        }
+
+        var idx = line.IndexOf('=');
+        if (idx < 0)
+        {
+            continue;
+        }
+
+        var key = line[..idx].Trim();
+        var value = line[(idx + 1)..].Trim().Trim('"');
+
+        var envKey = key switch
+        {
+            "ADMIN_USERNAME" => "Admin__Username",
+            "ADMIN_PASSWORD" => "Admin__Password",
+            _ => key
+        };
+
+        Environment.SetEnvironmentVariable(envKey, value);
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -23,6 +88,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

@@ -34,6 +34,7 @@ public class Match
     public string AwayTeamLogo { get; set; } = string.Empty;
     public DateTime StartTimeUtc { get; set; }
     public string Status { get; set; } = "upcoming";
+    public string SourceUrl { get; set; } = string.Empty;
     public List<StreamSource> Streams { get; set; } = new();
 }
 
@@ -49,4 +50,10 @@ public class FixtureData
     public List<League> Leagues { get; set; } = new();
     public List<Team> Teams { get; set; } = new();
     public List<Match> Matches { get; set; } = new();
+
+    // When true (dummy data) the logic rebases timestamps relative to "now".
+    // Scraped data has real absolute timestamps and sets this to false.
+    public bool NormalizeTimes { get; set; }
+
+    public DateTime? ScrapedAtUtc { get; set; }
 }
