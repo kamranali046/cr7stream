@@ -1,0 +1,26 @@
+@model ZeroSports.Logic.Models.Match
+
+<a class="match-card" asp-controller="Matches" asp-action="Details" asp-route-slug="@Model.Slug">
+    <div class="team home">
+        <img src="@Model.HomeTeamLogo" alt="@Model.HomeTeam" width="40" height="40" />
+        <span class="name">@Model.HomeTeam</span>
+    </div>
+    <div class="match-meta">
+        @if (Model.Status == "live")
+        {
+            <span class="badge-live">LIVE NOW!</span>
+        }
+        else if (Model.Status == "replay")
+        {
+            <span class="badge-replay">REPLAY</span>
+        }
+        else
+        {
+            <div class="countdown" data-start="@Model.StartTimeUtc.ToString("o")">Starts in: --:--:--</div>
+        }
+    </div>
+    <div class="team away">
+        <img src="@Model.AwayTeamLogo" alt="@Model.AwayTeam" width="40" height="40" />
+        <span class="name">@Model.AwayTeam</span>
+    </div>
+</a>

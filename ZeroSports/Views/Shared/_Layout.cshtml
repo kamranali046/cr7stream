@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ZeroSports</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @await Component.InvokeAsync("MainNav")
+
+    <main class="container site-body">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-networks">
+                <strong>Explore Our Streaming Networks:</strong>
+                <a href="https://totalsportek.st/" target="_blank">TOTALSPORTEK</a> |
+                <a href="https://sportsurge.st/" target="_blank">SPORTSURGE</a> |
+                <a href="https://buffstreamss.sx/" target="_blank">BUFFSTREAM</a> |
+                <a href="https://crackstreamss.sx/" target="_blank">CRACKSTREAMS</a> |
+                <a href="https://nflbites.st/" target="_blank">NFLBITE</a>
+            </p>
+            <p class="footer-copy">&copy; 2026 ZeroSports. All Rights Reserved. Always free, no signup needed.</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/countdown.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+@model ZeroSports.Logic.Models.SportPageViewModel
+@{
+    ViewData["Title"] = (Model.Sport?.Name ?? "Sport") + " Streams - ZeroSports";
+}
+
+<p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+
+<h2 class="section-title">@Model.Sport?.Name Live & Upcoming</h2>
+
+@if (Model.LiveMatches.Any())
+{
+    <section class="league-section">
+        <div class="league-head"><h3>LIVE NOW</h3></div>
+        <div class="match-list">
+            @foreach (var match in Model.LiveMatches)
+            {
+                await Html.RenderPartialAsync("_MatchCard", match);
+            }
+        </div>
+    </section>
+}
+
+@if (Model.UpcomingMatches.Any())
+{
+    <section class="league-section">
+        <div class="league-head"><h3>UPCOMING</h3></div>
+        <div class="match-list">
+            @foreach (var match in Model.UpcomingMatches)
+            {
+                await Html.RenderPartialAsync("_MatchCard", match);
+            }
+        </div>
+    </section>
+}
+
+@if (!Model.LiveMatches.Any() && !Model.UpcomingMatches.Any())
+{
+    <p class="muted">No matches scheduled right now.</p>
+}

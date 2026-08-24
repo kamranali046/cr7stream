@@ -1,0 +1,20 @@
+@model List<ZeroSports.Logic.Models.Sport>
+
+<header class="site-header">
+    <div class="container-fluid">
+        <div class="brand-row">
+            <a class="brand" asp-controller="Home" asp-action="Index">Zero<span>Sports</span></a>
+            <button class="nav-toggle" type="button" onclick="document.getElementById('mainNav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav id="mainNav" class="main-nav">
+            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
+               asp-controller="Home" asp-action="Index">HOME</a>
+            @foreach (var sport in Model)
+            {
+                <a class="nav-link" asp-controller="Matches" asp-action="Sport" asp-route-sport="@sport.Slug">@sport.Name</a>
+            }
+        </nav>
+    </div>
+</header>

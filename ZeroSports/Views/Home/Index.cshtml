@@ -1,0 +1,47 @@
+﻿@model ZeroSports.Logic.Models.HomeViewModel
+@{
+    ViewData["Title"] = "ZeroSports - Watch Live Sports Streams";
+}
+
+<div class="hero">
+    <h1>Live Sports Streams</h1>
+    <p class="muted">Football, UFC, Boxing, F1, NBA, NFL, NHL & more. HD links, instant access, no signup.</p>
+</div>
+
+<h2 class="section-title">Top Leagues</h2>
+<div class="chip-grid">
+    @foreach (var league in Model.TopLeagues)
+    {
+        <a class="chip" asp-controller="Matches" asp-action="Sport" asp-route-sport="@league.SportSlug">
+            <img src="@league.Logo" alt="@league.Name" />
+            @league.Name
+        </a>
+    }
+</div>
+
+@foreach (var sec in Model.Sections)
+{
+    <section class="league-section">
+        <div class="league-head">
+            <img src="@sec.League.Logo" alt="@sec.League.Name" />
+            <h3>@sec.League.Name</h3>
+        </div>
+        <div class="match-list">
+            @foreach (var match in sec.Matches)
+            {
+                await Html.RenderPartialAsync("_MatchCard", match);
+            }
+        </div>
+    </section>
+}
+
+<h2 class="section-title">Top Teams</h2>
+<div class="chip-grid">
+    @foreach (var team in Model.TopTeams)
+    {
+        <span class="chip">
+            <img src="@team.Logo" alt="@team.Name" />
+            @team.Name
+        </span>
+    }
+</div>

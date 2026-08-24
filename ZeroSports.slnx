@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ZeroSports/ZeroSports.csproj" />
+  <Project Path="ZeroSports.Logic/ZeroSports.Logic.csproj" />
+</Solution>

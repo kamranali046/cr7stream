@@ -1,0 +1,176 @@
+{
+  "generatedAtUtc": "2026-08-24T18:00:00Z",
+  "sports": [
+    { "slug": "nfl", "name": "NFL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NFL" },
+    { "slug": "nba", "name": "NBA", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NBA" },
+    { "slug": "nhl", "name": "NHL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NHL" },
+    { "slug": "ufc", "name": "UFC", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC" },
+    { "slug": "f1", "name": "F1", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=F1" },
+    { "slug": "boxing", "name": "BOXING", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX" },
+    { "slug": "football", "name": "FOOTBALL", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FB" }
+  ],
+  "leagues": [
+    { "slug": "nfl", "name": "NFL", "sportSlug": "nfl", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NFL" },
+    { "slug": "nba", "name": "NBA", "sportSlug": "nba", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NBA" },
+    { "slug": "nhl", "name": "NHL", "sportSlug": "nhl", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=NHL" },
+    { "slug": "ufc", "name": "UFC", "sportSlug": "ufc", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC" },
+    { "slug": "formula-1", "name": "Formula 1", "sportSlug": "f1", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=F1" },
+    { "slug": "boxing", "name": "Boxing", "sportSlug": "boxing", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX" },
+    { "slug": "english-premier-league", "name": "English Premier League", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=EPL" },
+    { "slug": "la-liga", "name": "La Liga", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LL" },
+    { "slug": "serie-a", "name": "Serie A", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=SA" },
+    { "slug": "bundesliga", "name": "Bundesliga", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BL" },
+    { "slug": "ligue-1", "name": "Ligue 1", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=L1" },
+    { "slug": "uefa-champions-league", "name": "UEFA Champions League", "sportSlug": "football", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=UCL" }
+  ],
+  "teams": [
+    { "slug": "tennessee-titans", "name": "Tennessee Titans", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=TEN" },
+    { "slug": "seattle-seahawks", "name": "Seattle Seahawks", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=SEA" },
+    { "slug": "kansas-city-chiefs", "name": "Kansas City Chiefs", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=KC" },
+    { "slug": "buffalo-bills", "name": "Buffalo Bills", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BUF" },
+    { "slug": "los-angeles-lakers", "name": "Los Angeles Lakers", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LAL" },
+    { "slug": "boston-celtics", "name": "Boston Celtics", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOS" },
+    { "slug": "toronto-maple-leafs", "name": "Toronto Maple Leafs", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=TOR" },
+    { "slug": "montreal-canadiens", "name": "Montreal Canadiens", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MTL" },
+    { "slug": "bologna", "name": "Bologna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BOL" },
+    { "slug": "lazio", "name": "Lazio", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LAZ" },
+    { "slug": "roma", "name": "Roma", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=ROM" },
+    { "slug": "fiorentina", "name": "Fiorentina", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FIO" },
+    { "slug": "osasuna", "name": "Osasuna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=OSA" },
+    { "slug": "levante", "name": "Levante", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LEV" },
+    { "slug": "malaga", "name": "Malaga", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MAL" },
+    { "slug": "deportivo-de-a-coruna", "name": "Deportivo de A Coruna", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=DEP" },
+    { "slug": "fulham", "name": "Fulham", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=FUL" },
+    { "slug": "chelsea", "name": "Chelsea", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=CHE" },
+    { "slug": "arsenal", "name": "Arsenal", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=ARS" },
+    { "slug": "liverpool", "name": "Liverpool", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=LIV" },
+    { "slug": "barcelona", "name": "Barcelona", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR" },
+    { "slug": "real-madrid", "name": "Real Madrid", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=RMA" },
+    { "slug": "bayern-munich", "name": "Bayern Munich", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=BAY" },
+    { "slug": "borussia-dortmund", "name": "Borussia Dortmund", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=DOR" },
+    { "slug": "pSG", "name": "PSG", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=PSG" },
+    { "slug": "manchester-city", "name": "Manchester City", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MCI" },
+    { "slug": "inter-miami", "name": "Inter Miami", "logo": "https://placehold.co/120x120/1f2937/ffffff?text=MIA" }
+  ],
+  "matches": [
+    {
+      "id": "m1", "slug": "tennessee-titans-vs-seattle-seahawks", "leagueSlug": "nfl", "sportSlug": "nfl",
+      "homeTeam": "Tennessee Titans", "awayTeam": "Seattle Seahawks",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=TEN", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=SEA",
+      "startTimeUtc": "2026-08-24T17:30:00Z", "status": "live",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nfl1" }, { "label": "HD Stream 2", "url": "https://example.com/embed/nfl2" } ]
+    },
+    {
+      "id": "m2", "slug": "kansas-city-chiefs-vs-buffalo-bills", "leagueSlug": "nfl", "sportSlug": "nfl",
+      "homeTeam": "Kansas City Chiefs", "awayTeam": "Buffalo Bills",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=KC", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BUF",
+      "startTimeUtc": "2026-08-24T23:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nfl3" } ]
+    },
+    {
+      "id": "m3", "slug": "los-angeles-lakers-vs-boston-celtics", "leagueSlug": "nba", "sportSlug": "nba",
+      "homeTeam": "Los Angeles Lakers", "awayTeam": "Boston Celtics",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LAL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOS",
+      "startTimeUtc": "2026-08-24T19:30:00Z", "status": "live",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nba1" } ]
+    },
+    {
+      "id": "m4", "slug": "toronto-maple-leafs-vs-montreal-canadiens", "leagueSlug": "nhl", "sportSlug": "nhl",
+      "homeTeam": "Toronto Maple Leafs", "awayTeam": "Montreal Canadiens",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=TOR", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MTL",
+      "startTimeUtc": "2026-08-24T21:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/nhl1" } ]
+    },
+    {
+      "id": "m5", "slug": "bologna-vs-lazio", "leagueSlug": "serie-a", "sportSlug": "football",
+      "homeTeam": "Bologna", "awayTeam": "Lazio",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LAZ",
+      "startTimeUtc": "2026-08-24T20:42:35Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/sa1" } ]
+    },
+    {
+      "id": "m6", "slug": "roma-vs-fiorentina", "leagueSlug": "serie-a", "sportSlug": "football",
+      "homeTeam": "Roma", "awayTeam": "Fiorentina",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=ROM", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=FIO",
+      "startTimeUtc": "2026-08-24T22:57:35Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/sa2" } ]
+    },
+    {
+      "id": "m7", "slug": "osasuna-vs-levante", "leagueSlug": "la-liga", "sportSlug": "football",
+      "homeTeam": "Osasuna", "awayTeam": "Levante",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=OSA", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LEV",
+      "startTimeUtc": "2026-08-24T21:42:35Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll1" } ]
+    },
+    {
+      "id": "m8", "slug": "malaga-vs-deportivo-de-a-coruna", "leagueSlug": "la-liga", "sportSlug": "football",
+      "homeTeam": "Malaga", "awayTeam": "Deportivo de A Coruna",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MAL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=DEP",
+      "startTimeUtc": "2026-08-25T00:42:35Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll2" } ]
+    },
+    {
+      "id": "m9", "slug": "fulham-vs-chelsea", "leagueSlug": "english-premier-league", "sportSlug": "football",
+      "homeTeam": "Fulham", "awayTeam": "Chelsea",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=FUL", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=CHE",
+      "startTimeUtc": "2026-08-25T01:12:35Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/epl1" } ]
+    },
+    {
+      "id": "m10", "slug": "arsenal-vs-liverpool", "leagueSlug": "english-premier-league", "sportSlug": "football",
+      "homeTeam": "Arsenal", "awayTeam": "Liverpool",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=ARS", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=LIV",
+      "startTimeUtc": "2026-08-25T03:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/epl2" } ]
+    },
+    {
+      "id": "m11", "slug": "barcelona-vs-real-madrid", "leagueSlug": "la-liga", "sportSlug": "football",
+      "homeTeam": "Barcelona", "awayTeam": "Real Madrid",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=RMA",
+      "startTimeUtc": "2026-08-25T19:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ll3" } ]
+    },
+    {
+      "id": "m12", "slug": "bayern-munich-vs-borussia-dortmund", "leagueSlug": "bundesliga", "sportSlug": "football",
+      "homeTeam": "Bayern Munich", "awayTeam": "Borussia Dortmund",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAY", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=DOR",
+      "startTimeUtc": "2026-08-25T21:30:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/bl1" } ]
+    },
+    {
+      "id": "m13", "slug": "psg-vs-manchester-city", "leagueSlug": "uefa-champions-league", "sportSlug": "football",
+      "homeTeam": "PSG", "awayTeam": "Manchester City",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=PSG", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MCI",
+      "startTimeUtc": "2026-08-26T19:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ucl1" } ]
+    },
+    {
+      "id": "m14", "slug": "inter-miami-vs-barcelona", "leagueSlug": "uefa-champions-league", "sportSlug": "football",
+      "homeTeam": "Inter Miami", "awayTeam": "Barcelona",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=MIA", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BAR",
+      "startTimeUtc": "2026-08-26T21:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ucl2" } ]
+    },
+    {
+      "id": "m15", "slug": "ufc-main-event", "leagueSlug": "ufc", "sportSlug": "ufc",
+      "homeTeam": "Fighter A", "awayTeam": "Fighter B",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=UFC",
+      "startTimeUtc": "2026-08-24T22:00:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/ufc1" } ]
+    },
+    {
+      "id": "m16", "slug": "formula-1-grand-prix", "leagueSlug": "formula-1", "sportSlug": "f1",
+      "homeTeam": "Race", "awayTeam": "Live",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=F1", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=F1",
+      "startTimeUtc": "2026-08-24T18:00:00Z", "status": "live",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/f11" } ]
+    },
+    {
+      "id": "m17", "slug": "boxing-title-fight", "leagueSlug": "boxing", "sportSlug": "boxing",
+      "homeTeam": "Champion", "awayTeam": "Challenger",
+      "homeTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX", "awayTeamLogo": "https://placehold.co/120x120/1f2937/ffffff?text=BOX",
+      "startTimeUtc": "2026-08-24T23:30:00Z", "status": "upcoming",
+      "streams": [ { "label": "HD Stream 1", "url": "https://example.com/embed/box1" } ]
+    }
+  ]
+}
