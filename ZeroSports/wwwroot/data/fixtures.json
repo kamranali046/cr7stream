@@ -1,131 +1,168 @@
 {
   "Sports": [
     {
-      "Slug": "featured",
-      "Name": "Featured",
-      "Logo": "https://placehold.co/120x120/1f2937/ffffff?text=FEA"
+      "Slug": "important-matches",
+      "Name": "Important Matches",
+      "Logo": "https://placehold.co/120x120/1f2937/ffffff?text=IMP",
+      "IsCustom": false
     },
     {
       "Slug": "football",
       "Name": "Football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp",
+      "IsCustom": false
     },
     {
       "Slug": "cricket",
       "Name": "Cricket",
-      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp",
+      "IsCustom": false
     },
     {
       "Slug": "tennis",
       "Name": "Tennis",
-      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp",
+      "IsCustom": false
     },
     {
       "Slug": "wwe",
       "Name": "WWE",
-      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp",
+      "IsCustom": false
     },
     {
       "Slug": "basketball",
       "Name": "Basketball",
-      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp",
+      "IsCustom": false
     },
     {
       "Slug": "baseball",
       "Name": "Baseball",
-      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp",
+      "IsCustom": false
     }
   ],
   "Leagues": [
     {
-      "Slug": "featured",
-      "Name": "Featured",
-      "SportSlug": "featured",
-      "Logo": ""
+      "Slug": "important-matches",
+      "Name": "Important Matches",
+      "SportSlug": "important-matches",
+      "Logo": "",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "la-liga",
       "Name": "La-Liga",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/la-liga.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "serie-a",
       "Name": "Serie-A",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/serie-a.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/serie-a.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "cricket",
       "Name": "Cricket",
       "SportSlug": "cricket",
-      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/cricket.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "tennis",
       "Name": "tennis",
       "SportSlug": "tennis",
-      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/tennis.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "wwe",
       "Name": "WWE",
       "SportSlug": "wwe",
-      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/wwe.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "wnba",
       "Name": "WNBA",
       "SportSlug": "basketball",
-      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/wnba.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "superlig",
       "Name": "superlig",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/superlig.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/superlig.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "saudi-pro-league",
       "Name": "Saudi Pro League",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/saudi pro league.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/saudi pro league.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "mls-next-pro",
       "Name": "MLS Next Pro",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/mls next pro.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/mls next pro.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "mls",
       "Name": "mls",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/mls.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/mls.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "ligue-2",
       "Name": "Ligue 2",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/ligue 2.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/ligue 2.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "la-liga-2",
       "Name": "La Liga 2",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/la liga 2.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/la liga 2.webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "dfb-pokal-german-cup",
       "Name": "DFB Pokal (German Cup)",
       "SportSlug": "football",
-      "Logo": "https://total-sportek.st/assets2/images/categories/dfb pokal (german cup).webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/dfb pokal (german cup).webp",
+      "IsCustom": false,
+      "Hidden": false
     },
     {
       "Slug": "mlb",
       "Name": "mlb",
       "SportSlug": "baseball",
-      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp"
+      "Logo": "https://total-sportek.st/assets2/images/categories/mlb.webp",
+      "IsCustom": false,
+      "Hidden": false
     }
   ],
   "Teams": [
@@ -557,15 +594,15 @@
   ],
   "Matches": [
     {
-      "Id": "52612b4018",
+      "Id": "ee1ad803b6",
       "Slug": "fulham-vs-chelsea",
-      "LeagueSlug": "featured",
-      "SportSlug": "featured",
+      "LeagueSlug": "important-matches",
+      "SportSlug": "important-matches",
       "HomeTeam": "Fulham",
       "AwayTeam": "Chelsea",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Fulham.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chelsea.webp",
-      "StartTimeUtc": "2026-08-24T19:15:05.6025769Z",
+      "StartTimeUtc": "2026-08-24T19:01:21.8973993Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/fulham-vs-chelsea/72039/",
       "Streams": [
@@ -573,10 +610,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/fulham-vs-chelsea/72039/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": true,
+      "IsLive": true,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "b35e5ef492",
+      "Id": "c2a5c6b360",
       "Slug": "osasuna-vs-levante",
       "LeagueSlug": "la-liga",
       "SportSlug": "football",
@@ -584,7 +629,7 @@
       "AwayTeam": "Levante",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Osasuna.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T17:45:05.6079187Z",
+      "StartTimeUtc": "2026-08-24T17:31:21.8998765Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/osasuna-vs-levante/72138/",
       "Streams": [
@@ -592,10 +637,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/osasuna-vs-levante/72138/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": true,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "899e05e0fd",
+      "Id": "aed7302628",
       "Slug": "malaga-vs-deportivo-la-coruna",
       "LeagueSlug": "la-liga",
       "SportSlug": "football",
@@ -603,7 +656,7 @@
       "AwayTeam": "Deportivo La Coruna",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Malaga.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T19:45:05.6081946Z",
+      "StartTimeUtc": "2026-08-24T19:31:21.9000724Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/malaga-vs-deportivo-la-coruna/72139/",
       "Streams": [
@@ -611,10 +664,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/malaga-vs-deportivo-la-coruna/72139/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "01e8462457",
+      "Id": "fe9956905d",
       "Slug": "bologna-vs-lazio",
       "LeagueSlug": "serie-a",
       "SportSlug": "football",
@@ -622,7 +683,7 @@
       "AwayTeam": "Lazio",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Bologna.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Lazio.webp",
-      "StartTimeUtc": "2026-08-24T16:45:05.6083165Z",
+      "StartTimeUtc": "2026-08-24T16:31:21.900246Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/bologna-vs-lazio/72049/",
       "Streams": [
@@ -630,10 +691,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/bologna-vs-lazio/72049/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "8a41173827",
+      "Id": "d4aa55c0e7",
       "Slug": "roma-vs-fiorentina",
       "LeagueSlug": "serie-a",
       "SportSlug": "football",
@@ -641,7 +710,7 @@
       "AwayTeam": "Fiorentina",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Roma.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Fiorentina.webp",
-      "StartTimeUtc": "2026-08-24T19:00:05.6083968Z",
+      "StartTimeUtc": "2026-08-24T18:46:21.9003636Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/roma-vs-fiorentina/72050/",
       "Streams": [
@@ -649,10 +718,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/roma-vs-fiorentina/72050/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "ab8d0a67c1",
+      "Id": "96c29836b2",
       "Slug": "australia-vs-bangladesh",
       "LeagueSlug": "cricket",
       "SportSlug": "cricket",
@@ -660,7 +737,7 @@
       "AwayTeam": "Bangladesh",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Australia.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Bangladesh.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.608644Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9004995Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/australia-vs-bangladesh/71303/",
       "Streams": [
@@ -668,10 +745,37 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/australia-vs-bangladesh/71303/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-28-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://smartcric.top//watch.html?id=match113",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 3",
+          "Url": "https://4kplayerx.cyou/2026/08/13/australia-vs-bangladesh/",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "8590aa4e9e",
+      "Id": "4458abf436",
       "Slug": "sri-lanka-vs-india",
       "LeagueSlug": "cricket",
       "SportSlug": "cricket",
@@ -679,7 +783,7 @@
       "AwayTeam": "India",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Sri Lanka.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/India.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6087287Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9006534Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/sri-lanka-vs-india/71304/",
       "Streams": [
@@ -687,10 +791,43 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/sri-lanka-vs-india/71304/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-30-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://smartcric.top//watch.html?id=match112",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 3",
+          "Url": "https://smartcric.top//watch.html?id=match111",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 4",
+          "Url": "https://4kplayerx.cyou/2026/08/15/sri-lanka-vs-india/",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "025d65eae2",
+      "Id": "f615b7cf04",
       "Slug": "cincinnati-open-vs-tennis",
       "LeagueSlug": "tennis",
       "SportSlug": "tennis",
@@ -698,7 +835,7 @@
       "AwayTeam": "Tennis",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6088223Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9008129Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/cincinnati-open-vs-tennis/66778/",
       "Streams": [
@@ -706,10 +843,37 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/cincinnati-open-vs-tennis/66778/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-017-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://smartcric.top//watch.html?id=match120",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 3",
+          "Url": "https://4kplayerx.cyou/2026/08/13/cincinnati-open-vs-tennis/",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "56c3bea66a",
+      "Id": "715d8642f9",
       "Slug": "winston-salem-open-vs-tennis",
       "LeagueSlug": "tennis",
       "SportSlug": "tennis",
@@ -717,7 +881,7 @@
       "AwayTeam": "Tennis",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6089001Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9009484Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/winston-salem-open-vs-tennis/66779/",
       "Streams": [
@@ -725,10 +889,25 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/winston-salem-open-vs-tennis/66779/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-019-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "016021566e",
+      "Id": "ea72c8c948",
       "Slug": "us-open-vs-tennis",
       "LeagueSlug": "tennis",
       "SportSlug": "tennis",
@@ -736,7 +915,7 @@
       "AwayTeam": "Tennis",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6089664Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9010768Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/us-open-vs-tennis/66780/",
       "Streams": [
@@ -744,10 +923,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/us-open-vs-tennis/66780/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "597268b5aa",
+      "Id": "5b055c031d",
       "Slug": "wwe-vs-summer-tour",
       "LeagueSlug": "wwe",
       "SportSlug": "wwe",
@@ -755,7 +942,7 @@
       "AwayTeam": "Summer Tour",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/WWE.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6090432Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9013205Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/wwe-vs-summer-tour/70920/",
       "Streams": [
@@ -763,10 +950,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/wwe-vs-summer-tour/70920/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "f704c4bc5c",
+      "Id": "362ff36a08",
       "Slug": "wwe-vs-monday-night-raw",
       "LeagueSlug": "wwe",
       "SportSlug": "wwe",
@@ -774,7 +969,7 @@
       "AwayTeam": "Monday Night RAW",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/WWE.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T22:45:05.6091253Z",
+      "StartTimeUtc": "2026-08-24T22:31:21.9014765Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/wwe-vs-monday-night-raw/68381/",
       "Streams": [
@@ -782,10 +977,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/wwe-vs-monday-night-raw/68381/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "a6c924cc09",
+      "Id": "8d5ab192b6",
       "Slug": "portland-fire-vs-washington-mystics",
       "LeagueSlug": "wnba",
       "SportSlug": "basketball",
@@ -793,7 +996,7 @@
       "AwayTeam": "Washington Mystics",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6092153Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9016219Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/portland-fire-vs-washington-mystics/68209/",
       "Streams": [
@@ -801,10 +1004,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/portland-fire-vs-washington-mystics/68209/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "fa4355a99f",
+      "Id": "2c28bc4c64",
       "Slug": "toronto-tempo-vs-las-vegas-aces",
       "LeagueSlug": "wnba",
       "SportSlug": "basketball",
@@ -812,7 +1023,7 @@
       "AwayTeam": "Las Vegas Aces",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6092903Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.901724Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/toronto-tempo-vs-las-vegas-aces/68210/",
       "Streams": [
@@ -820,10 +1031,37 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/toronto-tempo-vs-las-vegas-aces/68210/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-21-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://techydeals.best/totalsportek1907226/extraplayer/4.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 3",
+          "Url": "https://sports247.ru/watch/toronto-tempo-vs-las-vegas-aces-2026-08-24",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "84ea716a86",
+      "Id": "426667ebb8",
       "Slug": "chicago-sky-vs-indiana-fever",
       "LeagueSlug": "wnba",
       "SportSlug": "basketball",
@@ -831,7 +1069,7 @@
       "AwayTeam": "Indiana Fever",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6093633Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9018074Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/chicago-sky-vs-indiana-fever/68211/",
       "Streams": [
@@ -839,10 +1077,31 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/chicago-sky-vs-indiana-fever/68211/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-26-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://4kplayerx.cyou/2026/08/08/chicago-sky-vs-indiana-fever/",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "6085f34ab3",
+      "Id": "a01a56dc2d",
       "Slug": "minnesota-lynx-vs-golden-state-valkyries",
       "LeagueSlug": "wnba",
       "SportSlug": "basketball",
@@ -850,7 +1109,7 @@
       "AwayTeam": "Golden State Valkyries",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T23:15:05.6094425Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9018831Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/minnesota-lynx-vs-golden-state-valkyries/68245/",
       "Streams": [
@@ -858,10 +1117,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/minnesota-lynx-vs-golden-state-valkyries/68245/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "2a4a022c12",
+      "Id": "7c360c84b4",
       "Slug": "kocaelispor-vs-amed-sk",
       "LeagueSlug": "superlig",
       "SportSlug": "football",
@@ -869,7 +1136,7 @@
       "AwayTeam": "Amed SK",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T18:45:05.609527Z",
+      "StartTimeUtc": "2026-08-24T18:31:21.9019667Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/kocaelispor-vs-amed-sk/75026/",
       "Streams": [
@@ -877,10 +1144,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/kocaelispor-vs-amed-sk/75026/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "5343c66444",
+      "Id": "598e9bbe84",
       "Slug": "neom-vs-al-quadisiya",
       "LeagueSlug": "saudi-pro-league",
       "SportSlug": "football",
@@ -888,7 +1163,7 @@
       "AwayTeam": "Al Quadisiya",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T16:55:05.6096174Z",
+      "StartTimeUtc": "2026-08-24T16:41:21.9021323Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/neom-vs-al-quadisiya/75487/",
       "Streams": [
@@ -896,10 +1171,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/neom-vs-al-quadisiya/75487/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "9604cecf8d",
+      "Id": "0c74255869",
       "Slug": "al-ittihad-vs-al-hazm",
       "LeagueSlug": "saudi-pro-league",
       "SportSlug": "football",
@@ -907,7 +1190,7 @@
       "AwayTeam": "Al Hazm",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Al Ittihad.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Al Hazm.webp",
-      "StartTimeUtc": "2026-08-24T18:15:05.6096797Z",
+      "StartTimeUtc": "2026-08-24T18:01:21.9022406Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/al-ittihad-vs-al-hazm/75488/",
       "Streams": [
@@ -915,10 +1198,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/al-ittihad-vs-al-hazm/75488/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "7b4c8ec4ab",
+      "Id": "451d7fb3f6",
       "Slug": "crown-legacy-vs-chattanooga",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -926,7 +1217,7 @@
       "AwayTeam": "Chattanooga",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6097698Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9023939Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/crown-legacy-vs-chattanooga/71191/",
       "Streams": [
@@ -934,10 +1225,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/crown-legacy-vs-chattanooga/71191/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "b7d2346bd2",
+      "Id": "a63691f861",
       "Slug": "huntsville-city-vs-columbus-crew-ii",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -945,7 +1244,7 @@
       "AwayTeam": "Columbus Crew II",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6098314Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9025187Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/huntsville-city-vs-columbus-crew-ii/71192/",
       "Streams": [
@@ -953,10 +1252,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/huntsville-city-vs-columbus-crew-ii/71192/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "b6fcf45e9c",
+      "Id": "8c6ed0f6ed",
       "Slug": "new-york-rb-ii-vs-toronto-ii",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -964,7 +1271,7 @@
       "AwayTeam": "Toronto II",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6098915Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9026367Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/new-york-rb-ii-vs-toronto-ii/71193/",
       "Streams": [
@@ -972,10 +1279,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/new-york-rb-ii-vs-toronto-ii/71193/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "f1951120b1",
+      "Id": "978d577aec",
       "Slug": "st-louis-city-ii-vs-houston-dynamo-fc-ii",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -983,7 +1298,7 @@
       "AwayTeam": "Houston Dynamo FC II",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6099619Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9027471Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/st-louis-city-ii-vs-houston-dynamo-fc-ii/71194/",
       "Streams": [
@@ -991,10 +1306,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/st-louis-city-ii-vs-houston-dynamo-fc-ii/71194/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "3aabb11c40",
+      "Id": "1242032f70",
       "Slug": "colorado-rapids-ii-vs-real-monarchs",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -1002,7 +1325,7 @@
       "AwayTeam": "Real Monarchs",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6100661Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9028531Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/colorado-rapids-ii-vs-real-monarchs/71196/",
       "Streams": [
@@ -1010,10 +1333,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/colorado-rapids-ii-vs-real-monarchs/71196/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "4e1b3d90c9",
+      "Id": "b6f8d331e0",
       "Slug": "austin-ii-vs-san-jose-earthquakes-ii",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -1021,7 +1352,7 @@
       "AwayTeam": "San Jose Earthquakes II",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.610133Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9029746Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/austin-ii-vs-san-jose-earthquakes-ii/71197/",
       "Streams": [
@@ -1029,10 +1360,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/austin-ii-vs-san-jose-earthquakes-ii/71197/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "4769290a4b",
+      "Id": "54252de6bf",
       "Slug": "ventura-county-vs-portland-timbers-ii",
       "LeagueSlug": "mls-next-pro",
       "SportSlug": "football",
@@ -1040,7 +1379,7 @@
       "AwayTeam": "Portland Timbers II",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T10:01:05.6101959Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9031014Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/ventura-county-vs-portland-timbers-ii/71195/",
       "Streams": [
@@ -1048,10 +1387,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/ventura-county-vs-portland-timbers-ii/71195/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "25138908b0",
+      "Id": "8d857f7624",
       "Slug": "atlanta-united-vs-sporting-kc",
       "LeagueSlug": "mls",
       "SportSlug": "football",
@@ -1059,7 +1406,7 @@
       "AwayTeam": "Sporting KC",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta United.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Sporting KC.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6102684Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9032202Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/atlanta-united-vs-sporting-kc/68052/",
       "Streams": [
@@ -1067,10 +1414,55 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/atlanta-united-vs-sporting-kc/68052/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-12-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://bestropes.st/player.php/atlanta-united-vs-sporting-kc-usa-canada-major-league-soccer-football",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 3",
+          "Url": "https://esportsurge.st/player.php/atlanta-united-vs-sporting-kc-usa-canada-major-league-soccer-football",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 4",
+          "Url": "https://nativeview.top/e/live_mls_atlanta-kansas-city-live-streaming-538845264",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 5",
+          "Url": "https://techydeals.best/totalsportek1907226/extraplayer/31.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 6",
+          "Url": "https://sports247.ru/watch/atlanta-united-vs-sporting-kc-2026-08-24",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "b12b53e8c7",
+      "Id": "cfebfc043c",
       "Slug": "reims-vs-annecy",
       "LeagueSlug": "ligue-2",
       "SportSlug": "football",
@@ -1078,7 +1470,7 @@
       "AwayTeam": "Annecy",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Reims.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T19:00:05.6103443Z",
+      "StartTimeUtc": "2026-08-24T18:46:21.903296Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/reims-vs-annecy/75489/",
       "Streams": [
@@ -1086,10 +1478,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/reims-vs-annecy/75489/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "73cba64e91",
+      "Id": "77176708cf",
       "Slug": "celta-de-vigo-ii-vs-fc-andorra",
       "LeagueSlug": "la-liga-2",
       "SportSlug": "football",
@@ -1097,7 +1497,7 @@
       "AwayTeam": "FC Andorra",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-08-24T17:15:05.6104262Z",
+      "StartTimeUtc": "2026-08-24T17:01:21.9033744Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/celta-de-vigo-ii-vs-fc-andorra/75001/",
       "Streams": [
@@ -1105,10 +1505,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/celta-de-vigo-ii-vs-fc-andorra/75001/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "a2805e8621",
+      "Id": "70ef8aa9b2",
       "Slug": "granada-vs-mallorca",
       "LeagueSlug": "la-liga-2",
       "SportSlug": "football",
@@ -1116,7 +1524,7 @@
       "AwayTeam": "Mallorca",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Granada.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Mallorca.webp",
-      "StartTimeUtc": "2026-08-24T19:45:05.6104973Z",
+      "StartTimeUtc": "2026-08-24T19:31:21.9034465Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/granada-vs-mallorca/75002/",
       "Streams": [
@@ -1124,10 +1532,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/granada-vs-mallorca/75002/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "53c4e7cf97",
+      "Id": "f37e92418c",
       "Slug": "verl-vs-hamburger-sv",
       "LeagueSlug": "dfb-pokal-german-cup",
       "SportSlug": "football",
@@ -1135,7 +1551,7 @@
       "AwayTeam": "Hamburger SV",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Hamburger SV.webp",
-      "StartTimeUtc": "2026-08-24T16:15:05.6105804Z",
+      "StartTimeUtc": "2026-08-24T16:01:21.9035341Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/verl-vs-hamburger-sv/75490/",
       "Streams": [
@@ -1143,10 +1559,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/verl-vs-hamburger-sv/75490/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "4e2e150e1c",
+      "Id": "e1408cb18a",
       "Slug": "wurzburger-kickers-vs-koln",
       "LeagueSlug": "dfb-pokal-german-cup",
       "SportSlug": "football",
@@ -1154,7 +1578,7 @@
       "AwayTeam": "Koln",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Koln.webp",
-      "StartTimeUtc": "2026-08-24T16:15:05.6106443Z",
+      "StartTimeUtc": "2026-08-24T16:01:21.903595Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/wurzburger-kickers-vs-koln/75491/",
       "Streams": [
@@ -1162,10 +1586,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/wurzburger-kickers-vs-koln/75491/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "0562a84e41",
+      "Id": "043d441386",
       "Slug": "altglienicke-vs-wolfsburg",
       "LeagueSlug": "dfb-pokal-german-cup",
       "SportSlug": "football",
@@ -1173,7 +1605,7 @@
       "AwayTeam": "Wolfsburg",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Wolfsburg.webp",
-      "StartTimeUtc": "2026-08-24T16:15:05.610706Z",
+      "StartTimeUtc": "2026-08-24T16:01:21.9036504Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/altglienicke-vs-wolfsburg/75492/",
       "Streams": [
@@ -1181,10 +1613,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/altglienicke-vs-wolfsburg/75492/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "111660c03d",
+      "Id": "d7f45f70bc",
       "Slug": "milwaukee-brewers-vs-atlanta-braves",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1192,7 +1632,7 @@
       "AwayTeam": "Atlanta Braves",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta Braves.webp",
-      "StartTimeUtc": "2026-08-24T10:01:05.6107753Z",
+      "StartTimeUtc": "2026-08-24T12:07:21.9037559Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/milwaukee-brewers-vs-atlanta-braves/68132/",
       "Streams": [
@@ -1200,10 +1640,31 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/milwaukee-brewers-vs-atlanta-braves/68132/"
         }
-      ]
+      ],
+      "Players": [
+        {
+          "Name": "Player 1",
+          "Url": "https://shd247.world/live-soccer-streaming-13-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Player 2",
+          "Url": "https://shd247.world/live-soccer-streaming-22-total.html",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "cc0464ec92",
+      "Id": "14805696fb",
       "Slug": "detroit-tigers-vs-tampa-bay-rays",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1211,7 +1672,7 @@
       "AwayTeam": "Tampa Bay Rays",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp",
-      "StartTimeUtc": "2026-08-24T22:55:05.6108379Z",
+      "StartTimeUtc": "2026-08-24T22:41:21.9038803Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/detroit-tigers-vs-tampa-bay-rays/68139/",
       "Streams": [
@@ -1219,10 +1680,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/detroit-tigers-vs-tampa-bay-rays/68139/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "22d399bba7",
+      "Id": "f97f80b4ff",
       "Slug": "miami-marlins-vs-boston-red-sox",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1230,7 +1699,7 @@
       "AwayTeam": "Boston Red Sox",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Miami Marlins.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp",
-      "StartTimeUtc": "2026-08-24T22:55:05.6111261Z",
+      "StartTimeUtc": "2026-08-24T22:41:21.9039806Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/miami-marlins-vs-boston-red-sox/68140/",
       "Streams": [
@@ -1238,10 +1707,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/miami-marlins-vs-boston-red-sox/68140/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "ac1f00240c",
+      "Id": "0307133b06",
       "Slug": "washington-nationals-vs-colorado-rockies",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1249,7 +1726,7 @@
       "AwayTeam": "Colorado Rockies",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Washington Nationals.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Colorado Rockies.webp",
-      "StartTimeUtc": "2026-08-24T23:00:05.6112044Z",
+      "StartTimeUtc": "2026-08-24T22:46:21.9040893Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/washington-nationals-vs-colorado-rockies/68141/",
       "Streams": [
@@ -1257,10 +1734,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/washington-nationals-vs-colorado-rockies/68141/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "04d3a6891c",
+      "Id": "1d36470e7e",
       "Slug": "los-angeles-angels-vs-cleveland-guardians",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1268,7 +1753,7 @@
       "AwayTeam": "Cleveland Guardians",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Los Angeles Angels.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6117425Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9041854Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/los-angeles-angels-vs-cleveland-guardians/68143/",
       "Streams": [
@@ -1276,10 +1761,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/los-angeles-angels-vs-cleveland-guardians/68143/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "cd57b12d21",
+      "Id": "005ce558ab",
       "Slug": "seattle-mariners-vs-philadelphia-phillies",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1287,7 +1780,7 @@
       "AwayTeam": "Philadelphia Phillies",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Seattle Mariners.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Philadelphia Phillies.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6119745Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9042782Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/seattle-mariners-vs-philadelphia-phillies/68144/",
       "Streams": [
@@ -1295,10 +1788,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/seattle-mariners-vs-philadelphia-phillies/68144/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "775e1521a2",
+      "Id": "3bd44a97fd",
       "Slug": "san-diego-padres-vs-pittsburgh-pirates",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1306,7 +1807,7 @@
       "AwayTeam": "Pittsburgh Pirates",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/San Diego Padres.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6121114Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.904361Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/san-diego-padres-vs-pittsburgh-pirates/68145/",
       "Streams": [
@@ -1314,10 +1815,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/san-diego-padres-vs-pittsburgh-pirates/68145/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "40c61512ad",
+      "Id": "09cb65717d",
       "Slug": "arizona-diamondbacks-vs-chicago-cubs",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1325,7 +1834,7 @@
       "AwayTeam": "Chicago Cubs",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Arizona Diamondbacks.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6122743Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9044543Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/arizona-diamondbacks-vs-chicago-cubs/68146/",
       "Streams": [
@@ -1333,10 +1842,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/arizona-diamondbacks-vs-chicago-cubs/68146/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "76465489dd",
+      "Id": "16c4b5ee11",
       "Slug": "oakland-athletics-vs-minnesota-twins",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1344,7 +1861,7 @@
       "AwayTeam": "Minnesota Twins",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Oakland Athletics.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6123712Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9045463Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/oakland-athletics-vs-minnesota-twins/68147/",
       "Streams": [
@@ -1352,10 +1869,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/oakland-athletics-vs-minnesota-twins/68147/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "e284cb079a",
+      "Id": "275ddb1415",
       "Slug": "san-francisco-giants-vs-cincinnati-reds",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1363,7 +1888,7 @@
       "AwayTeam": "Cincinnati Reds",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Cincinnati Reds.webp",
-      "StartTimeUtc": "2026-08-24T23:15:05.6124752Z",
+      "StartTimeUtc": "2026-08-24T23:01:21.9046345Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/san-francisco-giants-vs-cincinnati-reds/68148/",
       "Streams": [
@@ -1371,10 +1896,18 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/san-francisco-giants-vs-cincinnati-reds/68148/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     },
     {
-      "Id": "796e711759",
+      "Id": "13ea9326da",
       "Slug": "chicago-white-sox-vs-texas-rangers",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1382,7 +1915,7 @@
       "AwayTeam": "Texas Rangers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Texas Rangers.webp",
-      "StartTimeUtc": "2026-08-24T23:55:05.6125802Z",
+      "StartTimeUtc": "2026-08-24T23:41:21.9047269Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/chicago-white-sox-vs-texas-rangers/68142/",
       "Streams": [
@@ -1390,9 +1923,17 @@
           "Label": "Watch on source",
           "Url": "https://total-sportek.st/game/chicago-white-sox-vs-texas-rangers/68142/"
         }
-      ]
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Enabled": true,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "Popular": false,
+      "Viewers": null
     }
   ],
   "NormalizeTimes": false,
-  "ScrapedAtUtc": "2026-08-24T10:01:05.6147777Z"
+  "ScrapedAtUtc": "2026-08-24T12:07:33.535316Z"
 }

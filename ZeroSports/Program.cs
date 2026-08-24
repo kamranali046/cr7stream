@@ -12,10 +12,12 @@ builder.Services.AddControllersWithViews();
 // clean interfaces; the messy data/scraping work lives in ZeroSports.Logic.
 builder.Services.AddHttpClient<ZeroSports.Logic.Scrapers.ITotalSportekScraper, ZeroSports.Logic.Scrapers.TotalSportekScraper>();
 builder.Services.AddScoped<ZeroSports.Logic.Services.IFixtureProvider, ZeroSports.Logic.Services.JsonFixtureProvider>();
+builder.Services.AddScoped<ZeroSports.Logic.Services.IScraperSettingsProvider, ZeroSports.Logic.Services.ScraperSettingsProvider>();
 builder.Services.AddScoped<ZeroSports.Logic.IScrapperLogic, ZeroSports.Logic.ScrapperLogic>();
 builder.Services.AddScoped<ZeroSports.Logic.IHomeControllerLogic, ZeroSports.Logic.HomeControllerLogic>();
 builder.Services.AddScoped<ZeroSports.Logic.IMatchesControllerLogic, ZeroSports.Logic.MatchesControllerLogic>();
 builder.Services.AddScoped<ZeroSports.Logic.IAdminLogic, ZeroSports.Logic.AdminLogic>();
+builder.Services.AddHostedService<ZeroSports.Services.AutoScraperService>();
 
 // Admin panel uses its own cookie authentication scheme.
 builder.Services.AddAuthentication("Admin")

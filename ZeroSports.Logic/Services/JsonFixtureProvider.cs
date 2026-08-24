@@ -48,7 +48,17 @@ public class JsonFixtureProvider : IFixtureProvider
             PropertyNameCaseInsensitive = true
         };
 
-        await using var stream = File.Create(path);
-        await JsonSerializer.SerializeAsync(stream, data, options, cancellationToken);
+        // Write to a temp file first, then atomically replace the real one. This
+        // guarantees a failed/cancelled save (e.g. the HTTP request aborting
+        // mid-write) can never leave fixtures.json truncated/empty and take the
+        // whole site down. The serialize itself is not tied to the request's
+        // cancellation token for the same reason.
+        var tempPath = path + ".tmp";
+        await using (var stream = File.Create(tempPath))
+        {
+            await JsonSerializer.SerializeAsync(stream, data, options, CancellationToken.None);
+        }
+
+        File.Move(tempPath, path, overwrite: true);
     }
 }

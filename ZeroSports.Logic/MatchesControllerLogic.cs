@@ -28,15 +28,30 @@ public class MatchesControllerLogic : IMatchesControllerLogic
             return null;
         }
 
+        var hiddenLeagues = new HashSet<string>(
+            fixtures.Leagues.Where(l => l.Hidden).Select(l => l.Slug),
+            StringComparer.OrdinalIgnoreCase);
+
         var matches = fixtures.Matches
-            .Where(m => string.Equals(m.SportSlug, slug, StringComparison.OrdinalIgnoreCase))
+            .Where(m => m.Enabled
+                        && !hiddenLeagues.Contains(m.LeagueSlug)
+                        && !string.Equals(m.LeagueSlug, Categories.ImportantMatchesSlug, StringComparison.OrdinalIgnoreCase)
+                        && string.Equals(m.SportSlug, slug, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        var importantMatches = fixtures.Matches
+            .Where(m => m.Enabled
+                        && string.Equals(m.SportSlug, slug, StringComparison.OrdinalIgnoreCase)
+                        && (m.Important
+                            || (string.Equals(m.LeagueSlug, Categories.ImportantMatchesSlug, StringComparison.OrdinalIgnoreCase)
+                                && !hiddenLeagues.Contains(m.LeagueSlug))))
             .ToList();
 
         return new SportPageViewModel
         {
             Sport = sport,
-            LiveMatches = matches.Where(m => m.Status == "live").ToList(),
-            UpcomingMatches = matches.Where(m => m.Status != "live").ToList()
+            ImportantMatches = importantMatches,
+            Matches = matches
         };
     }
 

@@ -2,23 +2,24 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 using ZeroSports.Logic.Models;
+using ZeroSports.Logic.Services;
 
 namespace ZeroSports.Logic.Scrapers;
 
 public interface ITotalSportekScraper
 {
     Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default);
+    Task<List<Player>> GetPlayersAsync(string matchUrl, CancellationToken cancellationToken = default);
 }
 
 /// <summary>
-/// Messy scraping/parsing logic for https://total-sportek.st/.
-/// Downloads the homepage HTML and extracts categories -> matches (teams, time, link).
+/// Messy scraping/parsing logic. Downloads a source homepage HTML and extracts
+/// categories -> matches (teams, time, link). The source URL comes from the
+/// scraper settings so it is editable from the admin panel.
 /// This is intentionally full of heuristics so the controller-facing logic stays clean.
 /// </summary>
 public class TotalSportekScraper : ITotalSportekScraper
 {
-    private static readonly string BaseUrl = "https://total-sportek.st/";
-
     private static readonly Dictionary<string, (string Slug, string Name)> SportMap = new()
     {
         { "football", ("football", "Football") },
@@ -57,15 +58,23 @@ public class TotalSportekScraper : ITotalSportekScraper
     };
 
     private readonly HttpClient _http;
+    private readonly IScraperSettingsProvider? _settings;
+    private string _baseUrl = "https://total-sportek.st/";
 
-    public TotalSportekScraper(HttpClient http)
+    public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null)
     {
         _http = http;
+        _settings = settings;
     }
 
     public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default)
     {
-        var request = new HttpRequestMessage(HttpMethod.Get, BaseUrl);
+        var settings = _settings is null
+            ? new ScraperSettings()
+            : await _settings.LoadAsync(cancellationToken);
+        _baseUrl = NormalizeBaseUrl(settings.SourceUrl);
+
+        var request = new HttpRequestMessage(HttpMethod.Get, _baseUrl);
         request.Headers.UserAgent.ParseAdd(
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
 
@@ -83,9 +92,9 @@ public class TotalSportekScraper : ITotalSportekScraper
         var teams = new Dictionary<string, Team>(StringComparer.OrdinalIgnoreCase);
         var matches = new List<Models.Match>();
 
-        string currentCategory = "Featured";
-        string currentCategorySlug = "featured";
-        string currentSportSlug = "featured";
+        string currentCategory = Categories.ImportantMatchesName;
+        string currentCategorySlug = Categories.ImportantMatchesSlug;
+        string currentSportSlug = Categories.ImportantMatchesSlug;
         string currentCategoryLogo = string.Empty;
 
         var nodes = doc.DocumentNode.SelectNodes("//div | //a") ?? Enumerable.Empty<HtmlNode>();
@@ -167,7 +176,143 @@ public class TotalSportekScraper : ITotalSportekScraper
         data.Teams = teams.Values.ToList();
         data.Matches = matches;
 
+        // Pull the player/stream list for matches that are live or close to
+        // kickoff (total-sportek publishes players ~1h before start).
+        var lead = TimeSpan.FromMinutes(settings.PlayerFetchLeadMinutes);
+        var now = DateTime.UtcNow;
+        foreach (var match in matches)
+        {
+            match.Players = new List<Player>();
+            var beforeStart = match.StartTimeUtc - now;
+            var eligible = match.Status == "live"
+                           || (beforeStart <= lead && beforeStart > TimeSpan.FromHours(-3));
+            if (eligible && !string.IsNullOrWhiteSpace(match.SourceUrl))
+            {
+                match.Players = await ExtractPlayersAsync(match.SourceUrl, cancellationToken);
+            }
+        }
+
         return data;
+    }
+
+    public async Task<List<Player>> GetPlayersAsync(string matchUrl, CancellationToken cancellationToken = default)
+    {
+        return await ExtractPlayersAsync(matchUrl, cancellationToken);
+    }
+
+    private async Task<List<Player>> ExtractPlayersAsync(string url, CancellationToken cancellationToken)
+    {
+        var players = new List<Player>();
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            return players;
+        }
+
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, MakeAbsolute(url));
+            request.Headers.UserAgent.ParseAdd(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
+            using var response = await _http.SendAsync(request, cancellationToken);
+            if (!response.IsSuccessStatusCode)
+            {
+                return players;
+            }
+
+            var html = await response.Content.ReadAsStringAsync(cancellationToken);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var baseHost = SafeHost(_baseUrl);
+
+            foreach (var iframe in doc.DocumentNode.SelectNodes("//iframe") ?? Enumerable.Empty<HtmlNode>())
+            {
+                AddPlayer(players, seen, iframe.GetAttributeValue("src", ""), baseHost);
+            }
+
+            foreach (var a in doc.DocumentNode.SelectNodes("//a") ?? Enumerable.Empty<HtmlNode>())
+            {
+                AddPlayer(players, seen, a.GetAttributeValue("href", ""), baseHost);
+            }
+        }
+        catch
+        {
+            // best-effort: a single failed match page must not break the scrape
+        }
+
+        return players;
+    }
+
+    private void AddPlayer(List<Player> players, HashSet<string> seen, string raw, string? baseHost)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
+        {
+            return;
+        }
+
+        var url = MakeAbsolute(raw);
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+        {
+            return;
+        }
+
+        if (!string.Equals(uri.Scheme, "http", StringComparison.OrdinalIgnoreCase)
+            && !string.Equals(uri.Scheme, "https", StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        if (baseHost is not null && string.Equals(uri.Host, baseHost, StringComparison.OrdinalIgnoreCase))
+        {
+            return;
+        }
+
+        if (!LooksLikePlayer(uri))
+        {
+            return;
+        }
+
+        if (!seen.Add(uri.AbsoluteUri))
+        {
+            return;
+        }
+
+        players.Add(new Player
+        {
+            Name = $"Player {players.Count + 1}",
+            Url = uri.AbsoluteUri,
+            Enabled = true
+        });
+    }
+
+    private static bool LooksLikePlayer(Uri uri)
+    {
+        var h = uri.Host.ToLowerInvariant();
+        var p = uri.PathAndQuery.ToLowerInvariant();
+        if (h.Contains("google.") || h.Contains("facebook.") || h.Contains("twitter.") || h.Contains("instagram.") || h.Contains("t.co"))
+        {
+            return false;
+        }
+
+        return p.Contains("embed")
+            || p.Contains("player")
+            || p.Contains("stream")
+            || p.Contains("watch")
+            || p.Contains("play")
+            || p.Contains(".m3u8")
+            || p.Contains("iframe")
+            || p.Contains("live")
+            || h.Contains("youtu")
+            || h.Contains("dai.ly")
+            || h.Contains("ok.ru")
+            || h.Contains("player")
+            || h.Contains("embed");
+    }
+
+    private static string? SafeHost(string url)
+    {
+        return Uri.TryCreate(url, UriKind.Absolute, out var u) ? u.Host : null;
     }
 
     private static bool IsCategoryHeader(string cls)
@@ -181,7 +326,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         return !string.IsNullOrEmpty(cls) && cls.Contains("nav-link2");
     }
 
-    private static (string Name, string Logo) ParseCategory(HtmlNode node)
+    private (string Name, string Logo) ParseCategory(HtmlNode node)
     {
         var img = node.SelectSingleNode(".//img");
         var name = node.SelectSingleNode(".//span")?.InnerText.Trim()
@@ -192,7 +337,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         return (name, logo);
     }
 
-    private static Models.Match? ParseMatch(HtmlNode anchor, string leagueSlug, string sportSlug, Dictionary<string, Team> teams)
+    private Models.Match? ParseMatch(HtmlNode anchor, string leagueSlug, string sportSlug, Dictionary<string, Team> teams)
     {
         var href = anchor.GetAttributeValue("href", "");
         if (string.IsNullOrWhiteSpace(href))
@@ -235,7 +380,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         };
     }
 
-    private static (string Name, string Logo) ParseTeam(HtmlNode row, Dictionary<string, Team> teams)
+    private (string Name, string Logo) ParseTeam(HtmlNode row, Dictionary<string, Team> teams)
     {
         var img = row.SelectSingleNode(".//img");
         var name = img?.GetAttributeValue("alt", "")?.Trim()
@@ -344,12 +489,28 @@ public class TotalSportekScraper : ITotalSportekScraper
         return segments.Length > 0 ? segments[^1] : Slug.Slugify(url);
     }
 
-    private static string MakeAbsolute(string src)
+    private static string NormalizeBaseUrl(string? sourceUrl)
+    {
+        var url = (sourceUrl ?? "https://total-sportek.st/").Trim();
+        if (!url.EndsWith("/"))
+        {
+            url += "/";
+        }
+
+        if (!url.StartsWith("http", StringComparison.OrdinalIgnoreCase))
+        {
+            url = "https://" + url;
+        }
+
+        return url;
+    }
+
+    private string MakeAbsolute(string src)
     {
         if (string.IsNullOrWhiteSpace(src)) return string.Empty;
         if (src.StartsWith("http", StringComparison.OrdinalIgnoreCase)) return src;
         if (src.StartsWith("//")) return "https:" + src;
-        if (src.StartsWith("/")) return "https://total-sportek.st" + src;
+        if (src.StartsWith("/")) return _baseUrl.TrimEnd('/') + src;
         return src;
     }
 }

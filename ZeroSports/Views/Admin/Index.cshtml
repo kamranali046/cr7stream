@@ -1,14 +1,42 @@
 @model List<ZeroSports.Models.AdminCategoryViewModel>
 @{
     ViewData["Title"] = "Admin Dashboard";
+    var sourceUrl = (string?)ViewData["SourceUrl"] ?? "https://total-sportek.st/";
+    var interval = ViewData["IntervalMinutes"] ?? 60;
+    var lastScraped = ViewData["LastScraped"] as DateTime?;
 }
+
+@if (!string.IsNullOrEmpty(TempData["ScrapeMessage"] as string))
+{
+    <div class="admin-card" style="border-color:var(--ok,#22c55e);">@TempData["ScrapeMessage"]</div>
+}
+@if (!string.IsNullOrEmpty(TempData["ScrapeError"] as string))
+{
+    <div class="admin-card" style="border-color:#ef4444;">@TempData["ScrapeError"]</div>
+}
+
+<div class="admin-card">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div>
+            <h3 class="mb-1">Scraper Settings</h3>
+            <div class="cat-meta mb-1">
+                <strong>Source:</strong> <a href="@sourceUrl" target="_blank" style="color:var(--accent);">@sourceUrl</a>
+                <span class="mx-2">·</span>
+                <strong>Auto-scrape:</strong> every @interval min
+                <span class="mx-2">·</span>
+                <strong>Last scraped:</strong> @(lastScraped.HasValue ? lastScraped.Value.ToString("u") : "never")
+            </div>
+        </div>
+        <a class="btn btn-sm btn-outline-light" asp-action="Settings">Edit settings</a>
+    </div>
+</div>
 
 <div class="d-flex align-items-center justify-content-between mb-3">
     <h2 class="section-title" style="margin:0;border:0;padding:0;">Categories & Matches</h2>
     <div class="d-flex gap-2">
         <a class="btn btn-sm btn-outline-light" asp-action="CategoryCreate">+ Add Category</a>
         <form asp-action="Scrape" method="post">
-            <button class="btn btn-sm btn-warning" type="submit">Re-scrape total-sportek</button>
+            <button class="btn btn-sm btn-warning" type="submit">Re-scrape now</button>
         </form>
     </div>
 </div>
@@ -20,13 +48,30 @@
 
 @foreach (var category in Model)
 {
-    <div class="admin-card">
-        <div class="d-flex align-items-center justify-content-between">
+    <div class="admin-card @(category.League.Hidden ? "opacity-50" : "")">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
             <div>
-                <h3>@category.League.Name</h3>
+                <h3>
+                    @category.League.Name
+                    @if (category.League.Hidden)
+                    {
+                        <span class="admin-badge replay">hidden</span>
+                    }
+                </h3>
                 <div class="cat-meta">slug: @category.League.Slug · sport: @category.League.SportSlug · @category.Matches.Count match(es)</div>
             </div>
-            <div class="d-flex gap-2">
+            <div class="d-flex gap-2 flex-wrap">
+                <form asp-action="MoveCategory" asp-route-slug="@category.League.Slug" method="post">
+                    <input type="hidden" name="direction" value="up" />
+                    <button class="btn btn-sm btn-outline-light" type="submit" title="Move up">&#9650;</button>
+                </form>
+                <form asp-action="MoveCategory" asp-route-slug="@category.League.Slug" method="post">
+                    <input type="hidden" name="direction" value="down" />
+                    <button class="btn btn-sm btn-outline-light" type="submit" title="Move down">&#9660;</button>
+                </form>
+                <form asp-action="ToggleCategoryHidden" asp-route-slug="@category.League.Slug" method="post">
+                    <button class="btn btn-sm btn-outline-light" type="submit">@(category.League.Hidden ? "Show" : "Hide")</button>
+                </form>
                 <a class="btn btn-sm btn-outline-light" asp-action="MatchCreate" asp-route-categorySlug="@category.League.Slug">+ Add Match</a>
                 <form asp-action="CategoryDelete" asp-route-slug="@category.League.Slug" method="post" onsubmit="return confirm('Delete category and all its matches?');">
                     <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
@@ -46,39 +91,63 @@
                         <th>Match</th>
                         <th>Time (UTC)</th>
                         <th>Status</th>
-                        <th>Link</th>
-                        <th></th>
+                        <th>Players</th>
+                        <th>Manage</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var match in category.Matches)
                     {
-                        <tr>
+                        var live = match.IsLive || match.Status == "live";
+                        var ended = match.IsEnded || match.Status == "replay";
+                        <tr class="@(!match.Enabled ? "opacity-50" : "")">
                             <td>
-                                <img src="@match.HomeTeamLogo" alt="" onerror="this.style.display='none'" />
+                                <img src="@(string.IsNullOrEmpty(match.HomeTeamLogo) ? "/img/match-placeholder.svg" : match.HomeTeamLogo)" alt="" width="24" height="24" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
                                 @match.HomeTeam
                                 <span style="color:var(--muted);"> vs </span>
-                                <img src="@match.AwayTeamLogo" alt="" onerror="this.style.display='none'" />
+                                <img src="@(string.IsNullOrEmpty(match.AwayTeamLogo) ? "/img/match-placeholder.svg" : match.AwayTeamLogo)" alt="" width="24" height="24" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
                                 @match.AwayTeam
+                                @if (match.Important) { <span class="admin-badge important">&#9733;</span> }
+                                @if (!match.Enabled) { <span class="admin-badge replay">off</span> }
                             </td>
                             <td>@match.StartTimeUtc.ToString("u")</td>
                             <td>
-                                <span class="admin-badge @match.Status">@match.Status</span>
+                                @if (live) { <span class="admin-badge live">LIVE</span> }
+                                else if (ended) { <span class="admin-badge replay">ENDED</span> }
+                                else { <span class="admin-badge upcoming">soon</span> }
                             </td>
+                            <td>@match.Players.Count</td>
                             <td>
-                                @if (!string.IsNullOrEmpty(match.SourceUrl))
-                                {
-                                    <a href="@match.SourceUrl" target="_blank" style="color:var(--accent);">open</a>
-                                }
-                                else
-                                {
-                                    <span style="color:var(--muted);">-</span>
-                                }
-                            </td>
-                            <td>
-                                <form asp-action="MatchDelete" asp-route-categorySlug="@category.League.Slug" asp-route-matchSlug="@match.Slug" method="post" onsubmit="return confirm('Delete this match?');">
-                                    <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
-                                </form>
+                                <div class="d-flex gap-1 flex-wrap">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="MatchDetails" asp-route-slug="@match.Slug">Players</a>
+                                    <form asp-action="ToggleMatchEnabled" asp-route-slug="@match.Slug" method="post">
+                                        <button class="btn btn-sm btn-outline-light" type="submit">@(match.Enabled ? "Disable" : "Enable")</button>
+                                    </form>
+                                    <form asp-action="ToggleImportant" asp-route-slug="@match.Slug" method="post">
+                                        <button class="btn btn-sm btn-outline-light" type="submit" title="Important">&#9733;</button>
+                                    </form>
+                                    <form asp-action="ToggleMatchLive" asp-route-slug="@match.Slug" method="post" class="d-inline" title="Mark as live">
+                                        <label class="tick">
+                                            <input type="checkbox" @(live ? "checked" : "") onchange="this.form.submit()" /> Live
+                                        </label>
+                                    </form>
+                                    <form asp-action="ToggleMatchEnded" asp-route-slug="@match.Slug" method="post" class="d-inline" title="Mark as ended">
+                                        <label class="tick">
+                                            <input type="checkbox" @(ended ? "checked" : "") onchange="this.form.submit()" /> Ended
+                                        </label>
+                                    </form>
+                                    <form asp-action="MoveMatch" asp-route-slug="@match.Slug" method="post">
+                                        <input type="hidden" name="direction" value="up" />
+                                        <button class="btn btn-sm btn-outline-light" type="submit" title="Move up">&#9650;</button>
+                                    </form>
+                                    <form asp-action="MoveMatch" asp-route-slug="@match.Slug" method="post">
+                                        <input type="hidden" name="direction" value="down" />
+                                        <button class="btn btn-sm btn-outline-light" type="submit" title="Move down">&#9660;</button>
+                                    </form>
+                                    <form asp-action="MatchDelete" asp-route-categorySlug="@category.League.Slug" asp-route-matchSlug="@match.Slug" method="post" onsubmit="return confirm('Delete this match?');">
+                                        <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     }

@@ -125,6 +125,11 @@ a { color: inherit; text-decoration: none; }
     overflow: hidden;
 }
 
+.important-section {
+    border-color: #ffb020;
+    box-shadow: 0 0 0 1px rgba(255, 176, 32, 0.25);
+}
+
 .league-head {
     display: flex;
     align-items: center;
@@ -184,8 +189,8 @@ a { color: inherit; text-decoration: none; }
 
 .badge-live {
     display: inline-block;
-    background: var(--live);
-    color: #04130c;
+    background: #ef4444;
+    color: #fff;
     font-weight: 800;
     font-size: 11px;
     padding: 3px 8px;
@@ -318,3 +323,13 @@ a { color: inherit; text-decoration: none; }
 .admin-form .text-danger { color: #ff6b6b; font-size: 12px; }
 .admin-login-wrap { max-width: 380px; margin: 8vh auto 0; }
 
+/* Admin: important badge + disabled row dimming */
+.admin-badge.important { background: #ffb020; color: #1a1205; }
+.badge-important { display: inline-block; background: #ffb020; color: #1a1205; font-weight: 800; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+.opacity-50 { opacity: 0.5; }
+/* Admin tick boxes (live / ended) */
+.tick { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text); padding: 4px 9px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; user-select: none; }
+.tick:hover { border-color: var(--accent); }
+.tick input { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
+/* stream buttons act as iframe switchers */
+.stream-btn { font: inherit; text-align: left; width: 100%; cursor: pointer; }

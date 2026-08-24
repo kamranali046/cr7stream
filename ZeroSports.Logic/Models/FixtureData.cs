@@ -5,6 +5,9 @@ public class Sport
     public string Slug { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public string Logo { get; set; } = string.Empty;
+
+    // Admin-added sports are preserved across auto-scrapes.
+    public bool IsCustom { get; set; }
 }
 
 public class League
@@ -13,6 +16,12 @@ public class League
     public string Name { get; set; } = string.Empty;
     public string SportSlug { get; set; } = string.Empty;
     public string Logo { get; set; } = string.Empty;
+
+    // Admin-added leagues are preserved across auto-scrapes.
+    public bool IsCustom { get; set; }
+
+    // Hidden (inactive) categories are removed from the public site.
+    public bool Hidden { get; set; }
 }
 
 public class Team
@@ -36,6 +45,28 @@ public class Match
     public string Status { get; set; } = "upcoming";
     public string SourceUrl { get; set; } = string.Empty;
     public List<StreamSource> Streams { get; set; } = new();
+
+    // Streaming "players" pulled from the match link (or added by the admin).
+    public List<Player> Players { get; set; } = new();
+
+    // Admin flags (preserved across auto-scrapes via slug matching).
+    public bool IsCustom { get; set; }
+    public bool Enabled { get; set; } = true;
+    public bool Important { get; set; }
+    public bool IsLive { get; set; }
+    public bool IsEnded { get; set; }
+    public bool Popular { get; set; }
+    public int? Viewers { get; set; }
+}
+
+public class Player
+{
+    public string Name { get; set; } = string.Empty;
+    public string Url { get; set; } = string.Empty;
+    public bool Enabled { get; set; } = true;
+
+    // Admin-added players survive auto-scrapes; scraped ones are refreshed.
+    public bool IsCustom { get; set; }
 }
 
 public class StreamSource

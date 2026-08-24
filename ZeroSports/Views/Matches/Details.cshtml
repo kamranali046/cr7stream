@@ -2,6 +2,11 @@
 @{
     var m = Model.Match!;
     ViewData["Title"] = m.HomeTeam + " vs " + m.AwayTeam + " - ZeroSports";
+
+    var isLive = m.IsLive || m.Status == "live";
+    var isEnded = m.IsEnded || m.Status == "replay";
+    var enabledPlayers = m.Players.Where(p => p.Enabled).ToList();
+    var embed = enabledPlayers.FirstOrDefault()?.Url ?? m.Streams.FirstOrDefault()?.Url;
 }
 
 <div class="detail-wrap">
@@ -10,7 +15,7 @@
     <div class="league-head" style="border-radius:12px;margin-bottom:14px;">
         @if (Model.League != null)
         {
-            <img src="@Model.League.Logo" alt="@Model.League.Name" />
+            <img src="@(string.IsNullOrEmpty(Model.League.Logo) ? "/img/category-placeholder.svg" : Model.League.Logo)" alt="@Model.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
             <h3>@Model.League.Name</h3>
         }
         @if (Model.Sport != null)
@@ -21,17 +26,17 @@
 
     <div class="match-card" style="border-radius:12px;margin-bottom:18px;text-decoration:none;">
         <div class="team home">
-            <img src="@m.HomeTeamLogo" alt="@m.HomeTeam" width="48" height="48" />
+            <img src="@(string.IsNullOrEmpty(m.HomeTeamLogo) ? "/img/match-placeholder.svg" : m.HomeTeamLogo)" alt="@m.HomeTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
             <span class="name">@m.HomeTeam</span>
         </div>
         <div class="match-meta">
-            @if (m.Status == "live")
+            @if (isLive)
             {
                 <span class="badge-live">LIVE NOW!</span>
             }
-            else if (m.Status == "replay")
+            else if (isEnded)
             {
-                <span class="badge-replay">REPLAY</span>
+                <span class="badge-replay">ENDED</span>
             }
             else
             {
@@ -39,25 +44,41 @@
             }
         </div>
         <div class="team away">
-            <img src="@m.AwayTeamLogo" alt="@m.AwayTeam" width="48" height="48" />
+            <img src="@(string.IsNullOrEmpty(m.AwayTeamLogo) ? "/img/match-placeholder.svg" : m.AwayTeamLogo)" alt="@m.AwayTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
             <span class="name">@m.AwayTeam</span>
         </div>
     </div>
 
     <h2 class="section-title">Available Streams</h2>
 
+    @foreach (var player in enabledPlayers)
+    {
+        <button type="button" class="stream-btn" data-stream="@player.Url">@player.Name &rarr;</button>
+    }
     @foreach (var stream in m.Streams)
     {
-        <a class="stream-btn" href="@stream.Url" target="_blank" rel="noopener">@stream.Label &rarr;</a>
+        <button type="button" class="stream-btn" data-stream="@stream.Url">@stream.Label &rarr;</button>
     }
 
     <h2 class="section-title">Player</h2>
-    @if (m.Streams.Any())
+    @if (!string.IsNullOrEmpty(embed))
     {
-        <iframe class="stream-embed" src="@m.Streams.First().Url" allowfullscreen title="stream"></iframe>
+        <iframe id="streamFrame" class="stream-embed" src="@embed" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
     }
     else
     {
         <p class="muted">No stream links available yet.</p>
     }
 </div>
+
+<script>
+    document.querySelectorAll('.stream-btn[data-stream]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var frame = document.getElementById('streamFrame');
+            if (frame) {
+                frame.src = btn.getAttribute('data-stream');
+                frame.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>

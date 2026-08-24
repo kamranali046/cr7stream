@@ -13,17 +13,33 @@
     @foreach (var league in Model.TopLeagues)
     {
         <a class="chip" asp-controller="Matches" asp-action="Sport" asp-route-sport="@league.SportSlug">
-            <img src="@league.Logo" alt="@league.Name" />
+            <img src="@(string.IsNullOrEmpty(league.Logo) ? "/img/category-placeholder.svg" : league.Logo)" alt="@league.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
             @league.Name
         </a>
     }
 </div>
 
+@if (Model.ImportantMatches.Any())
+{
+    <section class="league-section important-section">
+        <div class="league-head">
+            <span class="badge-important" title="Important">&#9733;</span>
+            <h3>@Categories.ImportantMatchesName</h3>
+        </div>
+        <div class="match-list">
+            @foreach (var match in Model.ImportantMatches)
+            {
+                await Html.RenderPartialAsync("_MatchCard", match);
+            }
+        </div>
+    </section>
+}
+
 @foreach (var sec in Model.Sections)
 {
     <section class="league-section">
         <div class="league-head">
-            <img src="@sec.League.Logo" alt="@sec.League.Name" />
+            <img src="@(string.IsNullOrEmpty(sec.League.Logo) ? "/img/category-placeholder.svg" : sec.League.Logo)" alt="@sec.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
             <h3>@sec.League.Name</h3>
         </div>
         <div class="match-list">
@@ -40,7 +56,7 @@
     @foreach (var team in Model.TopTeams)
     {
         <span class="chip">
-            <img src="@team.Logo" alt="@team.Name" />
+            <img src="@(string.IsNullOrEmpty(team.Logo) ? "/img/match-placeholder.svg" : team.Logo)" alt="@team.Name" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
             @team.Name
         </span>
     }

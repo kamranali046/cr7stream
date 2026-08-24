@@ -1,7 +1,11 @@
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using ZeroSports.Logic;
 using ZeroSports.Logic.Models;
 using ZeroSports.Models;
@@ -15,31 +19,59 @@ namespace ZeroSports.Controllers
         private readonly IAdminLogic _admin;
         private readonly IScrapperLogic _scrapper;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AdminController> _logger;
+        private static readonly ConcurrentDictionary<string, List<DateTime>> _failedLogins = new(StringComparer.OrdinalIgnoreCase);
 
-        public AdminController(IAdminLogic admin, IScrapperLogic scrapper, IConfiguration configuration)
+        public AdminController(IAdminLogic admin, IScrapperLogic scrapper, IConfiguration configuration, ILogger<AdminController> logger)
         {
             _admin = admin;
             _scrapper = scrapper;
             _configuration = configuration;
+            _logger = logger;
         }
 
         [HttpGet("")]
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var data = await _scrapper.GetFixturesAsync();
+            var settings = await _admin.GetSettingsAsync(cancellationToken);
+
+            ViewData["SourceUrl"] = settings.SourceUrl;
+            ViewData["IntervalMinutes"] = settings.IntervalMinutes;
+            ViewData["LastScraped"] = data.ScrapedAtUtc;
+
             var categories = data.Leagues
-                .OrderBy(l => l.Name)
                 .Select(league => new AdminCategoryViewModel
                 {
                     League = league,
-                    Matches = data.Matches
-                        .Where(m => m.LeagueSlug == league.Slug)
-                        .OrderBy(m => m.StartTimeUtc)
-                        .ToList()
+                Matches = data.Matches
+                    .Where(m => m.LeagueSlug == league.Slug)
+                    .ToList()
                 })
                 .ToList();
 
             return View(categories);
+        }
+
+        [HttpGet("settings")]
+        public async Task<IActionResult> Settings(CancellationToken cancellationToken)
+        {
+            var settings = await _admin.GetSettingsAsync(cancellationToken);
+            return View(settings);
+        }
+
+        [HttpPost("settings")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Settings(ScraperSettings model, CancellationToken cancellationToken)
+        {
+            if (model.IntervalMinutes < 1)
+            {
+                ModelState.AddModelError(nameof(model.IntervalMinutes), "Interval must be at least 1 minute.");
+                return View(model);
+            }
+
+            await _admin.SaveSettingsAsync(model, cancellationToken);
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet("login")]
@@ -59,21 +91,60 @@ namespace ZeroSports.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model, CancellationToken cancellationToken)
         {
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString()
+                     ?? HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault()
+                     ?? "unknown";
+
+            if (IsLoginRateLimited(ip))
+            {
+                ViewData["Error"] = "Too many login attempts. Try again later.";
+                return View(model);
+            }
+
             var username = _configuration["Admin:Username"] ?? "admin";
             var password = _configuration["Admin:Password"] ?? "admin123";
 
-            if (ModelState.IsValid &&
-                model.Username == username &&
-                model.Password == password)
+            var userOk = CryptographicOperations.FixedTimeEquals(
+                Encoding.UTF8.GetBytes(model.Username ?? ""),
+                Encoding.UTF8.GetBytes(username));
+            var passOk = CryptographicOperations.FixedTimeEquals(
+                Encoding.UTF8.GetBytes(model.Password ?? ""),
+                Encoding.UTF8.GetBytes(password));
+
+            if (ModelState.IsValid && userOk && passOk)
             {
-                var claims = new[] { new Claim(ClaimTypes.Name, model.Username) };
+                _failedLogins.TryRemove(ip, out _);
+                var claims = new[] { new Claim(ClaimTypes.Name, model.Username ?? string.Empty) };
                 var identity = new ClaimsIdentity(claims, "Admin");
                 await HttpContext.SignInAsync("Admin", new ClaimsPrincipal(identity));
                 return RedirectToAction(nameof(Index));
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid username or password.");
+            RecordFailedLogin(ip);
+            ViewData["Error"] = "Invalid username or password.";
             return View(model);
+        }
+
+        private static bool IsLoginRateLimited(string ip)
+        {
+            var now = DateTime.UtcNow;
+            var attempts = _failedLogins.GetOrAdd(ip, _ => new List<DateTime>());
+            lock (attempts)
+            {
+                attempts.RemoveAll(a => a < now.AddMinutes(-15));
+                return attempts.Count >= 10;
+            }
+        }
+
+        private static void RecordFailedLogin(string ip)
+        {
+            var now = DateTime.UtcNow;
+            var attempts = _failedLogins.GetOrAdd(ip, _ => new List<DateTime>());
+            lock (attempts)
+            {
+                attempts.RemoveAll(a => a < now.AddMinutes(-15));
+                attempts.Add(now);
+            }
         }
 
         [HttpPost("logout")]
@@ -159,8 +230,134 @@ namespace ZeroSports.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Scrape(CancellationToken cancellationToken)
         {
-            await _scrapper.ScrapeAndSaveAsync(cancellationToken);
+            try
+            {
+                await _scrapper.ScrapeAndSaveAsync(CancellationToken.None);
+                TempData["ScrapeMessage"] = "Re-scrape completed.";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Manual re-scrape failed.");
+                TempData["ScrapeError"] = "Re-scrape failed: " + ex.Message;
+            }
+
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet("match/{slug}")]
+        public async Task<IActionResult> MatchDetails(string slug, CancellationToken cancellationToken)
+        {
+            var match = await _admin.GetMatchBySlugAsync(slug, cancellationToken);
+            if (match is null)
+            {
+                return NotFound();
+            }
+
+            return View(match);
+        }
+
+        [HttpPost("category/hide/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleCategoryHidden(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.ToggleCategoryHiddenAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("category/move/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MoveCategory(string slug, string direction, CancellationToken cancellationToken)
+        {
+            await _admin.MoveCategoryAsync(slug, direction, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/enable/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleMatchEnabled(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.ToggleMatchEnabledAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/important/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleImportant(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.ToggleImportantAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/live/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleMatchLive(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.ToggleMatchLiveAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/ended/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleMatchEnded(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.ToggleMatchEndedAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/move/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MoveMatch(string slug, string direction, CancellationToken cancellationToken)
+        {
+            await _admin.MoveMatchAsync(slug, direction, cancellationToken);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("match/players/refresh/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RefreshPlayers(string slug, CancellationToken cancellationToken)
+        {
+            await _admin.RefreshMatchPlayersAsync(slug, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
+        }
+
+        [HttpPost("match/player/add/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddPlayer(string slug, string name, string url, CancellationToken cancellationToken)
+        {
+            await _admin.AddPlayerAsync(slug, name, url, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
+        }
+
+        [HttpPost("match/player/toggle/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> TogglePlayer(string slug, int index, CancellationToken cancellationToken)
+        {
+            await _admin.TogglePlayerAsync(slug, index, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
+        }
+
+        [HttpPost("match/player/move/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MovePlayer(string slug, int index, string direction, CancellationToken cancellationToken)
+        {
+            await _admin.MovePlayerAsync(slug, index, direction, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
+        }
+
+        [HttpPost("match/player/save/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SavePlayer(string slug, int index, string url, CancellationToken cancellationToken)
+        {
+            await _admin.SavePlayerAsync(slug, index, url, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
+        }
+
+        [HttpPost("match/player/delete/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeletePlayer(string slug, int index, CancellationToken cancellationToken)
+        {
+            await _admin.DeletePlayerAsync(slug, index, cancellationToken);
+            return RedirectToAction(nameof(MatchDetails), new { slug });
         }
     }
 }

@@ -43,11 +43,8 @@ public class ScrapperLogic : IScrapperLogic
             }
         }
 
-        raw.Matches = raw.Matches
-            .OrderBy(m => m.Status == "live" ? 0 : 1)
-            .ThenBy(m => m.StartTimeUtc)
-            .ToList();
-
+        // Preserve the stored order so manual re-ordering (MoveMatch / MoveCategory
+        // in the admin panel) is reflected on the public site exactly as configured.
         return raw;
     }
 
@@ -56,8 +53,108 @@ public class ScrapperLogic : IScrapperLogic
         var data = await _scraper.ScrapeAsync(cancellationToken);
         data.NormalizeTimes = false;
         data.ScrapedAtUtc = DateTime.UtcNow;
+
+        var existing = await _provider.LoadRawAsync();
+        if (existing.Leagues.Count != 0 || existing.Matches.Count != 0)
+        {
+            MergePreserveCustom(data, existing);
+        }
+
         await _provider.SaveAsync(data, cancellationToken);
         return data;
+    }
+
+    /// <summary>
+    /// Replaces scraped content but keeps admin overrides (hidden categories,
+    /// match enable/important/live/ended flags, custom leagues/matches and any
+    /// custom player edits) so an auto-scrape never destroys manual changes.
+    /// Matches are correlated by <see cref="Match.Slug"/> (stable across scrapes)
+    /// because freshly scraped matches get new random Ids each run.
+    /// </summary>
+    private static void MergePreserveCustom(FixtureData scraped, FixtureData existing)
+    {
+        var scrapedSportSlugs = new HashSet<string>(
+            scraped.Sports.Select(s => s.Slug), StringComparer.OrdinalIgnoreCase);
+        foreach (var sport in existing.Sports.Where(s => s.IsCustom && !scrapedSportSlugs.Contains(s.Slug)))
+        {
+            scraped.Sports.Add(sport);
+        }
+
+        var scrapedLeagueSlugs = new HashSet<string>(
+            scraped.Leagues.Select(l => l.Slug), StringComparer.OrdinalIgnoreCase);
+        foreach (var league in scraped.Leagues)
+        {
+            var prior = existing.Leagues.FirstOrDefault(l => l.Slug == league.Slug);
+            if (prior is not null)
+            {
+                league.Hidden = prior.Hidden;
+                league.IsCustom = prior.IsCustom;
+            }
+        }
+        foreach (var league in existing.Leagues.Where(l => l.IsCustom && !scrapedLeagueSlugs.Contains(l.Slug)))
+        {
+            scraped.Leagues.Add(league);
+        }
+
+        foreach (var match in scraped.Matches)
+        {
+            var prior = existing.Matches.FirstOrDefault(m => m.Slug == match.Slug);
+            if (prior is null)
+            {
+                continue;
+            }
+
+            match.Enabled = prior.Enabled;
+            match.Important = prior.Important;
+            match.IsLive = prior.IsLive;
+            match.IsEnded = prior.IsEnded;
+            match.IsCustom = prior.IsCustom;
+            match.Players = MergePlayers(prior.Players, match.Players);
+        }
+
+        var scrapedMatchSlugs = new HashSet<string>(
+            scraped.Matches.Select(m => m.Slug), StringComparer.OrdinalIgnoreCase);
+        foreach (var match in existing.Matches.Where(m => m.IsCustom && !scrapedMatchSlugs.Contains(m.Slug)))
+        {
+            scraped.Matches.Add(match);
+        }
+    }
+
+    /// <summary>
+    /// Keeps admin-added players and preserves enable/disable state for players
+    /// that still exist on the source, while appending any genuinely new players
+    /// the scrape discovered. Existing order is preserved so manual re-ordering
+    /// of players survives a re-scrape.
+    /// </summary>
+    private static List<Player> MergePlayers(List<Player> existing, List<Player> fetched)
+    {
+        var result = new List<Player>();
+
+        foreach (var player in existing)
+        {
+            if (player.IsCustom)
+            {
+                result.Add(player);
+                continue;
+            }
+
+            var match = fetched.FirstOrDefault(f => string.Equals(f.Url, player.Url, StringComparison.OrdinalIgnoreCase));
+            if (match is not null)
+            {
+                match.Enabled = player.Enabled;
+                result.Add(match);
+            }
+        }
+
+        foreach (var player in fetched)
+        {
+            if (!result.Any(r => string.Equals(r.Url, player.Url, StringComparison.OrdinalIgnoreCase)))
+            {
+                result.Add(player);
+            }
+        }
+
+        return result;
     }
 
     public async Task<List<Sport>> GetSportsAsync()
