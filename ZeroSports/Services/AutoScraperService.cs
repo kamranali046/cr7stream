@@ -24,25 +24,74 @@ public class AutoScraperService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        // Two independent background loops: a daily full scrape and a frequent
+        // live-window monitor that keeps live/ended flags and player lists fresh.
+        var dailyTask = RunDailyScrapeLoop(stoppingToken);
+        var liveTask = RunLiveWindowLoop(stoppingToken);
+
+        await Task.WhenAll(dailyTask, liveTask);
+    }
+
+    private async Task RunLiveWindowLoop(CancellationToken stoppingToken)
+    {
         while (!stoppingToken.IsCancellationRequested)
         {
-            int intervalMinutes;
+            try
+            {
+                using var scope = _scopeFactory.CreateScope();
+                var scrapper = scope.ServiceProvider.GetRequiredService<IScrapperLogic>();
+                await scrapper.ProcessLiveWindowsAsync(stoppingToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Live-window processing failed.");
+            }
+
+            try
+            {
+                await Task.Delay(TimeSpan.FromMinutes(2), stoppingToken);
+            }
+            catch (OperationCanceledException)
+            {
+                break;
+            }
+        }
+    }
+
+    private async Task RunDailyScrapeLoop(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            TimeSpan dailyTime;
             try
             {
                 using var scope = _scopeFactory.CreateScope();
                 var settings = scope.ServiceProvider.GetRequiredService<IScraperSettingsProvider>();
                 var cfg = await settings.LoadAsync(stoppingToken);
-                intervalMinutes = Math.Max(1, cfg.IntervalMinutes);
+                dailyTime = TimeSpan.TryParse(cfg.DailyScrapeTime, out var parsed)
+                    ? parsed
+                    : new TimeSpan(9, 0, 0);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to read scraper settings.");
-                intervalMinutes = 60;
+                _logger.LogError(ex, "Failed to read scraper settings. Using default 09:00.");
+                dailyTime = new TimeSpan(9, 0, 0);
             }
+
+            // Wait until the next daily run time (local time).
+            var now = DateTime.Now;
+            var next = new DateTime(now.Year, now.Month, now.Day,
+                dailyTime.Hours, dailyTime.Minutes, 0);
+            if (next <= now)
+            {
+                next = next.AddDays(1);
+            }
+
+            _logger.LogInformation("Next auto-scrape scheduled for {Time}.", next);
 
             try
             {
-                await Task.Delay(TimeSpan.FromMinutes(intervalMinutes), stoppingToken);
+                await Task.Delay(next - now, stoppingToken);
             }
             catch (OperationCanceledException)
             {
@@ -58,7 +107,7 @@ public class AutoScraperService : BackgroundService
             {
                 using var scope = _scopeFactory.CreateScope();
                 var scrapper = scope.ServiceProvider.GetRequiredService<IScrapperLogic>();
-                await scrapper.ScrapeAndSaveAsync(stoppingToken);
+                await scrapper.ScrapeAndSaveAsync(stoppingToken, drillPlayers: false);
                 _logger.LogInformation("Auto-scrape completed.");
             }
             catch (Exception ex)

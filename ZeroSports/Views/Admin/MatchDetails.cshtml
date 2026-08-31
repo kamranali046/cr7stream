@@ -13,9 +13,8 @@
                 @if (live) { <span class="admin-badge live">LIVE</span> }
                 else if (ended) { <span class="admin-badge replay">ENDED</span> }
                 @if (Model.Important) { <span class="admin-badge important">&#9733;</span> }
-                @if (!Model.Enabled) { <span class="admin-badge replay">disabled</span> }
             </h3>
-            <div class="cat-meta">league: @Model.LeagueSlug · @Model.StartTimeUtc.ToString("u")</div>
+            <div class="cat-meta">league: @Model.LeagueSlug · @Model.StartTimeUtc.AddHours(5).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture) PKT</div>
         </div>
         <a class="btn btn-sm btn-outline-light" asp-action="Index">&#8592; Back to dashboard</a>
     </div>

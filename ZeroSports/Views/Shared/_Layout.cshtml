@@ -4,6 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ZeroSports</title>
+    <meta name="description" content="@(ViewData["MetaDescription"] ?? "ZeroSports - Watch free live sports streams for Football, UFC, Boxing, F1, NBA, NFL, NHL and more. HD links, instant access, no signup required.")" />
+    <meta name="keywords" content="live sports streams, free sports streaming, football live stream, UFC stream, NBA stream, NFL stream, F1 live, watch sports online, boxing stream, hockey stream" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@ViewData["Title"] - ZeroSports" />
+    <meta property="og:description" content="@(ViewData["MetaDescription"] ?? "Watch free HD live sports streams - Football, UFC, Boxing, F1, NBA, NFL, NHL. No signup, instant access.")" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://zerosports.st/" />
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>

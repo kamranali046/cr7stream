@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ZeroSports.Logic;
+using ZeroSports.Logic.Models;
 
 namespace ZeroSports.Controllers
 {
@@ -16,11 +17,6 @@ namespace ZeroSports.Controllers
         public async Task<IActionResult> Sport(string sport)
         {
             var model = await _logic.GetBySportAsync(sport);
-            if (model is null)
-            {
-                return NotFound();
-            }
-
             return View(model);
         }
 
@@ -33,6 +29,20 @@ namespace ZeroSports.Controllers
                 return NotFound();
             }
 
+            return View(model);
+        }
+
+        [Route("hd/{slug}/players")]
+        public async Task<IActionResult> Players(string slug)
+        {
+            var players = await _logic.GetMatchPlayersAsync(slug);
+            return Json(players ?? new List<Player>());
+        }
+
+        [Route("team/{slug}")]
+        public async Task<IActionResult> Team(string slug)
+        {
+            var model = await _logic.GetByTeamAsync(slug);
             return View(model);
         }
     }

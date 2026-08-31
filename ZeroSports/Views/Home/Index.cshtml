@@ -3,61 +3,145 @@
     ViewData["Title"] = "ZeroSports - Watch Live Sports Streams";
 }
 
-<div class="hero">
-    <h1>Live Sports Streams</h1>
-    <p class="muted">Football, UFC, Boxing, F1, NBA, NFL, NHL & more. HD links, instant access, no signup.</p>
-</div>
+<h1 class="visually-hidden">Watch Live Sports Streams Free – Football, UFC, NBA, NFL, F1 &amp; More</h1>
 
-<h2 class="section-title">Top Leagues</h2>
-<div class="chip-grid">
-    @foreach (var league in Model.TopLeagues)
-    {
-        <a class="chip" asp-controller="Matches" asp-action="Sport" asp-route-sport="@league.SportSlug">
-            <img src="@(string.IsNullOrEmpty(league.Logo) ? "/img/category-placeholder.svg" : league.Logo)" alt="@league.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
-            @league.Name
-        </a>
-    }
-</div>
-
-@if (Model.ImportantMatches.Any())
-{
-    <section class="league-section important-section">
-        <div class="league-head">
-            <span class="badge-important" title="Important">&#9733;</span>
-            <h3>@Categories.ImportantMatchesName</h3>
-        </div>
-        <div class="match-list">
-            @foreach (var match in Model.ImportantMatches)
+<div class="home-layout">
+    <aside class="home-rail">
+        <h2 class="section-title">Top Leagues</h2>
+        <div class="chip-grid rail-chips">
+            @foreach (var league in Model.TopLeagues)
             {
-                await Html.RenderPartialAsync("_MatchCard", match);
+                <a class="chip" asp-controller="Matches" asp-action="Sport" asp-route-sport="@league.SportSlug">
+                    <img src="@(string.IsNullOrEmpty(league.Logo) ? "/img/category-placeholder.svg" : league.Logo)" alt="@league.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
+                    @league.Name
+                </a>
             }
         </div>
-    </section>
-}
 
-@foreach (var sec in Model.Sections)
-{
-    <section class="league-section">
-        <div class="league-head">
-            <img src="@(string.IsNullOrEmpty(sec.League.Logo) ? "/img/category-placeholder.svg" : sec.League.Logo)" alt="@sec.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
-            <h3>@sec.League.Name</h3>
-        </div>
-        <div class="match-list">
-            @foreach (var match in sec.Matches)
+        <h2 class="section-title">Top Teams</h2>
+        <div class="chip-grid rail-chips">
+            @foreach (var team in Model.TopTeams)
             {
-                await Html.RenderPartialAsync("_MatchCard", match);
+                <a class="chip" asp-controller="Matches" asp-action="Team" asp-route-slug="@team.Slug">
+                    <img src="@(string.IsNullOrEmpty(team.Logo) ? "/img/match-placeholder.svg" : team.Logo)" alt="@team.Name" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
+                    @team.Name
+                </a>
             }
         </div>
-    </section>
-}
+    </aside>
 
-<h2 class="section-title">Top Teams</h2>
-<div class="chip-grid">
-    @foreach (var team in Model.TopTeams)
-    {
-        <span class="chip">
-            <img src="@(string.IsNullOrEmpty(team.Logo) ? "/img/match-placeholder.svg" : team.Logo)" alt="@team.Name" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
-            @team.Name
-        </span>
-    }
+    <main class="home-feed">
+        @if (Model.ImportantMatches.Any())
+        {
+            <section class="league-section important-section">
+                <div class="league-head">
+                    <span class="badge-important" title="Important">&#9733;</span>
+                    <h3>@Categories.ImportantMatchesName</h3>
+                </div>
+                <div class="match-list">
+                    @foreach (var match in Model.ImportantMatches)
+                    {
+                        await Html.RenderPartialAsync("_MatchCard", match);
+                    }
+                </div>
+            </section>
+        }
+
+        @foreach (var sec in Model.Sections)
+        {
+            <section class="league-section">
+                <div class="league-head">
+                    <img src="@(string.IsNullOrEmpty(sec.League.Logo) ? "/img/category-placeholder.svg" : sec.League.Logo)" alt="@sec.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
+                    <h3>@sec.League.Name</h3>
+                </div>
+                <div class="match-list">
+                    @foreach (var match in sec.Matches)
+                    {
+                        await Html.RenderPartialAsync("_MatchCard", match);
+                    }
+                </div>
+            </section>
+        }
+
+    <section class="seo-content">
+        <h2>Watch Live Sports Streams Free – Football, UFC, NBA, NFL, F1 &amp; More</h2>
+        <p>
+            ZeroSports is your home for <strong>free live sports streams</strong> in HD quality. From the
+            biggest <strong>football live streams</strong> and <strong>UFC fights</strong> to <strong>NBA</strong>,
+            <strong>NFL</strong>, <strong>Formula 1</strong>, boxing, hockey and beyond – we bring every kick-off,
+            tip-off and lights-out moment to one place. No signup, no surveys, no hidden fees: just open the
+            match and start watching.
+        </p>
+        <p>
+            Our streaming index pulls together the web's most reliable broadcast links so you never miss a
+            <strong>live sports event</strong>. Whether you follow the Premier League, Champions League,
+            UFC pay-per-views, NBA playoffs, NFL Sunday or the F1 Grand Prix, ZeroSports keeps an up-to-date
+            schedule of upcoming and <strong>live matches</strong> with multiple stream sources for every game.
+        </p>
+        <p>
+            Looking for a specific team or competition? Browse the fixtures above by league, or jump straight
+            to a sport from the top navigation. Each match page gathers every available
+            <strong>live stream link</strong> in one spot, so if a source drops you can switch to another
+            without missing the action. Kick-off times are shown in your local time and update automatically
+            as the event goes live.
+        </p>
+
+        <h3>Why watch on ZeroSports?</h3>
+        <ul>
+            <li><strong>100% free</strong> – watch live sports online without subscriptions.</li>
+            <li><strong>HD streams</strong> with multiple backup links for every match.</li>
+            <li><strong>All sports, one page</strong> – football, UFC, boxing, basketball, American football, Formula 1, hockey and more.</li>
+            <li><strong>Updated in real time</strong> – fixtures, kick-off times and live status refresh automatically.</li>
+            <li><strong>Mobile friendly</strong> – stream live sports on your phone, tablet or smart TV.</li>
+        </ul>
+
+        <h3>Stream in HD on any device</h3>
+        <p>
+            ZeroSports works in every modern browser, so you can <strong>watch live sports streams</strong> on
+            Windows, macOS, Android, iOS and smart TVs with no extra software. Links are optimised for both
+            Wi-Fi and mobile data, and the player loads instantly so you can catch the start of the match
+            instead of fighting with setup. Bookmark the homepage and you'll always have tonight's
+            <strong>live football</strong>, <strong>UFC</strong> and <strong>NBA</strong> streams one tap away.
+        </p>
+
+        <h3>Popular events you can watch live</h3>
+        <p>
+            From weekend <strong>Premier League</strong> and <strong>La Liga</strong> clashes to
+            <strong>Champions League</strong> nights, <strong>UFC Fight Night</strong> and numbered pay-per-views,
+            <strong>NBA</strong> regular season and finals, <strong>NFL</strong> games, <strong>Formula 1</strong>
+            race weekends, boxing title fights and <strong>NHL</strong> hockey – if it's live, it's here. Our
+            schedule covers the full season across every major sport, with the most anticipated events
+            highlighted so you never miss a marquee matchup.
+        </p>
+
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq">
+            <details>
+                <summary>Is ZeroSports really free?</summary>
+                <p>Yes. ZeroSports is completely free to use. There are no accounts to create and no payments – simply pick a match and watch the live stream.</p>
+            </details>
+            <details>
+                <summary>Which sports can I watch live?</summary>
+                <p>You can watch live streams for football (soccer), UFC and MMA, boxing, NBA basketball, NFL, Formula 1, hockey, cricket, tennis and many more, all listed on the homepage as they go live.</p>
+            </details>
+            <details>
+                <summary>Do I need to sign up or download anything?</summary>
+                <p>No. ZeroSports streams play directly in your browser. There is no registration, no app to install and no software to download.</p>
+            </details>
+            <details>
+                <summary>What if a stream link is not working?</summary>
+                <p>Every match lists several stream sources. If one link fails, simply choose another from the same match page to keep watching.</p>
+            </details>
+            <details>
+                <summary>Can I watch on my phone?</summary>
+                <p>Absolutely. ZeroSports is fully responsive, so you can watch live sports streams on any smartphone, tablet or desktop browser.</p>
+            </details>
+        </div>
+
+        <p class="seo-note">
+            ZeroSports is an index of publicly available sports broadcasts. We do not host the streams ourselves;
+            we organise links so fans can find a <strong>free live sports stream</strong> for the events they love.
+        </p>
+    </section>
+    </main>
 </div>

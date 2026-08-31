@@ -33,10 +33,9 @@ public class HomeControllerLogic : IHomeControllerLogic
         // area (the renamed "important-matches" league). Admin-starred matches
         // always show here, even if their real league is hidden.
         var importantMatches = fixtures.Matches
-            .Where(m => m.Enabled
-                        && (m.Important
-                            || (string.Equals(m.LeagueSlug, Categories.ImportantMatchesSlug, StringComparison.OrdinalIgnoreCase)
-                                && !hiddenLeagues.Contains(m.LeagueSlug))))
+            .Where(m => m.Important
+                        || (string.Equals(m.LeagueSlug, Categories.ImportantMatchesSlug, StringComparison.OrdinalIgnoreCase)
+                            && !hiddenLeagues.Contains(m.LeagueSlug)))
             .ToList();
 
         var sections = visibleLeagues
@@ -45,8 +44,7 @@ public class HomeControllerLogic : IHomeControllerLogic
             {
                 League = league,
                 Matches = fixtures.Matches
-                    .Where(m => m.Enabled
-                                && string.Equals(m.LeagueSlug, league.Slug, StringComparison.OrdinalIgnoreCase))
+                    .Where(m => string.Equals(m.LeagueSlug, league.Slug, StringComparison.OrdinalIgnoreCase))
                     .ToList()
             })
             .Where(section => section.Matches.Count > 0)

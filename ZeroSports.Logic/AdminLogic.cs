@@ -40,7 +40,6 @@ public interface IAdminLogic
     Task MoveCategoryAsync(string slug, string direction, CancellationToken cancellationToken = default);
 
     // Match management
-    Task ToggleMatchEnabledAsync(string slug, CancellationToken cancellationToken = default);
     Task ToggleImportantAsync(string slug, CancellationToken cancellationToken = default);
     Task ToggleMatchLiveAsync(string slug, CancellationToken cancellationToken = default);
     Task ToggleMatchEndedAsync(string slug, CancellationToken cancellationToken = default);
@@ -245,19 +244,6 @@ public class AdminLogic : IAdminLogic
         await _provider.SaveAsync(data, cancellationToken);
     }
 
-    public async Task ToggleMatchEnabledAsync(string slug, CancellationToken cancellationToken = default)
-    {
-        var data = await _provider.LoadRawAsync();
-        var match = data.Matches.FirstOrDefault(m => m.Slug == slug);
-        if (match is null)
-        {
-            return;
-        }
-
-        match.Enabled = !match.Enabled;
-        await _provider.SaveAsync(data, cancellationToken);
-    }
-
     public async Task ToggleImportantAsync(string slug, CancellationToken cancellationToken = default)
     {
         var data = await _provider.LoadRawAsync();
@@ -285,6 +271,7 @@ public class AdminLogic : IAdminLogic
         {
             match.IsEnded = false;
         }
+        match.LiveStateLocked = true;
 
         await _provider.SaveAsync(data, cancellationToken);
     }
@@ -303,6 +290,7 @@ public class AdminLogic : IAdminLogic
         {
             match.IsLive = false;
         }
+        match.LiveStateLocked = true;
 
         await _provider.SaveAsync(data, cancellationToken);
     }
@@ -473,11 +461,6 @@ public class AdminLogic : IAdminLogic
 
     public async Task SaveSettingsAsync(ScraperSettings settings, CancellationToken cancellationToken = default)
     {
-        if (settings.IntervalMinutes < 1)
-        {
-            settings.IntervalMinutes = 1;
-        }
-
         await _settings.SaveAsync(settings, cancellationToken);
     }
 }

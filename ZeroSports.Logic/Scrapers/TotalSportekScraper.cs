@@ -8,7 +8,7 @@ namespace ZeroSports.Logic.Scrapers;
 
 public interface ITotalSportekScraper
 {
-    Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default);
+    Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default, bool drillPlayers = false);
     Task<List<Player>> GetPlayersAsync(string matchUrl, CancellationToken cancellationToken = default);
 }
 
@@ -67,7 +67,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         _settings = settings;
     }
 
-    public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default)
+    public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default, bool drillPlayers = false)
     {
         var settings = _settings is null
             ? new ScraperSettings()
@@ -176,19 +176,53 @@ public class TotalSportekScraper : ITotalSportekScraper
         data.Teams = teams.Values.ToList();
         data.Matches = matches;
 
-        // Pull the player/stream list for matches that are live or close to
-        // kickoff (total-sportek publishes players ~1h before start).
-        var lead = TimeSpan.FromMinutes(settings.PlayerFetchLeadMinutes);
-        var now = DateTime.UtcNow;
-        foreach (var match in matches)
+        // Seed the admin live/ended flags from the source status so the public site
+        // auto-detects live/ended matches. Admin overrides (set via the dashboard)
+        // are preserved across scrapes in MergePreserveCustom.
+        foreach (var mt in data.Matches)
         {
-            match.Players = new List<Player>();
-            var beforeStart = match.StartTimeUtc - now;
-            var eligible = match.Status == "live"
-                           || (beforeStart <= lead && beforeStart > TimeSpan.FromHours(-3));
-            if (eligible && !string.IsNullOrWhiteSpace(match.SourceUrl))
+            mt.IsLive = mt.Status == "live";
+            mt.IsEnded = mt.Status == "replay";
+        }
+
+        // When drillPlayers is requested (e.g. an explicit manual re-scrape), also
+        // pre-populate player lists for matches that are live or about to start
+        // (within PlayerFetchLeadMinutes). Only these few matches are drilled and
+        // the work is capped/throttled so it stays reasonably fast, while the
+        // scheduled daily scrape leaves this off and stays instant (fixtures only).
+        // Visitors also get players on demand via GetPlayersAsync + the AJAX
+        // player endpoint regardless of this setting.
+        if (drillPlayers)
+        {
+            var lead = TimeSpan.FromMinutes(settings.PlayerFetchLeadMinutes);
+            var now = DateTime.UtcNow;
+            var eligible = matches.Where(m =>
             {
-                match.Players = await ExtractPlayersAsync(match.SourceUrl, cancellationToken);
+                if (string.IsNullOrWhiteSpace(m.SourceUrl)) return false;
+                if (m.Status == "live") return true;
+                var before = m.StartTimeUtc - now;
+                return before <= lead && before > TimeSpan.FromHours(-3);
+            })
+                .OrderByDescending(m => m.Status == "live")
+                .Take(30)
+                .ToList();
+
+            if (eligible.Count > 0)
+            {
+                using var sem = new SemaphoreSlim(6);
+                var tasks = eligible.Select(async m =>
+                {
+                    await sem.WaitAsync(cancellationToken);
+                    try
+                    {
+                        m.Players = await ExtractPlayersHttpAsync(m.SourceUrl!, cancellationToken, maxPlayers: 6);
+                    }
+                    finally
+                    {
+                        sem.Release();
+                    }
+                });
+                await Task.WhenAll(tasks);
             }
         }
 
@@ -197,10 +231,32 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     public async Task<List<Player>> GetPlayersAsync(string matchUrl, CancellationToken cancellationToken = default)
     {
-        return await ExtractPlayersAsync(matchUrl, cancellationToken);
+        // All player extraction is done over plain HTTP: parse the player rows on the
+        // match page and drill each provider/wrapper page once to pull its <iframe src>.
+        // No headless browser is required (fast and reliable in production).
+        return await ExtractPlayersHttpAsync(matchUrl, cancellationToken);
     }
 
-    private async Task<List<Player>> ExtractPlayersAsync(string url, CancellationToken cancellationToken)
+    private static bool IsJunkHost(Uri uri)
+    {
+        var h = uri.Host.ToLowerInvariant();
+        return h.Contains("chatango.")
+               || h.Contains("doubleclick.")
+               || h.Contains("googlesyndication.")
+               || h.Contains("google.")
+               || h.Contains("facebook.")
+               || h.Contains("twitter.")
+               || h.Contains("instagram.")
+               || h.Contains("t.co")
+               || h.Contains("crwdcntrl.")
+               || h.Contains("criteo.")
+               || h.Contains("adsystem.")
+               || h.Contains("adnxs.")
+               || h.Contains("pubmatic.")
+               || h.Contains("amazon-adsystem.");
+    }
+
+    private async Task<List<Player>> ExtractPlayersHttpAsync(string url, CancellationToken cancellationToken, int maxPlayers = 10)
     {
         var players = new List<Player>();
         if (string.IsNullOrWhiteSpace(url))
@@ -208,82 +264,244 @@ public class TotalSportekScraper : ITotalSportekScraper
             return players;
         }
 
-        try
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var baseHost = SafeHost(_baseUrl);
+
+        var html = await FetchHtmlAsync(MakeAbsolute(url), cancellationToken);
+        if (html is null)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, MakeAbsolute(url));
-            request.Headers.UserAgent.ParseAdd(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
-            using var response = await _http.SendAsync(request, cancellationToken);
-            if (!response.IsSuccessStatusCode)
+            return players;
+        }
+
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        // The player list is rendered in dedicated rows (.data-row / .btn-watch, and
+        // the #streams .table-row table). Each row links to a provider/wrapper page
+        // that hosts the real player iframe. Per the reference Node scraper we don't
+        // need a browser: we just fetch each wrapper once and grab its <iframe src>.
+        var linkXpaths = new[]
+        {
+            "//div[@id='streams']//a[@href]",
+            "//*[contains(concat(' ',normalize-space(@class),' '),' data-row ')]//a[@href]",
+            "//*[contains(concat(' ',normalize-space(@class),' '),' btn-watch ')]//a[@href]",
+        };
+
+        var candidates = new List<(string Href, string Name)>();
+        foreach (var xp in linkXpaths)
+        {
+            foreach (var a in doc.DocumentNode.SelectNodes(xp) ?? Enumerable.Empty<HtmlNode>())
             {
-                return players;
-            }
+                var href = MakeAbsolute(a.GetAttributeValue("href", ""));
+                if (!IsValidPlayerCandidate(href, baseHost))
+                {
+                    continue;
+                }
 
-            var html = await response.Content.ReadAsStringAsync(cancellationToken);
-            var doc = new HtmlDocument();
-            doc.LoadHtml(html);
+                var name = System.Net.WebUtility.HtmlDecode((a.InnerText ?? "").Trim());
+                name = System.Text.RegularExpressions.Regex.Replace(name, @"&(?:#x?[0-9A-Fa-f]+|[a-z]+);?", " ").Trim();
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    var row = a.Ancestors("div")
+                        .FirstOrDefault(d => d.GetAttributeValue("class", "").Contains("data-row"))
+                              ?? a.ParentNode;
+                    name = System.Net.WebUtility.HtmlDecode((row?.InnerText ?? "").Trim());
+                    name = System.Text.RegularExpressions.Regex.Replace(name, @"&(?:#x?[0-9A-Fa-f]+|[a-z]+);?", " ").Trim();
+                }
+                if (name.Length > 40) name = name[..40];
 
-            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            var baseHost = SafeHost(_baseUrl);
-
-            foreach (var iframe in doc.DocumentNode.SelectNodes("//iframe") ?? Enumerable.Empty<HtmlNode>())
-            {
-                AddPlayer(players, seen, iframe.GetAttributeValue("src", ""), baseHost);
-            }
-
-            foreach (var a in doc.DocumentNode.SelectNodes("//a") ?? Enumerable.Empty<HtmlNode>())
-            {
-                AddPlayer(players, seen, a.GetAttributeValue("href", ""), baseHost);
+                candidates.Add((href, name));
             }
         }
-        catch
+
+        // De-duplicate by href, preserving order.
+        var dedup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var (href, name) in candidates)
         {
-            // best-effort: a single failed match page must not break the scrape
+            if (!dedup.ContainsKey(href)) dedup[href] = name;
         }
+
+        // Drill each wrapper in parallel (bounded) so the whole fetch finishes in
+        // roughly the time of the single slowest provider rather than the sum.
+        var idx = 0;
+        var tasks = new List<Task>();
+        using var sem = new SemaphoreSlim(5);
+        foreach (var (href, name) in dedup)
+        {
+            if (idx >= maxPlayers) break;
+            idx++;
+            var h = href;
+            var n = name;
+            tasks.Add(Task.Run(async () =>
+            {
+                await sem.WaitAsync(cancellationToken);
+                try
+                {
+                    var resolved = await ResolvePlayerIframeAsync(h, cancellationToken);
+                    var finalUrl = resolved ?? h;
+                    lock (players)
+                    {
+                        AddPlayer(players, seen, finalUrl, baseHost,
+                            string.IsNullOrWhiteSpace(n) ? null : n, strict: false);
+                    }
+                }
+                finally
+                {
+                    sem.Release();
+                }
+            }, cancellationToken));
+        }
+
+        await Task.WhenAll(tasks);
 
         return players;
     }
 
-    private void AddPlayer(List<Player> players, HashSet<string> seen, string raw, string? baseHost)
+    /// <summary>
+    /// Fetches a provider/wrapper page once and returns the src of its first
+    /// non-junk &lt;iframe&gt;. The wrapper page (e.g. .../stream-1.php) is itself
+    /// the embeddable URL — it internally frames the real player with the correct
+    /// referer, whereas the inner player host rejects direct/third-party requests
+    /// (403). We therefore return the wrapper URL, and the front-end iframe uses
+    /// referrerpolicy="no-referrer" so the wrapper loads (the host allows a missing
+    /// referer) and then chains to the actual stream.
+    /// </summary>
+    private async Task<string?> ResolvePlayerIframeAsync(string wrapperUrl, CancellationToken ct)
+    {
+        try
+        {
+            var innerHtml = await FetchHtmlAsync(wrapperUrl, ct, TimeSpan.FromSeconds(12));
+            if (innerHtml is null) return null;
+
+            var inner = new HtmlDocument();
+            inner.LoadHtml(innerHtml);
+            foreach (var f in inner.DocumentNode.SelectNodes("//iframe") ?? Enumerable.Empty<HtmlNode>())
+            {
+                var s = f.GetAttributeValue("src", "");
+                if (string.IsNullOrWhiteSpace(s)) continue;
+                var abs = MakeAbsolute(s);
+                if (Uri.TryCreate(abs, UriKind.Absolute, out var u)
+                    && u.Host.IndexOf('.') > 0
+                    && !u.Host.EndsWith(".html", StringComparison.OrdinalIgnoreCase)
+                    && !u.Host.EndsWith(".htm", StringComparison.OrdinalIgnoreCase)
+                    && !IsJunkHost(u))
+                {
+                    return abs;
+                }
+            }
+        }
+        catch
+        {
+            // best-effort
+        }
+
+        return null;
+    }
+
+    private async Task<string?> FetchHtmlAsync(string url, CancellationToken ct, TimeSpan? timeout = null)
+    {
+        try
+        {
+            var effective = timeout ?? TimeSpan.FromSeconds(15);
+            using var innerCts = CancellationTokenSource.CreateLinkedTokenSource(ct, new CancellationTokenSource(effective).Token);
+            var token = innerCts.Token;
+
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            request.Headers.UserAgent.ParseAdd(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
+            using var response = await _http.SendAsync(request, token);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            return await response.Content.ReadAsStringAsync(token);
+        }
+        catch
+        {
+            // best-effort: a single failed page must not break the scrape
+            return null;
+        }
+    }
+
+    private static bool IsValidPlayerCandidate(string raw, string? baseHost)
     {
         if (string.IsNullOrWhiteSpace(raw))
         {
-            return;
+            return false;
         }
 
-        var url = MakeAbsolute(raw);
-        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+        if (!Uri.TryCreate(raw, UriKind.Absolute, out var uri))
         {
-            return;
+            return false;
         }
 
         if (!string.Equals(uri.Scheme, "http", StringComparison.OrdinalIgnoreCase)
             && !string.Equals(uri.Scheme, "https", StringComparison.OrdinalIgnoreCase))
         {
-            return;
+            return false;
         }
 
         if (baseHost is not null && string.Equals(uri.Host, baseHost, StringComparison.OrdinalIgnoreCase))
         {
-            return;
+            return false;
         }
 
-        if (!LooksLikePlayer(uri))
+        // Provider/wrapper links often don't contain "stream" in their own path, so we
+        // only reject obvious tracking/ad hosts here. The resolved iframe is validated later.
+        return !IsJunkHost(uri);
+    }
+
+    private bool AddPlayer(List<Player> players, HashSet<string> seen, string raw, string? baseHost)
+        => AddPlayer(players, seen, raw, baseHost, null, true);
+
+    private bool AddPlayer(List<Player> players, HashSet<string> seen, string raw, string? baseHost, string? name, bool strict = true)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
         {
-            return;
+            return false;
+        }
+
+        var url = MakeAbsolute(raw);
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+        {
+            return false;
+        }
+
+        if (!string.Equals(uri.Scheme, "http", StringComparison.OrdinalIgnoreCase)
+            && !string.Equals(uri.Scheme, "https", StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+
+        if (baseHost is not null && string.Equals(uri.Host, baseHost, StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+
+        if (IsJunkHost(uri))
+        {
+            return false;
+        }
+
+        if (strict && !LooksLikePlayer(uri))
+        {
+            return false;
         }
 
         if (!seen.Add(uri.AbsoluteUri))
         {
-            return;
+            return false;
         }
 
         players.Add(new Player
         {
-            Name = $"Player {players.Count + 1}",
+            Name = string.IsNullOrWhiteSpace(name) ? $"Player {players.Count + 1}" : name!,
             Url = uri.AbsoluteUri,
             Enabled = true
         });
+
+        return true;
     }
 
     private static bool LooksLikePlayer(Uri uri)
@@ -511,6 +729,13 @@ public class TotalSportekScraper : ITotalSportekScraper
         if (src.StartsWith("http", StringComparison.OrdinalIgnoreCase)) return src;
         if (src.StartsWith("//")) return "https:" + src;
         if (src.StartsWith("/")) return _baseUrl.TrimEnd('/') + src;
+        // Bare host, optionally with path/query (e.g. "smartcric.top//watch.html?id=1").
+        var slash = src.IndexOf('/');
+        var host = slash >= 0 ? src.Substring(0, slash) : src;
+        if (host.IndexOf('.') > 0 && !host.Contains(' ') && Uri.CheckHostName(host) != UriHostNameType.Unknown)
+        {
+            return "https://" + src;
+        }
         return src;
     }
 }

@@ -1,4 +1,4 @@
 {
   "SourceUrl": "https://total-sportek.st/",
-  "IntervalMinutes": 60
+  "DailyScrapeTime": "09:00"
 }

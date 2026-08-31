@@ -34,9 +34,22 @@ public class SportPageViewModel
     public List<Match> Matches { get; set; } = new();
 }
 
+public class TeamPageViewModel
+{
+    public Team? Team { get; set; }
+    public List<Match> Matches { get; set; } = new();
+}
+
 public class MatchDetailViewModel
 {
     public Match? Match { get; set; }
     public League? League { get; set; }
     public Sport? Sport { get; set; }
+
+    // False when the match kickoff is further away than the configured lead window,
+    // i.e. the source hasn't published players yet. The player screen then shows a
+    // "stream will be available N minutes before…" notice instead of fetching players.
+    public bool PlayersAvailable { get; set; }
+
+    public int PlayerLeadMinutes { get; set; }
 }

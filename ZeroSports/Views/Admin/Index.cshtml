@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Admin Dashboard";
     var sourceUrl = (string?)ViewData["SourceUrl"] ?? "https://total-sportek.st/";
-    var interval = ViewData["IntervalMinutes"] ?? 60;
+    var dailyScrapeTime = (string?)ViewData["DailyScrapeTime"] ?? "09:00";
     var lastScraped = ViewData["LastScraped"] as DateTime?;
 }
 
@@ -22,9 +22,9 @@
             <div class="cat-meta mb-1">
                 <strong>Source:</strong> <a href="@sourceUrl" target="_blank" style="color:var(--accent);">@sourceUrl</a>
                 <span class="mx-2">·</span>
-                <strong>Auto-scrape:</strong> every @interval min
+                <strong>Auto-scrape:</strong> daily at @dailyScrapeTime
                 <span class="mx-2">·</span>
-                <strong>Last scraped:</strong> @(lastScraped.HasValue ? lastScraped.Value.ToString("u") : "never")
+                <strong>Last scraped:</strong> @(lastScraped.HasValue ? lastScraped.Value.AddHours(5).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture) + " PKT" : "never")
             </div>
         </div>
         <a class="btn btn-sm btn-outline-light" asp-action="Settings">Edit settings</a>
@@ -100,7 +100,7 @@
                     {
                         var live = match.IsLive || match.Status == "live";
                         var ended = match.IsEnded || match.Status == "replay";
-                        <tr class="@(!match.Enabled ? "opacity-50" : "")">
+                        <tr>
                             <td>
                                 <img src="@(string.IsNullOrEmpty(match.HomeTeamLogo) ? "/img/match-placeholder.svg" : match.HomeTeamLogo)" alt="" width="24" height="24" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
                                 @match.HomeTeam
@@ -108,9 +108,8 @@
                                 <img src="@(string.IsNullOrEmpty(match.AwayTeamLogo) ? "/img/match-placeholder.svg" : match.AwayTeamLogo)" alt="" width="24" height="24" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
                                 @match.AwayTeam
                                 @if (match.Important) { <span class="admin-badge important">&#9733;</span> }
-                                @if (!match.Enabled) { <span class="admin-badge replay">off</span> }
                             </td>
-                            <td>@match.StartTimeUtc.ToString("u")</td>
+                            <td>@match.StartTimeUtc.AddHours(5).ToString("dd-MMM-yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture) PKT</td>
                             <td>
                                 @if (live) { <span class="admin-badge live">LIVE</span> }
                                 else if (ended) { <span class="admin-badge replay">ENDED</span> }
@@ -120,9 +119,6 @@
                             <td>
                                 <div class="d-flex gap-1 flex-wrap">
                                     <a class="btn btn-sm btn-outline-light" asp-action="MatchDetails" asp-route-slug="@match.Slug">Players</a>
-                                    <form asp-action="ToggleMatchEnabled" asp-route-slug="@match.Slug" method="post">
-                                        <button class="btn btn-sm btn-outline-light" type="submit">@(match.Enabled ? "Disable" : "Enable")</button>
-                                    </form>
                                     <form asp-action="ToggleImportant" asp-route-slug="@match.Slug" method="post">
                                         <button class="btn btn-sm btn-outline-light" type="submit" title="Important">&#9733;</button>
                                     </form>

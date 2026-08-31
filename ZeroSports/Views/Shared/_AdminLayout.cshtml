@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ZeroSports Admin</title>
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
@@ -12,6 +18,7 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <a class="admin-brand" asp-controller="Admin" asp-action="Index">ZeroSports <span>Admin</span></a>
             <div class="admin-nav-links">
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light / dark theme" title="Toggle light / dark theme">&#9728;</button>
                 <a class="btn btn-sm btn-outline-light" asp-controller="Admin" asp-action="Index">Dashboard</a>
                 <a class="btn btn-sm btn-outline-light" asp-controller="Admin" asp-action="CategoryCreate">Add Category</a>
                 <a class="btn btn-sm btn-outline-light" asp-controller="Home" asp-action="Index" target="_blank">View Site</a>

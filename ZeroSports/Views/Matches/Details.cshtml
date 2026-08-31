@@ -1,15 +1,20 @@
 @model ZeroSports.Logic.Models.MatchDetailViewModel
+@using ZeroSports.Logic
 @{
     var m = Model.Match!;
     ViewData["Title"] = m.HomeTeam + " vs " + m.AwayTeam + " - ZeroSports";
 
-    var isLive = m.IsLive || m.Status == "live";
     var isEnded = m.IsEnded || m.Status == "replay";
-    var enabledPlayers = m.Players.Where(p => p.Enabled).ToList();
+    var isLive = m.IsLive && !isEnded;
+    var showPlayer = !isEnded;
+    var playersAvailable = Model.PlayersAvailable;
+    var enabledPlayers = showPlayer
+        ? (m.Players ?? new List<Player>()).Where(p => p.Enabled).ToList()
+        : new List<Player>();
     var embed = enabledPlayers.FirstOrDefault()?.Url ?? m.Streams.FirstOrDefault()?.Url;
 }
 
-<div class="detail-wrap">
+<div class="detail-wrap" id="detailWrap" data-slug="@m.Slug" data-ended="@isEnded.ToString().ToLowerInvariant()" data-players-available="@playersAvailable.ToString().ToLowerInvariant()">
     <p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
 
     <div class="league-head" style="border-radius:12px;margin-bottom:14px;">
@@ -25,10 +30,10 @@
     </div>
 
     <div class="match-card" style="border-radius:12px;margin-bottom:18px;text-decoration:none;">
-        <div class="team home">
+        <a class="team home" asp-controller="Matches" asp-action="Team" asp-route-slug="@Slug.Slugify(m.HomeTeam)">
             <img src="@(string.IsNullOrEmpty(m.HomeTeamLogo) ? "/img/match-placeholder.svg" : m.HomeTeamLogo)" alt="@m.HomeTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
             <span class="name">@m.HomeTeam</span>
-        </div>
+        </a>
         <div class="match-meta">
             @if (isLive)
             {
@@ -43,42 +48,102 @@
                 <div class="countdown" data-start="@m.StartTimeUtc.ToString("o")">Starts in: --:--:--</div>
             }
         </div>
-        <div class="team away">
+        <a class="team away" asp-controller="Matches" asp-action="Team" asp-route-slug="@Slug.Slugify(m.AwayTeam)">
             <img src="@(string.IsNullOrEmpty(m.AwayTeamLogo) ? "/img/match-placeholder.svg" : m.AwayTeamLogo)" alt="@m.AwayTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
             <span class="name">@m.AwayTeam</span>
-        </div>
+        </a>
     </div>
 
-    <h2 class="section-title">Available Streams</h2>
-
-    @foreach (var player in enabledPlayers)
+    @if (isEnded)
     {
-        <button type="button" class="stream-btn" data-stream="@player.Url">@player.Name &rarr;</button>
+        <div class="ended-box">
+            <span class="badge-replay">ENDED</span>
+            <p class="muted">Match ended. No stream is available.</p>
+        </div>
     }
-    @foreach (var stream in m.Streams)
+    else if (playersAvailable)
     {
-        <button type="button" class="stream-btn" data-stream="@stream.Url">@stream.Label &rarr;</button>
-    }
+        <h2 class="section-title">Player</h2>
+        <iframe id="streamFrame" class="stream-embed" src="@embed" referrerpolicy="no-referrer" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
+        <p id="streamMsg" class="muted" style="display:@(string.IsNullOrEmpty(embed) ? "block" : "none")">Loading stream…</p>
 
-    <h2 class="section-title">Player</h2>
-    @if (!string.IsNullOrEmpty(embed))
-    {
-        <iframe id="streamFrame" class="stream-embed" src="@embed" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
+        <h2 class="section-title">Available Streams</h2>
+        <div id="streamList">
+            @if (enabledPlayers.Any())
+            {
+                @foreach (var player in enabledPlayers)
+                {
+                    <button type="button" class="stream-btn" data-stream="@player.Url">@player.Name &rarr;</button>
+                }
+            }
+            else
+            {
+                <p class="muted">Loading streams…</p>
+            }
+        </div>
     }
     else
     {
-        <p class="muted">No stream links available yet.</p>
+        <div class="ended-box">
+            <p class="muted">The stream will be available @Model.PlayerLeadMinutes minutes before the match starts.</p>
+        </div>
     }
 </div>
 
 <script>
-    document.querySelectorAll('.stream-btn[data-stream]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var frame = document.getElementById('streamFrame');
-            if (frame) {
-                frame.src = btn.getAttribute('data-stream');
-                frame.scrollIntoView({ behavior: 'smooth' });
+    (function () {
+        var wrap = document.getElementById('detailWrap');
+        if (!wrap) return;
+        var slug = wrap.getAttribute('data-slug');
+        var frame = document.getElementById('streamFrame');
+        var list = document.getElementById('streamList');
+        var msg = document.getElementById('streamMsg');
+
+        function bindButtons() {
+            document.querySelectorAll('.stream-btn[data-stream]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (frame) {
+                        frame.src = btn.getAttribute('data-stream');
+                        frame.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        function render(players) {
+            if (!list) return;
+            list.innerHTML = '';
+            if (!players || !players.length) {
+                list.innerHTML = '<p class="muted">No stream links available yet.</p>';
+                return;
             }
-        });
-    });
+            var first = true;
+            players.forEach(function (p) {
+                var url = p.url || p.Url;
+                var name = p.name || p.Name;
+                var enabled = p.enabled;
+                if (enabled === false || p.Enabled === false) return;
+                if (!url) return;
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'stream-btn';
+                b.setAttribute('data-stream', url);
+                b.textContent = (name || 'Player') + ' →';
+                list.appendChild(b);
+                if (first && frame) { frame.src = url; if (msg) msg.style.display = 'none'; first = false; }
+            });
+            if (first && msg) msg.textContent = 'No stream links available yet.';
+            bindButtons();
+        }
+
+        bindButtons();
+
+        if (wrap.getAttribute('data-ended') === 'true') return;
+        if (wrap.getAttribute('data-players-available') === 'false') return;
+
+        fetch('/hd/' + encodeURIComponent(slug) + '/players')
+            .then(function (r) { return r.json(); })
+            .then(render)
+            .catch(function () { /* keep server-rendered list */ });
+    })();
 </script>

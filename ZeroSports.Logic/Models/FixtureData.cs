@@ -51,10 +51,12 @@ public class Match
 
     // Admin flags (preserved across auto-scrapes via slug matching).
     public bool IsCustom { get; set; }
-    public bool Enabled { get; set; } = true;
     public bool Important { get; set; }
     public bool IsLive { get; set; }
     public bool IsEnded { get; set; }
+    // When true, the admin manually overrode live/ended and the scraper must
+    // NOT re-sync these flags from the source status.
+    public bool LiveStateLocked { get; set; }
     public bool Popular { get; set; }
     public int? Viewers { get; set; }
 }

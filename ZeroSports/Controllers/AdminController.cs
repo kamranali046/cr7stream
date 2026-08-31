@@ -37,7 +37,7 @@ namespace ZeroSports.Controllers
             var settings = await _admin.GetSettingsAsync(cancellationToken);
 
             ViewData["SourceUrl"] = settings.SourceUrl;
-            ViewData["IntervalMinutes"] = settings.IntervalMinutes;
+            ViewData["DailyScrapeTime"] = settings.DailyScrapeTime ?? "09:00";
             ViewData["LastScraped"] = data.ScrapedAtUtc;
 
             var categories = data.Leagues
@@ -64,9 +64,10 @@ namespace ZeroSports.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Settings(ScraperSettings model, CancellationToken cancellationToken)
         {
-            if (model.IntervalMinutes < 1)
+            if (!string.IsNullOrWhiteSpace(model.DailyScrapeTime)
+                && !TimeSpan.TryParse(model.DailyScrapeTime, out _))
             {
-                ModelState.AddModelError(nameof(model.IntervalMinutes), "Interval must be at least 1 minute.");
+                ModelState.AddModelError(nameof(model.DailyScrapeTime), "Use HH:mm (24h) format, e.g. 09:00.");
                 return View(model);
             }
 
@@ -232,7 +233,7 @@ namespace ZeroSports.Controllers
         {
             try
             {
-                await _scrapper.ScrapeAndSaveAsync(CancellationToken.None);
+                await _scrapper.ScrapeAndSaveAsync(CancellationToken.None, drillPlayers: true);
                 TempData["ScrapeMessage"] = "Re-scrape completed.";
             }
             catch (Exception ex)
@@ -269,14 +270,6 @@ namespace ZeroSports.Controllers
         public async Task<IActionResult> MoveCategory(string slug, string direction, CancellationToken cancellationToken)
         {
             await _admin.MoveCategoryAsync(slug, direction, cancellationToken);
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpPost("match/enable/{slug}")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ToggleMatchEnabled(string slug, CancellationToken cancellationToken)
-        {
-            await _admin.ToggleMatchEnabledAsync(slug, cancellationToken);
             return RedirectToAction(nameof(Index));
         }
 

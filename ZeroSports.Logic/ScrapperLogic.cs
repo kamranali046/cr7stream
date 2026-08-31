@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using ZeroSports.Logic.Models;
 using ZeroSports.Logic.Scrapers;
 using ZeroSports.Logic.Services;
@@ -7,7 +8,9 @@ namespace ZeroSports.Logic;
 public interface IScrapperLogic
 {
     Task<FixtureData> GetFixturesAsync();
-    Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default);
+    Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default, bool drillPlayers = false);
+    Task SaveFixturesAsync(FixtureData data, CancellationToken cancellationToken = default);
+    Task ProcessLiveWindowsAsync(CancellationToken cancellationToken = default);
     Task<List<Sport>> GetSportsAsync();
     Task<List<League>> GetLeaguesAsync();
     Task<List<Team>> GetTeamsAsync();
@@ -18,12 +21,19 @@ public class ScrapperLogic : IScrapperLogic
 {
     private readonly IFixtureProvider _provider;
     private readonly ITotalSportekScraper _scraper;
+    private readonly IScraperSettingsProvider _settings;
     private readonly TimeSpan _liveWindow = TimeSpan.FromHours(3);
 
-    public ScrapperLogic(IFixtureProvider provider, ITotalSportekScraper scraper)
+    // Throttles per-match player re-drills so the live-window loop (which runs
+    // every couple of minutes) doesn't hammer the source for a match that hasn't
+    // published players yet.
+    private static readonly ConcurrentDictionary<string, DateTime> LastDrill = new();
+
+    public ScrapperLogic(IFixtureProvider provider, ITotalSportekScraper scraper, IScraperSettingsProvider settings)
     {
         _provider = provider;
         _scraper = scraper;
+        _settings = settings;
     }
 
     public async Task<FixtureData> GetFixturesAsync()
@@ -48,9 +58,9 @@ public class ScrapperLogic : IScrapperLogic
         return raw;
     }
 
-    public async Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default)
+    public async Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default, bool drillPlayers = false)
     {
-        var data = await _scraper.ScrapeAsync(cancellationToken);
+        var data = await _scraper.ScrapeAsync(cancellationToken, drillPlayers);
         data.NormalizeTimes = false;
         data.ScrapedAtUtc = DateTime.UtcNow;
 
@@ -62,6 +72,119 @@ public class ScrapperLogic : IScrapperLogic
 
         await _provider.SaveAsync(data, cancellationToken);
         return data;
+    }
+
+    public async Task SaveFixturesAsync(FixtureData data, CancellationToken cancellationToken = default)
+    {
+        await _provider.SaveAsync(data, cancellationToken);
+    }
+
+    /// <summary>
+    /// Background monitor that, between daily scrapes, keeps live/ended state and
+    /// player lists fresh using the configured lead windows:
+    ///   - drills a match's players ~PlayerFetchLeadMinutes before kickoff,
+    ///   - flags the match LIVE ~LiveMarkLeadMinutes before kickoff,
+    ///   - re-drills from source immediately after going live if players are missing,
+    ///   - auto-ends a match that has been live longer than LiveAutoEndHours.
+    /// Admin-overridden matches (LiveStateLocked) are skipped so manual choices win.
+    /// </summary>
+    public async Task ProcessLiveWindowsAsync(CancellationToken cancellationToken = default)
+    {
+        var settings = await _settings.LoadAsync(cancellationToken);
+        var drillLead = TimeSpan.FromMinutes(settings.PlayerFetchLeadMinutes);
+        var liveLead = TimeSpan.FromMinutes(settings.LiveMarkLeadMinutes);
+        var autoEnd = TimeSpan.FromHours(settings.LiveAutoEndHours);
+        var now = DateTime.UtcNow;
+
+        var data = await GetFixturesAsync();
+        var changed = false;
+
+        foreach (var match in data.Matches)
+        {
+            if (match.LiveStateLocked)
+            {
+                continue;
+            }
+
+            var isEnded = match.IsEnded || match.Status == "replay";
+            if (isEnded)
+            {
+                continue;
+            }
+
+            // Auto-end a live match that has run past the configured cap.
+            if (match.IsLive && now > match.StartTimeUtc.Add(autoEnd))
+            {
+                match.IsLive = false;
+                match.IsEnded = true;
+                match.Status = "replay";
+                changed = true;
+                continue;
+            }
+
+            var timeToStart = match.StartTimeUtc - now;
+
+            // Active window: from the drill lead up until roughly the auto-end cap
+            // after kickoff. Outside this we leave the match alone.
+            var inWindow = timeToStart <= drillLead && timeToStart > -autoEnd;
+            if (inWindow && !HasEnabledPlayers(match))
+            {
+                changed |= await TryDrillPlayersAsync(match, now, drillLead, cancellationToken);
+            }
+
+            if (timeToStart <= liveLead)
+            {
+                if (!match.IsLive)
+                {
+                    match.IsLive = true;
+                    match.Status = "live";
+                    changed = true;
+                }
+
+                // Just went live (or already live) but no players yet: pull again
+                // from the source right away.
+                if (!HasEnabledPlayers(match))
+                {
+                    changed |= await TryDrillPlayersAsync(match, now, liveLead, cancellationToken);
+                }
+            }
+        }
+
+        if (changed)
+        {
+            await _provider.SaveAsync(data, cancellationToken);
+        }
+    }
+
+    private static bool HasEnabledPlayers(Match match)
+    {
+        return match.Players is { Count: > 0 } && match.Players.Any(p => p.Enabled);
+    }
+
+    private async Task<bool> TryDrillPlayersAsync(Match match, DateTime now, TimeSpan minInterval, CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(match.SourceUrl))
+        {
+            return false;
+        }
+
+        // Don't re-drill more often than the smaller of the two leads so a match
+        // whose source isn't ready yet is retried at a sane pace.
+        if (LastDrill.TryGetValue(match.Slug, out var last) && now - last < minInterval)
+        {
+            return false;
+        }
+
+        LastDrill[match.Slug] = now;
+
+        var fresh = await _scraper.GetPlayersAsync(match.SourceUrl, ct);
+        if (fresh.Count == 0)
+        {
+            return false;
+        }
+
+        match.Players = MergePlayers(match.Players, fresh);
+        return true;
     }
 
     /// <summary>
@@ -104,11 +227,24 @@ public class ScrapperLogic : IScrapperLogic
                 continue;
             }
 
-            match.Enabled = prior.Enabled;
             match.Important = prior.Important;
-            match.IsLive = prior.IsLive;
-            match.IsEnded = prior.IsEnded;
             match.IsCustom = prior.IsCustom;
+
+            // Live/ended are synced from the source status for normal matches, but
+            // once the admin manually overrides them (LiveStateLocked) the scraper
+            // must leave them alone so the dashboard's choice actually sticks.
+            if (prior.IsCustom || prior.LiveStateLocked)
+            {
+                match.IsLive = prior.IsLive;
+                match.IsEnded = prior.IsEnded;
+            }
+            else
+            {
+                match.IsLive = match.Status == "live";
+                match.IsEnded = match.Status == "replay";
+            }
+            match.LiveStateLocked = prior.LiveStateLocked;
+
             match.Players = MergePlayers(prior.Players, match.Players);
         }
 
