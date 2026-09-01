@@ -297,6 +297,30 @@ namespace ZeroSports.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost("match/time/{slug}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateMatchTime(string slug, string startTime, CancellationToken cancellationToken)
+        {
+            if (DateTime.TryParse(startTime, System.Globalization.CultureInfo.InvariantCulture,
+                    System.Globalization.DateTimeStyles.None, out var parsed))
+            {
+                // Input is PKT (UTC+5); convert back to UTC before storing.
+                await _admin.UpdateMatchTimeAsync(slug, parsed.AddHours(-5), cancellationToken);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost("matches/adjust-time")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdjustAllTimes(int minutes, CancellationToken cancellationToken)
+        {
+            if (minutes > 0)
+            {
+                await _admin.AdjustAllMatchTimesAsync(minutes, cancellationToken);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         [HttpPost("match/move/{slug}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MoveMatch(string slug, string direction, CancellationToken cancellationToken)
@@ -310,7 +334,7 @@ namespace ZeroSports.Controllers
         public async Task<IActionResult> RefreshPlayers(string slug, CancellationToken cancellationToken)
         {
             await _admin.RefreshMatchPlayersAsync(slug, cancellationToken);
-            return RedirectToAction(nameof(MatchDetails), new { slug });
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost("match/player/add/{slug}")]

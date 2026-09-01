@@ -164,7 +164,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             {
                 currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, currentCategoryLogo);
                 var match = ParseMatch(node, currentCategorySlug, currentSportSlug, teams);
-                if (match is not null)
+                if (match is not null && match.Status != "replay")
                 {
                     matches.Add(match);
                 }

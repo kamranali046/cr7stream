@@ -44,6 +44,8 @@ public interface IAdminLogic
     Task ToggleMatchLiveAsync(string slug, CancellationToken cancellationToken = default);
     Task ToggleMatchEndedAsync(string slug, CancellationToken cancellationToken = default);
     Task MoveMatchAsync(string slug, string direction, CancellationToken cancellationToken = default);
+    Task UpdateMatchTimeAsync(string slug, DateTime startTimeUtc, CancellationToken cancellationToken = default);
+    Task AdjustAllMatchTimesAsync(int minutes, CancellationToken cancellationToken = default);
     Task RefreshMatchPlayersAsync(string slug, CancellationToken cancellationToken = default);
 
     // Player (stream) management for a match
@@ -270,6 +272,11 @@ public class AdminLogic : IAdminLogic
         if (match.IsLive)
         {
             match.IsEnded = false;
+            match.Status = "live";
+        }
+        else
+        {
+            match.Status = "upcoming";
         }
         match.LiveStateLocked = true;
 
@@ -292,6 +299,29 @@ public class AdminLogic : IAdminLogic
         }
         match.LiveStateLocked = true;
 
+        await _provider.SaveAsync(data, cancellationToken);
+    }
+
+    public async Task UpdateMatchTimeAsync(string slug, DateTime startTimeUtc, CancellationToken cancellationToken = default)
+    {
+        var data = await _provider.LoadRawAsync();
+        var match = data.Matches.FirstOrDefault(m => m.Slug == slug);
+        if (match is null)
+        {
+            return;
+        }
+
+        match.StartTimeUtc = startTimeUtc;
+        await _provider.SaveAsync(data, cancellationToken);
+    }
+
+    public async Task AdjustAllMatchTimesAsync(int minutes, CancellationToken cancellationToken = default)
+    {
+        var data = await _provider.LoadRawAsync();
+        foreach (var match in data.Matches)
+        {
+            match.StartTimeUtc = match.StartTimeUtc.AddMinutes(-minutes);
+        }
         await _provider.SaveAsync(data, cancellationToken);
     }
 
