@@ -43,11 +43,24 @@
         </p>
     }
 
+    <h4 class="mt-3 mb-2">Add player</h4>
+    <form asp-action="AddPlayer" asp-route-slug="@Model.Slug" method="post" class="admin-form d-flex gap-2 flex-wrap align-items-end">
+        <div>
+            <label>Name (optional)</label>
+            <input name="name" class="form-control" placeholder="Player N" />
+        </div>
+        <div>
+            <label>Stream URL</label>
+            <input name="url" class="form-control" placeholder="https://..." required />
+        </div>
+        <button class="btn btn-danger" type="submit">Add player</button>
+    </form>
+
     <h4 class="mt-3 mb-2">Players (@Model.Players.Count)</h4>
 
     @if (Model.Players.Count == 0)
     {
-        <p style="color:var(--muted);">No players yet. Use <strong>Refresh players from source</strong> (available when the match is close to kickoff) or add one manually below.</p>
+        <p style="color:var(--muted);">No players yet. Use <strong>Refresh players from source</strong> (available when the match is close to kickoff) or add one manually above.</p>
     }
     else
     {
@@ -69,11 +82,13 @@
                     <tr class="@(!player.Enabled ? "opacity-50" : "")">
                         <td>@(i + 1)</td>
                         <td>@player.Name</td>
-                        <td style="max-width:320px;word-break:break-all;">@player.Url</td>
+                        <td style="max-width:320px;word-break:break-all;">
+                            <a href="@player.Url" target="_blank" style="color:var(--accent);text-decoration:underline;">@player.Url</a>
+                        </td>
                         <td>
                             <form asp-action="TogglePlayer" asp-route-slug="@Model.Slug" method="post" class="d-inline">
                                 <input type="hidden" name="index" value="@i" />
-                                <button class="btn btn-sm btn-outline-light" type="submit">@(player.Enabled ? "On" : "Off")</button>
+                                <button class="btn btn-sm @(player.Enabled ? "btn-success" : "btn-outline-light")" type="submit">@(player.Enabled ? "On" : "Off")</button>
                             </form>
                         </td>
                         <td>
@@ -104,17 +119,4 @@
             </tbody>
         </table>
     }
-
-    <h4 class="mt-3 mb-2">Add player</h4>
-    <form asp-action="AddPlayer" asp-route-slug="@Model.Slug" method="post" class="admin-form d-flex gap-2 flex-wrap align-items-end">
-        <div>
-            <label>Name (optional)</label>
-            <input name="name" class="form-control" placeholder="Player N" />
-        </div>
-        <div>
-            <label>Stream URL</label>
-            <input name="url" class="form-control" placeholder="https://..." required />
-        </div>
-        <button class="btn btn-danger" type="submit">Add player</button>
-    </form>
 </div>

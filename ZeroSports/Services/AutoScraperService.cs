@@ -107,8 +107,8 @@ public class AutoScraperService : BackgroundService
             {
                 using var scope = _scopeFactory.CreateScope();
                 var scrapper = scope.ServiceProvider.GetRequiredService<IScrapperLogic>();
-                await scrapper.ScrapeAndSaveAsync(stoppingToken, drillPlayers: false);
-                _logger.LogInformation("Auto-scrape completed.");
+                await scrapper.ScrapeFixturesAndDrillPlayersAsync(stoppingToken);
+                _logger.LogInformation("Auto-scrape completed (fixtures + players).");
             }
             catch (Exception ex)
             {

@@ -73,7 +73,8 @@
             {
                 @foreach (var player in enabledPlayers)
                 {
-                    <button type="button" class="stream-btn" data-stream="@player.Url">@player.Name &rarr;</button>
+                    var idx = enabledPlayers.IndexOf(player) + 1;
+                    <button type="button" class="stream-btn" data-stream="@player.Url">Player @idx &rarr;</button>
                 }
             }
             else
@@ -118,9 +119,9 @@
                 return;
             }
             var first = true;
+            var idx = 1;
             players.forEach(function (p) {
                 var url = p.url || p.Url;
-                var name = p.name || p.Name;
                 var enabled = p.enabled;
                 if (enabled === false || p.Enabled === false) return;
                 if (!url) return;
@@ -128,7 +129,8 @@
                 b.type = 'button';
                 b.className = 'stream-btn';
                 b.setAttribute('data-stream', url);
-                b.textContent = (name || 'Player') + ' →';
+                b.textContent = 'Player ' + idx + ' →';
+                idx++;
                 list.appendChild(b);
                 if (first && frame) { frame.src = url; if (msg) msg.style.display = 'none'; first = false; }
             });

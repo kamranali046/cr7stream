@@ -9,6 +9,7 @@ public interface IScrapperLogic
 {
     Task<FixtureData> GetFixturesAsync();
     Task<FixtureData> ScrapeAndSaveAsync(CancellationToken cancellationToken = default, bool drillPlayers = false);
+    Task<FixtureData> ScrapeFixturesAndDrillPlayersAsync(CancellationToken cancellationToken = default);
     Task SaveFixturesAsync(FixtureData data, CancellationToken cancellationToken = default);
     Task ProcessLiveWindowsAsync(CancellationToken cancellationToken = default);
     Task<List<Sport>> GetSportsAsync();
@@ -71,6 +72,47 @@ public class ScrapperLogic : IScrapperLogic
         }
 
         await _provider.SaveAsync(data, cancellationToken);
+        return data;
+    }
+
+    /// <summary>
+    /// Two-phase scrape:
+    ///   Phase 1 — scrape fixtures (teams, time, source URL, status), save immediately.
+    ///   Phase 2 — drill players for live matches or those within PlayerFetchLeadMinutes.
+    /// Returns data after Phase 1 so the caller can show fixtures right away while
+    /// Phase 2 runs in the background.
+    /// </summary>
+    public async Task<FixtureData> ScrapeFixturesAndDrillPlayersAsync(CancellationToken cancellationToken = default)
+    {
+        // Phase 1: fixtures only (fast, no network calls for player pages)
+        var data = await _scraper.ScrapeFixturesAsync(cancellationToken);
+        data.NormalizeTimes = false;
+        data.ScrapedAtUtc = DateTime.UtcNow;
+
+        var existing = await _provider.LoadRawAsync();
+        if (existing.Leagues.Count != 0 || existing.Matches.Count != 0)
+        {
+            MergePreserveCustom(data, existing);
+        }
+
+        // Save fixtures immediately so the admin page can display them.
+        await _provider.SaveAsync(data, cancellationToken);
+
+        // Phase 2: drill players for live / near-live matches (fire-and-forget).
+        // The caller can optionally await this, but the admin page returns right away.
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await _scraper.DrillPlayersAsync(data, cancellationToken);
+                await _provider.SaveAsync(data, cancellationToken);
+            }
+            catch
+            {
+                // best-effort: player drilling failure must not crash the app
+            }
+        }, cancellationToken);
+
         return data;
     }
 

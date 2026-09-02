@@ -233,8 +233,8 @@ namespace ZeroSports.Controllers
         {
             try
             {
-                await _scrapper.ScrapeAndSaveAsync(CancellationToken.None, drillPlayers: true);
-                TempData["ScrapeMessage"] = "Re-scrape completed.";
+                await _scrapper.ScrapeFixturesAndDrillPlayersAsync(CancellationToken.None);
+                TempData["ScrapeMessage"] = "Re-scrape completed (fixtures + players).";
             }
             catch (Exception ex)
             {

@@ -515,7 +515,7 @@
   ],
   "Matches": [
     {
-      "Id": "33704fc40d",
+      "Id": "7852879368",
       "Slug": "dana-whites-contender-series-vs-live",
       "LeagueSlug": "important-matches",
       "SportSlug": "important-matches",
@@ -523,7 +523,7 @@
       "AwayTeam": "Live",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Live.webp",
-      "StartTimeUtc": "2026-09-01T23:03:16.0977641Z",
+      "StartTimeUtc": "2026-09-01T23:11:21.0081987Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/dana-whites-contender-series-vs-live/74494/",
       "Streams": [
@@ -542,7 +542,7 @@
       "Viewers": null
     },
     {
-      "Id": "8c4b626eaa",
+      "Id": "1f35ca13f1",
       "Slug": "saudi-arabia-vs-malaysia",
       "LeagueSlug": "cricket",
       "SportSlug": "cricket",
@@ -550,7 +550,7 @@
       "AwayTeam": "Malaysia",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Saudi Arabia.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Malaysia.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0979583Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0157576Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/saudi-arabia-vs-malaysia/75319/",
       "Streams": [
@@ -561,41 +561,13 @@
       ],
       "Players": [
         {
-          "Name": "FUBO TV   HD/FOXyesHD1englishWatch",
-          "Url": "https://omg10.com/4/9020608//",
+          "Name": "Alpha Streams",
+          "Url": "https://rippleplays.cfd/newhub/stream-9.php",
           "Enabled": true,
           "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": true,
-      "Popular": false,
-      "Viewers": null
-    },
-    {
-      "Id": "218eab6de6",
-      "Slug": "singapore-vs-kuwait",
-      "LeagueSlug": "cricket",
-      "SportSlug": "cricket",
-      "HomeTeam": "Singapore",
-      "AwayTeam": "Kuwait",
-      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Singapore.webp",
-      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Kuwait.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0979936Z",
-      "Status": "live",
-      "SourceUrl": "https://total-sportek.st/game/singapore-vs-kuwait/75320/",
-      "Streams": [
+        },
         {
-          "Label": "Watch on source",
-          "Url": "https://total-sportek.st/game/singapore-vs-kuwait/75320/"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "FUBO TV   HD/FOXyesHD1englishWatch",
+          "Name": "FUBO TV",
           "Url": "https://omg10.com/4/9020608//",
           "Enabled": true,
           "IsCustom": false
@@ -610,7 +582,41 @@
       "Viewers": null
     },
     {
-      "Id": "03af0b4403",
+      "Id": "d28fb5a2f1",
+      "Slug": "singapore-vs-kuwait",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "Singapore",
+      "AwayTeam": "Kuwait",
+      "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Singapore.webp",
+      "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Kuwait.webp",
+      "StartTimeUtc": "2026-09-01T11:15:21.0159313Z",
+      "Status": "live",
+      "SourceUrl": "https://total-sportek.st/game/singapore-vs-kuwait/75320/",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "https://total-sportek.st/game/singapore-vs-kuwait/75320/"
+        }
+      ],
+      "Players": [
+        {
+          "Name": "FUBO TV",
+          "Url": "https://omg10.com/4/9020608//",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false,
+      "Popular": false,
+      "Viewers": null
+    },
+    {
+      "Id": "949c75ca58",
       "Slug": "zimbabwe-vs-south-africa",
       "LeagueSlug": "cricket",
       "SportSlug": "cricket",
@@ -618,7 +624,7 @@
       "AwayTeam": "South Africa",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Zimbabwe.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/South Africa.webp",
-      "StartTimeUtc": "2026-09-01T12:03:16.0980294Z",
+      "StartTimeUtc": "2026-09-01T12:11:21.016081Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/zimbabwe-vs-south-africa/75321/",
       "Streams": [
@@ -637,7 +643,7 @@
       "Viewers": null
     },
     {
-      "Id": "20547f6f95",
+      "Id": "c309bc09bd",
       "Slug": "us-open-vs-tennis",
       "LeagueSlug": "tennis",
       "SportSlug": "tennis",
@@ -645,7 +651,7 @@
       "AwayTeam": "Tennis",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Tennis.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0981145Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0162131Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/us-open-vs-tennis/66780/",
       "Streams": [
@@ -656,39 +662,63 @@
       ],
       "Players": [
         {
-          "Name": "streamhd247    SPNyesSD3englishWatch",
-          "Url": "https://shd247.world/live-soccer-streaming-018-total.html",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Ripplestream4u    Tennis ChannelyesHD1en",
-          "Url": "https://rippleplays.cfd/newhub/stream-45.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/admin-tennis-channel/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    Tennis ChannelyesHD1eng",
-          "Url": "https://alphastreams.mom/2026/08/23/us-open-vs-tennis/",
+          "Name": "Alpha Streams",
+          "Url": "https://rippleplays.cfd/newhub/stream-40.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Streamify   Tennis ChannelyesHD2englishW",
-          "Url": "https://streamsify.xyz/2026/08/23/us-open-vs-tennis/",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=igm5bzjd4y",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Supertipz   TENNIS TVyesHD1englishWatch",
-          "Url": "https://wildgames.bz/2026/08/27/us-open-tennis/",
+          "Name": "Ripplestream4u",
+          "Url": "https://rippleplays.cfd/newhub/stream-45.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://dlstreams.st/stream/stream-40.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-40.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "cyclinsport",
+          "Url": "https://flyembed.click/embed/31.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/08/23/us-open-vs-tennis/",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "FUBO TV",
+          "Url": "https://omg10.com/4/9020608//",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Sports Live",
+          "Url": "https://hai8g.com/4/11690714",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -696,12 +726,12 @@
       "Important": false,
       "IsLive": true,
       "IsEnded": false,
-      "LiveStateLocked": true,
+      "LiveStateLocked": false,
       "Popular": false,
       "Viewers": null
     },
     {
-      "Id": "d8311a4ad0",
+      "Id": "b95015414a",
       "Slug": "al-hilal-vs-al-ahli",
       "LeagueSlug": "saudi-pro-league",
       "SportSlug": "football",
@@ -709,7 +739,7 @@
       "AwayTeam": "Al-Ahli",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Al Hilal.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:03:16.0981965Z",
+      "StartTimeUtc": "2026-09-01T18:11:21.0163585Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/al-hilal-vs-al-ahli/75907/",
       "Streams": [
@@ -728,7 +758,7 @@
       "Viewers": null
     },
     {
-      "Id": "3ffb39fdf2",
+      "Id": "346a5c7a5f",
       "Slug": "peterborough-united-vs-stevenage",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -736,7 +766,7 @@
       "AwayTeam": "Stevenage",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Peterborough United.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.0982602Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0164974Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/peterborough-united-vs-stevenage/75908/",
       "Streams": [
@@ -748,14 +778,14 @@
       "Players": [],
       "IsCustom": false,
       "Important": false,
-      "IsLive": false,
+      "IsLive": true,
       "IsEnded": false,
       "LiveStateLocked": true,
       "Popular": false,
       "Viewers": null
     },
     {
-      "Id": "c9a193392e",
+      "Id": "3fbd2044dc",
       "Slug": "wycombe-wanderers-vs-sheffield-wednesday",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -763,7 +793,7 @@
       "AwayTeam": "Sheffield Wednesday",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Sheffield Wednesday.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0982941Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0166097Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/wycombe-wanderers-vs-sheffield-wednesday/75909/",
       "Streams": [
@@ -782,7 +812,7 @@
       "Viewers": null
     },
     {
-      "Id": "a45d1f9829",
+      "Id": "16991d0665",
       "Slug": "leicester-city-vs-plymouth-argyle",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -790,7 +820,7 @@
       "AwayTeam": "Plymouth Argyle",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Leicester City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Plymouth Argyle.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0983287Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0167061Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/leicester-city-vs-plymouth-argyle/75910/",
       "Streams": [
@@ -809,7 +839,7 @@
       "Viewers": null
     },
     {
-      "Id": "06545af4b5",
+      "Id": "bbb9db7c47",
       "Slug": "huddersfield-town-vs-oxford-united",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -817,7 +847,7 @@
       "AwayTeam": "Oxford United",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Huddersfield Town.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.0983741Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0168025Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/huddersfield-town-vs-oxford-united/75911/",
       "Streams": [
@@ -836,7 +866,7 @@
       "Viewers": null
     },
     {
-      "Id": "de224a63ae",
+      "Id": "7f86fb79eb",
       "Slug": "doncaster-rovers-vs-notts-county",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -844,7 +874,7 @@
       "AwayTeam": "Notts County",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.0985118Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.016905Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/doncaster-rovers-vs-notts-county/75912/",
       "Streams": [
@@ -863,7 +893,7 @@
       "Viewers": null
     },
     {
-      "Id": "4bfc99d781",
+      "Id": "1e9187e059",
       "Slug": "bromley-vs-leyton-orient",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -871,7 +901,7 @@
       "AwayTeam": "Leyton Orient",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.0985503Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0169679Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/bromley-vs-leyton-orient/75913/",
       "Streams": [
@@ -890,7 +920,7 @@
       "Viewers": null
     },
     {
-      "Id": "edfe516fe4",
+      "Id": "39b90d83ea",
       "Slug": "bradford-city-vs-cambridge-united",
       "LeagueSlug": "england-league-one",
       "SportSlug": "england-league-one",
@@ -898,7 +928,7 @@
       "AwayTeam": "Cambridge United",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Bradford City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.098814Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0170611Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/bradford-city-vs-cambridge-united/75914/",
       "Streams": [
@@ -917,7 +947,7 @@
       "Viewers": null
     },
     {
-      "Id": "3de36ddf36",
+      "Id": "5b9909a712",
       "Slug": "portsmouth-vs-derby-county",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -925,7 +955,7 @@
       "AwayTeam": "Derby County",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
-      "StartTimeUtc": "2026-09-01T18:48:16.0989528Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0171472Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/portsmouth-vs-derby-county/75915/",
       "Streams": [
@@ -944,7 +974,7 @@
       "Viewers": null
     },
     {
-      "Id": "6cd28a7797",
+      "Id": "1ce4c3eae5",
       "Slug": "preston-north-end-vs-bristol-city",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -952,7 +982,7 @@
       "AwayTeam": "Bristol City",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Preston North End.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Bristol City.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0990098Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.017201Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/preston-north-end-vs-bristol-city/75916/",
       "Streams": [
@@ -971,7 +1001,7 @@
       "Viewers": null
     },
     {
-      "Id": "f4b5159339",
+      "Id": "fd56500ded",
       "Slug": "sheffield-united-vs-bolton-wanderers",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -979,7 +1009,7 @@
       "AwayTeam": "Bolton Wanderers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Sheffield United.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Bolton Wanderers.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0990469Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0172538Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/sheffield-united-vs-bolton-wanderers/75917/",
       "Streams": [
@@ -998,7 +1028,7 @@
       "Viewers": null
     },
     {
-      "Id": "490da6563c",
+      "Id": "6319f280b8",
       "Slug": "swansea-city-vs-watford",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -1006,7 +1036,7 @@
       "AwayTeam": "Watford",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Swansea City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Watford.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0990829Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0173024Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/swansea-city-vs-watford/75918/",
       "Streams": [
@@ -1025,7 +1055,7 @@
       "Viewers": null
     },
     {
-      "Id": "ec59e39d94",
+      "Id": "822f6cd37f",
       "Slug": "west-ham-united-vs-wolverhampton-wanderers",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -1033,7 +1063,7 @@
       "AwayTeam": "Wolverhampton Wanderers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/West Ham United.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Wolverhampton Wanderers.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0991273Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0173613Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/west-ham-united-vs-wolverhampton-wanderers/75919/",
       "Streams": [
@@ -1052,7 +1082,7 @@
       "Viewers": null
     },
     {
-      "Id": "9082d3e64c",
+      "Id": "9a7ee8c243",
       "Slug": "lincoln-city-vs-blackburn-rovers",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -1060,7 +1090,7 @@
       "AwayTeam": "Blackburn Rovers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Lincoln City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Blackburn Rovers.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0991644Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0174128Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/lincoln-city-vs-blackburn-rovers/75920/",
       "Streams": [
@@ -1079,7 +1109,7 @@
       "Viewers": null
     },
     {
-      "Id": "9c1d7b9033",
+      "Id": "0ba7ef6fe4",
       "Slug": "birmingham-city-vs-southampton",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -1087,7 +1117,7 @@
       "AwayTeam": "Southampton",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Birmingham City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Southampton.webp",
-      "StartTimeUtc": "2026-09-01T19:03:16.0991999Z",
+      "StartTimeUtc": "2026-09-01T19:11:21.0174613Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/birmingham-city-vs-southampton/75921/",
       "Streams": [
@@ -1106,7 +1136,7 @@
       "Viewers": null
     },
     {
-      "Id": "f8d6aaef77",
+      "Id": "583bfe508d",
       "Slug": "stoke-city-vs-norwich-city",
       "LeagueSlug": "england-championship",
       "SportSlug": "football",
@@ -1114,7 +1144,7 @@
       "AwayTeam": "Norwich City",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Stoke City.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Norwich City.webp",
-      "StartTimeUtc": "2026-09-01T19:03:16.0992349Z",
+      "StartTimeUtc": "2026-09-01T19:11:21.0175118Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/stoke-city-vs-norwich-city/75922/",
       "Streams": [
@@ -1133,7 +1163,7 @@
       "Viewers": null
     },
     {
-      "Id": "8e8bdfa137",
+      "Id": "aead93d331",
       "Slug": "hebc-vs-borussia-dortmund",
       "LeagueSlug": "dfb-pokal-german-cup",
       "SportSlug": "football",
@@ -1141,7 +1171,7 @@
       "AwayTeam": "Borussia Dortmund",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/logo.svg",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Borussia Dortmund.webp",
-      "StartTimeUtc": "2026-09-01T18:48:16.0992799Z",
+      "StartTimeUtc": "2026-09-01T18:56:21.0175728Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/hebc-vs-borussia-dortmund/75925/",
       "Streams": [
@@ -1160,7 +1190,7 @@
       "Viewers": null
     },
     {
-      "Id": "c5c903b4c1",
+      "Id": "b028b08fef",
       "Slug": "parma-vs-cremonese",
       "LeagueSlug": "coppa-italia",
       "SportSlug": "coppa-italia",
@@ -1168,7 +1198,7 @@
       "AwayTeam": "Cremonese",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Parma.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Cremonese.webp",
-      "StartTimeUtc": "2026-09-01T16:03:16.0993232Z",
+      "StartTimeUtc": "2026-09-01T16:11:21.0176411Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/parma-vs-cremonese/75923/",
       "Streams": [
@@ -1187,7 +1217,7 @@
       "Viewers": null
     },
     {
-      "Id": "e63a605065",
+      "Id": "3d8ea3b51a",
       "Slug": "torino-vs-monza",
       "LeagueSlug": "coppa-italia",
       "SportSlug": "coppa-italia",
@@ -1195,7 +1225,7 @@
       "AwayTeam": "Monza",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Torino.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Monza.webp",
-      "StartTimeUtc": "2026-09-01T19:03:16.0993509Z",
+      "StartTimeUtc": "2026-09-01T19:11:21.0176893Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/torino-vs-monza/75924/",
       "Streams": [
@@ -1214,7 +1244,7 @@
       "Viewers": null
     },
     {
-      "Id": "3529b91cb8",
+      "Id": "a244a5ecb5",
       "Slug": "atlanta-braves-vs-san-francisco-giants",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1222,7 +1252,7 @@
       "AwayTeam": "San Francisco Giants",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta Braves.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.099384Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0177487Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/atlanta-braves-vs-san-francisco-giants/75758/",
       "Streams": [
@@ -1233,39 +1263,57 @@
       ],
       "Players": [
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "Alpha Streams",
+          "Url": "https://rippleplays.cfd/newhub/stream-1.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-1.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-1.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/atlanta-braves-vs-san-francisco-giants",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Supertipz   MLB NETWORKyesHD1englishWatc",
-          "Url": "https://wildgames.bz/2026/08/31/san-francisco-giants-vs-atlanta-braves/",
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/atlanta-braves-vs-san-francisco-giants/",
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-1.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/atlanta-braves-vs-san-francisco-giants/",
-          "Enabled": true,
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-1.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/atlanta-braves-vs-san-francisco-giants-3/",
-          "Enabled": true,
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/08/31/atlanta-braves-vs-san-francisco-giants/",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
-          "Url": "https://ripplestream.cyou/atlanta-braves-vs-san-francisco-giants/",
-          "Enabled": true,
+          "Name": "Sportszone",
+          "Url": "https://sportsszone.cfd/stream/stream-1.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1278,7 +1326,7 @@
       "Viewers": null
     },
     {
-      "Id": "5516baec92",
+      "Id": "dbf55b8909",
       "Slug": "tampa-bay-rays-vs-new-york-mets",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1286,7 +1334,7 @@
       "AwayTeam": "New York Mets",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/New York Mets.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0994099Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0177956Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/tampa-bay-rays-vs-new-york-mets/68347/",
       "Streams": [
@@ -1297,39 +1345,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-new-york-mets-vs-tampa-bay-rays/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-2.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=2oc4imgjfb",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=ylm2jl9bkd",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-2.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/tampa-bay-rays-vs-new-york-mets",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "streamhd247    nglish HDyesSD3englishWat",
-          "Url": "https://shd247.world/live-soccer-streaming-21-total.html",
-          "Enabled": true,
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-1.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/tampa-bay-rays-vs-new-york-mets/",
-          "Enabled": true,
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-2.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/tampa-bay-rays-vs-new-york-mets/",
-          "Enabled": true,
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-1.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1342,7 +1408,7 @@
       "Viewers": null
     },
     {
-      "Id": "1fa19cbe6f",
+      "Id": "bf5b03d128",
       "Slug": "cincinnati-reds-vs-san-diego-padres",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1350,7 +1416,7 @@
       "AwayTeam": "San Diego Padres",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Cincinnati Reds.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/San Diego Padres.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0994364Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0178539Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/cincinnati-reds-vs-san-diego-padres/68348/",
       "Streams": [
@@ -1361,39 +1427,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    SUPERSPORT FHDyesHD1englis",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-san-diego-padres-vs-cincinnati-reds/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-3.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "streamhd247    TSNyesSD3englishWatch",
-          "Url": "https://shd247.world/live-soccer-streaming-22-total.html",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=ylm2jl9bkd",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=2oc4imgjfb",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-3.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/cincinnati-reds-vs-san-diego-padres",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/cincinnati-reds-vs-san-diego-padres/",
-          "Enabled": true,
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-2.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/cincinnati-reds-vs-san-diego-padres/",
-          "Enabled": true,
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-3.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-2.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1406,7 +1490,7 @@
       "Viewers": null
     },
     {
-      "Id": "8daf0708d0",
+      "Id": "821a2584d7",
       "Slug": "boston-red-sox-vs-seattle-mariners",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1414,7 +1498,7 @@
       "AwayTeam": "Seattle Mariners",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Seattle Mariners.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0994676Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0179326Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/boston-red-sox-vs-seattle-mariners/68349/",
       "Streams": [
@@ -1425,39 +1509,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-seattle-mariners-vs-boston-red-sox/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-6.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=ylm2jl9bkd",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=6h7q8qofzh",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-6.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/boston-red-sox-vs-seattle-mariners",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "streamhd247    NESNyesSD3englishWatch",
-          "Url": "https://shd247.world/live-soccer-streaming-24-total.html",
-          "Enabled": true,
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-6.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/boston-red-sox-vs-seattle-mariners/",
-          "Enabled": true,
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-6.php",
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/boston-red-sox-vs-seattle-mariners/",
-          "Enabled": true,
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-6.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1470,7 +1572,7 @@
       "Viewers": null
     },
     {
-      "Id": "a66ceafb16",
+      "Id": "efc9b28a91",
       "Slug": "washington-nationals-vs-miami-marlins",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1478,7 +1580,7 @@
       "AwayTeam": "Miami Marlins",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Washington Nationals.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Miami Marlins.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0994994Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0180382Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/washington-nationals-vs-miami-marlins/68350/",
       "Streams": [
@@ -1489,39 +1591,63 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://foxtrend.gd/event/ppv-miami-marlins-vs-washington-nationalst",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/washington-nationals-vs-miami-marlins-7/",
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-4.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/washington-nationals-vs-miami-marlins-4/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-4.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/washington-nationals-vs-miami-marlins-2/",
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Supertipz   MLB NETWORKyesHD1englishWatc",
-          "Url": "https://wildgames.bz/2026/08/31/miami-marlins-vs-washington-nationals/",
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-4.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Streamify   MLB League PassyesHD2english",
-          "Url": "https://streamsify.xyz/2026/08/31/washington-nationals-vs-miami-marlins-4/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-4.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Sportszone",
+          "Url": "https://sportsszone.cfd/stream/stream-4.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Topstreams",
+          "Url": "https://topstream.help/?p=5149",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "liveonstreams.online",
+          "Url": "https://liveonstreams.cfd/player/stream-4.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "sportworld",
+          "Url": "https://sportshub24.online/10161/0/baseball/4/washington-nationals-vs-miami-marlins",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1534,7 +1660,7 @@
       "Viewers": null
     },
     {
-      "Id": "e842517d1f",
+      "Id": "9e11919c4b",
       "Slug": "texas-rangers-vs-oakland-athletics",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1542,7 +1668,7 @@
       "AwayTeam": "Oakland Athletics",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Texas Rangers.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Oakland Athletics.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0995262Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0181173Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/texas-rangers-vs-oakland-athletics/68353/",
       "Streams": [
@@ -1553,39 +1679,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    SUPERSPORT FHDyesHD1englis",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-athletics-vs-texas-rangers/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-9.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/texas-rangers-vs-oakland-athletics/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-9.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/texas-rangers-vs-oakland-athletics-3/",
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-9.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/texas-rangers-vs-oakland-athletics/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-10.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/texas-rangers-vs-oakland-athletics-4/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-9.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-10.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-10.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1598,7 +1742,7 @@
       "Viewers": null
     },
     {
-      "Id": "83e664206f",
+      "Id": "eea5f4e95e",
       "Slug": "houston-astros-vs-chicago-white-sox",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1606,7 +1750,7 @@
       "AwayTeam": "Chicago White Sox",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Houston Astros.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0995595Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0181995Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/houston-astros-vs-chicago-white-sox/68354/",
       "Streams": [
@@ -1617,39 +1761,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-chicago-white-sox-vs-houston-astros/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-10.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/houston-astros-vs-chicago-white-sox/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-10.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/houston-astros-vs-chicago-white-sox/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-10.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/houston-astros-vs-chicago-white-sox/",
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-10.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/houston-astros-vs-chicago-white-sox/",
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-11.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-11.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-11.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1662,7 +1824,7 @@
       "Viewers": null
     },
     {
-      "Id": "60f75a6d8d",
+      "Id": "8b4e37e1f1",
       "Slug": "chicago-cubs-vs-milwaukee-brewers",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1670,7 +1832,7 @@
       "AwayTeam": "Milwaukee Brewers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0996063Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0182746Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/chicago-cubs-vs-milwaukee-brewers/68352/",
       "Streams": [
@@ -1681,39 +1843,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    SUPERSPORT FHDyesHD1englis",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-milwaukee-brewers-vs-chicago-cubs/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
-          "Url": "https://opturspapa.xyz/chicago-cubs-vs-milwaukee-brewers",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-8.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/chicago-cubs-vs-milwaukee-brewers-3/",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=6h7q8qofzh",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/chicago-cubs-vs-milwaukee-brewers/",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=ylm2jl9bkd",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/chicago-cubs-vs-milwaukee-brewers-4/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-8.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
+          "Url": "https://opturspapa.xyz/chicago-cubs-vs-milwaukee-brewers",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-8.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-8.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-9.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1726,7 +1906,7 @@
       "Viewers": null
     },
     {
-      "Id": "02e9d54c4a",
+      "Id": "61588f3c83",
       "Slug": "colorado-rockies-vs-baltimore-orioles",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1734,7 +1914,7 @@
       "AwayTeam": "Baltimore Orioles",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Colorado Rockies.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Baltimore Orioles.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.099669Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0183497Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/colorado-rockies-vs-baltimore-orioles/68355/",
       "Streams": [
@@ -1745,39 +1925,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-baltimore-orioles-vs-colorado-rockies/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-11.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/colorado-rockies-vs-baltimore-orioles/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-11.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/colorado-rockies-vs-baltimore-orioles/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-11.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/colorado-rockies-vs-baltimore-orioles/",
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-11.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/colorado-rockies-vs-baltimore-orioles/",
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-12.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-12.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-12.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1790,7 +1988,7 @@
       "Viewers": null
     },
     {
-      "Id": "1918be6cd5",
+      "Id": "54fd26db43",
       "Slug": "minnesota-twins-vs-detroit-tigers",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1798,7 +1996,7 @@
       "AwayTeam": "Detroit Tigers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0997202Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0184242Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/minnesota-twins-vs-detroit-tigers/68351/",
       "Streams": [
@@ -1809,39 +2007,45 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-detroit-tigers-vs-minnesota-twins/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
-          "Url": "https://opturspapa.xyz/minnesota-twins-vs-detroit-tigers",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Ripplestream4u    MLB NETWORKyesHD1engli",
+          "Name": "Alpha Streams",
           "Url": "https://rippleplays.cfd/newhub/stream-7.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Prostreams   MLB League PassyesHD2englis",
-          "Url": "https://prostreams.best/2026/08/31/minnesota-twins-vs-detroit-tigers/",
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-7.php",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/minnesota-twins-vs-detroit-tigers/",
+          "Name": "PAPAHD Live",
+          "Url": "https://opturspapa.xyz/minnesota-twins-vs-detroit-tigers",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "Alpha Streams    MLB NETWORKyesHD1englis",
-          "Url": "https://alphastreams.mom/2026/08/31/minnesota-twins-vs-detroit-tigers/",
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-7.php",
           "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-7.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-7.php",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1854,7 +2058,7 @@
       "Viewers": null
     },
     {
-      "Id": "676b83db6c",
+      "Id": "a637e5a319",
       "Slug": "los-angeles-angels-vs-new-york-yankees",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1862,7 +2066,7 @@
       "AwayTeam": "New York Yankees",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Los Angeles Angels.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/New York Yankees.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.0997734Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.0185014Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/los-angeles-angels-vs-new-york-yankees/68356/",
       "Streams": [
@@ -1873,39 +2077,63 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-new-york-yankees-vs-los-angeles-angels/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "streamhd247",
+          "Url": "https://obplay.live/embed-player?stream=073srhuphl",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Ripplestream4u",
+          "Url": "https://rippleplays.cfd/newhub/stream-13.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-14.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-14.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-13.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-13.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/los-angeles-angels-vs-new-york-yankees",
-          "Enabled": true,
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Sportszone   MLB League PassyesHD2englis",
-          "Url": "https://sportszone.best/2026/08/31/los-angeles-angels-vs-new-york-yankees/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz   MLB NETWORKyesHD1englishWatc",
-          "Url": "https://wildgames.bz/2026/08/31/new-york-yankees-vs-los-angeles-angels/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/los-angeles-angels-vs-new-york-yankees/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/los-angeles-angels-vs-new-york-yankees/",
-          "Enabled": true,
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/09/01/los-angeles-angels-vs-new-york-yankees/",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1918,7 +2146,7 @@
       "Viewers": null
     },
     {
-      "Id": "d73e6d722f",
+      "Id": "4ee1dd8370",
       "Slug": "arizona-diamondbacks-vs-philadelphia-phillies",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1926,7 +2154,7 @@
       "AwayTeam": "Philadelphia Phillies",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Arizona Diamondbacks.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Philadelphia Phillies.webp",
-      "StartTimeUtc": "2026-09-01T06:45:16.099828Z",
+      "StartTimeUtc": "2026-09-01T11:15:21.01858Z",
       "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/arizona-diamondbacks-vs-philadelphia-phillies/68357/",
       "Streams": [
@@ -1937,39 +2165,57 @@
       ],
       "Players": [
         {
-          "Name": "Sportsbest    GOALIETREND LIVE FHDyesHD1",
+          "Name": "Sportsbest",
           "Url": "https://embed.st/embed-noads/admin/ppv-philadelphia-phillies-vs-arizona-diamondbacks/1#player=clappr",
           "Enabled": true,
           "IsCustom": false
         },
         {
-          "Name": "PAPAHD Live   MLB PASS 1080PYesHD1Englis",
+          "Name": "Alpha Streams",
+          "Url": "https://rippleplays.cfd/newhub/stream-14.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Pandastream",
+          "Url": "https://pandastreams.shop/player/stream-15.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Primestreams",
+          "Url": "https://primestreamd.cfd/live/stream-15.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Streamify",
+          "Url": "https://streamify.cfd/stream/stream-14.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Supertipz",
+          "Url": "https://flyembed.click/embed/4.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Prostreams",
+          "Url": "https://prostreams.shop/now/stream-14.php",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "PAPAHD Live",
           "Url": "https://opturspapa.xyz/arizona-diamondbacks-vs-philadelphia-phillies",
-          "Enabled": true,
+          "Enabled": false,
           "IsCustom": false
         },
         {
-          "Name": "Topstreams   MLB League PassyesHD2englis",
-          "Url": "https://topstream.help/?p=5166",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Pandastream   MLB League PassyesHD2engli",
-          "Url": "https://pandastreamz.xyz/2026/08/31/arizona-diamondbacks-vs-philadelphia-phillies/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Primestreams   MLB League PassyesHD2engl",
-          "Url": "https://primestream.cc/2026/08/31/arizona-diamondbacks-vs-philadelphia-phillies/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz   MLB NETWORKyesHD1englishWatc",
-          "Url": "https://wildgames.bz/2026/08/31/philadelphia-phillies-vs-arizona-diamondbacks/",
-          "Enabled": true,
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/09/01/arizona-diamondbacks-vs-philadelphia-phillies/",
+          "Enabled": false,
           "IsCustom": false
         }
       ],
@@ -1982,7 +2228,7 @@
       "Viewers": null
     },
     {
-      "Id": "10e7b21d54",
+      "Id": "96390dfe00",
       "Slug": "cleveland-guardians-vs-toronto-blue-jays",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -1990,7 +2236,7 @@
       "AwayTeam": "Toronto Blue Jays",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Toronto Blue Jays.webp",
-      "StartTimeUtc": "2026-09-01T22:43:16.0998899Z",
+      "StartTimeUtc": "2026-09-01T22:51:21.0186683Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/cleveland-guardians-vs-toronto-blue-jays/68358/",
       "Streams": [
@@ -2009,7 +2255,7 @@
       "Viewers": null
     },
     {
-      "Id": "3d944e58ff",
+      "Id": "98d40efd7d",
       "Slug": "cincinnati-reds-vs-san-diego-padres",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2017,7 +2263,7 @@
       "AwayTeam": "San Diego Padres",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Cincinnati Reds.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/San Diego Padres.webp",
-      "StartTimeUtc": "2026-09-01T22:43:16.0999428Z",
+      "StartTimeUtc": "2026-09-01T22:51:21.0187677Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/cincinnati-reds-vs-san-diego-padres/68359/",
       "Streams": [
@@ -2036,7 +2282,7 @@
       "Viewers": null
     },
     {
-      "Id": "595cefc0e0",
+      "Id": "a2bb660a89",
       "Slug": "pittsburgh-pirates-vs-san-francisco-giants",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2044,7 +2290,7 @@
       "AwayTeam": "San Francisco Giants",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp",
-      "StartTimeUtc": "2026-09-01T22:43:16.1000005Z",
+      "StartTimeUtc": "2026-09-01T22:51:21.0188589Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/pittsburgh-pirates-vs-san-francisco-giants/68360/",
       "Streams": [
@@ -2063,7 +2309,7 @@
       "Viewers": null
     },
     {
-      "Id": "337c0b59ad",
+      "Id": "043c5e7e7f",
       "Slug": "tampa-bay-rays-vs-new-york-mets",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2071,7 +2317,7 @@
       "AwayTeam": "New York Mets",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/New York Mets.webp",
-      "StartTimeUtc": "2026-09-01T22:43:16.1000622Z",
+      "StartTimeUtc": "2026-09-01T22:51:21.0189417Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/tampa-bay-rays-vs-new-york-mets/68361/",
       "Streams": [
@@ -2090,7 +2336,7 @@
       "Viewers": null
     },
     {
-      "Id": "2d1147ebed",
+      "Id": "462306c79c",
       "Slug": "boston-red-sox-vs-seattle-mariners",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2098,7 +2344,7 @@
       "AwayTeam": "Seattle Mariners",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Seattle Mariners.webp",
-      "StartTimeUtc": "2026-09-01T22:48:16.1001246Z",
+      "StartTimeUtc": "2026-09-01T22:56:21.0190343Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/boston-red-sox-vs-seattle-mariners/68362/",
       "Streams": [
@@ -2117,7 +2363,7 @@
       "Viewers": null
     },
     {
-      "Id": "7b0e5ab08a",
+      "Id": "fa2ab947d0",
       "Slug": "washington-nationals-vs-atlanta-braves",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2125,7 +2371,7 @@
       "AwayTeam": "Atlanta Braves",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Washington Nationals.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Atlanta Braves.webp",
-      "StartTimeUtc": "2026-09-01T22:48:16.1002015Z",
+      "StartTimeUtc": "2026-09-01T22:56:21.0191161Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/washington-nationals-vs-atlanta-braves/68363/",
       "Streams": [
@@ -2144,7 +2390,7 @@
       "Viewers": null
     },
     {
-      "Id": "005dc27bdd",
+      "Id": "378b292624",
       "Slug": "texas-rangers-vs-oakland-athletics",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2152,7 +2398,7 @@
       "AwayTeam": "Oakland Athletics",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Texas Rangers.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Oakland Athletics.webp",
-      "StartTimeUtc": "2026-09-01T23:08:16.1002625Z",
+      "StartTimeUtc": "2026-09-01T23:16:21.0191981Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/texas-rangers-vs-oakland-athletics/68367/",
       "Streams": [
@@ -2171,7 +2417,7 @@
       "Viewers": null
     },
     {
-      "Id": "1969707d87",
+      "Id": "d5072b832b",
       "Slug": "houston-astros-vs-chicago-white-sox",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2179,7 +2425,7 @@
       "AwayTeam": "Chicago White Sox",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Houston Astros.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp",
-      "StartTimeUtc": "2026-09-01T23:13:16.1003211Z",
+      "StartTimeUtc": "2026-09-01T23:21:21.0192773Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/houston-astros-vs-chicago-white-sox/68368/",
       "Streams": [
@@ -2198,7 +2444,7 @@
       "Viewers": null
     },
     {
-      "Id": "3c4daa5907",
+      "Id": "48bc25d051",
       "Slug": "kansas-city-royals-vs-miami-marlins",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2206,7 +2452,7 @@
       "AwayTeam": "Miami Marlins",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Kansas City Royals.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Miami Marlins.webp",
-      "StartTimeUtc": "2026-09-01T23:43:16.100385Z",
+      "StartTimeUtc": "2026-09-01T23:51:21.0193605Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/kansas-city-royals-vs-miami-marlins/68364/",
       "Streams": [
@@ -2225,7 +2471,7 @@
       "Viewers": null
     },
     {
-      "Id": "47bee22936",
+      "Id": "28bc500013",
       "Slug": "chicago-cubs-vs-milwaukee-brewers",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2233,7 +2479,7 @@
       "AwayTeam": "Milwaukee Brewers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp",
-      "StartTimeUtc": "2026-09-01T23:43:16.1004424Z",
+      "StartTimeUtc": "2026-09-01T23:51:21.0194463Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/chicago-cubs-vs-milwaukee-brewers/68365/",
       "Streams": [
@@ -2252,7 +2498,7 @@
       "Viewers": null
     },
     {
-      "Id": "14b0cc1d64",
+      "Id": "58e91d4513",
       "Slug": "minnesota-twins-vs-detroit-tigers",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2260,7 +2506,7 @@
       "AwayTeam": "Detroit Tigers",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp",
-      "StartTimeUtc": "2026-09-01T23:43:16.1005049Z",
+      "StartTimeUtc": "2026-09-01T23:51:21.0195254Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/minnesota-twins-vs-detroit-tigers/68366/",
       "Streams": [
@@ -2279,7 +2525,7 @@
       "Viewers": null
     },
     {
-      "Id": "302ca7fa3e",
+      "Id": "5c7e85e7ba",
       "Slug": "colorado-rockies-vs-baltimore-orioles",
       "LeagueSlug": "mlb",
       "SportSlug": "baseball",
@@ -2287,7 +2533,7 @@
       "AwayTeam": "Baltimore Orioles",
       "HomeTeamLogo": "https://total-sportek.st/assets2/images/premier/Colorado Rockies.webp",
       "AwayTeamLogo": "https://total-sportek.st/assets2/images/premier/Baltimore Orioles.webp",
-      "StartTimeUtc": "2026-09-01T23:43:16.1005577Z",
+      "StartTimeUtc": "2026-09-01T23:51:21.0196027Z",
       "Status": "upcoming",
       "SourceUrl": "https://total-sportek.st/game/colorado-rockies-vs-baltimore-orioles/68369/",
       "Streams": [
@@ -2315,7 +2561,7 @@
       "HomeTeamLogo": "",
       "AwayTeamLogo": "",
       "StartTimeUtc": "2026-09-01T08:40:45.727Z",
-      "Status": "upcoming",
+      "Status": "live",
       "SourceUrl": "",
       "Streams": [
         {
@@ -2326,7 +2572,7 @@
       "Players": [],
       "IsCustom": true,
       "Important": false,
-      "IsLive": false,
+      "IsLive": true,
       "IsEnded": false,
       "LiveStateLocked": false,
       "Popular": false,
@@ -2334,5 +2580,5 @@
     }
   ],
   "NormalizeTimes": false,
-  "ScrapedAtUtc": "2026-09-01T07:02:05.2836681Z"
+  "ScrapedAtUtc": "2026-09-01T11:15:21.021486Z"
 }

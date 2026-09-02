@@ -382,8 +382,8 @@ public class AdminLogic : IAdminLogic
         }
 
         match.Players ??= new List<Player>();
-        var label = string.IsNullOrWhiteSpace(name) ? $"Player {match.Players.Count + 1}" : name.Trim();
-        match.Players.Add(new Player
+        var label = string.IsNullOrWhiteSpace(name) ? $"Player 1" : name.Trim();
+        match.Players.Insert(0, new Player
         {
             Name = label,
             Url = url.Trim(),
