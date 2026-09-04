@@ -1,4 +1,4 @@
-name: Deploy CR7Stream
+name: Deploy cr7stream
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Publish
-        run: dotnet publish ZeroSports/ZeroSports.csproj -c Release -o publish
+        run: dotnet publish cr7stream/cr7stream.csproj -c Release -o publish
 
       - name: Deploy to server
         uses: appleboy/scp-action@v0.1.7
@@ -39,3 +39,4 @@ jobs:
           script: |
             sudo systemctl restart cr7stream
             sudo systemctl status cr7stream --no-pager
+

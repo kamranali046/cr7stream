@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="cr7stream/cr7stream.csproj" />
+  <Project Path="cr7stream.Logic/cr7stream.Logic.csproj" />
+  <Project Path="cr7stream.Scraper/cr7stream.Scraper.csproj" />
+</Solution>

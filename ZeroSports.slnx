@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="ZeroSports/ZeroSports.csproj" />
-  <Project Path="ZeroSports.Logic/ZeroSports.Logic.csproj" />
-  <Project Path="ZeroSports.Scraper/ZeroSports.Scraper.csproj" />
-</Solution>

@@ -1,0 +1,40 @@
+@model cr7stream.Logic.Models.ScraperSettings
+@{
+    ViewData["Title"] = "Scraper Settings";
+}
+
+<div class="admin-card" style="max-width:560px;">
+    <h3 class="mb-3">Scraper Settings</h3>
+    <form asp-action="Settings" method="post" class="admin-form">
+        <div class="mb-3">
+            <label asp-for="SourceUrl">Scraping source URL</label>
+            <input asp-for="SourceUrl" class="form-control" placeholder="https://total-sportek.st/" />
+            <small style="color:var(--muted);">Homepage that will be scraped for categories and matches.</small>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DailyScrapeTime">Daily scrape time (local time)</label>
+            <input asp-for="DailyScrapeTime" class="form-control" placeholder="09:00" />
+            <small style="color:var(--muted);">The scheduler runs automatically once every day at this time (HH:mm, 24h) to fetch that day's fixtures. Defaults to 09:00 if left blank.</small>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PlayerFetchLeadMinutes">Fetch players (minutes before kickoff)</label>
+            <input asp-for="PlayerFetchLeadMinutes" type="number" min="1" class="form-control" />
+            <small style="color:var(--muted);">Total-sportek publishes its player list ~1h before start. Pull players when a match is within this many minutes of starting (and while live).</small>
+        </div>
+        <div class="mb-3">
+            <label asp-for="LiveMarkLeadMinutes">Mark live (minutes before kickoff)</label>
+            <input asp-for="LiveMarkLeadMinutes" type="number" min="0" class="form-control" />
+            <small style="color:var(--muted);">The background monitor flags a match as LIVE this many minutes before kickoff so the player screen starts loading early.</small>
+        </div>
+        <div class="mb-3">
+            <label asp-for="LiveAutoEndHours">Auto-end live after (hours)</label>
+            <input asp-for="LiveAutoEndHours" type="number" min="1" class="form-control" />
+            <small style="color:var(--muted);">A match left marked LIVE longer than this is automatically flagged as ended, so a stuck "LIVE NOW" badge can't linger.</small>
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn btn-danger" type="submit">Save</button>
+            <a class="btn btn-outline-light" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</div>
+
