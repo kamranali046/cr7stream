@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\cr7stream.Logic\cr7stream.Logic.csproj" />
-    <Content Include="Views\**\*.cshtml" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
