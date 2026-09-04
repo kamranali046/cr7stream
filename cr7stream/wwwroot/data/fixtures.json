@@ -827,7 +827,7 @@
       "HomeTeamLogo": "/img/logos/f1-italy-grand-prix.webp",
       "AwayTeamLogo": "/img/logos/live.webp",
       "StartTimeUtc": "2026-09-04T10:49:08.859024Z",
-      "Status": "upcoming",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/f1-italy-grand-prix-vs-live/59080/",
       "Streams": [
         {
@@ -835,12 +835,73 @@
           "Url": "https://total-sportek.st/game/f1-italy-grand-prix-vs-live/59080/"
         }
       ],
-      "Players": [],
+      "Players": [
+        {
+          "Name": "Streameast",
+          "Url": "https://live.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Totalsportek Streams",
+          "Url": "https://live2.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "SoccerStreams",
+          "Url": "https://live4.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "weakstreams",
+          "Url": "https://live3.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Hesgoal Streams",
+          "Url": "https://live6.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "CrackStreams",
+          "Url": "https://live5.totalsportekhd.st/F1-Italy-Grand-Prix-vs-Live/59080",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "ovostreams",
+          "Url": "https://gozo.st/?game=f1-italy-grand-prix",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Alpha Streams",
+          "Url": "https://alphastreams.mom/2026/09/04/f1-pirelli-italian-gp/",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "streamhd247",
+          "Url": "https://shd247.world/live-soccer-streaming-027-total.html",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "Besteverstr",
+          "Url": "https://universaltokenforall.st/player2/channel10",
+          "Enabled": false,
+          "IsCustom": false
+        }
+      ],
       "IsCustom": false,
       "Important": false,
       "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
+      "IsEnded": true,
+      "LiveStateLocked": true
     },
     {
       "Id": "59e5f35f51",
@@ -952,7 +1013,7 @@
       "HomeTeamLogo": "/img/category-placeholder.svg",
       "AwayTeamLogo": "/img/logos/bahrain.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8594788Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/saudi-arabia-vs-bahrain/75327/",
       "Streams": [
         {
@@ -976,8 +1037,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -990,7 +1051,7 @@
       "HomeTeamLogo": "/img/logos/singapore.webp",
       "AwayTeamLogo": "/img/logos/qatar.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8595898Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/singapore-vs-qatar/75328/",
       "Streams": [
         {
@@ -1008,8 +1069,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1022,7 +1083,7 @@
       "HomeTeamLogo": "/img/logos/namibia.webp",
       "AwayTeamLogo": "/img/logos/south-africa.webp",
       "StartTimeUtc": "2026-09-04T12:19:08.8596541Z",
-      "Status": "upcoming",
+      "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/namibia-vs-south-africa/75329/",
       "Streams": [
         {
@@ -1030,10 +1091,47 @@
           "Url": "https://total-sportek.st/game/namibia-vs-south-africa/75329/"
         }
       ],
-      "Players": [],
+      "Players": [
+        {
+          "Name": "Alpha Streams",
+          "Url": "https://alphastreams.mom/2026/09/04/namibia-vs-south-africa/",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "SMK Sports",
+          "Url": "https://smksports.cfd/new/stream-37.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Ripplestream4u",
+          "Url": "https://rippleplays.cfd/newhub/stream-37.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "CRIC FREE",
+          "Url": "https://cricsfree.cfd/live/stream-37.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/09/04/namibia-vs-south-africa/",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "FUBO TV",
+          "Url": "https://streamed.buzz//",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": false,
+      "IsLive": true,
       "IsEnded": false,
       "LiveStateLocked": false
     },
@@ -1047,7 +1145,7 @@
       "HomeTeamLogo": "/img/logos/us-open.webp",
       "AwayTeamLogo": "/img/logos/tennis.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.85972Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/us-open-vs-tennis/66780/",
       "Streams": [
         {
@@ -1125,8 +1223,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1289,7 +1387,7 @@
       "HomeTeamLogo": "/img/logos/hawkes-bay.webp",
       "AwayTeamLogo": "/img/logos/otago.webp",
       "StartTimeUtc": "2026-09-04T07:29:08.860542Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/hawkes-bay-vs-otago/71329/",
       "Streams": [
         {
@@ -1319,8 +1417,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1533,7 +1631,7 @@
       "HomeTeamLogo": "/img/logos/bayern-munchen.webp",
       "AwayTeamLogo": "/img/logos/jeju-united.webp",
       "StartTimeUtc": "2026-09-04T10:19:08.8615182Z",
-      "Status": "upcoming",
+      "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/bayern-munchen-vs-jeju-united/69484/",
       "Streams": [
         {
@@ -1541,10 +1639,17 @@
           "Url": "https://total-sportek.st/game/bayern-munchen-vs-jeju-united/69484/"
         }
       ],
-      "Players": [],
+      "Players": [
+        {
+          "Name": "FUBO TV",
+          "Url": "https://streamed.buzz//",
+          "Enabled": true,
+          "IsCustom": false
+        }
+      ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": false,
+      "IsLive": true,
       "IsEnded": false,
       "LiveStateLocked": false
     },
@@ -1558,7 +1663,7 @@
       "HomeTeamLogo": "/img/logos/bangkok-glass.webp",
       "AwayTeamLogo": "/img/logos/aston-villa.webp",
       "StartTimeUtc": "2026-09-04T12:49:08.861588Z",
-      "Status": "upcoming",
+      "Status": "live",
       "SourceUrl": "https://total-sportek.st/game/bangkok-glass-vs-aston-villa/71964/",
       "Streams": [
         {
@@ -1566,10 +1671,59 @@
           "Url": "https://total-sportek.st/game/bangkok-glass-vs-aston-villa/71964/"
         }
       ],
-      "Players": [],
+      "Players": [
+        {
+          "Name": "Alpha Streams",
+          "Url": "https://alphastreams.mom/2026/09/04/bangkok-glass-vs-aston-villa/",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "SMK Sports",
+          "Url": "https://smksports.cfd/new/stream-10.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Ripplestream4u",
+          "Url": "https://rippleplays.cfd/newhub/stream-10.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "CRIC FREE",
+          "Url": "https://cricsfree.cfd/live/stream-10.php",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "BUFFSTREAMZ",
+          "Url": "https://buffnetwork.sbs/2026/09/04/bangkok-glass-vs-aston-villa/",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "Sportszone",
+          "Url": "https://sportszone.best/2026/09/04/glasgow-cosmic-vs-belfast-wolves/",
+          "Enabled": true,
+          "IsCustom": false
+        },
+        {
+          "Name": "liveonstreams.online",
+          "Url": "https://liveonstreamz.xyz/?p=2749",
+          "Enabled": false,
+          "IsCustom": false
+        },
+        {
+          "Name": "FUBO TV",
+          "Url": "https://streamed.buzz//",
+          "Enabled": false,
+          "IsCustom": false
+        }
+      ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": false,
+      "IsLive": true,
       "IsEnded": false,
       "LiveStateLocked": false
     },
@@ -1633,7 +1787,7 @@
       "HomeTeamLogo": "/img/logos/texas-rangers.webp",
       "AwayTeamLogo": "/img/logos/tampa-bay-rays.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8620593Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/texas-rangers-vs-tampa-bay-rays/68413/",
       "Streams": [
         {
@@ -1705,8 +1859,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1719,7 +1873,7 @@
       "HomeTeamLogo": "/img/logos/baltimore-orioles.webp",
       "AwayTeamLogo": "/img/logos/boston-red-sox.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.862121Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/baltimore-orioles-vs-boston-red-sox/68410/",
       "Streams": [
         {
@@ -1785,8 +1939,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1799,7 +1953,7 @@
       "HomeTeamLogo": "/img/logos/chicago-cubs.webp",
       "AwayTeamLogo": "/img/logos/milwaukee-brewers.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8622918Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/chicago-cubs-vs-milwaukee-brewers/68412/",
       "Streams": [
         {
@@ -1871,8 +2025,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1885,7 +2039,7 @@
       "HomeTeamLogo": "/img/logos/kansas-city-royals.webp",
       "AwayTeamLogo": "/img/logos/miami-marlins.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8623546Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/kansas-city-royals-vs-miami-marlins/68411/",
       "Streams": [
         {
@@ -1957,8 +2111,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -1971,7 +2125,7 @@
       "HomeTeamLogo": "/img/logos/seattle-mariners.webp",
       "AwayTeamLogo": "/img/logos/oakland-athletics.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8624188Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/seattle-mariners-vs-oakland-athletics/68414/",
       "Streams": [
         {
@@ -2043,8 +2197,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
@@ -2057,7 +2211,7 @@
       "HomeTeamLogo": "/img/logos/los-angeles-dodgers.webp",
       "AwayTeamLogo": "/img/logos/st-louis-cardinals.webp",
       "StartTimeUtc": "2026-09-04T07:18:08.8624871Z",
-      "Status": "live",
+      "Status": "replay",
       "SourceUrl": "https://total-sportek.st/game/los-angeles-dodgers-vs-st.-louis-cardinals/68415/",
       "Streams": [
         {
@@ -2129,8 +2283,8 @@
       ],
       "IsCustom": false,
       "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
+      "IsLive": false,
+      "IsEnded": true,
       "LiveStateLocked": false
     },
     {
