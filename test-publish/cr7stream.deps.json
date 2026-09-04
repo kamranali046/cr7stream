@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "cr7stream/1.0.0": {
+        "dependencies": {
+          "cr7stream.Logic": "1.0.0"
+        },
+        "runtime": {
+          "cr7stream.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.11.61": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.61.0",
+            "fileVersion": "1.11.61.0"
+          }
+        }
+      },
+      "cr7stream.Logic/1.0.0": {
+        "dependencies": {
+          "HtmlAgilityPack": "1.11.61"
+        },
+        "runtime": {
+          "cr7stream.Logic.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "cr7stream/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HtmlAgilityPack/1.11.61": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqZASeEFHS9quHvfZSwaULoAJLWkOYVPiQjc3P9J4pQS8vSYzrP3bxe04Vm7vYYuxwbQhq9hCSVvZVLTyRaNaQ==",
+      "path": "htmlagilitypack/1.11.61",
+      "hashPath": "htmlagilitypack.1.11.61.nupkg.sha512"
+    },
+    "cr7stream.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

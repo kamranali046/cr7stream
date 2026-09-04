@@ -1,0 +1,148 @@
+@model cr7stream.Logic.Models.MatchDetailViewModel
+@using cr7stream.Logic
+@{
+    var m = Model.Match!;
+    ViewData["Title"] = m.HomeTeam + " vs " + m.AwayTeam + " - CR7Stream";
+
+    var isEnded = m.IsEnded || m.Status == "replay";
+    var isLive = m.IsLive && !isEnded;
+    var showPlayer = !isEnded;
+    var playersAvailable = Model.PlayersAvailable;
+    var enabledPlayers = showPlayer
+        ? (m.Players ?? new List<Player>()).Where(p => p.Enabled).ToList()
+        : new List<Player>();
+    var hasPlayers = enabledPlayers.Any();
+    var embed = hasPlayers ? enabledPlayers.First().Url : null;
+}
+
+<div class="detail-wrap" id="detailWrap" data-slug="@m.Slug" data-ended="@isEnded.ToString().ToLowerInvariant()" data-players-available="@playersAvailable.ToString().ToLowerInvariant()">
+
+    <div class="league-head" style="border-radius:12px;margin-bottom:14px;">
+        @if (Model.League != null)
+        {
+            <img src="@(string.IsNullOrEmpty(Model.League.Logo) ? "/img/category-placeholder.svg" : Model.League.Logo)" alt="@Model.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
+            <h3>@Model.League.Name</h3>
+        }
+    </div>
+
+    <div class="match-card" style="border-radius:12px;margin-bottom:18px;text-decoration:none;">
+        <a class="team home" asp-controller="Matches" asp-action="Team" asp-route-slug="@Slug.Slugify(m.HomeTeam)">
+            <img src="@(string.IsNullOrEmpty(m.HomeTeamLogo) ? "/img/match-placeholder.svg" : m.HomeTeamLogo)" alt="@m.HomeTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
+            <span class="name">@m.HomeTeam</span>
+        </a>
+        <div class="match-meta">
+            @if (isLive)
+            {
+                <span class="badge-live">LIVE NOW!</span>
+            }
+            else if (isEnded)
+            {
+                <span class="badge-replay">ENDED</span>
+            }
+            else
+            {
+                <div class="countdown" data-start="@m.StartTimeUtc.ToString("o")">Starts in: --:--:--</div>
+            }
+        </div>
+        <a class="team away" asp-controller="Matches" asp-action="Team" asp-route-slug="@Slug.Slugify(m.AwayTeam)">
+            <img src="@(string.IsNullOrEmpty(m.AwayTeamLogo) ? "/img/match-placeholder.svg" : m.AwayTeamLogo)" alt="@m.AwayTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
+            <span class="name">@m.AwayTeam</span>
+        </a>
+    </div>
+
+    @if (isEnded)
+    {
+        <div class="ended-box">
+            <span class="badge-replay">ENDED</span>
+            <p class="muted">Match ended. No stream is available.</p>
+        </div>
+    }
+    else if (playersAvailable && hasPlayers)
+    {
+        <iframe id="streamFrame" class="stream-embed" src="@embed" referrerpolicy="no-referrer" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
+
+        <div id="streamList" class="player-btn-row">
+            @foreach (var player in enabledPlayers)
+            {
+                var idx = enabledPlayers.IndexOf(player) + 1;
+                <button type="button" class="stream-btn @(idx == 1 ? "active" : "")" data-stream="@player.Url">Player @idx</button>
+            }
+        </div>
+
+        <p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+    }
+    else
+    {
+        <div class="ended-box">
+            <p class="muted">The stream will be available @Model.PlayerLeadMinutes minutes before the match starts.</p>
+        </div>
+        <p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+    }
+</div>
+
+<script>
+    (function () {
+        var wrap = document.getElementById('detailWrap');
+        if (!wrap) return;
+        var slug = wrap.getAttribute('data-slug');
+        var frame = document.getElementById('streamFrame');
+        var list = document.getElementById('streamList');
+
+        function setActive(btn) {
+            if (!list) return;
+            list.querySelectorAll('.stream-btn').forEach(function (b) { b.classList.remove('active'); });
+            if (btn) btn.classList.add('active');
+        }
+
+        function bindButtons() {
+            if (!list) return;
+            list.querySelectorAll('.stream-btn[data-stream]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (frame) {
+                        frame.src = btn.getAttribute('data-stream');
+                        frame.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setActive(btn);
+                });
+            });
+        }
+
+        function render(players) {
+            if (!list) return;
+            list.innerHTML = '';
+            if (!players || !players.length) {
+                if (frame) frame.style.display = 'none';
+                return;
+            }
+            var first = true;
+            var idx = 1;
+            players.forEach(function (p) {
+                var url = p.url || p.Url;
+                var enabled = p.enabled;
+                if (enabled === false || p.Enabled === false) return;
+                if (!url) return;
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'stream-btn' + (first ? ' active' : '');
+                b.setAttribute('data-stream', url);
+                b.textContent = 'Player ' + idx;
+                idx++;
+                list.appendChild(b);
+                if (first && frame) { frame.src = url; first = false; }
+            });
+            if (first && frame) frame.style.display = 'none';
+            bindButtons();
+        }
+
+        bindButtons();
+
+        if (wrap.getAttribute('data-ended') === 'true') return;
+        if (wrap.getAttribute('data-players-available') === 'false') return;
+
+        fetch('/hd/' + encodeURIComponent(slug) + '/players')
+            .then(function (r) { return r.json(); })
+            .then(render)
+            .catch(function () { });
+    })();
+</script>
+

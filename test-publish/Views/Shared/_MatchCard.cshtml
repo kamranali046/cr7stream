@@ -1,0 +1,32 @@
+@model cr7stream.Logic.Models.Match
+
+@{
+    var isLive = Model.IsLive || Model.Status == "live";
+    var isEnded = Model.IsEnded || Model.Status == "replay";
+}
+
+<a class="match-card" asp-controller="Matches" asp-action="Details" asp-route-slug="@Model.Slug">
+    <div class="team home">
+        <img src="@(string.IsNullOrEmpty(Model.HomeTeamLogo) ? "/img/match-placeholder.svg" : Model.HomeTeamLogo)" alt="@Model.HomeTeam" width="40" height="40" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
+        <span class="name">@Model.HomeTeam</span>
+    </div>
+    <div class="match-meta">
+        @if (isLive)
+        {
+            <span class="badge-live">LIVE NOW!</span>
+        }
+        else if (isEnded)
+        {
+            <span class="badge-replay">ENDED</span>
+        }
+        else
+        {
+            <div class="countdown" data-start="@Model.StartTimeUtc.ToString("o")">Starts in: --:--:--</div>
+        }
+    </div>
+    <div class="team away">
+        <img src="@(string.IsNullOrEmpty(Model.AwayTeamLogo) ? "/img/match-placeholder.svg" : Model.AwayTeamLogo)" alt="@Model.AwayTeam" width="40" height="40" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
+        <span class="name">@Model.AwayTeam</span>
+    </div>
+</a>
+
