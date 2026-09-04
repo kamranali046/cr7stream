@@ -71,161 +71,11 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default, bool drillPlayers = false)
     {
-        var settings = _settings is null
-            ? new ScraperSettings()
-            : await _settings.LoadAsync(cancellationToken);
-        _baseUrl = NormalizeBaseUrl(settings.SourceUrl);
+        var data = await ScrapeInternalAsync(cancellationToken);
 
-        var request = new HttpRequestMessage(HttpMethod.Get, _baseUrl);
-        request.Headers.UserAgent.ParseAdd(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
-
-        using var response = await _http.SendAsync(request, cancellationToken);
-        response.EnsureSuccessStatusCode();
-
-        var html = await response.Content.ReadAsStringAsync(cancellationToken);
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        var data = new FixtureData { NormalizeTimes = false, ScrapedAtUtc = DateTime.UtcNow };
-
-        var leagues = new Dictionary<string, League>();
-        var sports = new Dictionary<string, Sport>();
-        var teams = new Dictionary<string, Team>(StringComparer.OrdinalIgnoreCase);
-        var matches = new List<Models.Match>();
-
-        string currentCategory = Categories.ImportantMatchesName;
-        string currentCategorySlug = Categories.ImportantMatchesSlug;
-        string currentSportSlug = Categories.ImportantMatchesSlug;
-        string currentCategoryLogo = string.Empty;
-
-        var nodes = doc.DocumentNode.SelectNodes("//div | //a") ?? Enumerable.Empty<HtmlNode>();
-
-        // Lazily registers a league (and its parent sport) so matches that appear
-        // before any category header (e.g. the "Important Games" section) still get
-        // a valid league/sport entry. Returns the resolved sport slug.
-        string EnsureLeague(string slug, string name, string logo)
-        {
-            if (!leagues.ContainsKey(slug))
-            {
-                var (sportSlug, sportName) = NormalizeSport(name);
-                leagues[slug] = new League
-                {
-                    Slug = slug,
-                    Name = name,
-                    SportSlug = sportSlug,
-                    Logo = logo
-                };
-
-                if (!sports.ContainsKey(sportSlug))
-                {
-                    sports[sportSlug] = new Sport
-                    {
-                        Slug = sportSlug,
-                        Name = sportName,
-                        Logo = string.IsNullOrEmpty(logo)
-                            ? $"https://placehold.co/120x120/1f2937/ffffff?text={Uri.EscapeDataString(sportName[..Math.Min(3, sportName.Length)].ToUpper())}"
-                            : logo
-                    };
-                }
-
-                return sportSlug;
-            }
-
-            return leagues[slug].SportSlug;
-        }
-
-        foreach (var node in nodes)
-        {
-            var cls = node.GetAttributeValue("class", "");
-
-            if (IsCategoryHeader(cls))
-            {
-                // Real categories carry a league logo image; label-only headers
-                // such as "Important Games" should keep the previous category.
-                if (node.SelectSingleNode(".//img") is null)
-                {
-                    continue;
-                }
-
-                var (name, logo) = ParseCategory(node);
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    continue;
-                }
-
-                currentCategory = name.Trim();
-                currentCategorySlug = Slug.Slugify(currentCategory);
-                currentCategoryLogo = logo;
-                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, logo);
-
-                continue;
-            }
-
-            if (IsMatchAnchor(cls))
-            {
-                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, currentCategoryLogo);
-                var match = ParseMatch(node, currentCategorySlug, currentSportSlug, teams);
-                if (match is not null && match.Status != "replay")
-                {
-                    matches.Add(match);
-                }
-            }
-        }
-
-        data.Leagues = leagues.Values.ToList();
-        data.Sports = sports.Values.ToList();
-        data.Teams = teams.Values.ToList();
-        data.Matches = matches;
-
-        // Seed the admin live/ended flags from the source status so the public site
-        // auto-detects live/ended matches. Admin overrides (set via the dashboard)
-        // are preserved across scrapes in MergePreserveCustom.
-        foreach (var mt in data.Matches)
-        {
-            mt.IsLive = mt.Status == "live";
-            mt.IsEnded = mt.Status == "replay";
-        }
-
-        // When drillPlayers is requested (e.g. an explicit manual re-scrape), also
-        // pre-populate player lists for matches that are live or about to start
-        // (within PlayerFetchLeadMinutes). Only these few matches are drilled and
-        // the work is capped/throttled so it stays reasonably fast, while the
-        // scheduled daily scrape leaves this off and stays instant (fixtures only).
-        // Visitors also get players on demand via GetPlayersAsync + the AJAX
-        // player endpoint regardless of this setting.
         if (drillPlayers)
         {
-            var lead = TimeSpan.FromMinutes(settings.PlayerFetchLeadMinutes);
-            var now = DateTime.UtcNow;
-            var eligible = matches.Where(m =>
-            {
-                if (string.IsNullOrWhiteSpace(m.SourceUrl)) return false;
-                if (m.Status == "live") return true;
-                var before = m.StartTimeUtc - now;
-                return before <= lead && before > TimeSpan.FromHours(-3);
-            })
-                .OrderByDescending(m => m.Status == "live")
-                .Take(30)
-                .ToList();
-
-            if (eligible.Count > 0)
-            {
-                using var sem = new SemaphoreSlim(6);
-                var tasks = eligible.Select(async m =>
-                {
-                    await sem.WaitAsync(cancellationToken);
-                    try
-                    {
-                        m.Players = await ExtractPlayersHttpAsync(m.SourceUrl!, cancellationToken, maxPlayers: 10);
-                    }
-                    finally
-                    {
-                        sem.Release();
-                    }
-                });
-                await Task.WhenAll(tasks);
-            }
+            await DrillPlayersAsync(data, cancellationToken);
         }
 
         return data;
@@ -233,127 +83,12 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     public async Task<List<Player>> GetPlayersAsync(string matchUrl, CancellationToken cancellationToken = default)
     {
-        // All player extraction is done over plain HTTP: parse the player rows on the
-        // match page and drill each provider/wrapper page once to pull its <iframe src>.
-        // No headless browser is required (fast and reliable in production).
         return await ExtractPlayersHttpAsync(matchUrl, cancellationToken);
     }
 
-    /// <summary>
-    /// Phase 1: Scrape fixtures only (teams, time, source URL, status).
-    /// No player drilling — keeps the scrape fast.
-    /// </summary>
     public async Task<FixtureData> ScrapeFixturesAsync(CancellationToken cancellationToken = default)
     {
-        var settings = _settings is null
-            ? new ScraperSettings()
-            : await _settings.LoadAsync(cancellationToken);
-        _baseUrl = NormalizeBaseUrl(settings.SourceUrl);
-
-        var request = new HttpRequestMessage(HttpMethod.Get, _baseUrl);
-        request.Headers.UserAgent.ParseAdd(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
-
-        using var response = await _http.SendAsync(request, cancellationToken);
-        response.EnsureSuccessStatusCode();
-
-        var html = await response.Content.ReadAsStringAsync(cancellationToken);
-        var doc = new HtmlDocument();
-        doc.LoadHtml(html);
-
-        var data = new FixtureData { NormalizeTimes = false, ScrapedAtUtc = DateTime.UtcNow };
-
-        var leagues = new Dictionary<string, League>();
-        var sports = new Dictionary<string, Sport>();
-        var teams = new Dictionary<string, Team>(StringComparer.OrdinalIgnoreCase);
-        var matches = new List<Models.Match>();
-
-        string currentCategory = Categories.ImportantMatchesName;
-        string currentCategorySlug = Categories.ImportantMatchesSlug;
-        string currentSportSlug = Categories.ImportantMatchesSlug;
-        string currentCategoryLogo = string.Empty;
-
-        var nodes = doc.DocumentNode.SelectNodes("//div | //a") ?? Enumerable.Empty<HtmlNode>();
-
-        string EnsureLeague(string slug, string name, string logo)
-        {
-            if (!leagues.ContainsKey(slug))
-            {
-                var (sportSlug, sportName) = NormalizeSport(name);
-                leagues[slug] = new League
-                {
-                    Slug = slug,
-                    Name = name,
-                    SportSlug = sportSlug,
-                    Logo = logo
-                };
-
-                if (!sports.ContainsKey(sportSlug))
-                {
-                    sports[sportSlug] = new Sport
-                    {
-                        Slug = sportSlug,
-                        Name = sportName,
-                        Logo = string.IsNullOrEmpty(logo)
-                            ? $"https://placehold.co/120x120/1f2937/ffffff?text={Uri.EscapeDataString(sportName[..Math.Min(3, sportName.Length)].ToUpper())}"
-                            : logo
-                    };
-                }
-
-                return sportSlug;
-            }
-
-            return leagues[slug].SportSlug;
-        }
-
-        foreach (var node in nodes)
-        {
-            var cls = node.GetAttributeValue("class", "");
-
-            if (IsCategoryHeader(cls))
-            {
-                if (node.SelectSingleNode(".//img") is null)
-                {
-                    continue;
-                }
-
-                var (name, logo) = ParseCategory(node);
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    continue;
-                }
-
-                currentCategory = name.Trim();
-                currentCategorySlug = Slug.Slugify(currentCategory);
-                currentCategoryLogo = logo;
-                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, logo);
-
-                continue;
-            }
-
-            if (IsMatchAnchor(cls))
-            {
-                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, currentCategoryLogo);
-                var match = ParseMatch(node, currentCategorySlug, currentSportSlug, teams);
-                if (match is not null && match.Status != "replay")
-                {
-                    matches.Add(match);
-                }
-            }
-        }
-
-        data.Leagues = leagues.Values.ToList();
-        data.Sports = sports.Values.ToList();
-        data.Teams = teams.Values.ToList();
-        data.Matches = matches;
-
-        foreach (var mt in data.Matches)
-        {
-            mt.IsLive = mt.Status == "live";
-            mt.IsEnded = mt.Status == "replay";
-        }
-
-        return data;
+        return await ScrapeInternalAsync(cancellationToken);
     }
 
     /// <summary>
@@ -396,6 +131,119 @@ public class TotalSportekScraper : ITotalSportekScraper
             }
         });
         await Task.WhenAll(tasks);
+    }
+
+    private async Task<FixtureData> ScrapeInternalAsync(CancellationToken ct)
+    {
+        var settings = _settings is null
+            ? new ScraperSettings()
+            : await _settings.LoadAsync(ct);
+        _baseUrl = NormalizeBaseUrl(settings.SourceUrl);
+
+        using var request = new HttpRequestMessage(HttpMethod.Get, _baseUrl);
+        request.Headers.UserAgent.ParseAdd(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
+
+        using var response = await _http.SendAsync(request, ct);
+        response.EnsureSuccessStatusCode();
+
+        var html = await response.Content.ReadAsStringAsync(ct);
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        var data = new FixtureData { NormalizeTimes = false, ScrapedAtUtc = DateTime.UtcNow };
+
+        var leagues = new Dictionary<string, League>();
+        var sports = new Dictionary<string, Sport>();
+        var teams = new Dictionary<string, Team>(StringComparer.OrdinalIgnoreCase);
+        var matches = new List<Models.Match>();
+
+        string currentCategory = Categories.ImportantMatchesName;
+        string currentCategorySlug = Categories.ImportantMatchesSlug;
+        string currentSportSlug = Categories.ImportantMatchesSlug;
+        string currentCategoryLogo = string.Empty;
+
+        var nodes = doc.DocumentNode.SelectNodes("//div | //a") ?? Enumerable.Empty<HtmlNode>();
+
+        string EnsureLeague(string slug, string name, string logo)
+        {
+            if (!leagues.ContainsKey(slug))
+            {
+                var (sportSlug, sportName) = NormalizeSport(name);
+                leagues[slug] = new League
+                {
+                    Slug = slug,
+                    Name = name,
+                    SportSlug = sportSlug,
+                    Logo = logo
+                };
+
+                if (!sports.ContainsKey(sportSlug))
+                {
+                    sports[sportSlug] = new Sport
+                    {
+                        Slug = sportSlug,
+                        Name = sportName,
+                        Logo = string.IsNullOrEmpty(logo)
+                            ? $"https://placehold.co/120x120/1f2937/ffffff?text={Uri.EscapeDataString(sportName[..Math.Min(3, sportName.Length)].ToUpper())}"
+                            : logo
+                    };
+                }
+
+                return sportSlug;
+            }
+
+            return leagues[slug].SportSlug;
+        }
+
+        foreach (var node in nodes)
+        {
+            var cls = node.GetAttributeValue("class", "");
+
+            if (IsCategoryHeader(cls))
+            {
+                if (node.SelectSingleNode(".//img") is null)
+                {
+                    continue;
+                }
+
+                var (name, logo) = ParseCategory(node);
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    continue;
+                }
+
+                currentCategory = name.Trim();
+                currentCategorySlug = Slug.Slugify(currentCategory);
+                currentCategoryLogo = logo;
+                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, logo);
+
+                continue;
+            }
+
+            if (IsMatchAnchor(cls))
+            {
+                currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, currentCategoryLogo);
+                var match = ParseMatch(node, currentCategorySlug, currentSportSlug, teams);
+                if (match is not null && match.Status != "replay")
+                {
+                    matches.Add(match);
+                }
+            }
+        }
+
+        data.Leagues = leagues.Values.ToList();
+        data.Sports = sports.Values.ToList();
+        data.Teams = teams.Values.ToList();
+        data.Matches = matches;
+
+        foreach (var mt in data.Matches)
+        {
+            mt.IsLive = mt.Status == "live";
+            mt.IsEnded = mt.Status == "replay";
+        }
+
+        return data;
     }
 
     private static bool IsJunkHost(Uri uri)
@@ -640,10 +488,11 @@ public class TotalSportekScraper : ITotalSportekScraper
         try
         {
             var effective = timeout ?? TimeSpan.FromSeconds(15);
-            using var innerCts = CancellationTokenSource.CreateLinkedTokenSource(ct, new CancellationTokenSource(effective).Token);
+            using var timeoutCts = new CancellationTokenSource(effective);
+            using var innerCts = CancellationTokenSource.CreateLinkedTokenSource(ct, timeoutCts.Token);
             var token = innerCts.Token;
 
-            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            using var request = new HttpRequestMessage(HttpMethod.Get, url);
             request.Headers.UserAgent.ParseAdd(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
             using var response = await _http.SendAsync(request, token);

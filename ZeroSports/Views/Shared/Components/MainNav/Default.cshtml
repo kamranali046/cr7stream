@@ -3,7 +3,7 @@
 <header class="site-header">
     <div class="container-fluid">
         <div class="header-row">
-            <a class="brand" asp-controller="Home" asp-action="Index">Zero<span>Sports</span></a>
+            <a class="brand" asp-controller="Home" asp-action="Index"><img src="~/logo.png" alt="CR7Stream" class="brand-logo" /></a>
             <nav id="mainNav" class="main-nav">
                 <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
                    asp-controller="Home" asp-action="Index">HOME</a>

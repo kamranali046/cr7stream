@@ -23,6 +23,7 @@ public class ScrapperLogic : IScrapperLogic
     private readonly IFixtureProvider _provider;
     private readonly ITotalSportekScraper _scraper;
     private readonly IScraperSettingsProvider _settings;
+    private readonly ILogoService _logos;
     private readonly TimeSpan _liveWindow = TimeSpan.FromHours(3);
 
     // Throttles per-match player re-drills so the live-window loop (which runs
@@ -30,11 +31,12 @@ public class ScrapperLogic : IScrapperLogic
     // published players yet.
     private static readonly ConcurrentDictionary<string, DateTime> LastDrill = new();
 
-    public ScrapperLogic(IFixtureProvider provider, ITotalSportekScraper scraper, IScraperSettingsProvider settings)
+    public ScrapperLogic(IFixtureProvider provider, ITotalSportekScraper scraper, IScraperSettingsProvider settings, ILogoService logos)
     {
         _provider = provider;
         _scraper = scraper;
         _settings = settings;
+        _logos = logos;
     }
 
     public async Task<FixtureData> GetFixturesAsync()
@@ -79,6 +81,7 @@ public class ScrapperLogic : IScrapperLogic
     /// Two-phase scrape:
     ///   Phase 1 — scrape fixtures (teams, time, source URL, status), save immediately.
     ///   Phase 2 — drill players for live matches or those within PlayerFetchLeadMinutes.
+    /// Also downloads team/league logos to local disk for caching.
     /// Returns data after Phase 1 so the caller can show fixtures right away while
     /// Phase 2 runs in the background.
     /// </summary>
@@ -98,14 +101,27 @@ public class ScrapperLogic : IScrapperLogic
         // Save fixtures immediately so the admin page can display them.
         await _provider.SaveAsync(data, cancellationToken);
 
+        // Download logos in background (fire-and-forget).
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await DownloadLogosAsync(data, cancellationToken);
+            }
+            catch
+            {
+                // best-effort
+            }
+        }, cancellationToken);
+
         // Phase 2: drill players for live / near-live matches (fire-and-forget).
-        // The caller can optionally await this, but the admin page returns right away.
         _ = Task.Run(async () =>
         {
             try
             {
                 await _scraper.DrillPlayersAsync(data, cancellationToken);
                 await _provider.SaveAsync(data, cancellationToken);
+                MatchesControllerLogic.ClearPlayerCache();
             }
             catch
             {
@@ -119,6 +135,102 @@ public class ScrapperLogic : IScrapperLogic
     public async Task SaveFixturesAsync(FixtureData data, CancellationToken cancellationToken = default)
     {
         await _provider.SaveAsync(data, cancellationToken);
+    }
+
+    /// <summary>
+    /// Downloads team and league logos to local disk for caching.
+    /// Skips already-downloaded logos. Updates the data in-place with local paths.
+    /// </summary>
+    public async Task DownloadLogosAsync(FixtureData data, CancellationToken ct = default)
+    {
+        var tasks = new List<Task>();
+
+        foreach (var team in data.Teams)
+        {
+            if (!string.IsNullOrWhiteSpace(team.Logo) && !_logos.LocalFileExists(team.Slug))
+            {
+                var logo = team.Logo;
+                var slug = team.Slug;
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        team.Logo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(team.Slug))
+            {
+                team.Logo = _logos.GetLocalPath(team.Slug);
+            }
+        }
+
+        foreach (var league in data.Leagues)
+        {
+            if (!string.IsNullOrWhiteSpace(league.Logo) && !_logos.LocalFileExists(league.Slug))
+            {
+                var logo = league.Logo;
+                var slug = league.Slug;
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        league.Logo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(league.Slug))
+            {
+                league.Logo = _logos.GetLocalPath(league.Slug);
+            }
+        }
+
+        // Also fix match-level logos (home/away team logos stored per-match)
+        foreach (var match in data.Matches)
+        {
+            if (!string.IsNullOrWhiteSpace(match.HomeTeamLogo) && !_logos.LocalFileExists(Slug.Slugify(match.HomeTeam)))
+            {
+                var logo = match.HomeTeamLogo;
+                var slug = Slug.Slugify(match.HomeTeam);
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        match.HomeTeamLogo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(Slug.Slugify(match.HomeTeam)))
+            {
+                match.HomeTeamLogo = _logos.GetLocalPath(Slug.Slugify(match.HomeTeam));
+            }
+
+            if (!string.IsNullOrWhiteSpace(match.AwayTeamLogo) && !_logos.LocalFileExists(Slug.Slugify(match.AwayTeam)))
+            {
+                var logo = match.AwayTeamLogo;
+                var slug = Slug.Slugify(match.AwayTeam);
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        match.AwayTeamLogo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(Slug.Slugify(match.AwayTeam)))
+            {
+                match.AwayTeamLogo = _logos.GetLocalPath(Slug.Slugify(match.AwayTeam));
+            }
+        }
+
+        if (tasks.Count > 0)
+        {
+            await Task.WhenAll(tasks);
+        }
     }
 
     /// <summary>
@@ -138,63 +250,82 @@ public class ScrapperLogic : IScrapperLogic
         var autoEnd = TimeSpan.FromHours(settings.LiveAutoEndHours);
         var now = DateTime.UtcNow;
 
+        // Evict LastDrill entries older than auto-end window to prevent memory leak
+        var evictionCutoff = now - autoEnd;
+        foreach (var key in LastDrill.Keys)
+        {
+            if (LastDrill.TryGetValue(key, out var ts) && ts < evictionCutoff)
+            {
+                LastDrill.TryRemove(key, out _);
+            }
+        }
+
         var data = await GetFixturesAsync();
         var changed = false;
 
         foreach (var match in data.Matches)
         {
-            if (match.LiveStateLocked)
+            try
             {
-                continue;
-            }
-
-            var isEnded = match.IsEnded || match.Status == "replay";
-            if (isEnded)
-            {
-                continue;
-            }
-
-            // Auto-end a live match that has run past the configured cap.
-            if (match.IsLive && now > match.StartTimeUtc.Add(autoEnd))
-            {
-                match.IsLive = false;
-                match.IsEnded = true;
-                match.Status = "replay";
-                changed = true;
-                continue;
-            }
-
-            var timeToStart = match.StartTimeUtc - now;
-
-            // Active window: from the drill lead up until roughly the auto-end cap
-            // after kickoff. Outside this we leave the match alone.
-            var inWindow = timeToStart <= drillLead && timeToStart > -autoEnd;
-            if (inWindow && !HasEnabledPlayers(match))
-            {
-                changed |= await TryDrillPlayersAsync(match, now, drillLead, cancellationToken);
-            }
-
-            if (timeToStart <= liveLead)
-            {
-                if (!match.IsLive)
+                if (match.LiveStateLocked)
                 {
-                    match.IsLive = true;
-                    match.Status = "live";
+                    continue;
+                }
+
+                var isEnded = match.IsEnded || match.Status == "replay";
+                if (isEnded)
+                {
+                    continue;
+                }
+
+                // Auto-end a live match that has run past the configured cap.
+                if (match.IsLive && now > match.StartTimeUtc.Add(autoEnd))
+                {
+                    match.IsLive = false;
+                    match.IsEnded = true;
+                    match.Status = "replay";
                     changed = true;
+                    continue;
                 }
 
-                // Just went live (or already live) but no players yet: pull again
-                // from the source right away.
-                if (!HasEnabledPlayers(match))
+                var timeToStart = match.StartTimeUtc - now;
+
+                // Active window: from the drill lead up until roughly the auto-end cap
+                // after kickoff. Outside this we leave the match alone.
+                var inWindow = timeToStart <= drillLead && timeToStart > -autoEnd;
+                if (inWindow && !HasEnabledPlayers(match))
                 {
-                    changed |= await TryDrillPlayersAsync(match, now, liveLead, cancellationToken);
+                    changed |= await TryDrillPlayersAsync(match, now, drillLead, cancellationToken);
                 }
+
+                if (timeToStart <= liveLead)
+                {
+                    if (!match.IsLive)
+                    {
+                        match.IsLive = true;
+                        match.Status = "live";
+                        changed = true;
+                    }
+
+                    // Just went live (or already live) but no players yet: pull again
+                    // from the source right away.
+                    if (!HasEnabledPlayers(match))
+                    {
+                        changed |= await TryDrillPlayersAsync(match, now, liveLead, cancellationToken);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Per-match failure must not abort the entire loop.
+                System.Diagnostics.Debug.WriteLine($"Live-window processing failed for {match.Slug}: {ex.Message}");
             }
         }
 
         if (changed)
         {
             await _provider.SaveAsync(data, cancellationToken);
+            MatchesControllerLogic.ClearPlayerCache();
         }
     }
 
@@ -306,33 +437,7 @@ public class ScrapperLogic : IScrapperLogic
     /// </summary>
     private static List<Player> MergePlayers(List<Player> existing, List<Player> fetched)
     {
-        var result = new List<Player>();
-
-        foreach (var player in existing)
-        {
-            if (player.IsCustom)
-            {
-                result.Add(player);
-                continue;
-            }
-
-            var match = fetched.FirstOrDefault(f => string.Equals(f.Url, player.Url, StringComparison.OrdinalIgnoreCase));
-            if (match is not null)
-            {
-                match.Enabled = player.Enabled;
-                result.Add(match);
-            }
-        }
-
-        foreach (var player in fetched)
-        {
-            if (!result.Any(r => string.Equals(r.Url, player.Url, StringComparison.OrdinalIgnoreCase)))
-            {
-                result.Add(player);
-            }
-        }
-
-        return result;
+        return PlayerMergeHelper.MergePlayers(existing, fetched);
     }
 
     public async Task<List<Sport>> GetSportsAsync()

@@ -89,13 +89,17 @@ public class AutoScraperService : BackgroundService
 
             _logger.LogInformation("Next auto-scrape scheduled for {Time}.", next);
 
-            try
+            var delay = next - now;
+            if (delay > TimeSpan.Zero)
             {
-                await Task.Delay(next - now, stoppingToken);
-            }
-            catch (OperationCanceledException)
-            {
-                break;
+                try
+                {
+                    await Task.Delay(delay, stoppingToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    break;
+                }
             }
 
             if (stoppingToken.IsCancellationRequested)

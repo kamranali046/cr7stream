@@ -45,9 +45,13 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0.5px;
     color: #fff;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .brand span { color: var(--accent); }
+.brand-logo { height: 28px; width: auto; }
 
 .main-nav {
     display: flex;
@@ -394,8 +398,18 @@ a { color: inherit; text-decoration: none; }
     border: 1px solid var(--border);
     border-radius: 8px;
     font-weight: 600;
+    color: var(--text);
+    transition: background .15s, border-color .15s;
 }
 .stream-btn:hover { border-color: var(--accent); }
+.stream-btn.active {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #fff;
+}
+.player-btn-row .stream-btn { display: inline-block; width: auto; flex: 0 0 auto; }
+.player-btn-row .stream-btn:not(.active) { background: #1e2a3a; border-color: #2a3a50; }
+.player-btn-row .stream-btn:not(.active):hover { background: #243244; }
 
 .back-link { color: var(--muted); font-size: 14px; }
 .back-link:hover { color: var(--accent); }
@@ -467,7 +481,9 @@ a { color: inherit; text-decoration: none; }
 .tick:hover { border-color: var(--accent); }
 .tick input { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
 /* stream buttons act as iframe switchers */
-.stream-btn { font: inherit; text-align: left; width: 100%; cursor: pointer; }
+.stream-btn { font: inherit; text-align: left; width: 100%; cursor: pointer; color: var(--text); }
+.player-btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.player-btn-row .stream-btn { display: inline-block; width: auto; flex: 0 0 auto; }
 
 .ended-box {
     background: var(--surface-2);
@@ -565,6 +581,14 @@ a { color: inherit; text-decoration: none; }
     background-color: var(--surface-2);
     color: var(--text);
     border-color: var(--border);
+}
+
+[data-theme="light"] .player-btn-row .stream-btn:not(.active) {
+    background: var(--surface-2);
+    border-color: var(--border);
+}
+[data-theme="light"] .player-btn-row .stream-btn:not(.active):hover {
+    background: #e2e6ed;
 }
 
 /* ===== Homepage SEO content ===== */

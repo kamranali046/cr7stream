@@ -22,6 +22,18 @@ public class MatchesControllerLogic : IMatchesControllerLogic
     // Short-lived cache so repeated views of the same match don't re-drill every time.
     private static readonly ConcurrentDictionary<string, (DateTime Expiry, List<Player> Players)> PlayerCache = new();
 
+    public static void ClearPlayerCache(string? url = null)
+    {
+        if (url is not null)
+        {
+            PlayerCache.TryRemove(url, out _);
+        }
+        else
+        {
+            PlayerCache.Clear();
+        }
+    }
+
     public MatchesControllerLogic(IScrapperLogic scrapper, ITotalSportekScraper scraper, IScraperSettingsProvider settings)
     {
         _scrapper = scrapper;
@@ -33,10 +45,10 @@ public class MatchesControllerLogic : IMatchesControllerLogic
         new(StringComparer.OrdinalIgnoreCase)
         {
             ["football"] = "Football",
-            ["basketball"] = "NBA",
-            ["nfl"] = "NFL",
-            ["motorsport"] = "F1",
-            ["wwe"] = "UFC",
+            ["basketball"] = "Basketball",
+            ["nfl"] = "American Football",
+            ["motorsport"] = "Motorsport",
+            ["wwe"] = "WWE",
         };
 
     public async Task<SportPageViewModel?> GetBySportAsync(string slug)
@@ -113,13 +125,14 @@ public class MatchesControllerLogic : IMatchesControllerLogic
 
     public async Task<MatchDetailViewModel?> GetMatchAsync(string slug)
     {
-        var match = await _scrapper.GetMatchBySlugAsync(slug);
+        var fixtures = await _scrapper.GetFixturesAsync();
+        var match = fixtures.Matches.FirstOrDefault(m =>
+            string.Equals(m.Slug, slug, StringComparison.OrdinalIgnoreCase));
         if (match is null)
         {
             return null;
         }
 
-        var fixtures = await _scrapper.GetFixturesAsync();
         var settings = await _settings.LoadAsync();
 
         var isEnded = match.IsEnded || match.Status == "replay";
@@ -151,18 +164,25 @@ public class MatchesControllerLogic : IMatchesControllerLogic
     public async Task<List<Player>?> GetMatchPlayersAsync(string slug)
     {
         var match = await _scrapper.GetMatchBySlugAsync(slug);
-        if (match is null || string.IsNullOrWhiteSpace(match.SourceUrl))
+        if (match is null)
         {
             return null;
+        }
+
+        var stored = match.Players ?? new List<Player>();
+
+        if (string.IsNullOrWhiteSpace(match.SourceUrl))
+        {
+            return stored.Count > 0 ? stored : null;
         }
 
         var fresh = await GetCachedPlayersAsync(match.SourceUrl, System.Threading.CancellationToken.None);
         if (fresh.Count == 0)
         {
-            return fresh;
+            // Source has no players yet — return manually added ones if any.
+            return stored.Count > 0 ? stored : fresh;
         }
 
-        var stored = match.Players ?? new List<Player>();
         return MergeWithStored(stored, fresh);
     }
 

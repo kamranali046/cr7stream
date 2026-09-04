@@ -1,0 +1,979 @@
+ 
+ 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+ 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TOTALSPORTEK - FIFA WORLD CUP LIVE</title>
+<meta name="description" content="TOTALSPORTEK offers the Best quality links for FIFA WORLD CUP Matches, Fans most Loved Site" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<link rel="stylesheet" href="/assets2/css/bootstrap.min.css" defer>
+<!--
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></noscript>
+-->
+
+<link rel="stylesheet" href="/assets2/css/style.css" defer>
+<script src="/assets2/js/bootstrap.min.js" defer></script>
+
+
+
+
+<link rel="icon" href="https://total-sportek.st/icon.jpg" />
+<link rel="canonical" href="https://total-sportek.st/" />
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+<style>
+/* in /assets/css/main.css */
+
+.site-nav .menu-link.cta {
+  background: var(--accent-color);      /* your “Advertise” button color */
+  color:    var(--accent-text, #fff);   /* ensure good contrast */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background .2s ease;
+}
+
+.site-nav .menu-link.cta:hover {
+  background: var(--accent-hover, #005bbb);
+}
+
+    .wj::before, .xj::before, .yj::before, .zj::before {
+        left: 2px;
+    }
+    
+    .ads-mobile{
+        display:none;
+    }
+    
+    .addclass{
+        margin:auto;
+        text-align:center;
+        display:block;
+        width:100%;
+    }
+    .addclass img{
+        width:90%;
+        margin:auto;
+    }
+    
+     .register{
+            text-decoration: none;
+              font-size: 18px;
+           /*   background: #7188da;*/
+              background:#181818;
+              padding: 6px;
+              border-radius: 10px;
+              width:200px;
+              height:46px;
+              color:#fff;
+              font-weight: 700 !important;
+        }
+        .register:hover{
+            color:#fff;
+            background: linear-gradient(to bottom, #657cc8, #4e64b0); 
+        }
+        .discorimg{
+            width:200px;
+        }
+    
+    @media  screen and (max-width:767px) {
+        .disdiv{
+            display:none;
+        }
+        .register{
+            padding:4px;
+              font-size: 14px;
+        }
+        .ads-desktop{
+            display:none;
+        }
+        .ads-mobile{
+            display:block;
+        }
+        .addclass img{
+            width:90%;
+            margin:auto;
+            max-width:300px;
+        }
+    }
+    
+    @media  screen and (max-width:420px) {
+        .discorimg{
+            width:150px;
+        }
+    }
+    
+       .blink {
+  animation: blink-animation 2s steps(2, start) infinite;
+  color: red;
+  font-size: 1.2em;
+  text-align: center;
+  color: #fff !important;
+  font-weight:bold;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+
+.livstreams{
+    display:none;
+}
+    .ts-telegram-alert-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1E96C8, #0C6C9C);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    border: 2px solid #2AABEE;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+    transition: all 0.3s ease;
+    animation: ts-pulse-glow 2s infinite;
+    margin-bottom: 20px;
+}
+
+.ts-telegram-alert-btn:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #2AABEE, #1682B8);
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.ts-tg-icon {
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+}
+
+.ts-tg-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.ts-tg-main {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    font-family: Arial, sans-serif;
+}
+
+.ts-tg-highlight {
+    color: #FFD700; /* High-visibility yellow */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ts-tg-sub {
+    font-size: 15px;
+    font-weight: 800;
+    background: #ffffff;
+    color: #0C6C9C;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 6px;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+/* Attention-Grabbing Animation */
+@keyframes ts-pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(42, 171, 238, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(42, 171, 238, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(42, 171, 238, 0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .ts-telegram-alert-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+    .ts-tg-content {
+        align-items: center;
+        text-align: center;
+    }
+    .ts-tg-main {
+        font-size: 16px;
+    }
+}
+</style>
+
+
+
+
+
+</head>
+
+<body>
+    
+   
+   
+<header>
+
+<style>
+    #button{
+        display:none !important;
+    }
+    .no-m{
+        margin:0px !important;
+    }
+    
+    @media screen and (max-width:992px) {
+        #button{
+            display:block !important;
+        }
+    }
+    @media screen and (max-width:620px) {
+        .moblog{
+            margin:auto;
+            display:none;
+        }
+    }
+    .logo-text{
+  font-weight:800;
+  font-size:18px; line-height:18px;
+  color:#ff8a00; letter-spacing:.5px;
+  text-transform:uppercase; display:inline-block;
+}
+
+</style>
+
+
+
+	<div class="container-fluid border-bottom border-secondary">
+    	<div class="col-md-12 m-auto p-0">
+        <div class="text-center my-3 d-none d-md-block d-sm-none">
+        	
+        </div>
+        	<nav class="navbar navbar-expand-lg navbar-dark my-2">
+                                  <div class="container p-0 no-m">
+                                    <button class="navbar-toggler mt-1 mb-1 d-block me-3" id="button" aria-label="Name" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                                      <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    
+                                    <a class="moblog" href="/">
+<a href="/" class="logo-text" aria-label="TOTALSPORTEK">TOTALSPORTEK</a>
+                                    </a>
+                                    
+                                    <!--<a class="d-sm-block d-md-none fw-bold m-auto h3 text-decoration-none text-active" href="/">TOTALSPORTEK</a>-->
+                                    
+                                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                      <ul class="navbar-nav ms-auto fw-bold">
+                                       
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/soccer-streams">Soccer Streams</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/cricket-streams">cricket</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/f1-streams">F1</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/motogp-streams">motogp</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/ufc-streams">UFC</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/boxing-streams">Boxing</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/tennis-streams">tennis</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/nba-streams">NBA</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/nfl-streams">NFL</a>
+                                              </li>
+                                              <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/rugby-streams">Rugby</a>
+                                              </li>
+                                                <li class="nav-item px-2">
+                                                <a class="nav-link fs-7 text-capitalize" href="/news/">NEWS</a>
+                                              </li>
+                                              
+                                              
+                                      </ul>
+                                    </div>
+                                  </div>
+                            </nav>
+        </div>
+    </div>
+ 
+
+     
+</header>
+
+
+<main>
+	<div class="container-fluid">
+    	<div class="col-md-12 m-auto">
+        	<div class="d-flex">
+        
+
+            </div>
+        	<div class="row">            	<!-- main -->
+                	<div class="col-md-6 order-md-2 mb-3">
+                    	<div class="col-md-12 border rounded">
+                        	<div class="justify-content-center text-white border-bottom py-2 d-flex">
+                            
+                            
+                            <div class="d-flex justify-content-center mb-4">
+    <a href="/date/yesterday/" class="text-decoration-none text-white">
+        <div class="fw-bold fs-7 rounded-pill bg-dark shadow py-2 px-2 mx-3">RESULTS</div>
+    </a>
+    <a href="/date/today/" class="text-decoration-none text-white">
+        <div class="fw-bold fs-7 rounded-pill bg-dark shadow py-2 px-2 mx-3">STREAMS</div>
+    </a>
+    <a href="/date/tomorrow/" class="text-decoration-none text-white">
+        <div class="fw-bold fs-7 rounded-pill bg-dark shadow py-2 px-2 mx-3">SCHEDULE</div>
+    </a>
+</div>
+
+
+</div>
+
+     <center>
+<a href="https://t.me/totalsporteki" class="ts-telegram-alert-btn" target="_blank" rel="noopener noreferrer">
+    <div class="ts-tg-icon">
+        <svg viewBox="0 0 24 24" fill="white" width="40px" height="40px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27.01-.12.05-1.93 1.25-5.46 3.63-.51.35-.98.52-1.39.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.46-.42-1.4-.88.03-.24.36-.49 1-.76 3.91-1.7 6.52-2.82 7.84-3.37 3.74-1.56 4.51-1.83 5.02-1.84.11 0 .36.03.5.15.11.1.15.24.16.35.01.03.01.12.01.18z"/></svg>
+    </div>
+    <div class="ts-tg-content">
+        <span class="ts-tg-main">Websites go down. Our links stay live. <strong class="ts-tg-highlight">JOIN THE TELEGRAM</strong></span>
+        <span class="ts-tg-sub">Find Links Ads Free</span>
+    </div>
+</a>
+
+          </center>
+
+
+                            <!-- section for games -->
+          
+                    
+              <div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/la-liga.webp" alt="La-Liga" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">La-Liga</span>
+                        </div><a href="https://total-sportek.st/game/real-sociedad-vs-celta-de-vigo/76024/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>11 hr and 27 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Real Sociedad.webp" alt="Real Sociedad" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Real Sociedad</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Celta de Vigo.webp" alt="Celta de Vigo" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Celta de Vigo</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/ligue-1.webp" alt="Ligue-1" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Ligue-1</span>
+                        </div><a href="https://total-sportek.st/game/toulouse-vs-lille/76115/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>11 hr and 12 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Toulouse.webp" alt="Toulouse" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Toulouse</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Lille.webp" alt="Lille" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Lille</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/cricket.webp" alt="Cricket" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Cricket</span>
+                        </div><a href="https://total-sportek.st/game/kuwait-vs-united-arab-emirates/75324/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Kuwait.webp" alt="Kuwait" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Kuwait</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/United Arab Emirates.webp" alt="United Arab Emirates" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />United Arab Emirates</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/malaysia-vs-nepal/75325/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Malaysia.webp" alt="Malaysia" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Malaysia</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Nepal.webp" alt="Nepal" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Nepal</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/namibia-vs-zimbabwe/75326/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>4 hr and 27 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Namibia.webp" alt="Namibia" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Namibia</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Zimbabwe.webp" alt="Zimbabwe" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Zimbabwe</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/tennis.webp" alt="tennis" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">tennis</span>
+                        </div><a href="https://total-sportek.st/game/us-open-vs-tennis/66780/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="US Open" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />US Open</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Tennis.webp" alt="Tennis" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Tennis</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/usl championship.webp" alt="USL Championship" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">USL Championship</span>
+                        </div><a href="https://total-sportek.st/game/charleston-battery-vs-hartford-athletic/70632/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Charleston Battery" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Charleston Battery</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Hartford Athletic" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Hartford Athletic</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/scottish premiership.webp" alt="Scottish Premiership" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Scottish Premiership</span>
+                        </div><a href="https://total-sportek.st/game/hibernian-vs-hearts/76116/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>11 hr and 12 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Hibernian.webp" alt="Hibernian" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Hibernian</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Hearts.webp" alt="Hearts" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Hearts</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/saudi pro league.webp" alt="Saudi Pro League" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Saudi Pro League</span>
+                        </div><a href="https://total-sportek.st/game/al-fayha-vs-al-kholood/76117/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>8 hr and 22 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Al-Fayha" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Al-Fayha</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Al Kholood.webp" alt="Al Kholood" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Al Kholood</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/neom-vs-al-khaleej/76118/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>8 hr and 57 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="NEOM" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />NEOM</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Al Khaleej.webp" alt="Al Khaleej" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Al Khaleej</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/diriyah-vs-al-quadisiya/76119/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>10 hr and 27 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Diriyah" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Diriyah</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Al Quadisiya" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Al Quadisiya</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/rugby.webp" alt="rugby" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">rugby</span>
+                        </div><a href="https://total-sportek.st/game/taranaki-vs-auckland/71328/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Taranaki" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Taranaki</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Auckland.webp" alt="Auckland" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Auckland</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/leagues cup.webp" alt="Leagues Cup" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Leagues Cup</span>
+                        </div><a href="https://total-sportek.st/game/toluca-vs-leon/75990/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Toluca.webp" alt="Toluca" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Toluca</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Leon" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Leon</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/america-vs-monterrey/75991/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="America" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />America</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Monterrey" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Monterrey</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/coppa italia.webp" alt="Coppa Italia" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">Coppa Italia</span>
+                        </div><a href="https://total-sportek.st/game/palermo-vs-mantova/75928/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>8 hr and 27 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Palermo" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Palermo</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Mantova" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Mantova</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/cagliari-vs-verona/75929/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>11 hr and 27 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Cagliari.webp" alt="Cagliari" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Cagliari</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/logo.svg" alt="Verona" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Verona</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><div class="col fs-7 fw-bold text-white m-2">
+                            <img src="/assets2/images/categories/mlb.webp" alt="mlb" width="30" height="30" decoding="async" loading="lazy" fetchpriority="low" /><span class="ps-3">mlb</span>
+                        </div><a href="https://total-sportek.st/game/cleveland-guardians-vs-toronto-blue-jays/68398/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp" alt="Cleveland Guardians" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Cleveland Guardians</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Toronto Blue Jays.webp" alt="Toronto Blue Jays" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Toronto Blue Jays</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/pittsburgh-pirates-vs-san-francisco-giants/68399/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp" alt="Pittsburgh Pirates" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Pittsburgh Pirates</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp" alt="San Francisco Giants" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />San Francisco Giants</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/tampa-bay-rays-vs-new-york-mets/68400/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp" alt="Tampa Bay Rays" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Tampa Bay Rays</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/New York Mets.webp" alt="New York Mets" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />New York Mets</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/houston-astros-vs-chicago-white-sox/68404/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Houston Astros.webp" alt="Houston Astros" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Houston Astros</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp" alt="Chicago White Sox" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Chicago White Sox</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/kansas-city-royals-vs-miami-marlins/68401/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Kansas City Royals.webp" alt="Kansas City Royals" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Kansas City Royals</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Miami Marlins.webp" alt="Miami Marlins" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Miami Marlins</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/chicago-cubs-vs-milwaukee-brewers/68402/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp" alt="Chicago Cubs" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Chicago Cubs</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp" alt="Milwaukee Brewers" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Milwaukee Brewers</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/minnesota-twins-vs-detroit-tigers/68403/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Minnesota Twins.webp" alt="Minnesota Twins" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Minnesota Twins</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Detroit Tigers.webp" alt="Detroit Tigers" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Detroit Tigers</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/los-angeles-angels-vs-new-york-yankees/68405/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Los Angeles Angels.webp" alt="Los Angeles Angels" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Los Angeles Angels</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/New York Yankees.webp" alt="New York Yankees" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />New York Yankees</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/los-angeles-dodgers-vs-st.-louis-cardinals/68406/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>Match Started </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Los Angeles Dodgers.webp" alt="Los Angeles Dodgers" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Los Angeles Dodgers</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/St. Louis Cardinals.webp" alt="St. Louis Cardinals" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />St. Louis Cardinals</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/pittsburgh-pirates-vs-san-francisco-giants/68407/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>9 hr and 2 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Pittsburgh Pirates.webp" alt="Pittsburgh Pirates" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Pittsburgh Pirates</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/San Francisco Giants.webp" alt="San Francisco Giants" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />San Francisco Giants</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/cleveland-guardians-vs-toronto-blue-jays/68408/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>9 hr and 37 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Cleveland Guardians.webp" alt="Cleveland Guardians" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Cleveland Guardians</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Toronto Blue Jays.webp" alt="Toronto Blue Jays" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Toronto Blue Jays</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/houston-astros-vs-chicago-white-sox/68409/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>10 hr and 37 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Houston Astros.webp" alt="Houston Astros" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Houston Astros</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Chicago White Sox.webp" alt="Chicago White Sox" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Chicago White Sox</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/texas-rangers-vs-tampa-bay-rays/68413/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>15 hr and 32 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Texas Rangers.webp" alt="Texas Rangers" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Texas Rangers</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Tampa Bay Rays.webp" alt="Tampa Bay Rays" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Tampa Bay Rays</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/baltimore-orioles-vs-boston-red-sox/68410/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>15 hr and 42 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Baltimore Orioles.webp" alt="Baltimore Orioles" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Baltimore Orioles</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Boston Red Sox.webp" alt="Boston Red Sox" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Boston Red Sox</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/chicago-cubs-vs-milwaukee-brewers/68412/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>15 hr and 42 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Chicago Cubs.webp" alt="Chicago Cubs" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Chicago Cubs</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Milwaukee Brewers.webp" alt="Milwaukee Brewers" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Milwaukee Brewers</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a><a href="https://total-sportek.st/game/kansas-city-royals-vs-miami-marlins/68411/" class="text-decoration-none nav-link2" target="_blank"><div class="d-flex bg-game my-2 mx-2 rounded-3 position-relative">
+                                    <div class="col-3 fs-8 px-2 text-center my-auto xj Bj Aj"><span>16 hr and 7 min from now </span></div>
+                                    <div class="col-8 fs-7 px-2 my-auto">
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Kansas City Royals.webp" alt="Kansas City Royals" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Kansas City Royals</div></div>
+                                        <div class="row my-auto"><div class="col-12"><img src="https://total-sportek.st/assets2/images/premier/Miami Marlins.webp" alt="Miami Marlins" width="15" height="15" decoding="async" loading="lazy" fetchpriority="low" />Miami Marlins</div></div>
+                                    </div>
+                                    <div class="col-1 fs-8 px-2 my-auto"><i class="fas fa-external-link-alt"></i></div>
+                                </div></a>                                                       
+             
+             <!-- end soccer section -->
+             
+                            <!-- section for games -->
+                        </div>
+                    </div>
+                <!-- end main -->
+            	<!-- left sidebar -->
+                	
+                    <div class="col-md-3 order-md-1 mb-3">
+    <div class="col-md-12 border rounded-3">
+        <div class="fs-7 fw-bold text-white border-bottom py-3 ps-2">Top Teams >></div>
+                    <a href="/team/manchester-united/14/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Manchester United.webp" alt="Manchester United Logo" width="20"  class="me-3" />
+                    Manchester United                </div>
+            </a>
+                    <a href="/team/arsenal/15/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Arsenal.webp" alt="Arsenal Logo" width="20"  class="me-3" />
+                    Arsenal                </div>
+            </a>
+                    <a href="/team/chelsea/16/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Chelsea.webp" alt="Chelsea Logo" width="20"  class="me-3" />
+                    Chelsea                </div>
+            </a>
+                    <a href="/team/liverpool/17/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Liverpool.webp" alt="Liverpool Logo" width="20"  class="me-3" />
+                    Liverpool                </div>
+            </a>
+                    <a href="/team/manchester-city/18/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Manchester City.webp" alt="Manchester City Logo" width="20"  class="me-3" />
+                    Manchester City                </div>
+            </a>
+                    <a href="/team/tottenham-hotspur/19/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Tottenham Hotspur.webp" alt="Tottenham Hotspur Logo" width="20"  class="me-3" />
+                    Tottenham Hotspur                </div>
+            </a>
+                    <a href="/team/everton/20/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Everton.webp" alt="Everton Logo" width="20"  class="me-3" />
+                    Everton                </div>
+            </a>
+                    <a href="/team/newcastle-united/21/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Newcastle United.webp" alt="Newcastle United Logo" width="20"  class="me-3" />
+                    Newcastle United                </div>
+            </a>
+                    <a href="/team/real-madrid/22/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Real Madrid.webp" alt="Real Madrid Logo" width="20"  class="me-3" />
+                    Real Madrid                </div>
+            </a>
+                    <a href="/team/barcelona/23/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Barcelona.webp" alt="Barcelona Logo" width="20"  class="me-3" />
+                    Barcelona                </div>
+            </a>
+                    <a href="/team/atlatico-madrid/24/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Atlatico Madrid.webp" alt="Atlatico Madrid Logo" width="20"  class="me-3" />
+                    Atlatico Madrid                </div>
+            </a>
+                    <a href="/team/juventus/25/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Juventus.webp" alt="Juventus Logo" width="20"  class="me-3" />
+                    Juventus                </div>
+            </a>
+                    <a href="/team/milan/26/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Milan.webp" alt="Milan Logo" width="20"  class="me-3" />
+                    Milan                </div>
+            </a>
+                    <a href="/team/internazionale/27/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Internazionale.webp" alt="Internazionale Logo" width="20"  class="me-3" />
+                    Internazionale                </div>
+            </a>
+                    <a href="/team/psg/28/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/PSG.webp" alt="PSG Logo" width="20"  class="me-3" />
+                    PSG                </div>
+            </a>
+                    <a href="/team/bayern-munich/31/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Bayern Munich.webp" alt="Bayern Munich Logo" width="20"  class="me-3" />
+                    Bayern Munich                </div>
+            </a>
+                    <a href="/team/leicester-city/32/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Leicester City.webp" alt="Leicester City Logo" width="20"  class="me-3" />
+                    Leicester City                </div>
+            </a>
+                    <a href="/team/napoli/33/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Napoli.webp" alt="Napoli Logo" width="20"  class="me-3" />
+                    Napoli                </div>
+            </a>
+                    <a href="/team/roma/40/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Roma.webp" alt="Roma Logo" width="20"  class="me-3" />
+                    Roma                </div>
+            </a>
+                    <a href="/team/borussia-dortmund/41/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Borussia Dortmund.webp" alt="Borussia Dortmund Logo" width="20"  class="me-3" />
+                    Borussia Dortmund                </div>
+            </a>
+                    <a href="/team/west-ham-united/42/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/West Ham United.webp" alt="West Ham United Logo" width="20"  class="me-3" />
+                    West Ham United                </div>
+            </a>
+                    <a href="/team/olympique-marseille/43/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Olympique Marseille.webp" alt="Olympique Marseille Logo" width="20"  class="me-3" />
+                    Olympique Marseille                </div>
+            </a>
+                    <a href="/team/bayer-leverkusen/47/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Bayer Leverkusen.webp" alt="Bayer Leverkusen Logo" width="20"  class="me-3" />
+                    Bayer Leverkusen                </div>
+            </a>
+                    <a href="/team/sevilla/48/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Sevilla.webp" alt="Sevilla Logo" width="20"  class="me-3" />
+                    Sevilla                </div>
+            </a>
+                    <a href="/team/villarreal/49/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Villarreal.webp" alt="Villarreal Logo" width="20"  class="me-3" />
+                    Villarreal                </div>
+            </a>
+            </div>
+</div>                  
+                <!-- end left sidebar -->
+
+                <!-- right sidebar -->
+                
+     
+                
+                	<div class="col-md-3 order-md-3 mb-3">
+    <div class="col-md-12 border rounded-3">
+        <div class="fs-7 fw-bold text-white border-bottom py-3 ps-2">Top Leagues >></div>
+                    <a href="/league/premier-league/5/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/Premier-League.png" alt="Premier League Logo" width="20" class="me-3" />
+                    Premier League                </div>
+            </a>
+                    <a href="/league/uefa-champions-league/7/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/UEFA-Champions-League.png" alt="UEFA Champions League Logo" width="20" class="me-3" />
+                    UEFA Champions League                </div>
+            </a>
+                    <a href="/league/bundesliga/8/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/images/bundesliga.png" alt="Bundesliga Logo" width="20" class="me-3" />
+                    Bundesliga                </div>
+            </a>
+                    <a href="/league/uefa-europa-league/9/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/UEFA-Europa-League.png" alt="UEFA Europa League Logo" width="20" class="me-3" />
+                    UEFA Europa League                </div>
+            </a>
+                    <a href="/league/serie-a/10/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/serie.png" alt="Serie A Logo" width="20" class="me-3" />
+                    Serie A                </div>
+            </a>
+                    <a href="/league/ligue-1/11/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/league1.png" alt="Ligue 1 Logo" width="20" class="me-3" />
+                    Ligue 1                </div>
+            </a>
+                    <a href="/league/la-liga/12/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/laligahd.png" alt="La Liga Logo" width="20" class="me-3" />
+                    La Liga                </div>
+            </a>
+                    <a href="/league/fifa-world-cup-2022/13/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/assets2/images/logo.svg" alt="FIFA World Cup 2022 Logo" width="20" class="me-3" />
+                    FIFA World Cup 2022                </div>
+            </a>
+                    <a href="/league/dutch-eredivisie/34/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://totalsportek.pro/images/eredivisie.png" alt="Dutch Eredivisie Logo" width="20" class="me-3" />
+                    Dutch Eredivisie                </div>
+            </a>
+                    <a href="/league/primeira-liga/35/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="images/Premier-League.png" alt="PRIMEIRA LIGA Logo" width="20" class="me-3" />
+                    PRIMEIRA LIGA                </div>
+            </a>
+                    <a href="/league/uefa-europa-conference-league/36/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/assets2/images/logo.svg" alt="UEFA Europa Conference League Logo" width="20" class="me-3" />
+                    UEFA Europa Conference League                </div>
+            </a>
+                    <a href="/league/copa-libertadores/37/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://totalsportek.pro/images/Copa%20Libertadores.png" alt="Copa Libertadores Logo" width="20" class="me-3" />
+                    Copa Libertadores                </div>
+            </a>
+                    <a href="/league/fa-cup/38/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/facup.png" alt="FA CUP Logo" width="20" class="me-3" />
+                    FA CUP                </div>
+            </a>
+                    <a href="/league/efl-cup/39/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://total-sportek.st/images/efl.png" alt="EFL Cup Logo" width="20" class="me-3" />
+                    EFL Cup                </div>
+            </a>
+                    <a href="/league/uefa-nations-league/44/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://totalsportek.pro/images/uefa.jpg" alt="UEFA Nations League Logo" width="20" class="me-3" />
+                    UEFA Nations League                </div>
+            </a>
+                    <a href="/league/mls/45/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/categories/mls.png" alt="MLS Logo" width="20" class="me-3" />
+                    MLS                </div>
+            </a>
+                    <a href="/league/copa-del-rey-(spain)/46/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="https://totalsportek.pro/images/copadel.png" alt="Copa Del Rey (Spain) Logo" width="20" class="me-3" />
+                    Copa Del Rey (Spain)                </div>
+            </a>
+                    <a href="/league/scottish-premiership/50/" class="text-decoration-none nav-link2" target="_blank">
+                <div class="fs-7 py-1 ps-2">
+                    <img src="/assets2/images/premier/Scottish_Premiership.webp" alt="Scottish Premiership Logo" width="20" class="me-3" />
+                    Scottish Premiership                </div>
+            </a>
+            </div>
+</div>                	
+    
+                <!-- end right sidebar -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- content -->
+    	<div class="container-fluid my-5">
+        	<div class="col-md-7 m-auto">
+            	
+                            
+
+<div style="margin-top: 10px;">
+    
+
+
+
+<div style="margin-top: 10px;">
+    
+
+<article class="totalsportek-seo-content">
+  <h1 data-path-to-node="0">Welcome to TotalSportek</h1>
+<p data-path-to-node="1">Your ultimate digital hub for breaking sports news, live fixtures, post-match analysis, and global sports schedules. Never miss a moment of the action with <strong data-path-to-node="1" data-index-in-node="156">Sportek</strong>.</p>
+<h2 data-path-to-node="3">The Global Home of Sports Fans</h2>
+<p data-path-to-node="4">For millions of passionate fans worldwide, finding a reliable, all-in-one source for sports schedules, news, and updates is a daily challenge. That is exactly where <strong data-path-to-node="4" data-index-in-node="165">TotalSportek</strong> steps in. We have designed a platform built specifically for the modern sports enthusiast.</p>
+<p data-path-to-node="5">Whether you are tracking the Premier League title race, waiting for the lights to go out in Formula 1, or counting down the days to the next UFC Pay-Per-View, <strong data-path-to-node="5" data-index-in-node="159">Sportek</strong> ensures you have the right information at your fingertips. We pride ourselves on delivering accurate fixtures, deep tactical analysis, and real-time news across the sporting globe.</p>
+<h2 data-path-to-node="7">Unrivaled Sports Coverage</h2>
+<h3 data-path-to-node="8">TotalSportek Football</h3>
+<p data-path-to-node="9">Football is the beautiful game, and at <strong data-path-to-node="9" data-index-in-node="39">Total Sportek</strong>, we treat it with the respect it deserves. Get daily updates on the UEFA Champions League, English Premier League, La Liga, and Serie A. We provide predicted lineups, injury news, and transfer rumors to keep you ahead of the game.</p>
+<h3 data-path-to-node="10">Sportek Motorsport</h3>
+<p data-path-to-node="11">The speed, the strategy, the drama. <strong data-path-to-node="11" data-index-in-node="36">Sportek</strong> is your pit wall for everything Formula 1 and MotoGP. Discover weekend schedules, practice session times, tire strategies, and post-race breakdowns so you know exactly when and where the action unfolds.</p>
+<h3 data-path-to-node="12">Total Sportek Combat</h3>
+<p data-path-to-node="13">Step into the octagon with comprehensive combat sports coverage. From major Boxing title bouts to UFC Fight Nights, <strong data-path-to-node="13" data-index-in-node="116">TotalSportek</strong> brings you fighter stats, tale of the tape, weigh-in results, and main card schedules so you never miss a knockout.</p>
+<h2 data-path-to-node="15">Why Millions Trust Total Sportek</h2>
+<p data-path-to-node="16">The internet is flooded with sports blogs, but finding one that aggregates the most important data efficiently is rare. When users search for <strong data-path-to-node="16" data-index-in-node="142">TOTALSPORTEK</strong>, they are looking for a community-driven platform that understands what fans actually want to see.</p>
+<p data-path-to-node="17"><strong data-path-to-node="17" data-index-in-node="0">Total Sportek</strong> doesn't just list scores; we provide the context behind the numbers. Our platform is continuously updated to reflect live changes in scheduling, broadcast rights information (so you know which legal channels are showing your game), and expert commentary.</p>
+<p data-path-to-node="18">From the hardcore analyst to the casual weekend viewer, <strong data-path-to-node="18" data-index-in-node="56">Sportek</strong> is tailored to enhance your viewing experience. Bookmark our homepage today and join a growing community that relies on <strong data-path-to-node="18" data-index-in-node="184">TOTAL SPORTEK</strong> as their daily sports companion.</p>
+</article>
+
+
+
+                            </div>
+
+
+
+                            </div>    	
+							
+
+            </div>
+        </div>
+    <!-- end content -->
+</main>
+
+
+
+<footer>
+
+<hr />
+	<div class="container-fluid my-3">
+    	<div class="col-md-7 m-auto text-center">
+        	<div class="col fs-7 fw-bold text-white">Trending Today by <span class="text-active">TOTALSPORTEK</span></div>
+        
+|
+        <a href="https://total-sportek.st" class="nav-link2">	  <span class="text-active">TOTALSPORTEK</span>
+</a>
+
+
+
+
+
+
+
+<h6>
+Disclaimer: None of the videos is hosted by this site. Streams hosted on external sites like Youtube etc are provided with links here. This site is not responsible for the legality of the content. For legal issues, please contact appropriate media file owners/hosters.
+</h6>
+
+
+            <div class="row justify-content-center mt-3">
+            <div class="col-md-2" style="font-size:11px;"><a href="https://total-sportek.st/team/liverpool/17/" class="nav-link2">Liverpool Live Stream</a></div>
+                <div class="col-md-2" style="font-size:11px;"><a href="https://total-sportek.st/team/manchester-united/14/" class="nav-link2">Manchester United Stream</a></div>
+                <div class="col-md-2" style="font-size:11px;"><a href="https://total-sportek.st/league/premier-league/5/" class="nav-link2">Premier League Live Stream</a></div>
+                <div class="col-md-2" style="font-size:11px;"><a href="https://total-sportek.st/league/uefa-champions-league/7/" class="nav-link2">Champions League</a></div>
+                <div class="col-md-2" style="font-size:11px;"><a href="https://total-sportek.st/f1-streams/" class="nav-link2">Formula 1 Live Stream</a></div
+            ></div>
+            </div>
+        
+
+        	<div class="col fs-7 mt-5 py-2">Always free website. visit homepage at <a href="https://total-sportek.st" class="nav-link2">total-sportek.st</a></div>
+        </div>
+    </div>
+    
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        document.querySelector(".moblog").style.display = "block";
+    }, 1000); // 2000ms = 2 seconds
+});
+
+    </script>
+
+</footer>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R0186S3LZJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R0186S3LZJ');
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"f37946fc416442f98e088a64a009b3fe","r":1}' crossorigin="anonymous"></script>
+</body>
+</html>

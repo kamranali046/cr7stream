@@ -1,9 +1,9 @@
 @model ZeroSports.Logic.Models.TeamPageViewModel
 @{
-    ViewData["Title"] = (Model.Team?.Name ?? "Team") + " Fixtures - ZeroSports";
+    ViewData["Title"] = (Model.Team?.Name ?? "Team") + " Fixtures - CR7Stream";
 }
 
-<p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+<p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to Homepage</a></p>
 
 <div class="team-head">
     <img src="@(string.IsNullOrEmpty(Model.Team?.Logo) ? "/img/match-placeholder.svg" : Model.Team!.Logo)" alt="@Model.Team?.Name" width="56" height="56" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />

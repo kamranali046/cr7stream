@@ -61,12 +61,14 @@ public class AdminLogic : IAdminLogic
     private readonly IFixtureProvider _provider;
     private readonly IScraperSettingsProvider _settings;
     private readonly ITotalSportekScraper _scraper;
+    private readonly ILogoService _logos;
 
-    public AdminLogic(IFixtureProvider provider, IScraperSettingsProvider settings, ITotalSportekScraper scraper)
+    public AdminLogic(IFixtureProvider provider, IScraperSettingsProvider settings, ITotalSportekScraper scraper, ILogoService logos)
     {
         _provider = provider;
         _settings = settings;
         _scraper = scraper;
+        _logos = logos;
     }
 
     public async Task<List<League>> GetCategoriesAsync(CancellationToken cancellationToken = default)
@@ -104,21 +106,28 @@ public class AdminLogic : IAdminLogic
 
         if (!data.Sports.Any(s => s.Slug == sportSlug))
         {
+            var sportLogo = _logos.LocalFileExists(sportSlug)
+                ? _logos.GetLocalPath(sportSlug)
+                : $"https://placehold.co/120x120/1f2937/ffffff?text={Uri.EscapeDataString(sportName[..Math.Min(3, sportName.Length)].ToUpper())}";
             data.Sports.Add(new Sport
             {
                 Slug = sportSlug,
                 Name = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(sportName.ToLowerInvariant()),
-                Logo = $"https://placehold.co/120x120/1f2937/ffffff?text={Uri.EscapeDataString(sportName[..Math.Min(3, sportName.Length)].ToUpper())}",
+                Logo = sportLogo,
                 IsCustom = true
             });
         }
+
+        var leagueLogo = _logos.LocalFileExists(categorySlug)
+            ? _logos.GetLocalPath(categorySlug)
+            : string.Empty;
 
         data.Leagues.Add(new League
         {
             Slug = categorySlug,
             Name = name,
             SportSlug = sportSlug,
-            Logo = string.Empty,
+            Logo = leagueLogo,
             IsCustom = true
         });
 
@@ -170,6 +179,17 @@ public class AdminLogic : IAdminLogic
             slug = $"{slug}-{Guid.NewGuid().ToString("N")[..4]}";
         }
 
+        var homeSlug = Slug.Slugify(home);
+        var awaySlug = Slug.Slugify(away);
+
+        var homeLogo = !string.IsNullOrWhiteSpace(input.HomeTeamLogo)
+            ? input.HomeTeamLogo
+            : _logos.LocalFileExists(homeSlug) ? _logos.GetLocalPath(homeSlug) : string.Empty;
+
+        var awayLogo = !string.IsNullOrWhiteSpace(input.AwayTeamLogo)
+            ? input.AwayTeamLogo
+            : _logos.LocalFileExists(awaySlug) ? _logos.GetLocalPath(awaySlug) : string.Empty;
+
         var match = new Match
         {
             Id = Guid.NewGuid().ToString("N")[..10],
@@ -178,8 +198,8 @@ public class AdminLogic : IAdminLogic
             SportSlug = league.SportSlug,
             HomeTeam = home,
             AwayTeam = away,
-            HomeTeamLogo = input.HomeTeamLogo ?? string.Empty,
-            AwayTeamLogo = input.AwayTeamLogo ?? string.Empty,
+            HomeTeamLogo = homeLogo,
+            AwayTeamLogo = awayLogo,
             StartTimeUtc = startUtc,
             Status = input.Status,
             SourceUrl = input.SourceUrl ?? string.Empty,
@@ -296,6 +316,11 @@ public class AdminLogic : IAdminLogic
         if (match.IsEnded)
         {
             match.IsLive = false;
+            match.Status = "replay";
+        }
+        else
+        {
+            match.Status = "upcoming";
         }
         match.LiveStateLocked = true;
 
@@ -382,7 +407,7 @@ public class AdminLogic : IAdminLogic
         }
 
         match.Players ??= new List<Player>();
-        var label = string.IsNullOrWhiteSpace(name) ? $"Player 1" : name.Trim();
+        var label = string.IsNullOrWhiteSpace(name) ? $"Player {match.Players.Count + 1}" : name.Trim();
         match.Players.Insert(0, new Player
         {
             Name = label,
@@ -392,6 +417,7 @@ public class AdminLogic : IAdminLogic
         });
 
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task TogglePlayerAsync(string matchSlug, int index, CancellationToken cancellationToken = default)
@@ -405,6 +431,7 @@ public class AdminLogic : IAdminLogic
 
         match.Players[index].Enabled = !match.Players[index].Enabled;
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task MovePlayerAsync(string matchSlug, int index, string direction, CancellationToken cancellationToken = default)
@@ -424,6 +451,7 @@ public class AdminLogic : IAdminLogic
 
         (match.Players[index], match.Players[swap]) = (match.Players[swap], match.Players[index]);
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task SavePlayerAsync(string matchSlug, int index, string url, CancellationToken cancellationToken = default)
@@ -437,6 +465,7 @@ public class AdminLogic : IAdminLogic
 
         match.Players[index].Url = url.Trim();
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task DeletePlayerAsync(string matchSlug, int index, CancellationToken cancellationToken = default)
@@ -450,38 +479,12 @@ public class AdminLogic : IAdminLogic
 
         match.Players.RemoveAt(index);
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     private static List<Player> MergePlayers(List<Player> existing, List<Player> fetched)
     {
-        existing ??= new List<Player>();
-        var result = new List<Player>();
-
-        foreach (var player in existing)
-        {
-            if (player.IsCustom)
-            {
-                result.Add(player);
-                continue;
-            }
-
-            var match = fetched.FirstOrDefault(f => string.Equals(f.Url, player.Url, StringComparison.OrdinalIgnoreCase));
-            if (match is not null)
-            {
-                match.Enabled = player.Enabled;
-                result.Add(match);
-            }
-        }
-
-        foreach (var player in fetched)
-        {
-            if (!result.Any(r => string.Equals(r.Url, player.Url, StringComparison.OrdinalIgnoreCase)))
-            {
-                result.Add(player);
-            }
-        }
-
-        return result;
+        return PlayerMergeHelper.MergePlayers(existing, fetched);
     }
 
     public async Task<ScraperSettings> GetSettingsAsync(CancellationToken cancellationToken = default)

@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using ZeroSports.Logic.Models;
@@ -9,6 +10,17 @@ public class JsonFixtureProvider : IFixtureProvider
     private readonly IWebHostEnvironment _environment;
     private const string RelativePath = "data/fixtures.json";
 
+    private static readonly JsonSerializerOptions s_readOptions = new() { PropertyNameCaseInsensitive = true };
+    private static readonly JsonSerializerOptions s_writeOptions = new() { WriteIndented = true, PropertyNameCaseInsensitive = true };
+
+    // Serializes all reads/writes to prevent read-modify-write races.
+    private static readonly SemaphoreSlim s_fileLock = new(1, 1);
+
+    // Short-lived cache to avoid re-deserializing on every request.
+    private static FixtureData? s_cache;
+    private static DateTime s_cacheUtc = DateTime.MinValue;
+    private static readonly TimeSpan s_cacheTtl = TimeSpan.FromSeconds(30);
+
     public JsonFixtureProvider(IWebHostEnvironment environment)
     {
         _environment = environment;
@@ -16,49 +28,70 @@ public class JsonFixtureProvider : IFixtureProvider
 
     public async Task<FixtureData> LoadRawAsync()
     {
-        var path = Path.Combine(_environment.WebRootPath, RelativePath);
-
-        if (!File.Exists(path))
+        // Return cached data if fresh enough.
+        if (s_cache is not null && (DateTime.UtcNow - s_cacheUtc) < s_cacheTtl)
         {
-            return new FixtureData();
+            return s_cache;
         }
 
-        await using var stream = File.OpenRead(path);
-        var options = new JsonSerializerOptions
+        await s_fileLock.WaitAsync();
+        try
         {
-            PropertyNameCaseInsensitive = true
-        };
+            // Double-check after acquiring the lock.
+            if (s_cache is not null && (DateTime.UtcNow - s_cacheUtc) < s_cacheTtl)
+            {
+                return s_cache;
+            }
 
-        var data = await JsonSerializer.DeserializeAsync<FixtureData>(stream, options);
-        return data ?? new FixtureData();
+            var path = Path.Combine(_environment.WebRootPath, RelativePath);
+
+            if (!File.Exists(path))
+            {
+                s_cache = new FixtureData();
+                s_cacheUtc = DateTime.UtcNow;
+                return s_cache;
+            }
+
+            await using var stream = File.OpenRead(path);
+            var data = await JsonSerializer.DeserializeAsync<FixtureData>(stream, s_readOptions);
+            s_cache = data ?? new FixtureData();
+            s_cacheUtc = DateTime.UtcNow;
+            return s_cache;
+        }
+        finally
+        {
+            s_fileLock.Release();
+        }
     }
 
     public async Task SaveAsync(FixtureData data, CancellationToken cancellationToken = default)
     {
-        var path = Path.Combine(_environment.WebRootPath, RelativePath);
-        var directory = Path.GetDirectoryName(path);
-        if (!string.IsNullOrEmpty(directory))
+        await s_fileLock.WaitAsync(cancellationToken);
+        try
         {
-            Directory.CreateDirectory(directory);
+            var path = Path.Combine(_environment.WebRootPath, RelativePath);
+            var directory = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // Atomic write: serialize to temp file, then replace.
+            var tempPath = path + ".tmp";
+            await using (var stream = File.Create(tempPath))
+            {
+                await JsonSerializer.SerializeAsync(stream, data, s_writeOptions, CancellationToken.None);
+            }
+
+            File.Move(tempPath, path, overwrite: true);
+
+            // Update cache.
+            s_cache = data;
+            s_cacheUtc = DateTime.UtcNow;
         }
-
-        var options = new JsonSerializerOptions
+        finally
         {
-            WriteIndented = true,
-            PropertyNameCaseInsensitive = true
-        };
-
-        // Write to a temp file first, then atomically replace the real one. This
-        // guarantees a failed/cancelled save (e.g. the HTTP request aborting
-        // mid-write) can never leave fixtures.json truncated/empty and take the
-        // whole site down. The serialize itself is not tied to the request's
-        // cancellation token for the same reason.
-        var tempPath = path + ".tmp";
-        await using (var stream = File.Create(tempPath))
-        {
-            await JsonSerializer.SerializeAsync(stream, data, options, CancellationToken.None);
+            s_fileLock.Release();
         }
-
-        File.Move(tempPath, path, overwrite: true);
     }
 }

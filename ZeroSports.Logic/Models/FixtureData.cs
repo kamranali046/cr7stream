@@ -57,8 +57,6 @@ public class Match
     // When true, the admin manually overrode live/ended and the scraper must
     // NOT re-sync these flags from the source status.
     public bool LiveStateLocked { get; set; }
-    public bool Popular { get; set; }
-    public int? Viewers { get; set; }
 }
 
 public class Player

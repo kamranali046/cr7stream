@@ -1,4 +1,4 @@
-// ZeroSports: live countdowns + graceful team-logo fallbacks.
+// CR7Stream: live countdowns + graceful team-logo fallbacks.
 
 function zeroPad(n) { return String(n).padStart(2, "0"); }
 
@@ -7,7 +7,10 @@ function renderCountdown(el) {
     var diff = start - Date.now();
 
     if (diff <= 0) {
-        el.innerHTML = '<span class="badge-live">LIVE NOW!</span>';
+        var badge = document.createElement("span");
+        badge.className = "badge-live";
+        badge.textContent = "LIVE NOW!";
+        el.replaceChildren(badge);
         return;
     }
 
@@ -16,7 +19,7 @@ function renderCountdown(el) {
     var m = Math.floor((total % 3600) / 60);
     var s = total % 60;
 
-    el.innerHTML = 'Starts in: <strong>' + zeroPad(h) + ':' + zeroPad(m) + ':' + zeroPad(s) + '</strong>';
+    el.replaceChildren("Starts in: ", Object.assign(document.createElement("strong"), { textContent: zeroPad(h) + ":" + zeroPad(m) + ":" + zeroPad(s) }));
 }
 
 function tickCountdowns() {

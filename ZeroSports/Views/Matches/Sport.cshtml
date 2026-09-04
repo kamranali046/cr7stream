@@ -1,9 +1,9 @@
 @model ZeroSports.Logic.Models.SportPageViewModel
 @{
-    ViewData["Title"] = (Model.Sport?.Name ?? "Sport") + " Streams - ZeroSports";
+    ViewData["Title"] = (Model.Sport?.Name ?? "Sport") + " Streams - CR7Stream";
 }
 
-<p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+<p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to Homepage</a></p>
 
 <h2 class="section-title">@Model.Sport?.Name Live & Upcoming</h2>
 

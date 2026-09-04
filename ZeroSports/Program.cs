@@ -11,6 +11,8 @@ builder.Services.AddControllersWithViews();
 // ZeroSports: register logic layer with DI. Controllers depend only on the
 // clean interfaces; the messy data/scraping work lives in ZeroSports.Logic.
 builder.Services.AddHttpClient<ZeroSports.Logic.Scrapers.ITotalSportekScraper, ZeroSports.Logic.Scrapers.TotalSportekScraper>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<ZeroSports.Logic.Services.ILogoService, ZeroSports.Services.LogoService>();
 builder.Services.AddScoped<ZeroSports.Logic.Services.IFixtureProvider, ZeroSports.Logic.Services.JsonFixtureProvider>();
 builder.Services.AddScoped<ZeroSports.Logic.Services.IScraperSettingsProvider, ZeroSports.Logic.Services.ScraperSettingsProvider>();
 builder.Services.AddScoped<ZeroSports.Logic.IScrapperLogic, ZeroSports.Logic.ScrapperLogic>();
@@ -27,7 +29,7 @@ builder.Services.AddAuthentication("Admin")
         options.LogoutPath = "/admin/logout";
         options.AccessDeniedPath = "/admin/login";
         options.ExpireTimeSpan = TimeSpan.FromHours(8);
-        options.Cookie.Name = "ZeroSportsAdmin";
+        options.Cookie.Name = "CR7StreamAdmin";
         options.Cookie.HttpOnly = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     });
@@ -94,6 +96,28 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+// Cache logos for 30 days.
+app.Map("/img/logos/{**path}", async (HttpContext context) =>
+{
+    var logosDir = Path.GetFullPath(Path.Combine(app.Environment.WebRootPath, "img", "logos"));
+    var filePath = Path.GetFullPath(Path.Combine(logosDir, context.Request.RouteValues["path"]?.ToString() ?? ""));
+    if (!filePath.StartsWith(logosDir, StringComparison.OrdinalIgnoreCase))
+    {
+        context.Response.StatusCode = 400;
+        return;
+    }
+    if (File.Exists(filePath))
+    {
+        context.Response.Headers.CacheControl = "public, max-age=2592000";
+        context.Response.Headers.Expires = DateTimeOffset.UtcNow.AddDays(30).ToString("R");
+        await context.Response.SendFileAsync(filePath);
+    }
+    else
+    {
+        context.Response.StatusCode = 404;
+    }
+});
 
 app.MapControllerRoute(
     name: "default",
