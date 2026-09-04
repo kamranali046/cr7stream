@@ -6,13 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RazorCompileOnBuild>false</RazorCompileOnBuild>
     <RazorCompileOnPublish>false</RazorCompileOnPublish>
-    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\cr7stream.Logic\cr7stream.Logic.csproj" />
-    <Content Include="Views\**\*.cshtml" CopyToPublishDirectory="PreserveNewest" />
-    <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
