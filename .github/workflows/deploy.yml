@@ -20,7 +20,14 @@ jobs:
       - name: Publish
         run: dotnet publish cr7stream/cr7stream.csproj -c Release -o publish
 
-      - name: Deploy to server
+      - name: Create .env
+        run: |
+          cat > .env << EOF
+          ADMIN_USERNAME=${{ secrets.ADMIN_USERNAME }}
+          ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
+          EOF
+
+      - name: Deploy app files
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -29,6 +36,26 @@ jobs:
           source: "publish/*"
           target: "/home/cr7/app"
           strip_components: 0
+
+      - name: Deploy .env
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: ".env"
+          target: "/home/cr7/app"
+          strip_components: 0
+
+      - name: Deploy data files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "cr7stream/wwwroot/data/*"
+          target: "/home/cr7/app/wwwroot/data"
+          strip_components: 2
 
       - name: Restart app
         uses: appleboy/ssh-action@v1.0.3
@@ -39,4 +66,3 @@ jobs:
           script: |
             sudo systemctl restart cr7stream
             sudo systemctl status cr7stream --no-pager
-
