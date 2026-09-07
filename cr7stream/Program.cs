@@ -119,6 +119,18 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
     }
 });
 
+app.MapGet("/sitemap.xml", (HttpContext context) =>
+{
+    var sitemapPath = Path.Combine(app.Environment.WebRootPath, "sitemap.xml");
+    if (File.Exists(sitemapPath))
+    {
+        var xml = File.ReadAllText(sitemapPath);
+        context.Response.ContentType = "application/xml";
+        return Results.Content(xml);
+    }
+    return Results.NotFound();
+});
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
