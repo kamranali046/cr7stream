@@ -7,10 +7,30 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddResponseCaching();
+builder.Services.AddMemoryCache();
 
-// cr7stream: register logic layer with DI. Controllers depend only on the
-// clean interfaces; the messy data/scraping work lives in cr7stream.Logic.
-builder.Services.AddHttpClient<cr7stream.Logic.Scrapers.ITotalSportekScraper, cr7stream.Logic.Scrapers.TotalSportekScraper>();
+// Kestrel limits for traffic spikes
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxConcurrentConnections = 100;
+    options.Limits.MaxConcurrentUpgradedConnections = 100;
+    options.Limits.MaxRequestBodySize = 10_485_760;
+    options.Limits.MinRequestBodySize = 0;
+    options.Limits.MinRequestRate = new Microsoft.AspNetCore.Server.Kestrel.Core.MinRequestRate(100, TimeSpan.FromSeconds(1));
+    options.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(30);
+    options.Limits.KeepAliveTimeout = TimeSpan.FromSeconds(120);
+    options.Limits.ConnectionLifetime = TimeSpan.FromMinutes(5);
+    options.AllowSynchronousIO = false;
+});
+
+// Configure HttpClient with pooled connections
+builder.Services.AddHttpClient<cr7stream.Logic.Scrapers.ITotalSportekScraper, cr7stream.Logic.Scrapers.TotalSportekScraper>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.ConnectionClose = false;
+})
+.SetHandlerLifetime(TimeSpan.FromMinutes(5));
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<cr7stream.Logic.Services.ILogoService, cr7stream.Services.LogoService>();
 builder.Services.AddScoped<cr7stream.Logic.Services.IFixtureProvider, cr7stream.Logic.Services.JsonFixtureProvider>();
@@ -91,7 +111,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseResponseCaching();
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -109,7 +129,7 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
     }
     if (File.Exists(filePath))
     {
-        context.Response.Headers.CacheControl = "public, max-age=2592000";
+        context.Response.Headers.CacheControl = "public, max-age=2592000, immutable";
         context.Response.Headers.Expires = DateTimeOffset.UtcNow.AddDays(30).ToString("R");
         await context.Response.SendFileAsync(filePath);
     }
@@ -117,7 +137,8 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
     {
         context.Response.StatusCode = 404;
     }
-});
+})
+.WithResponseCaching(policy => policy.WithExpires(2592000).WithCacheLocations(Microsoft.AspNetCore.Http.ResponseCacheLocation.Public));
 
 app.MapGet("/sitemap.xml", (HttpContext context) =>
 {

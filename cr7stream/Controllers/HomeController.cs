@@ -14,12 +14,14 @@ namespace cr7stream.Controllers
             _logic = logic;
         }
 
+        [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "*" })]
         public async Task<IActionResult> Index()
         {
             var model = await _logic.GetHomeAsync();
             return View(model);
         }
 
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
         public IActionResult Privacy()
         {
             return View();

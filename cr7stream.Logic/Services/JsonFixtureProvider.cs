@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Memory;
 using cr7stream.Logic.Models;
 
 namespace cr7stream.Logic.Services;
@@ -8,7 +9,9 @@ namespace cr7stream.Logic.Services;
 public class JsonFixtureProvider : IFixtureProvider
 {
     private readonly IWebHostEnvironment _environment;
+    private readonly IMemoryCache _memoryCache;
     private const string RelativePath = "data/fixtures.json";
+    private const string CacheKey = "FixturesData";
 
     private static readonly JsonSerializerOptions s_readOptions = new() { PropertyNameCaseInsensitive = true };
     private static readonly JsonSerializerOptions s_writeOptions = new() { WriteIndented = true, PropertyNameCaseInsensitive = true };
@@ -21,14 +24,28 @@ public class JsonFixtureProvider : IFixtureProvider
     private static DateTime s_cacheUtc = DateTime.MinValue;
     private static readonly TimeSpan s_cacheTtl = TimeSpan.FromSeconds(30);
 
-    public JsonFixtureProvider(IWebHostEnvironment environment)
+    // Memory cache for longer-lived fixture data (bypasses file read on cache hit).
+    private static readonly MemoryCacheEntryOptions s_memoryCacheOptions = new()
+    {
+        AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30),
+        Size = 1
+    };
+
+    public JsonFixtureProvider(IWebHostEnvironment environment, IMemoryCache memoryCache)
     {
         _environment = environment;
+        _memoryCache = memoryCache;
     }
 
     public async Task<FixtureData> LoadRawAsync()
     {
-        // Return cached data if fresh enough.
+        // Check memory cache first.
+        if (_memoryCache.TryGetValue(CacheKey, out FixtureData? cached) && cached is not null)
+        {
+            return cached;
+        }
+
+        // Check static cache if fresh enough.
         if (s_cache is not null && (DateTime.UtcNow - s_cacheUtc) < s_cacheTtl)
         {
             return s_cache;
@@ -49,6 +66,7 @@ public class JsonFixtureProvider : IFixtureProvider
             {
                 s_cache = new FixtureData();
                 s_cacheUtc = DateTime.UtcNow;
+                _memoryCache.Set(CacheKey, s_cache, s_memoryCacheOptions);
                 return s_cache;
             }
 
@@ -56,6 +74,7 @@ public class JsonFixtureProvider : IFixtureProvider
             var data = await JsonSerializer.DeserializeAsync<FixtureData>(stream, s_readOptions);
             s_cache = data ?? new FixtureData();
             s_cacheUtc = DateTime.UtcNow;
+            _memoryCache.Set(CacheKey, s_cache, s_memoryCacheOptions);
             return s_cache;
         }
         finally
@@ -88,6 +107,7 @@ public class JsonFixtureProvider : IFixtureProvider
             // Update cache.
             s_cache = data;
             s_cacheUtc = DateTime.UtcNow;
+            _memoryCache.Set(CacheKey, data, s_memoryCacheOptions);
         }
         finally
         {
