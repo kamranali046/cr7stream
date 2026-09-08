@@ -22,7 +22,7 @@ public class ScraperSettingsProvider : IScraperSettingsProvider
 
     public async Task<ScraperSettings> LoadAsync(CancellationToken cancellationToken = default)
     {
-        var path = Path.Combine(_environment.WebRootPath, RelativePath);
+        var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
 
         if (!File.Exists(path))
         {
@@ -37,7 +37,7 @@ public class ScraperSettingsProvider : IScraperSettingsProvider
 
     public async Task SaveAsync(ScraperSettings settings, CancellationToken cancellationToken = default)
     {
-        var path = Path.Combine(_environment.WebRootPath, RelativePath);
+        var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
         var directory = Path.GetDirectoryName(path);
         if (!string.IsNullOrEmpty(directory))
         {
