@@ -134,7 +134,7 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
     {
         context.Response.StatusCode = 404;
     }
-})
+});
 
 app.MapGet("/sitemap.xml", (HttpContext context) =>
 {
