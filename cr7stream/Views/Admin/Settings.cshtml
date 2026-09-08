@@ -31,6 +31,13 @@
             <input asp-for="LiveAutoEndHours" type="number" min="1" class="form-control" />
             <small style="color:var(--muted);">A match left marked LIVE longer than this is automatically flagged as ended, so a stuck "LIVE NOW" badge can't linger.</small>
         </div>
+        <div class="mb-3">
+            <div class="form-check">
+                <input asp-for="ShowBanner" class="form-check-input" type="checkbox" id="showBanner" />
+                <label class="form-check-label" for="showBanner">Show Adsterre banner on site</label>
+                <small style="color:var(--muted);">Toggle the advertising banner at the top of the site.</small>
+            </div>
+        </div>
         <div class="d-flex gap-2">
             <button class="btn btn-danger" type="submit">Save</button>
             <a class="btn btn-outline-light" asp-action="Index">Cancel</a>

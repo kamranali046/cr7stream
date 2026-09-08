@@ -31,12 +31,19 @@
     <link rel="manifest" href="~/site.webmanifest" />
     <meta name="theme-color" content="#0b0e14" />
     <meta property="og:image" content="https://cr7stream.com/logo.png" />
-    <script>
-        (function () {
-            var t = localStorage.getItem('theme');
-            if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
-        })();
-    </script>
+    @if (ViewData["ShowBanner"] as bool? == true)
+    {
+        <script>
+            atOptions = {
+                'key' : 'd49d708c5aeba8a222ad6501d9e1e813',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script src="https://www.highrevenueformat.com/d49d708c5aeba8a222ad6501d9e1e813/invoke.js"></script>
+    }
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>

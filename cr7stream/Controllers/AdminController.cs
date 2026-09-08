@@ -38,6 +38,7 @@ namespace cr7stream.Controllers
 
             ViewData["SourceUrl"] = settings.SourceUrl;
             ViewData["DailyScrapeTime"] = settings.DailyScrapeTime ?? "09:00";
+            ViewData["ShowBanner"] = settings.ShowBanner;
             ViewData["LastScraped"] = data.ScrapedAtUtc;
 
             var categories = data.Leagues
