@@ -16,11 +16,8 @@ builder.WebHost.ConfigureKestrel(options =>
     options.Limits.MaxConcurrentConnections = 100;
     options.Limits.MaxConcurrentUpgradedConnections = 100;
     options.Limits.MaxRequestBodySize = 10_485_760;
-    options.Limits.MinRequestBodySize = 0;
-    options.Limits.MinRequestRate = new Microsoft.AspNetCore.Server.Kestrel.Core.MinRequestRate(100, TimeSpan.FromSeconds(1));
     options.Limits.RequestHeadersTimeout = TimeSpan.FromSeconds(30);
     options.Limits.KeepAliveTimeout = TimeSpan.FromSeconds(120);
-    options.Limits.ConnectionLifetime = TimeSpan.FromMinutes(5);
     options.AllowSynchronousIO = false;
 });
 
@@ -138,7 +135,6 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
         context.Response.StatusCode = 404;
     }
 })
-.WithResponseCaching(policy => policy.WithExpires(2592000).WithCacheLocations(Microsoft.AspNetCore.Http.ResponseCacheLocation.Public));
 
 app.MapGet("/sitemap.xml", (HttpContext context) =>
 {
