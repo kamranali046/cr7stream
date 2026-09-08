@@ -31,6 +31,10 @@
     <link rel="manifest" href="~/site.webmanifest" />
     <meta name="theme-color" content="#0b0e14" />
     <meta property="og:image" content="https://cr7stream.com/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
     @if (ViewData["ShowBanner"] as bool? == true)
     {
         <script>
@@ -44,10 +48,6 @@
         </script>
         <script src="https://www.highrevenueformat.com/d49d708c5aeba8a222ad6501d9e1e813/invoke.js"></script>
     }
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-</head>
-<body>
     @await Component.InvokeAsync("MainNav")
 
     <main class="container site-body">
