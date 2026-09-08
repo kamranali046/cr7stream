@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using cr7stream.Logic;
+using cr7stream.Logic.Services;
 using cr7stream.Models;
 
 namespace cr7stream.Controllers
@@ -8,15 +9,19 @@ namespace cr7stream.Controllers
     public class HomeController : Controller
     {
         private readonly IHomeControllerLogic _logic;
+        private readonly IScraperSettingsProvider _settingsProvider;
 
-        public HomeController(IHomeControllerLogic logic)
+        public HomeController(IHomeControllerLogic logic, IScraperSettingsProvider settingsProvider)
         {
             _logic = logic;
+            _settingsProvider = settingsProvider;
         }
 
         [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "*" })]
         public async Task<IActionResult> Index()
         {
+            var settings = await _settingsProvider.LoadAsync();
+            ViewData["ShowBanner"] = settings.ShowBanner;
             var model = await _logic.GetHomeAsync();
             return View(model);
         }
