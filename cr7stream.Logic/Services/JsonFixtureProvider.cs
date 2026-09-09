@@ -60,7 +60,7 @@ public class JsonFixtureProvider : IFixtureProvider
                 return s_cache;
             }
 
-            var path = Path.Combine(_environment.WebRootPath, RelativePath);
+            var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
 
             if (!File.Exists(path))
             {
@@ -88,7 +88,7 @@ public class JsonFixtureProvider : IFixtureProvider
         await s_fileLock.WaitAsync(cancellationToken);
         try
         {
-            var path = Path.Combine(_environment.WebRootPath, RelativePath);
+            var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
             var directory = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(directory))
             {
