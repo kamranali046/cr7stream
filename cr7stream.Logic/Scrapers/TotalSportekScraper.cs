@@ -628,7 +628,7 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     private static bool IsMatchAnchor(string cls)
     {
-        return !string.IsNullOrEmpty(cls) && (cls.Contains("nav-link2") || cls.Contains("bg-game") || cls.Contains("d-flex"));
+        return !string.IsNullOrEmpty(cls) && (cls.Contains("nav-link2") || cls.Contains("bg-game") || cls.Contains("d-flex") || cls.Contains("competition"));
     }
 
     private (string Name, string Logo) ParseCategory(HtmlNode node)
