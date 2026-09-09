@@ -292,8 +292,9 @@ public class TotalSportekScraper : ITotalSportekScraper
         var linkXpaths = new[]
         {
             "//div[@id='streams']//a[@href]",
-            "//*[contains(concat(' ',normalize-space(@class),' '),' data-row ')]//a[@href]",
-            "//*[contains(concat(' ',normalize-space(@class),' '),' btn-watch ')]//a[@href]",
+            "//*[contains(concat(' ',normalize-space(@class),' '),' premium-stream-row ')]//a[@href]",
+            "//*[contains(@class,'premium-watch-btn')]/ancestor::a[@href]",
+            "//div[@id='streams']//a[contains(@class,'nocolor')]",
         };
 
         var candidates = new List<(string Href, string Name)>();
@@ -622,12 +623,12 @@ public class TotalSportekScraper : ITotalSportekScraper
     private static bool IsCategoryHeader(string cls)
     {
         if (string.IsNullOrEmpty(cls)) return false;
-        return cls.Contains("text-white") && cls.Contains("fw-bold") && cls.Contains("m-2");
+        return cls.Contains("text-dark-light") || cls.Contains("text-white") && cls.Contains("fw-bold") && cls.Contains("m-2");
     }
 
     private static bool IsMatchAnchor(string cls)
     {
-        return !string.IsNullOrEmpty(cls) && cls.Contains("nav-link2");
+        return !string.IsNullOrEmpty(cls) && (cls.Contains("nav-link2") || cls.Contains("bg-game") || cls.Contains("d-flex"));
     }
 
     private (string Name, string Logo) ParseCategory(HtmlNode node)
@@ -653,7 +654,7 @@ public class TotalSportekScraper : ITotalSportekScraper
                       ?? anchor.SelectSingleNode(".//span");
         var timeText = timeNode?.InnerText.Trim() ?? string.Empty;
 
-        var teamRows = anchor.SelectNodes(".//div[@class='row my-auto']");
+        var teamRows = anchor.SelectNodes(".//div[contains(@class,'row') and contains(@class,'my-auto')]");
         if (teamRows is null || teamRows.Count < 2)
         {
             return null;
