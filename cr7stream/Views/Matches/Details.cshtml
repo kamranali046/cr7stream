@@ -139,12 +139,12 @@
         if (wrap.getAttribute('data-ended') === 'true') return;
         if (wrap.getAttribute('data-players-available') === 'false') return;
 
-        fetch('/hd/' + encodeURIComponent(slug) + '/players?_t=' + Date.now(), {
-    cache: 'no-store'
+       fetch('/hd/' + encodeURIComponent(slug) + '/players?_t=' + Date.now(), {
+    cache: 'no-store',
+    headers: { 'Cache-Control': 'no-cache, no-store' }
 })
     .then(function (r) { return r.json(); })
     .then(render)
     .catch(function () { });
-    })();
 </script>
 
