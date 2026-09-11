@@ -19,17 +19,9 @@ public class JsonFixtureProvider : IFixtureProvider
     // Serializes all reads/writes to prevent read-modify-write races.
     private static readonly SemaphoreSlim s_fileLock = new(1, 1);
 
-    // Short-lived cache to avoid re-deserializing on every request.
+    // Static cache references for explicitly clearing state
     private static FixtureData? s_cache;
     private static DateTime s_cacheUtc = DateTime.MinValue;
-    private static readonly TimeSpan s_cacheTtl = TimeSpan.FromSeconds(30);
-
-    // Memory cache for longer-lived fixture data (bypasses file read on cache hit).
-    private static readonly MemoryCacheEntryOptions s_memoryCacheOptions = new()
-    {
-        AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30),
-        Size = 1
-    };
 
     public JsonFixtureProvider(IWebHostEnvironment environment, IMemoryCache memoryCache)
     {
@@ -39,43 +31,19 @@ public class JsonFixtureProvider : IFixtureProvider
 
     public async Task<FixtureData> LoadRawAsync()
     {
-        // Check memory cache first.
-        if (_memoryCache.TryGetValue(CacheKey, out FixtureData? cached) && cached is not null)
-        {
-            return cached;
-        }
-
-        // Check static cache if fresh enough.
-        if (s_cache is not null && (DateTime.UtcNow - s_cacheUtc) < s_cacheTtl)
-        {
-            return s_cache;
-        }
-
         await s_fileLock.WaitAsync();
         try
         {
-            // Double-check after acquiring the lock.
-            if (s_cache is not null && (DateTime.UtcNow - s_cacheUtc) < s_cacheTtl)
-            {
-                return s_cache;
-            }
-
             var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
 
             if (!File.Exists(path))
             {
-                s_cache = new FixtureData();
-                s_cacheUtc = DateTime.UtcNow;
-                _memoryCache.Set(CacheKey, s_cache, s_memoryCacheOptions);
-                return s_cache;
+                return new FixtureData();
             }
 
             await using var stream = File.OpenRead(path);
             var data = await JsonSerializer.DeserializeAsync<FixtureData>(stream, s_readOptions);
-            s_cache = data ?? new FixtureData();
-            s_cacheUtc = DateTime.UtcNow;
-            _memoryCache.Set(CacheKey, s_cache, s_memoryCacheOptions);
-            return s_cache;
+            return data ?? new FixtureData();
         }
         finally
         {
@@ -104,10 +72,10 @@ public class JsonFixtureProvider : IFixtureProvider
 
             File.Move(tempPath, path, overwrite: true);
 
-            // Update cache.
-            s_cache = data;
-            s_cacheUtc = DateTime.UtcNow;
-            _memoryCache.Set(CacheKey, data, s_memoryCacheOptions);
+            // Invalidate all in-memory references immediately
+            s_cache = null;
+            s_cacheUtc = DateTime.MinValue;
+            _memoryCache.Remove(CacheKey);
         }
         finally
         {
@@ -115,4 +83,3 @@ public class JsonFixtureProvider : IFixtureProvider
         }
     }
 }
-
