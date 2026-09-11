@@ -61,12 +61,14 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     private readonly HttpClient _http;
     private readonly IScraperSettingsProvider? _settings;
+    private readonly ILogoService _logoService;
     private string _baseUrl = "https://total-sportek.st/";
 
-    public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null)
+    public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null, ILogoService? logoService = null)
     {
         _http = http;
         _settings = settings;
+        _logoService = logoService!;
     }
 
     public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default, bool drillPlayers = false)
@@ -224,7 +226,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             if (IsMatchAnchor(cls))
             {
                 currentSportSlug = EnsureLeague(currentCategorySlug, currentCategory, currentCategoryLogo);
-                var match = ParseMatch(node, currentCategorySlug, currentSportSlug, teams);
+                var match = await ParseMatchAsync(node, currentCategorySlug, currentSportSlug, teams, ct);
                 if (match is not null && match.Status != "replay")
                 {
                     matches.Add(match);
@@ -642,7 +644,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         return (name, logo);
     }
 
-    private Models.Match? ParseMatch(HtmlNode anchor, string leagueSlug, string sportSlug, Dictionary<string, Team> teams)
+    private async Task<Models.Match?> ParseMatchAsync(HtmlNode anchor, string leagueSlug, string sportSlug, Dictionary<string, Team> teams, CancellationToken ct = default)
     {
         var href = anchor.GetAttributeValue("href", "");
         if (string.IsNullOrWhiteSpace(href))
@@ -660,8 +662,8 @@ public class TotalSportekScraper : ITotalSportekScraper
             return null;
         }
 
-        var home = ParseTeam(teamRows[0], anchor, teams);
-        var away = ParseTeam(teamRows[1], anchor, teams);
+        var home = await ParseTeamAsync(teamRows[0], anchor, teams, ct);
+        var away = await ParseTeamAsync(teamRows[1], anchor, teams, ct);
 
         ParseTime(timeText, out var startUtc, out var status);
 
@@ -685,7 +687,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         };
     }
 
-    private (string Name, string Logo) ParseTeam(HtmlNode row, HtmlNode anchor, Dictionary<string, Team> teams)
+    private async Task<(string Name, string Logo)> ParseTeamAsync(HtmlNode row, HtmlNode anchor, Dictionary<string, Team> teams, CancellationToken ct = default)
     {
         var img = row.SelectSingleNode(".//img")
             ?? anchor.SelectSingleNode(".//img[not(contains(@src,'aro.png'))]");
@@ -706,6 +708,33 @@ public class TotalSportekScraper : ITotalSportekScraper
                 Name = name,
                 Logo = logo
             };
+        }
+
+        if (string.IsNullOrWhiteSpace(logo))
+        {
+            try
+            {
+                var slug = Slug.Slugify(name);
+                var externalUrl = MakeAbsolute($"/images/premier/{Uri.EscapeDataString(name)}.png");
+                var logoUrl = await _logoService.GetOrDownloadAsync(externalUrl, slug, ct);
+                if (!string.IsNullOrWhiteSpace(logoUrl) && !logoUrl.Contains("placeholder"))
+                {
+                    logo = logoUrl;
+                    if (teams.ContainsKey(name))
+                    {
+                        teams[name] = new Team
+                        {
+                            Slug = Slug.Slugify(name),
+                            Name = name,
+                            Logo = logo
+                        };
+                    }
+                }
+            }
+            catch
+            {
+                // best-effort
+            }
         }
 
         return (name, logo);
