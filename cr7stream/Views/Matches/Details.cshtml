@@ -87,6 +87,7 @@
         var slug = wrap.getAttribute('data-slug');
         var frame = document.getElementById('streamFrame');
         var list = document.getElementById('streamList');
+        var currentActiveUrl = '@embed'; // Track active stream URL
 
         function setActive(btn) {
             if (!list) return;
@@ -98,8 +99,11 @@
             if (!list) return;
             list.querySelectorAll('.stream-btn[data-stream]').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    if (frame) {
-                        frame.src = btn.getAttribute('data-stream');
+                    var targetUrl = btn.getAttribute('data-stream');
+                    currentActiveUrl = targetUrl; // Save active stream URL selection
+
+                    if (frame && frame.src !== targetUrl) {
+                        frame.src = targetUrl;
                         frame.scrollIntoView({ behavior: 'smooth' });
                     }
                     setActive(btn);
@@ -109,28 +113,45 @@
 
         function render(players) {
             if (!list) return;
-            list.innerHTML = '';
-            if (!players || !players.length) {
+            
+            // Filter enabled players
+            var validPlayers = (players || []).filter(function (p) {
+                var url = p.url || p.Url;
+                var enabled = (p.enabled !== undefined) ? p.enabled : p.Enabled;
+                return enabled !== false && !!url;
+            });
+
+            if (!validPlayers.length) {
+                list.innerHTML = '';
                 if (frame) frame.style.display = 'none';
                 return;
             }
-            var first = true;
-            var idx = 1;
-            players.forEach(function (p) {
+
+            if (frame) frame.style.display = '';
+
+            // Check if user's currently selected player still exists in fresh data
+            var hasActiveMatch = validPlayers.some(function (p) {
+                return (p.url || p.Url) === currentActiveUrl;
+            });
+
+            // If active URL isn't in current response, fallback to first available player
+            if (!hasActiveMatch && validPlayers.length > 0) {
+                currentActiveUrl = validPlayers[0].url || validPlayers[0].Url;
+                if (frame) frame.src = currentActiveUrl;
+            }
+
+            list.innerHTML = '';
+            validPlayers.forEach(function (p, i) {
                 var url = p.url || p.Url;
-                var enabled = p.enabled;
-                if (enabled === false || p.Enabled === false) return;
-                if (!url) return;
+                var isActive = (url === currentActiveUrl);
                 var b = document.createElement('button');
                 b.type = 'button';
-                b.className = 'stream-btn' + (first ? ' active' : '');
+                b.className = 'stream-btn' + (isActive ? ' active' : '');
                 b.setAttribute('data-stream', url);
-                b.textContent = 'Player ' + idx;
-                idx++;
+                b.textContent = 'Player ' + (i + 1);
                 list.appendChild(b);
-                if (first && frame) { frame.src = url; first = false; }
             });
-            if (first && frame) frame.style.display = 'none';
+
             bindButtons();
         }
 
@@ -139,12 +160,12 @@
         if (wrap.getAttribute('data-ended') === 'true') return;
         if (wrap.getAttribute('data-players-available') === 'false') return;
 
-       fetch('/hd/' + encodeURIComponent(slug) + '/players?_t=' + Date.now(), {
-    cache: 'no-store',
-    headers: { 'Cache-Control': 'no-cache, no-store' }
-})
-    .then(function (r) { return r.json(); })
-    .then(render)
-    .catch(function () { });
+        fetch('/hd/' + encodeURIComponent(slug) + '/players?_t=' + Date.now(), {
+            cache: 'no-store',
+            headers: { 'Cache-Control': 'no-cache, no-store' }
+        })
+            .then(function (r) { return r.json(); })
+            .then(render)
+            .catch(function () { });
+    })();
 </script>
-

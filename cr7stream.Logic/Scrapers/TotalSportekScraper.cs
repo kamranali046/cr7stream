@@ -64,11 +64,11 @@ public class TotalSportekScraper : ITotalSportekScraper
     private readonly ILogoService _logoService;
     private string _baseUrl = "https://total-sportek.st/";
 
-    public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null, ILogoService? logoService = null)
+    public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null, ILogoService logoService = null!)
     {
         _http = http;
         _settings = settings;
-        _logoService = logoService!;
+        _logoService = logoService ?? throw new ArgumentNullException(nameof(logoService));
     }
 
     public async Task<FixtureData> ScrapeAsync(CancellationToken cancellationToken = default, bool drillPlayers = false)
@@ -714,9 +714,12 @@ public class TotalSportekScraper : ITotalSportekScraper
         {
             try
             {
+                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: name={name}, logo is empty, calling LogoService");
                 var slug = Slug.Slugify(name);
                 var externalUrl = MakeAbsolute($"/images/premier/{Uri.EscapeDataString(name)}.png");
+                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: externalUrl={externalUrl}, slug={slug}");
                 var logoUrl = await _logoService.GetOrDownloadAsync(externalUrl, slug, ct);
+                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: logoUrl={logoUrl}");
                 if (!string.IsNullOrWhiteSpace(logoUrl) && !logoUrl.Contains("placeholder"))
                 {
                     logo = logoUrl;
@@ -733,7 +736,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             }
             catch
             {
-                // best-effort
+                System.Console.WriteLine("[DEBUG] ParseTeamAsync: exception in LogoService call");
             }
         }
 
