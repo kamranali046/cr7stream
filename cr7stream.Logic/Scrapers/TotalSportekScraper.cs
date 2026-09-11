@@ -660,8 +660,8 @@ public class TotalSportekScraper : ITotalSportekScraper
             return null;
         }
 
-        var home = ParseTeam(teamRows[0], teams);
-        var away = ParseTeam(teamRows[1], teams);
+        var home = ParseTeam(teamRows[0], anchor, teams);
+        var away = ParseTeam(teamRows[1], anchor, teams);
 
         ParseTime(timeText, out var startUtc, out var status);
 
@@ -685,9 +685,10 @@ public class TotalSportekScraper : ITotalSportekScraper
         };
     }
 
-    private (string Name, string Logo) ParseTeam(HtmlNode row, Dictionary<string, Team> teams)
+    private (string Name, string Logo) ParseTeam(HtmlNode row, HtmlNode anchor, Dictionary<string, Team> teams)
     {
-        var img = row.SelectSingleNode(".//img");
+        var img = row.SelectSingleNode(".//img")
+            ?? anchor.SelectSingleNode(".//img[not(contains(@src,'aro.png'))]");
         var name = img?.GetAttributeValue("alt", "")?.Trim()
                    ?? row.InnerText.Trim();
         var logo = img is null ? string.Empty : MakeAbsolute(img.GetAttributeValue("src", ""));

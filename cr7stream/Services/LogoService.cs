@@ -23,7 +23,7 @@ public class LogoService : ILogoService
 
     public bool LocalFileExists(string slug)
     {
-        var path = Path.Combine(_env.WebRootPath, LogoDir, SlugToFileName(slug));
+        var path = Path.Combine(_env.ContentRootPath, "wwwroot", LogoDir, SlugToFileName(slug));
         return File.Exists(path);
     }
 
@@ -35,7 +35,7 @@ public class LogoService : ILogoService
         }
 
         var fileName = SlugToFileName(slug);
-        var dir = Path.Combine(_env.WebRootPath, LogoDir);
+        var dir = Path.Combine(_env.ContentRootPath, "wwwroot", LogoDir);
         Directory.CreateDirectory(dir);
         var localPath = Path.Combine(dir, fileName);
 
