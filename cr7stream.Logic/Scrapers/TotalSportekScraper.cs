@@ -714,12 +714,9 @@ public class TotalSportekScraper : ITotalSportekScraper
         {
             try
             {
-                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: name={name}, logo is empty, calling LogoService");
                 var slug = Slug.Slugify(name);
                 var externalUrl = MakeAbsolute($"/images/premier/{Uri.EscapeDataString(name)}.png");
-                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: externalUrl={externalUrl}, slug={slug}");
                 var logoUrl = await _logoService.GetOrDownloadAsync(externalUrl, slug, ct);
-                System.Console.WriteLine($"[DEBUG] ParseTeamAsync: logoUrl={logoUrl}");
                 if (!string.IsNullOrWhiteSpace(logoUrl) && !logoUrl.Contains("placeholder"))
                 {
                     logo = logoUrl;
@@ -736,7 +733,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             }
             catch
             {
-                System.Console.WriteLine("[DEBUG] ParseTeamAsync: exception in LogoService call");
+                // best-effort
             }
         }
 

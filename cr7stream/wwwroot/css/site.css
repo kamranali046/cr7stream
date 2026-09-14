@@ -180,6 +180,18 @@ a { color: inherit; text-decoration: none; }
 /* Body */
 .site-body { padding: 24px 15px 60px; }
 
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0;
+    width: 100%;
+    text-align: center;
+}
+.banner-container iframe {
+    margin: 0 auto;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
