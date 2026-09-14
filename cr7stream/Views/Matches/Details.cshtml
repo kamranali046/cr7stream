@@ -17,14 +17,6 @@
 
 <div class="detail-wrap" id="detailWrap" data-slug="@m.Slug" data-ended="@isEnded.ToString().ToLowerInvariant()" data-players-available="@playersAvailable.ToString().ToLowerInvariant()">
 
-    <div class="league-head" style="border-radius:12px;margin-bottom:14px;">
-        @if (Model.League != null)
-        {
-            <img src="@(string.IsNullOrEmpty(Model.League.Logo) ? "/img/category-placeholder.svg" : Model.League.Logo)" alt="@Model.League.Name" onerror="this.onerror=null;this.src='/img/category-placeholder.svg'" />
-            <h3>@Model.League.Name</h3>
-        }
-    </div>
-
     <div class="match-card" style="border-radius:12px;margin-bottom:18px;text-decoration:none;">
         <a class="team home" asp-controller="Matches" asp-action="Team" asp-route-slug="@Slug.Slugify(m.HomeTeam)">
             <img src="@(string.IsNullOrEmpty(m.HomeTeamLogo) ? "/img/match-placeholder.svg" : m.HomeTeamLogo)" alt="@m.HomeTeam" width="48" height="48" onerror="this.onerror=null;this.src='/img/match-placeholder.svg'" />
@@ -56,27 +48,37 @@
             <span class="badge-replay">ENDED</span>
             <p class="muted">Match ended. No stream is available.</p>
         </div>
+        <div class="stream-btn-row-flex" style="margin-top:10px;display:flex;gap:8px;flex-wrap:nowrap;align-items:center;">
+            <button type="button" id="backBtn" class="stream-btn" style="flex:0 0 25%;padding:4px 10px;font-size:12px;line-height:1.4;">&larr; Back to Home</button>
+            <button type="button" id="shareBtn" class="stream-btn" style="flex:0 0 25%;background:#16a34a;border-color:#16a34a;color:#fff;padding:4px 12px;font-size:12px;line-height:1.4;">Share this stream &#x2197;</button>
+        </div>
     }
     else if (playersAvailable && hasPlayers)
     {
-        <iframe id="streamFrame" class="stream-embed" src="@embed" referrerpolicy="no-referrer" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
-
-        <div id="streamList" class="player-btn-row">
+        <div id="streamList" class="player-btn-row" style="margin-bottom:10px;">
             @foreach (var player in enabledPlayers)
             {
                 var idx = enabledPlayers.IndexOf(player) + 1;
-                <button type="button" class="stream-btn @(idx == 1 ? "active" : "")" data-stream="@player.Url">Player @idx</button>
+                <button type="button" class="stream-btn" style="padding:3px 8px;font-size:11px;line-height:1.3;margin-bottom:0;" data-stream="@player.Url">Player @idx</button>
             }
         </div>
 
-        <p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+        <iframe id="streamFrame" class="stream-embed" src="@embed" referrerpolicy="no-referrer" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="stream"></iframe>
+
+        <div class="stream-btn-row-flex" style="margin-top:10px;display:flex;gap:8px;flex-wrap:nowrap;align-items:center;">
+            <button type="button" id="backBtn" class="stream-btn" style="flex:0 0 25%;padding:4px 10px;font-size:12px;line-height:1.4;">&larr; Back to Home</button>
+            <button type="button" id="shareBtn" class="stream-btn" style="flex:0 0 25%;background:#16a34a;border-color:#16a34a;color:#fff;padding:4px 12px;font-size:12px;line-height:1.4;">Share this stream &#x2197;</button>
+        </div>
     }
     else
     {
         <div class="ended-box">
             <p class="muted">The stream will be available @Model.PlayerLeadMinutes minutes before the match starts.</p>
         </div>
-        <p><a class="back-link" asp-controller="Home" asp-action="Index">&larr; Back to all sports</a></p>
+        <div class="stream-btn-row-flex" style="margin-top:10px;display:flex;gap:8px;flex-wrap:nowrap;align-items:center;">
+            <button type="button" id="backBtn" class="stream-btn" style="flex:0 0 25%;padding:4px 10px;font-size:12px;line-height:1.4;">&larr; Back to Home</button>
+            <button type="button" id="shareBtn" class="stream-btn" style="flex:0 0 25%;background:#16a34a;border-color:#16a34a;color:#fff;padding:4px 12px;font-size:12px;line-height:1.4;">Share this stream &#x2197;</button>
+        </div>
     }
 </div>
 
@@ -156,6 +158,30 @@
         }
 
         bindButtons();
+
+        var shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function () {
+                var url = window.location.href;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(function () {
+                        shareBtn.textContent = 'Copied!';
+                        setTimeout(function () { shareBtn.textContent = 'Share this stream'; }, 2000);
+                    }).catch(function () {
+                        prompt('Copy this URL:', url);
+                    });
+                } else {
+                    prompt('Copy this URL:', url);
+                }
+            });
+        }
+
+        var backBtn = document.getElementById('backBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', function () {
+                window.location.href = '/';
+            });
+        }
 
         if (wrap.getAttribute('data-ended') === 'true') return;
         if (wrap.getAttribute('data-players-available') === 'false') return;
