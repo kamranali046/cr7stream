@@ -423,20 +423,24 @@ public class TotalSportekScraper : ITotalSportekScraper
             var hasVideo = inner.DocumentNode.SelectSingleNode("//video") != null
                            || inner.DocumentNode.SelectSingleNode("//source") != null;
 
-            var iframes = inner.DocumentNode.SelectNodes("//iframe")?.ToList()
+            var allIframes = inner.DocumentNode.SelectNodes("//iframe[@src]")?.ToList()
                           ?? new List<HtmlNode>();
 
             var bestCandidate = (string?)null;
             var wrapperHost = Uri.TryCreate(wrapperUrl, UriKind.Absolute, out var wu) ? wu.Host : "";
 
-            foreach (var f in iframes)
+            foreach (var f in allIframes)
             {
                 var src = f.GetAttributeValue("src", "").Trim();
                 if (string.IsNullOrWhiteSpace(src)) continue;
 
+                // Skip script URLs
+                if (src.EndsWith(".js", StringComparison.OrdinalIgnoreCase)) continue;
+
                 var hasAllowFullscreen = f.Attributes["allowfullscreen"] != null;
                 var hasWidth = !string.IsNullOrEmpty(f.GetAttributeValue("width", ""));
                 var hasHeight = !string.IsNullOrEmpty(f.GetAttributeValue("height", ""));
+                var hasAutoplay = f.Attributes["autoplay"] != null;
 
                 var abs = MakeAbsoluteFrom(src, wrapperUrl);
                 if (!Uri.TryCreate(abs, UriKind.Absolute, out var u)) continue;
@@ -462,16 +466,16 @@ public class TotalSportekScraper : ITotalSportekScraper
                     return wrapperUrl;
                 }
 
-                if (hasAllowFullscreen && hasWidth && hasHeight)
+                if (hasAllowFullscreen && hasWidth && hasHeight && hasAutoplay)
                 {
                     return abs;
                 }
 
-                bestCandidate ??= hasAllowFullscreen ? abs : null;
+                bestCandidate ??= (hasAllowFullscreen && hasAutoplay) ? abs : null;
             }
 
             // No iframe worked, but the page itself has video content
-            if (hasVideo && bestCandidate == null && iframes.Count == 0)
+            if (hasVideo && bestCandidate == null && allIframes.Count == 0)
             {
                 return wrapperUrl;
             }
