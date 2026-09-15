@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Text.Json.Nodes;
 using HtmlAgilityPack;
 using cr7stream.Logic.Models;
 using cr7stream.Logic.Services;
@@ -434,15 +435,26 @@ public class TotalSportekScraper : ITotalSportekScraper
                 var src = f.GetAttributeValue("src", "").Trim();
                 if (string.IsNullOrWhiteSpace(src)) continue;
 
-                // Skip script URLs
+                // Skip .js and .html/.htm URLs entirely — they're not player embeds
                 if (src.EndsWith(".js", StringComparison.OrdinalIgnoreCase)) continue;
+                if (src.EndsWith(".html", StringComparison.OrdinalIgnoreCase) || src.EndsWith(".htm", StringComparison.OrdinalIgnoreCase)) continue;
+
+                var abs = MakeAbsoluteFrom(src, wrapperUrl);
 
                 var hasAllowFullscreen = f.Attributes["allowfullscreen"] != null;
                 var hasWidth = !string.IsNullOrEmpty(f.GetAttributeValue("width", ""));
                 var hasHeight = !string.IsNullOrEmpty(f.GetAttributeValue("height", ""));
                 var hasAutoplay = f.Attributes["autoplay"] != null;
+                var hasAllowTransparency = f.Attributes["allowtransparency"] != null;
+                var hasSeamless = f.Attributes["seamless"] != null;
 
-                var abs = MakeAbsoluteFrom(src, wrapperUrl);
+                var playerAttrCount = (hasAllowFullscreen ? 1 : 0)
+                                    + (hasWidth ? 1 : 0)
+                                    + (hasHeight ? 1 : 0)
+                                    + (hasAutoplay ? 1 : 0)
+                                    + (hasAllowTransparency ? 1 : 0)
+                                    + (hasSeamless ? 1 : 0);
+
                 if (!Uri.TryCreate(abs, UriKind.Absolute, out var u)) continue;
                 if (u.Host.IndexOf('.') <= 0) continue;
                 if (IsJunkHost(u)) continue;
@@ -451,10 +463,13 @@ public class TotalSportekScraper : ITotalSportekScraper
                 var isSameHost = string.Equals(u.Host, wrapperHost, StringComparison.OrdinalIgnoreCase);
 
                 // Skip .html/.htm URLs on same host — they're navigation wrappers
-                if ((pathLower.EndsWith(".html") || pathLower.EndsWith(".htm")) && isSameHost)
+                if (pathLower.EndsWith(".html") || pathLower.EndsWith(".htm"))
                 {
-                    var nested = await ResolvePlayerIframeAsync(abs, ct, depth + 1);
-                    if (nested != null) return nested;
+                    if (isSameHost)
+                    {
+                        var nested = await ResolvePlayerIframeAsync(abs, ct, depth + 1);
+                        if (nested != null) return nested;
+                    }
                     continue;
                 }
 
@@ -466,18 +481,26 @@ public class TotalSportekScraper : ITotalSportekScraper
                     return wrapperUrl;
                 }
 
-                if (hasAllowFullscreen && hasWidth && hasHeight && hasAutoplay)
+                // Need at least some player attributes to be a real embed
+                if (playerAttrCount >= 2)
                 {
                     return abs;
                 }
 
-                bestCandidate ??= (hasAllowFullscreen && hasAutoplay) ? abs : null;
+                bestCandidate ??= playerAttrCount >= 1 ? abs : null;
             }
 
             // No iframe worked, but the page itself has video content
             if (hasVideo && bestCandidate == null && allIframes.Count == 0)
             {
                 return wrapperUrl;
+            }
+
+            // JS-rendered page: try fetching /api/post/{slug} to get the actual stream URL
+            if (allIframes.Count == 0 && bestCandidate == null)
+            {
+                var apiUrl = await TryResolveJsPostApiAsync(wrapperUrl, ct);
+                if (apiUrl != null) return apiUrl;
             }
 
             return bestCandidate;
@@ -488,6 +511,32 @@ public class TotalSportekScraper : ITotalSportekScraper
         }
 
         return null;
+    }
+
+    private async Task<string?> TryResolveJsPostApiAsync(string wrapperUrl, CancellationToken ct)
+    {
+        try
+        {
+            var uri = new Uri(wrapperUrl);
+            var path = uri.AbsolutePath.TrimEnd('/');
+            var slug = path.Split('/').Last();
+            if (string.IsNullOrWhiteSpace(slug)) return null;
+
+            var apiUrl = $"{uri.Scheme}://{uri.Host}/api/post/{Uri.EscapeDataString(slug)}";
+            var json = await FetchHtmlAsync(apiUrl, ct, TimeSpan.FromSeconds(10));
+            if (string.IsNullOrWhiteSpace(json)) return null;
+
+            var node = JsonNode.Parse(json);
+            var streams = node?["streams"]?.AsArray();
+            if (streams == null || streams.Count == 0) return null;
+
+            var streamUrl = streams[0]?["url"]?.GetValue<string>();
+            return string.IsNullOrWhiteSpace(streamUrl) ? null : streamUrl;
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     private async Task<string?> FetchHtmlAsync(string url, CancellationToken ct, TimeSpan? timeout = null)
