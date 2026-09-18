@@ -7,6 +7,6 @@ public class ScraperSettings
     public int PlayerFetchLeadMinutes { get; set; } = 40;
     public int LiveMarkLeadMinutes { get; set; } = 10;
     public int LiveAutoEndHours { get; set; } = 4;
-    public bool ShowBanner { get; set; } = true;
+    public bool ShowBanner { get; set; } = false;
 }
 
