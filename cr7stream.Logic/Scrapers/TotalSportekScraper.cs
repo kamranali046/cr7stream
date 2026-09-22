@@ -127,6 +127,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             try
             {
                 m.Players = await ExtractPlayersHttpAsync(m.SourceUrl!, cancellationToken, maxPlayers: 10);
+                await ExtractTeamLogosAsync(m, cancellationToken);
             }
             finally
             {
@@ -266,6 +267,52 @@ public class TotalSportekScraper : ITotalSportekScraper
                || h.Contains("adnxs.")
                || h.Contains("pubmatic.")
                || h.Contains("amazon-adsystem.");
+    }
+
+    private async Task ExtractTeamLogosAsync(Models.Match match, CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(match.SourceUrl)) return;
+
+        try
+        {
+            var html = await FetchHtmlAsync(MakeAbsolute(match.SourceUrl), ct, TimeSpan.FromSeconds(12));
+            if (html is null) return;
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            var logoNodes = doc.DocumentNode.SelectNodes("//img[contains(@class,'teamlogo')]")?.ToList()
+                          ?? new List<HtmlNode>();
+
+            if (logoNodes.Count == 0) return;
+
+            var logoUrls = new List<string>();
+            foreach (var node in logoNodes)
+            {
+                var src = node.GetAttributeValue("src", "").Trim();
+                if (string.IsNullOrWhiteSpace(src)) continue;
+                if (src.Contains("LOGOtotal")) continue;
+                logoUrls.Add(MakeAbsolute(src));
+            }
+
+            if (logoUrls.Count >= 1 && string.IsNullOrWhiteSpace(match.HomeTeamLogo))
+            {
+                var downloaded = await _logoService.GetOrDownloadAsync(logoUrls[0], Slug.Slugify(match.HomeTeam), ct);
+                if (!string.IsNullOrWhiteSpace(downloaded) && !downloaded.Contains("placeholder"))
+                    match.HomeTeamLogo = downloaded;
+            }
+
+            if (logoUrls.Count >= 2 && string.IsNullOrWhiteSpace(match.AwayTeamLogo))
+            {
+                var downloaded = await _logoService.GetOrDownloadAsync(logoUrls[1], Slug.Slugify(match.AwayTeam), ct);
+                if (!string.IsNullOrWhiteSpace(downloaded) && !downloaded.Contains("placeholder"))
+                    match.AwayTeamLogo = downloaded;
+            }
+        }
+        catch
+        {
+            // best-effort
+        }
     }
 
     private async Task<List<Player>> ExtractPlayersHttpAsync(string url, CancellationToken cancellationToken, int maxPlayers = 10)
@@ -715,8 +762,8 @@ public class TotalSportekScraper : ITotalSportekScraper
             return null;
         }
 
-        var home = await ParseTeamAsync(teamRows[0], anchor, teams, ct);
-        var away = await ParseTeamAsync(teamRows[1], anchor, teams, ct);
+        var home = ParseTeamAsync(teamRows[0], anchor, teams);
+        var away = ParseTeamAsync(teamRows[1], anchor, teams);
 
         ParseTime(timeText, out var startUtc, out var status);
 
@@ -740,7 +787,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         };
     }
 
-    private async Task<(string Name, string Logo)> ParseTeamAsync(HtmlNode row, HtmlNode anchor, Dictionary<string, Team> teams, CancellationToken ct = default)
+    private (string Name, string Logo) ParseTeamAsync(HtmlNode row, HtmlNode anchor, Dictionary<string, Team> teams)
     {
         var img = row.SelectSingleNode(".//img")
             ?? anchor.SelectSingleNode(".//img[not(contains(@src,'aro.png'))]");
@@ -765,28 +812,15 @@ public class TotalSportekScraper : ITotalSportekScraper
 
         if (string.IsNullOrWhiteSpace(logo))
         {
-            try
+            logo = MakeAbsolute($"/assets2/images/premier/{Uri.EscapeDataString(name)}.webp");
+            if (teams.ContainsKey(name))
             {
-                var slug = Slug.Slugify(name);
-                var externalUrl = MakeAbsolute($"/images/premier/{Uri.EscapeDataString(name)}.png");
-                var logoUrl = await _logoService.GetOrDownloadAsync(externalUrl, slug, ct);
-                if (!string.IsNullOrWhiteSpace(logoUrl) && !logoUrl.Contains("placeholder"))
+                teams[name] = new Team
                 {
-                    logo = logoUrl;
-                    if (teams.ContainsKey(name))
-                    {
-                        teams[name] = new Team
-                        {
-                            Slug = Slug.Slugify(name),
-                            Name = name,
-                            Logo = logo
-                        };
-                    }
-                }
-            }
-            catch
-            {
-                // best-effort
+                    Slug = Slug.Slugify(name),
+                    Name = name,
+                    Logo = logo
+                };
             }
         }
 
