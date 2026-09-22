@@ -228,6 +228,20 @@ namespace cr7stream.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost("match/bulk-delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BulkDeleteMatches(string categorySlugs, string matchSlugs, CancellationToken cancellationToken)
+        {
+            var cats = (categorySlugs ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+            var matches = (matchSlugs ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+            var len = Math.Min(cats.Length, matches.Length);
+            for (var i = 0; i < len; i++)
+            {
+                await _admin.DeleteMatchAsync(cats[i], matches[i], cancellationToken);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         [HttpPost("scrape")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Scrape(CancellationToken cancellationToken)

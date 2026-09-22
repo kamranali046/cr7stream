@@ -109,6 +109,9 @@
                         <th>Scrape</th>
                         <th>Manage</th>
                         <th class="text-center">Delete</th>
+                        <th class="text-center" style="width:40px;">
+                            <label class="tick"><input type="checkbox" onchange="toggleSelectAll(this, '@category.League.Slug')" title="Select all" /></label>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -171,11 +174,73 @@
                                     <button class="btn btn-sm btn-outline-danger" type="submit" title="Delete">&#128465;</button>
                                 </form>
                             </td>
+                            <td class="text-center">
+                                <label class="tick"><input type="checkbox" class="match-check" data-cat="@category.League.Slug" data-slug="@match.Slug" data-cat-slug="@category.League.Slug" /></label>
+                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
+            <div class="d-flex align-items-center gap-2 mt-2" id="bulk-actions-@category.League.Slug" style="display:none;">
+                <button type="button" class="btn btn-sm btn-outline-danger" onclick="bulkDelete('@category.League.Slug')">&#128465; Delete Selected (<span id="bulk-count-@category.League.Slug">0</span>)</button>
+                <button type="button" class="btn btn-sm btn-outline-light" onclick="clearSelection('@category.League.Slug')">Clear</button>
+            </div>
         }
     </div>
 }
+
+<form asp-action="BulkDeleteMatches" method="post" id="bulkDeleteForm" class="d-none">
+    <input type="hidden" name="categorySlugs" id="bulkCatSlugs" />
+    <input type="hidden" name="matchSlugs" id="bulkMatchSlugs" />
+</form>
+
+<script>
+    function toggleSelectAll(header, catSlug) {
+        var checked = header.checked;
+        document.querySelectorAll('.match-check[data-cat="' + catSlug + '"]').forEach(function(cb) {
+            cb.checked = checked;
+        });
+        updateBulkCount(catSlug);
+    }
+
+    function updateBulkCount(catSlug) {
+        var boxes = document.querySelectorAll('.match-check[data-cat="' + catSlug + '"]:checked');
+        var count = boxes.length;
+        var el = document.getElementById('bulk-count-' + catSlug);
+        var actions = document.getElementById('bulk-actions-' + catSlug);
+        if (el) el.textContent = count;
+        if (actions) actions.style.display = count > 0 ? 'flex' : 'none';
+    }
+
+    document.querySelectorAll('.match-check').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+            updateBulkCount(this.dataset.cat);
+        });
+    });
+
+    function clearSelection(catSlug) {
+        document.querySelectorAll('.match-check[data-cat="' + catSlug + '"]').forEach(function(cb) {
+            cb.checked = false;
+        });
+        var header = document.querySelector('thead input[type="checkbox"][onchange*="' + catSlug + '"]');
+        if (header) header.checked = false;
+        updateBulkCount(catSlug);
+    }
+
+    function bulkDelete(catSlug) {
+        var boxes = document.querySelectorAll('.match-check[data-cat="' + catSlug + '"]:checked');
+        if (boxes.length === 0) return;
+        if (!confirm('Delete ' + boxes.length + ' selected match(es)?')) return;
+
+        var catSlugs = [];
+        var matchSlugs = [];
+        boxes.forEach(function(cb) {
+            catSlugs.push(cb.dataset.catSlug);
+            matchSlugs.push(cb.dataset.slug);
+        });
+        document.getElementById('bulkCatSlugs').value = catSlugs.join(',');
+        document.getElementById('bulkMatchSlugs').value = matchSlugs.join(',');
+        document.getElementById('bulkDeleteForm').submit();
+    }
+</script>
 
