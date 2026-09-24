@@ -3,6 +3,10 @@
     ViewData["Title"] = "Match Players";
     var live = Model.IsLive || Model.Status == "live";
     var ended = Model.IsEnded || Model.Status == "replay";
+    var sourceBase = ((string?)ViewData["SourceUrl"] ?? "https://total-sportek.st/").TrimEnd('/');
+    var fullSourceUrl = !string.IsNullOrWhiteSpace(Model.SourceUrl)
+        ? (Model.SourceUrl.StartsWith("http") ? Model.SourceUrl : sourceBase + Model.SourceUrl)
+        : "";
 }
 
 <div class="admin-card" style="max-width:900px;">
@@ -36,7 +40,7 @@
     {
         <p class="mt-2 mb-0">
             <strong>Match link:</strong>
-            <a href="@Model.SourceUrl" target="_blank" style="color:var(--accent);">@Model.SourceUrl</a>
+            <a href="@fullSourceUrl" target="_blank" style="color:var(--accent);">@fullSourceUrl</a>
             <form asp-action="RefreshPlayers" asp-route-slug="@Model.Slug" method="post" class="d-inline">
                 <button class="btn btn-sm btn-warning" type="submit">Refresh players from source</button>
             </form>

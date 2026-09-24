@@ -269,6 +269,8 @@ namespace cr7stream.Controllers
                 return NotFound();
             }
 
+            var settings = await _admin.GetSettingsAsync(cancellationToken);
+            ViewData["SourceUrl"] = settings.SourceUrl ?? "https://total-sportek.st/";
             return View(match);
         }
 
