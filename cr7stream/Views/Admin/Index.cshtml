@@ -156,6 +156,10 @@
                             <td>
                                 <div class="d-flex gap-1 flex-wrap">
                                     <a class="btn btn-sm btn-outline-light" asp-action="MatchDetails" asp-route-slug="@match.Slug">Players</a>
+                                    @if (!string.IsNullOrWhiteSpace(match.SourceUrl))
+                                    {
+                                        <a class="btn btn-sm btn-outline-light" href="@(match.SourceUrl.StartsWith("http") ? match.SourceUrl : sourceUrl.TrimEnd('/') + match.SourceUrl)" target="_blank" title="View on source">&#8599;</a>
+                                    }
                                     <form asp-action="ToggleImportant" asp-route-slug="@match.Slug" method="post">
                                         <button class="btn btn-sm btn-outline-light" type="submit" title="Important">&#9733;</button>
                                     </form>
