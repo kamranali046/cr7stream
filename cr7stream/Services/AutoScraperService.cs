@@ -78,18 +78,22 @@ public class AutoScraperService : BackgroundService
                 dailyTime = new TimeSpan(9, 0, 0);
             }
 
-            // Wait until the next daily run time (local time).
-            var now = DateTime.Now;
-            var next = new DateTime(now.Year, now.Month, now.Day,
+            // Wait until the next daily run time (Pakistan Time, UTC+5).
+            var pktOffset = TimeSpan.FromHours(5);
+            var nowUtc = DateTime.UtcNow;
+            var nowPkt = nowUtc + pktOffset;
+            var nextPkt = new DateTime(nowPkt.Year, nowPkt.Month, nowPkt.Day,
                 dailyTime.Hours, dailyTime.Minutes, 0);
-            if (next <= now)
+            if (nextPkt <= nowPkt)
             {
-                next = next.AddDays(1);
+                nextPkt = nextPkt.AddDays(1);
             }
 
-            _logger.LogInformation("Next auto-scrape scheduled for {Time}.", next);
+            // Convert back to UTC for the delay
+            var nextUtc = nextPkt - pktOffset;
+            _logger.LogInformation("Next auto-scrape scheduled for {Time} PKT.", nextPkt);
 
-            var delay = next - now;
+            var delay = nextUtc - nowUtc;
             if (delay > TimeSpan.Zero)
             {
                 try
