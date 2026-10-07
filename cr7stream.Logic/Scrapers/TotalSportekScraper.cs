@@ -63,7 +63,7 @@ public class TotalSportekScraper : ITotalSportekScraper
     private readonly HttpClient _http;
     private readonly IScraperSettingsProvider? _settings;
     private readonly ILogoService _logoService;
-    private string _baseUrl = "https://total-sportek.st/";
+    private string _baseUrl = "https://totalsportek1.is/";
 
     public TotalSportekScraper(HttpClient http, IScraperSettingsProvider? settings = null, ILogoService logoService = null!)
     {
@@ -275,7 +275,7 @@ public class TotalSportekScraper : ITotalSportekScraper
 
         try
         {
-            var html = await FetchHtmlAsync(MakeAbsolute(match.SourceUrl), ct, TimeSpan.FromSeconds(12));
+            var html = await FetchMatchPageHtmlAsync(MakeAbsolute(match.SourceUrl), ct, TimeSpan.FromSeconds(12));
             if (html is null) return;
 
             var doc = new HtmlDocument();
@@ -326,7 +326,7 @@ public class TotalSportekScraper : ITotalSportekScraper
         var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var baseHost = SafeHost(_baseUrl);
 
-        var html = await FetchHtmlAsync(MakeAbsolute(url), cancellationToken);
+        var html = await FetchMatchPageHtmlAsync(MakeAbsolute(url), cancellationToken);
         if (html is null)
         {
             return players;
@@ -586,6 +586,27 @@ public class TotalSportekScraper : ITotalSportekScraper
         }
     }
 
+    /// <summary>
+    /// Fetches a match page. Match pages now live on the "links." subdomain of the
+    /// source host, while root-relative SourceUrls stored by older scrapes resolve
+    /// against the main host (which 404s for match paths). If the direct fetch
+    /// fails, retry once on links.{host} before giving up.
+    /// </summary>
+    private async Task<string?> FetchMatchPageHtmlAsync(string url, CancellationToken ct, TimeSpan? timeout = null)
+    {
+        var html = await FetchHtmlAsync(url, ct, timeout);
+        if (html is not null) return html;
+
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri)) return null;
+
+        var baseHost = SafeHost(_baseUrl);
+        if (string.IsNullOrEmpty(baseHost)) return null;
+        if (!string.Equals(uri.Host, baseHost, StringComparison.OrdinalIgnoreCase)) return null;
+        if (uri.Host.StartsWith("links.", StringComparison.OrdinalIgnoreCase)) return null;
+
+        return await FetchHtmlAsync($"{uri.Scheme}://links.{uri.Host}{uri.PathAndQuery}", ct, timeout);
+    }
+
     private async Task<string?> FetchHtmlAsync(string url, CancellationToken ct, TimeSpan? timeout = null)
     {
         try
@@ -725,7 +746,9 @@ public class TotalSportekScraper : ITotalSportekScraper
     private static bool IsCategoryHeader(string cls)
     {
         if (string.IsNullOrEmpty(cls)) return false;
-        return cls.Contains("text-dark-light") || cls.Contains("text-white") && cls.Contains("fw-bold") && cls.Contains("m-2");
+        return cls.Contains("premium-category-header")
+               || cls.Contains("text-dark-light")
+               || (cls.Contains("text-white") && cls.Contains("fw-bold") && cls.Contains("m-2"));
     }
 
     private static bool IsMatchAnchor(string cls)
@@ -752,7 +775,8 @@ public class TotalSportekScraper : ITotalSportekScraper
             return null;
         }
 
-        var timeNode = anchor.SelectSingleNode(".//div[contains(@class,'Aj')]//span")
+        var timeNode = anchor.SelectSingleNode(".//div[contains(@class,'premium-match-time')]//span")
+                      ?? anchor.SelectSingleNode(".//div[contains(@class,'Aj')]//span")
                       ?? anchor.SelectSingleNode(".//span");
         var timeText = timeNode?.InnerText.Trim() ?? string.Empty;
 
@@ -795,6 +819,14 @@ public class TotalSportekScraper : ITotalSportekScraper
                    ?? row.InnerText.Trim();
         var logo = img is null ? string.Empty : MakeAbsolute(img.GetAttributeValue("src", ""));
 
+        // The source serves a generic site graphic (/assets2/images/logo.svg) for
+        // teams it has no logo for. Treat that as missing so the match-level
+        // logo extractor can fill the real badge from the match page later.
+        if (logo.Contains("/logo.svg", StringComparison.OrdinalIgnoreCase))
+        {
+            logo = string.Empty;
+        }
+
         if (string.IsNullOrWhiteSpace(name))
         {
             name = "TBD";
@@ -810,18 +842,15 @@ public class TotalSportekScraper : ITotalSportekScraper
             };
         }
 
-        if (string.IsNullOrWhiteSpace(logo))
+        if (string.IsNullOrWhiteSpace(teams[name].Logo))
         {
-            logo = MakeAbsolute($"/assets2/images/premier/{Uri.EscapeDataString(name)}.webp");
-            if (teams.ContainsKey(name))
+            var fallback = MakeAbsolute($"/assets2/images/premier/{Uri.EscapeDataString(name)}.webp");
+            teams[name] = new Team
             {
-                teams[name] = new Team
-                {
-                    Slug = Slug.Slugify(name),
-                    Name = name,
-                    Logo = logo
-                };
-            }
+                Slug = Slug.Slugify(name),
+                Name = name,
+                Logo = fallback
+            };
         }
 
         return (name, logo);
@@ -913,7 +942,7 @@ public class TotalSportekScraper : ITotalSportekScraper
 
     private static string NormalizeBaseUrl(string? sourceUrl)
     {
-        var url = (sourceUrl ?? "https://total-sportek.st/").Trim();
+        var url = (sourceUrl ?? "https://totalsportek1.is/").Trim();
         if (!url.EndsWith("/"))
         {
             url += "/";

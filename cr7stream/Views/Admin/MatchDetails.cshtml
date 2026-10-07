@@ -3,7 +3,7 @@
     ViewData["Title"] = "Match Players";
     var live = Model.IsLive || Model.Status == "live";
     var ended = Model.IsEnded || Model.Status == "replay";
-    var sourceBase = ((string?)ViewData["SourceUrl"] ?? "https://total-sportek.st/").TrimEnd('/');
+    var sourceBase = ((string?)ViewData["SourceUrl"] ?? "https://totalsportek1.is/").TrimEnd('/');
     var fullSourceUrl = !string.IsNullOrWhiteSpace(Model.SourceUrl)
         ? (Model.SourceUrl.StartsWith("http") ? Model.SourceUrl : sourceBase + Model.SourceUrl)
         : "";

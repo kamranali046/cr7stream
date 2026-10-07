@@ -270,7 +270,7 @@ namespace cr7stream.Controllers
             }
 
             var settings = await _admin.GetSettingsAsync(cancellationToken);
-            ViewData["SourceUrl"] = settings.SourceUrl ?? "https://total-sportek.st/";
+            ViewData["SourceUrl"] = settings.SourceUrl ?? "https://totalsportek1.is/";
             return View(match);
         }
 
