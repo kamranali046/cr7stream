@@ -17,7 +17,6 @@ namespace cr7stream.Controllers
             _settingsProvider = settingsProvider;
         }
 
-        [ResponseCache(Duration = 30, Location = ResponseCacheLocation.Any, VaryByQueryKeys = new[] { "*" })]
         public async Task<IActionResult> Index()
         {
             var settings = await _settingsProvider.LoadAsync();
