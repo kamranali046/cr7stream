@@ -245,6 +245,7 @@ public class AdminLogic : IAdminLogic
 
         league.Hidden = !league.Hidden;
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task MoveCategoryAsync(string slug, string direction, CancellationToken cancellationToken = default)

@@ -1,5 +1,6 @@
 using cr7stream.Logic.Models;
 using Microsoft.Extensions.Caching.Memory;
+using System.Threading;
 
 namespace cr7stream.Logic;
 
@@ -13,6 +14,9 @@ public class HomeControllerLogic : IHomeControllerLogic
     private readonly IScrapperLogic _scrapper;
     private readonly IMemoryCache _memoryCache;
     private const string HomeCacheKey = "HomeViewModel";
+    private static long _homeCacheVersion;
+
+    public static void ClearHomeCache() => Interlocked.Increment(ref _homeCacheVersion);
 
     public HomeControllerLogic(IScrapperLogic scrapper, IMemoryCache memoryCache)
     {
@@ -22,7 +26,8 @@ public class HomeControllerLogic : IHomeControllerLogic
 
     public async Task<HomeViewModel> GetHomeAsync()
     {
-        if (_memoryCache.TryGetValue(HomeCacheKey, out HomeViewModel? cached) && cached is not null)
+        var cacheKey = $"{HomeCacheKey}:{_homeCacheVersion}";
+        if (_memoryCache.TryGetValue(cacheKey, out HomeViewModel? cached) && cached is not null)
         {
             return cached;
         }
@@ -68,7 +73,7 @@ public class HomeControllerLogic : IHomeControllerLogic
             Sections = sections
         };
 
-        _memoryCache.Set(HomeCacheKey, model, TimeSpan.FromSeconds(30));
+        _memoryCache.Set(cacheKey, model, TimeSpan.FromSeconds(30));
         return model;
     }
 }

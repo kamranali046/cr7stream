@@ -74,6 +74,7 @@ public class ScrapperLogic : IScrapperLogic
         }
 
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
         return data;
     }
 
@@ -100,6 +101,7 @@ public class ScrapperLogic : IScrapperLogic
 
         // Save fixtures immediately so the admin page can display them.
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
 
         // Download logos in background (fire-and-forget).
         _ = Task.Run(async () =>
@@ -122,6 +124,7 @@ public class ScrapperLogic : IScrapperLogic
                 await _scraper.DrillPlayersAsync(data, cancellationToken);
                 await _provider.SaveAsync(data, cancellationToken);
                 MatchesControllerLogic.ClearPlayerCache();
+                HomeControllerLogic.ClearHomeCache();
             }
             catch
             {
@@ -326,6 +329,7 @@ public class ScrapperLogic : IScrapperLogic
         {
             await _provider.SaveAsync(data, cancellationToken);
             MatchesControllerLogic.ClearPlayerCache();
+            HomeControllerLogic.ClearHomeCache();
         }
     }
 
@@ -380,7 +384,12 @@ public class ScrapperLogic : IScrapperLogic
             scraped.Leagues.Select(l => l.Slug), StringComparer.OrdinalIgnoreCase);
         foreach (var league in scraped.Leagues)
         {
-            var prior = existing.Leagues.FirstOrDefault(l => l.Slug == league.Slug);
+            // Prefer a prior entry that was hidden so a hidden category can never
+            // be silently un-hidden by a re-scrape (e.g. duplicate slugs).
+            var prior = existing.Leagues
+                .Where(l => l.Slug == league.Slug)
+                .OrderByDescending(l => l.Hidden)
+                .FirstOrDefault();
             if (prior is not null)
             {
                 league.Hidden = prior.Hidden;
@@ -390,6 +399,16 @@ public class ScrapperLogic : IScrapperLogic
         foreach (var league in existing.Leagues.Where(l => l.IsCustom && !scrapedLeagueSlugs.Contains(l.Slug)))
         {
             scraped.Leagues.Add(league);
+        }
+
+        // Permanently preserve admin-hidden categories: even if a hidden league is
+        // absent from this scrape (or gets re-added later by the source), keep it
+        // in the data set as hidden so it stays hidden until explicitly unhidden.
+        foreach (var hiddenLeague in existing.Leagues
+            .Where(l => l.Hidden && !scrapedLeagueSlugs.Contains(l.Slug))
+            .ToList())
+        {
+            scraped.Leagues.Add(hiddenLeague);
         }
 
         foreach (var match in scraped.Matches)
