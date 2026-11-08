@@ -746,14 +746,12 @@ public class TotalSportekScraper : ITotalSportekScraper
     private static bool IsCategoryHeader(string cls)
     {
         if (string.IsNullOrEmpty(cls)) return false;
-        return cls.Contains("premium-category-header")
-               || cls.Contains("text-dark-light")
-               || (cls.Contains("text-white") && cls.Contains("fw-bold") && cls.Contains("m-2"));
+        return cls.Contains("league-header");
     }
 
     private static bool IsMatchAnchor(string cls)
     {
-        return !string.IsNullOrEmpty(cls) && (cls.Contains("nav-link2") || cls.Contains("bg-game") || cls.Contains("d-flex") || cls.Contains("competition"));
+        return !string.IsNullOrEmpty(cls) && cls.Contains("modern-match-card");
     }
 
     private (string Name, string Logo) ParseCategory(HtmlNode node)
@@ -762,6 +760,12 @@ public class TotalSportekScraper : ITotalSportekScraper
         var name = node.SelectSingleNode(".//span")?.InnerText.Trim()
                    ?? img?.GetAttributeValue("alt", "")?.Trim()
                    ?? string.Empty;
+
+        // strip trailing " Logo" from alt fallback
+        if (name.EndsWith(" Logo", StringComparison.OrdinalIgnoreCase))
+        {
+            name = name[..^" Logo".Length].Trim();
+        }
 
         var logo = img is null ? string.Empty : MakeAbsolute(img.GetAttributeValue("src", ""));
         return (name, logo);
@@ -775,19 +779,19 @@ public class TotalSportekScraper : ITotalSportekScraper
             return null;
         }
 
-        var timeNode = anchor.SelectSingleNode(".//div[contains(@class,'premium-match-time')]//span")
-                      ?? anchor.SelectSingleNode(".//div[contains(@class,'Aj')]//span")
-                      ?? anchor.SelectSingleNode(".//span");
+        var timeNode = anchor.SelectSingleNode(".//div[contains(@class,'match-time')]")
+                      ?? anchor.SelectSingleNode(".//div[contains(@class,'match-time')]//span");
         var timeText = timeNode?.InnerText.Trim() ?? string.Empty;
 
-        var teamRows = anchor.SelectNodes(".//div[contains(@class,'row') and contains(@class,'my-auto')]");
-        if (teamRows is null || teamRows.Count < 2)
+        var homeNode = anchor.SelectSingleNode(".//div[contains(@class,'team-left')]");
+        var awayNode = anchor.SelectSingleNode(".//div[contains(@class,'team-right')]");
+        if (homeNode is null || awayNode is null)
         {
             return null;
         }
 
-        var home = ParseTeamAsync(teamRows[0], anchor, teams);
-        var away = ParseTeamAsync(teamRows[1], anchor, teams);
+        var home = ParseTeamAsync(homeNode, anchor, teams);
+        var away = ParseTeamAsync(awayNode, anchor, teams);
 
         ParseTime(timeText, out var startUtc, out var status);
 
@@ -844,7 +848,7 @@ public class TotalSportekScraper : ITotalSportekScraper
 
         if (string.IsNullOrWhiteSpace(teams[name].Logo))
         {
-            var fallback = MakeAbsolute($"/assets2/images/premier/{Uri.EscapeDataString(name)}.webp");
+            var fallback = MakeAbsolute($"/images/teams/{Uri.EscapeDataString(name)}.png");
             teams[name] = new Team
             {
                 Slug = Slug.Slugify(name),
@@ -924,20 +928,33 @@ public class TotalSportekScraper : ITotalSportekScraper
             .Where(s => !string.IsNullOrEmpty(s))
             .ToArray();
 
-        foreach (var segment in ((IEnumerable<string>)segments).Reverse())
+        foreach (var segment in segments)
         {
             if (segment.Equals("game", StringComparison.OrdinalIgnoreCase))
             {
                 continue;
             }
 
-            if (Regex.IsMatch(segment, @"^[a-z0-9-]+$") && !Regex.IsMatch(segment, @"^\d+$"))
+            if (!Regex.IsMatch(segment, @"^\d+$") && segment.Contains("-"))
             {
                 return segment;
             }
         }
 
-        return segments.Length > 0 ? segments[^1] : Slug.Slugify(url);
+        foreach (var segment in segments)
+        {
+            if (segment.Equals("game", StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            if (!Regex.IsMatch(segment, @"^\d+$"))
+            {
+                return segment;
+            }
+        }
+
+        return segments.Length > 0 ? segments[0] : Slug.Slugify(url);
     }
 
     private static string NormalizeBaseUrl(string? sourceUrl)
