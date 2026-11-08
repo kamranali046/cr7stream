@@ -58,39 +58,20 @@ public class LogoService : ILogoService
             var contentType = response.Content.Headers.ContentType?.MediaType ?? "";
             var bytes = await response.Content.ReadAsByteArrayAsync(ct);
 
-            // Only save if the response is genuinely an image. The extension of the
-            // source URL is NOT trusted: many hosts (e.g. totalsportek) return an
-            // HTML page with a 200 for missing images, which must not be stored as
-            // a .webp (it renders as a broken image).
+            // Only save if it looks like an image (< 2MB)
             if (bytes.Length > 0 && bytes.Length < 2 * 1024 * 1024 &&
-                contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase) &&
-                IsImageBytes(bytes))
+                (contentType.StartsWith("image/") || externalUrl.Contains(".webp") || externalUrl.Contains(".png") || externalUrl.Contains(".jpg") || externalUrl.Contains(".jpeg")))
             {
                 await File.WriteAllBytesAsync(localPath, bytes, ct);
                 return GetLocalPath(slug);
             }
 
-            return string.Empty;
+            return Placeholder;
         }
         catch
         {
             return Placeholder;
         }
-    }
-
-    private static bool IsImageBytes(byte[] bytes)
-    {
-        if (bytes is null || bytes.Length < 4) return false;
-        // PNG
-        if (bytes[0] == 0x89 && bytes[1] == 0x50 && bytes[2] == 0x4E && bytes[3] == 0x47) return true;
-        // JPEG
-        if (bytes[0] == 0xFF && bytes[1] == 0xD8 && bytes[2] == 0xFF) return true;
-        // GIF
-        if (bytes[0] == 0x47 && bytes[1] == 0x49 && bytes[2] == 0x46) return true;
-        // WEBP (RIFF....WEBP)
-        if (bytes.Length >= 12 && bytes[0] == 0x52 && bytes[1] == 0x49 && bytes[2] == 0x46 && bytes[3] == 0x46 &&
-            bytes[8] == 0x57 && bytes[9] == 0x45 && bytes[10] == 0x42 && bytes[11] == 0x50) return true;
-        return false;
     }
 
     private static string SlugToFileName(string slug)

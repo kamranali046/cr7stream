@@ -144,14 +144,96 @@ public class ScrapperLogic : IScrapperLogic
     /// Downloads team and league logos to local disk for caching.
     /// Skips already-downloaded logos. Updates the data in-place with local paths.
     /// </summary>
-    public Task DownloadLogosAsync(FixtureData data, CancellationToken ct = default)
+    public async Task DownloadLogosAsync(FixtureData data, CancellationToken ct = default)
     {
-        // Logo downloading is intentionally disabled: the source site serves many
-        // team/league images as HTML (or 404s), and persisting that as a local
-        // .webp produced corrupt files the browser could not render. Keeping the
-        // source image URLs lets the browser load them directly (with onerror
-        // fallback to the placeholder for missing ones).
-        return Task.CompletedTask;
+        var tasks = new List<Task>();
+
+        foreach (var team in data.Teams)
+        {
+            if (!string.IsNullOrWhiteSpace(team.Logo) && !_logos.LocalFileExists(team.Slug))
+            {
+                var logo = team.Logo;
+                var slug = team.Slug;
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        team.Logo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(team.Slug))
+            {
+                team.Logo = _logos.GetLocalPath(team.Slug);
+            }
+        }
+
+        foreach (var league in data.Leagues)
+        {
+            if (!string.IsNullOrWhiteSpace(league.Logo) && !_logos.LocalFileExists(league.Slug))
+            {
+                var logo = league.Logo;
+                var slug = league.Slug;
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        league.Logo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(league.Slug))
+            {
+                league.Logo = _logos.GetLocalPath(league.Slug);
+            }
+        }
+
+        // Also fix match-level logos (home/away team logos stored per-match)
+        foreach (var match in data.Matches)
+        {
+            if (!string.IsNullOrWhiteSpace(match.HomeTeamLogo) && !_logos.LocalFileExists(Slug.Slugify(match.HomeTeam)))
+            {
+                var logo = match.HomeTeamLogo;
+                var slug = Slug.Slugify(match.HomeTeam);
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        match.HomeTeamLogo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(Slug.Slugify(match.HomeTeam)))
+            {
+                match.HomeTeamLogo = _logos.GetLocalPath(Slug.Slugify(match.HomeTeam));
+            }
+
+            if (!string.IsNullOrWhiteSpace(match.AwayTeamLogo) && !_logos.LocalFileExists(Slug.Slugify(match.AwayTeam)))
+            {
+                var logo = match.AwayTeamLogo;
+                var slug = Slug.Slugify(match.AwayTeam);
+                tasks.Add(Task.Run(async () =>
+                {
+                    var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
+                    if (local != logo)
+                    {
+                        match.AwayTeamLogo = local;
+                    }
+                }, ct));
+            }
+            else if (_logos.LocalFileExists(Slug.Slugify(match.AwayTeam)))
+            {
+                match.AwayTeamLogo = _logos.GetLocalPath(Slug.Slugify(match.AwayTeam));
+            }
+        }
+
+        if (tasks.Count > 0)
+        {
+            await Task.WhenAll(tasks);
+        }
     }
 
     /// <summary>
