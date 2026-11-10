@@ -767,7 +767,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             name = name[..^" Logo".Length].Trim();
         }
 
-        var logo = img is null ? string.Empty : MakeAbsolute(img.GetAttributeValue("src", ""));
+        var logo = img is null ? string.Empty : MakeImageAbsolute(img.GetAttributeValue("src", ""));
         return (name, logo);
     }
 
@@ -821,7 +821,7 @@ public class TotalSportekScraper : ITotalSportekScraper
             ?? anchor.SelectSingleNode(".//img[not(contains(@src,'aro.png'))]");
         var name = img?.GetAttributeValue("alt", "")?.Trim()
                    ?? row.InnerText.Trim();
-        var logo = img is null ? string.Empty : MakeAbsolute(img.GetAttributeValue("src", ""));
+        var logo = img is null ? string.Empty : MakeImageAbsolute(img.GetAttributeValue("src", ""));
 
         // The source serves a generic site graphic (/assets2/images/logo.svg) for
         // teams it has no logo for. Treat that as missing so the match-level
@@ -848,7 +848,7 @@ public class TotalSportekScraper : ITotalSportekScraper
 
         if (string.IsNullOrWhiteSpace(teams[name].Logo))
         {
-            var fallback = MakeAbsolute($"/images/teams/{Uri.EscapeDataString(name)}.png");
+            var fallback = MakeImageAbsolute($"/images/teams/{Uri.EscapeDataString(name)}.png");
             teams[name] = new Team
             {
                 Slug = Slug.Slugify(name),
@@ -971,6 +971,17 @@ public class TotalSportekScraper : ITotalSportekScraper
         }
 
         return url;
+    }
+
+    private string MakeImageAbsolute(string src)
+    {
+        if (string.IsNullOrWhiteSpace(src)) return string.Empty;
+        if (src.StartsWith("http", StringComparison.OrdinalIgnoreCase)) return src;
+        if (src.StartsWith("//")) return "https:" + src;
+        // Images are served from the totalsportekl.is mirror (totalsportek1.is returns
+        // HTML for the same paths).
+        if (src.StartsWith("/")) return "https://totalsportekl.is" + src;
+        return src;
     }
 
     private string MakeAbsolute(string src)
