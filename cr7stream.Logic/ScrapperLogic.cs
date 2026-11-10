@@ -157,7 +157,9 @@ public class ScrapperLogic : IScrapperLogic
                 tasks.Add(Task.Run(async () =>
                 {
                     var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
-                    if (local != logo)
+                    // Only replace with a local path when the download actually
+                    // succeeded; never overwrite with "" / placeholder.
+                    if (local.StartsWith("/img/logos/", StringComparison.OrdinalIgnoreCase))
                     {
                         team.Logo = local;
                     }
@@ -178,7 +180,7 @@ public class ScrapperLogic : IScrapperLogic
                 tasks.Add(Task.Run(async () =>
                 {
                     var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
-                    if (local != logo)
+                    if (local.StartsWith("/img/logos/", StringComparison.OrdinalIgnoreCase))
                     {
                         league.Logo = local;
                     }
@@ -200,7 +202,7 @@ public class ScrapperLogic : IScrapperLogic
                 tasks.Add(Task.Run(async () =>
                 {
                     var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
-                    if (local != logo)
+                    if (local.StartsWith("/img/logos/", StringComparison.OrdinalIgnoreCase))
                     {
                         match.HomeTeamLogo = local;
                     }
@@ -218,7 +220,7 @@ public class ScrapperLogic : IScrapperLogic
                 tasks.Add(Task.Run(async () =>
                 {
                     var local = await _logos.GetOrDownloadAsync(logo, slug, ct);
-                    if (local != logo)
+                    if (local.StartsWith("/img/logos/", StringComparison.OrdinalIgnoreCase))
                     {
                         match.AwayTeamLogo = local;
                     }
