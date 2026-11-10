@@ -58,6 +58,9 @@ public class LogoService : ILogoService
         {
             var client = _httpFactory.CreateClient();
             client.Timeout = TimeSpan.FromSeconds(10);
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
+            client.DefaultRequestHeaders.Referrer = new Uri("https://totalsportekl.is/");
+            client.DefaultRequestHeaders.Accept.ParseAdd("image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8");
             using var response = await client.GetAsync(externalUrl, ct);
             if (!response.IsSuccessStatusCode)
             {

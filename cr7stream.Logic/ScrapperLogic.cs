@@ -103,18 +103,15 @@ public class ScrapperLogic : IScrapperLogic
         await _provider.SaveAsync(data, cancellationToken);
         HomeControllerLogic.ClearHomeCache();
 
-        // Download logos in background (fire-and-forget).
-        _ = Task.Run(async () =>
+        // Download logos to local files (synchronous so they persist).
+        try
         {
-            try
-            {
-                await DownloadLogosAsync(data, cancellationToken);
-            }
-            catch
-            {
-                // best-effort
-            }
-        }, cancellationToken);
+            await DownloadLogosAsync(data, cancellationToken);
+        }
+        catch
+        {
+            // best-effort
+        }
 
         // Phase 2: drill players for live / near-live matches (fire-and-forget).
         _ = Task.Run(async () =>
