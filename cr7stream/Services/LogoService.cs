@@ -48,10 +48,23 @@ public class LogoService : ILogoService
         Directory.CreateDirectory(dir);
         var localPath = Path.Combine(dir, fileName);
 
-        // Already downloaded
+        // Already downloaded — but only trust it if it is a valid image.
         if (File.Exists(localPath))
         {
-            return GetLocalPath(slug);
+            try
+            {
+                var existingBytes = File.ReadAllBytes(localPath);
+                if (IsImageBytes(existingBytes))
+                {
+                    return GetLocalPath(slug);
+                }
+            }
+            catch
+            {
+                // fall through to re-download
+            }
+            // Corrupt (e.g. an HTML page saved as .webp): delete and re-download.
+            try { File.Delete(localPath); } catch { }
         }
 
         try

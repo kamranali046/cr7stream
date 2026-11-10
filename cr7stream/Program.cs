@@ -26,6 +26,15 @@ builder.Services.AddHttpClient<cr7stream.Logic.Scrapers.ITotalSportekScraper, cr
 {
     client.Timeout = TimeSpan.FromSeconds(30);
     client.DefaultRequestHeaders.ConnectionClose = false;
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36");
+})
+.ConfigurePrimaryHttpMessageHandler(() => new SocketsHttpHandler
+{
+    SslOptions = new System.Net.Security.SslClientAuthenticationOptions
+    {
+        EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls13
+    },
+    AutomaticDecompression = System.Net.DecompressionMethods.All
 })
 .SetHandlerLifetime(TimeSpan.FromMinutes(5));
 builder.Services.AddHttpClient();
