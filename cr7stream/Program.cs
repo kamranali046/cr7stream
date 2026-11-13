@@ -1,12 +1,17 @@
 // Load .env (if present) into environment variables so settings such as
 // Admin:Username / Admin:Password resolve from it. Env vars take precedence
 // over appsettings.json. Must run before the builder reads configuration.
+using Microsoft.AspNetCore.DataProtection;
+
 LoadDotEnv();
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Persist data protection keys so authentication & anti-forgery tokens survive restarts
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(@"/var/www/cr7stream/keys"));
 builder.Services.AddResponseCaching();
 builder.Services.AddMemoryCache();
 
