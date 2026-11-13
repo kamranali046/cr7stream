@@ -118,14 +118,14 @@ public class ScrapperLogic : IScrapperLogic
         {
             try
             {
-                await _scraper.DrillPlayersAsync(data, cancellationToken);
-                await _provider.SaveAsync(data, cancellationToken);
+                await _scraper.DrillPlayersAsync(data, CancellationToken.None);
+                await _provider.SaveAsync(data, CancellationToken.None);
                 MatchesControllerLogic.ClearPlayerCache();
                 HomeControllerLogic.ClearHomeCache();
             }
-            catch
+            catch (Exception ex)
             {
-                // best-effort: player drilling failure must not crash the app
+                System.Diagnostics.Debug.WriteLine($"Background player drilling failed: {ex.Message}");
             }
         }, cancellationToken);
 
