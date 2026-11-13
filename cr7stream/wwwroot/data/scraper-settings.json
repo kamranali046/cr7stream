@@ -1,0 +1,8 @@
+{
+  "SourceUrl": "https://totalsportek1.is/",
+  "DailyScrapeTime": "09:00",
+  "PlayerFetchLeadMinutes": 40,
+  "LiveMarkLeadMinutes": 10,
+  "LiveAutoEndHours": 8,
+  "ShowBanner": false
+}

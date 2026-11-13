@@ -1,0 +1,1840 @@
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://totalsportekl.is/css/app.css?v1.2">
+    
+    <meta name="robots" content="index,follow"/>
+    <meta name="next-head-count" content="6"/>
+    <link rel="shortcut icon" href="/images/LOGOtotal.jpg"/>
+    <meta charSet="utf-8"/>
+
+                        <title>TOTALSPORTEK - Watch Sports Live Streams</title>
+            <meta name="description" content="TOTALSPORTEK offers best quality links for the games ranging from TOTALSPORTEK F1,MOTOGP,SOCCER,BOXING,UFC,RUGBY,TENNIS,CRICKET and much more.">
+            <meta name="googlebot" content="index,follow"/>
+                
+   <style>
+
+
+
+/* Base Global Theme - True Black & Charcoal */
+body, body.dark {
+    background-color: #050505 !important;
+    background-image: radial-gradient(circle at top center, #1a0b05 0%, #050505 40%);
+    color: #edf2f7 !important;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.div-child-box { border-bottom: 1px solid rgba(255, 78, 0, 0.1); }  
+
+/* Flamy Match Cards */
+.bg-game, .modern-match-card {
+    background: rgba(18, 18, 18, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-left: 3px solid #ff4e00 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none !important;
+}
+
+.bg-game:hover, .modern-match-card:hover {
+    background: rgba(25, 25, 25, 1) !important;
+    border-color: rgba(255, 78, 0, 0.4) !important;
+    border-left: 4px solid #e52d27 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 78, 0, 0.15);
+}
+
+/* Tournament Headers */
+.top-tournament, .league-header {
+    background: linear-gradient(90deg, rgba(255, 78, 0, 0.15) 0%, rgba(15, 15, 15, 0.9) 40%, rgba(10, 10, 10, 0.4) 100%) !important;
+    border: 1px solid rgba(255, 78, 0, 0.1) !important;
+    border-left: 4px solid #ff4e00 !important;
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.top-tournament h4, .league-header span {
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.leagueimg {
+    margin-right: 12px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(255,78,0,0.3));
+}
+
+/* Buttons & Badges */
+.btn-live, .highlight {
+    background: linear-gradient(135deg, #ff4e00, #e52d27) !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    padding: 5px 14px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 78, 0, 0.4);
+    border: none;
+    display: inline-block;
+}
+
+.btn-highlight {
+    background: linear-gradient(135deg, #3f3f46, #27272a) !important;
+    color: #d4d4d8 !important;
+    border-radius: 6px !important;
+    padding: 5px 14px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Modern Sidebar & Blog Styles */
+.sidebar-glass {
+    background: rgba(18, 18, 18, 0.85);
+    border: 1px solid rgba(255, 78, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.sidebar-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    border-left: 3px solid #ff4e00;
+    padding-left: 10px;
+}
+
+.sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-item a {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #a1a1aa;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-item a:hover {
+    background: linear-gradient(90deg, rgba(255, 78, 0, 0.1) 0%, rgba(255, 78, 0, 0) 100%);
+    color: #ff4e00;
+    transform: translateX(5px);
+}
+
+.sidebar-item img {
+    margin-right: 12px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.blog-card {
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+    border-color: rgba(255, 78, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 78, 0, 0.15);
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #ff4e00;
+}
+
+.blog-card-title {
+    color: #e4e4e7;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.view-all-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ff4e00;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.view-all-btn:hover {
+    background: rgba(255, 78, 0, 0.1);
+    color: #ffffff;
+}
+
+/* Nav links */
+.nav-link2 {
+    color: #a1a1aa !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.nav-link2:hover {
+    color: #ff4e00 !important;
+}
+
+
+    </style>
+</head>
+<body class="dark">
+    <!-- header start -->
+    <style>
+    /* =========================================
+       PREMIUM NAVBAR UPGRADE
+       ========================================= */
+    header.site-header {
+        background-color: #0b0e14 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+    }
+
+    header.site-header .navbar {
+        background: transparent !important;
+        padding: 0.5rem 0;
+    }
+
+    /* Gradient Brand Logo */
+    .brand-logo-custom {
+        font-weight: 900 !important;
+        font-size: 1.75rem !important;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, #ff8a00, #ffc837);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none !important;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+    .brand-logo-custom:hover {
+        transform: scale(1.02);
+    }
+
+    /* Nav Links */
+    .navbar-nav .nav-link {
+        color: #8b949e !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 1px;
+        text-transform: uppercase !important;
+        transition: color 0.2s ease;
+        padding: 12px 14px !important;
+    }
+    .navbar-nav .nav-link:hover {
+        color: #ffffff !important;
+    }
+
+    /* Desktop Dropdown Menus */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background: linear-gradient(145deg, #161b22, #10141a) !important;
+        min-width: 220px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 2px solid #ff8a00;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        z-index: 1000;
+        padding: 8px 0;
+    }
+    .dropdown-content a {
+        color: #c9d1d9 !important;
+        padding: 10px 18px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        display: block;
+        transition: all 0.2s ease;
+    }
+    .dropdown-content a:hover {
+        background: rgba(0, 198, 255, 0.08) !important;
+        color: #00c6ff !important;
+        padding-left: 22px;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+        animation: dropFadeIn 0.25s ease forwards;
+    }
+
+    @keyframes dropFadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile Drawer */
+    @media screen and (max-width: 991px){
+        .dropdown-content {
+            position: static !important;
+            background: rgba(0,0,0,0.3) !important;
+            box-shadow: none;
+            border: none;
+            border-left: 2px solid #ff8a00;
+            margin-left: 10px;
+        }
+        .navbar-collapse {
+            background: #10141a;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+            margin-top: 10px;
+        }
+    }
+</style>
+
+<header class="site-header">
+    <link rel="canonical" href="https://totalsportek100.com//" />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-dark"> 
+                    
+                    <a href="https://totalsportekl.is" class="brand-logo-custom">
+                        TOTALSPORTEK
+                    </a>
+
+                    <i class="fas fa-align-justify btnShowNav d-lg-none text-light float-right">
+                        <img alt="Menu" src="/images/bbar.png"/>
+                    </i>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto"> 
+                            
+                            <!-- Tracking Code Kept Intact -->
+                            <li class="nav-item">
+                                <!-- Google tag (gtag.js) -->
+                                <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJMB7B8SPF"></script>
+                                <script>
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag(){dataLayer.push(arguments);}
+                                    gtag('js', new Date());
+                                    gtag('config', 'G-PJMB7B8SPF');
+                                    gtag('config', 'G-J9V5SMN55S');
+                                </script>
+
+                                <div class="dropdown">
+                                    <a href="https://totalsportekl.is/football/" class="nav-link">FOOTBALL<i class="fas fa-sort-down d-lg-none"></i></a>
+                                    <div class="dropdown-content">
+                                        <a href="https://totalsportekl.is/football/premier-league-live-stream">PREMIER LEAGUE</a>
+                                        <a href="https://totalsportekl.is/football/uefa-champions-league/">CHAMPIONS LEAGUE</a>
+                                        <a href="https://totalsportekl.is/football/europa-league/">EUROPA LEAGUE</a>
+                                        <a href="https://totalsportekl.is/football/spanish-laliga/">LA LIGA</a>
+                                        <a href="https://totalsportekl.is/football/italian-serie-a/">SERIE A</a>
+                                        <a href="https://totalsportekl.is/football/bundesliga/">BUNDSELIGA</a>
+                                        <a href="https://totalsportekl.is/football/french-league/">LIGUE 1</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">            
+                                <div class="dropdown"> 
+                                    <a href="https://totalsportekl.is/formula1-streams/" class="nav-link">FORMULA 1</a> 
+                                    <div class="dropdown-content">
+                                        <a href="https://totalsportekl.is/motogp-streams/">MOTOGP</a>
+                                    </div>
+                                </div>
+                            </li> 
+
+                            <li class="nav-item"> 
+                                <div class="dropdown">
+                                    <a href="https://totalsportekl.is/boxing-live-streams/" class="nav-link">BOXING<i class="fas fa-sort-down d-lg-none"></i></a>
+                                    <div class="dropdown-content">
+                                        <a href="https://totalsportekl.is/Anthony-Joshua-vs-Oleksandr-Usyk-2/49/">Joshua vs Usyk Live Stream</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"> 
+                                <div class="dropdown">
+                                    <a href="https://totalsportekl.is/cricket-streams/" class="nav-link">CRICKET<i class="fas fa-sort-down d-lg-none"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"> 
+                                <div class="dropdown">
+                                    <a href="https://totalsportekl.is/tennis/" class="nav-link">TENNIS<i class="fas fa-sort-down d-lg-none"></i></a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"> 
+                                <div class="dropdown">
+                                    <a href="#" class="nav-link">TEAMS<i class="fas fa-sort-down d-lg-none"></i></a>
+                                    <div class="dropdown-content">
+                                        <a href="https://totalsportekl.is/football/premier-league/manchester-united-live-stream/">Manchester United Live Stream</a>
+                                        <a href="https://totalsportekl.is/football/premier-league/liverpool-streams/">Liverpool Live Stream</a>
+                                        <a href="https://totalsportekl.is/football/premier-league/chelsea-live-stream/">Chelsea Stream</a>
+                                        <a href="https://totalsportekl.is/football/premier-league/manchester-city-stream/">Man City Live Stream </a>
+                                        <a href="https://totalsportekl.is/football/premier-league/arsenal-live-stream/">Arenal Streams</a>
+                                        <a href="https://totalsportekl.is/football/premier-league/tottenham/">Tottenham Live Stream </a>
+                                        <a href="https://totalsportekl.is/football/spanish-laliga/real-madrid-live-stream/">Real Madrid</a>
+                                        <a href="https://totalsportekl.is/football/spanish-laliga/barcelona-stream/">Barcelona</a>
+                                        <a href="https://totalsportekl.is/football/spanish-laliga/atletico-madrid-live-stream/">Atletico Madrid</a>
+                                        <a href="https://totalsportekl.is/football/french-league/paris-saint-germain/">PSG Streams </a>
+                                        <a href="https://totalsportekl.is/football/bundesliga/bayern-munich-streams/">Bayern Munich Streams</a>
+                                        <a href="https://totalsportekl.is/football/italian-serie-a/juventus-live-stream/">Juventus Streams</a>
+                                        <a href="https://totalsportekl.is/football/italian-serie-a/inter-milan-live-stream/">Inter Milan</a>
+                                        <a href="https://totalsportekl.is/football/italian-serie-a/acmilan/">AC Milan</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item"> 
+                                <div class="dropdown">
+                                    <a href="https://totalsportekl.is/fifa-world-cup-live-stream/" class="nav-link">FIFA WORLD CUP<i class="fas fa-sort-down d-lg-none"></i></a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- main start -->
+    <main class="container contentContain">
+        <div class="container1">
+            <br><br>
+            <!--<div class="tabs-box bg-light-gray rounded-lg p-3 d-flex justify-content-center mt-2">-->
+    <!--
+    <a target="_blank" href="https://totalsportekl.is/date/yesterday" class="btn btn-light rounded-pill px-2 px-md-5">Yesterday</a>-->
+    <!--<a href="#" class="btn btn-dark mx-1 mx-md-3 rounded-pill px-2 px-md-5">Today's Matches</a>-->
+    <!--
+    <a target="_blank" href="https://totalsportekl.is/date/tomorrow" class="btn btn-light rounded-pill px-2 px-md-5">Tomorrow</a>-->
+<!--</div>-->
+
+<style>
+    
+</style>
+
+<div class="row">
+    
+    
+    <!-- right starting -->
+
+
+<style>
+    /* Modern Sidebar Styles */
+    .sidebar-glass {
+        background: rgba(18, 18, 18, 0.85);
+        border: 1px solid rgba(255, 78, 0, 0.1);
+        border-radius: 12px;
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .sidebar-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .sidebar-title {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+        border-left: 3px solid #ff4e00;
+        padding-left: 10px;
+    }
+
+    .sidebar-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar-item a {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        color: #a1a1aa;
+        text-decoration: none !important;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar-item a:hover {
+        background: linear-gradient(90deg, rgba(255, 78, 0, 0.1) 0%, rgba(255, 78, 0, 0) 100%);
+        color: #ff4e00;
+        transform: translateX(5px);
+    }
+
+    .sidebar-item img {
+        margin-right: 12px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+</style>
+
+<div class="sidebar-glass">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">Top Leagues</h2>
+    </div>
+    
+    <ul class="sidebar-list">
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league-live-stream/">
+                <img alt="PREMIER LEAGUE logo" src="/images/Premier-League.png?v1.0" height="22" width="22">
+                <span>PREMIER LEAGUE</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/uefa-champions-league/">
+                <img alt="CHAMPIONS LEAGUE logo" src="/images/chl.png?v=1.1" height="22" width="22">
+                <span>CHAMPIONS LEAGUE</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/europa-league/">
+                <img alt="EUROPA LEAGUE logo" src="/images/uefa.png?v1.0" height="22" width="22">
+                <span>EUROPA LEAGUE</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/spanish-laliga/">
+                <img alt="LA LIGA logo" src="/images/liga-image.png?v1.0" height="22" width="22">
+                <span>LA LIGA</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/italian-serie-a/">
+                <img alt="SERIE A logo" src="/images/Serie-A.png?v1.0" height="22" width="22">
+                <span>SERIE A</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/bundesliga/">
+                <img alt="BUNDESLIGA logo" src="/images/Bundesliga.png?v1.0" height="22" width="22">
+                <span>BUNDESLIGA</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/french-league/">
+                <img alt="LIGUE 1 league logo" src="/images/Ligue-1.png?v1.0" height="22" width="22">
+                <span>LIGUE 1</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- right ending --> 
+
+<div class="col-md-6 order-first order-md-0">
+    
+<div class="">
+    
+    <ul id="mini-calendar" class="calendar-matches">
+        <li class="">
+            <a href="https://totalsportekl.is/date/yesterday"><span class="day" style="text-transform: uppercase">Results</span></a>
+        </li>
+        
+        
+        <li class=" selected  today ">
+            <a href="https://totalsportekl.is/date/today"><span class="day" style="text-transform: uppercase">Streams</span></a>
+        </li>
+        <li class="">
+            <a href="https://totalsportekl.is/date/tomorrow"> <span class=" day" style="text-transform: uppercase">Schedule</span></a>
+        </li>
+        
+    </ul>
+    
+</div>
+
+
+   
+    
+<div style="margin-top:5px" class="sv-box undefined">
+    
+    <div class="clearfix"></div>
+    <div class="body">
+        <div class="row">
+            <div class="col-md-120" style="width:100%;">
+
+
+<div class="bg-light-gray my-2 py-40 px-30 ">
+    <a class="text-uppercase text-dark-light d-block font-weight-bold"></a>
+
+
+
+<!-- matches start --> 
+<style>
+    .pulse-text-flame {
+        font-size: 18px;
+        font-weight: 900;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #ff4e00, #ffc837);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+        margin: 0;
+        animation: flame-pulse 2s infinite;
+    }
+
+    @keyframes flame-pulse {
+        0% { filter: drop-shadow(0 0 2px rgba(255,78,0,0.4)); }
+        50% { filter: drop-shadow(0 0 8px rgba(255,78,0,0.8)); }
+        100% { filter: drop-shadow(0 0 2px rgba(255,78,0,0.4)); }
+    }
+
+    .match-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    .team-name {
+        color: #F1F5F9;
+        font-weight: 600;
+        font-size: 14px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    .team-left { justify-content: flex-end; text-align: right; }
+    .team-right { justify-content: flex-start; text-align: left; }
+
+    .team-logo {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        margin: 0 8px;
+    }
+
+    .match-center {
+        flex: 0 0 110px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .match-time {
+        color: #a1a1aa;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .team-name { font-size: 12px; }
+        .match-center { flex: 0 0 90px; }
+    }
+</style>
+
+<style>
+    /* MATCH CARD FIX FOR SUBPAGES */
+    .match-row { display: flex; align-items: center; justify-content: space-between; padding: 12px; }
+    .team-name { color: #F1F5F9; font-weight: 600; font-size: 14px; flex: 1; display: flex; align-items: center; }
+    .team-left { justify-content: flex-end; text-align: right; }
+    .team-right { justify-content: flex-start; text-align: left; }
+    .team-logo { width: 24px !important; height: 24px !important; object-fit: contain; margin: 0 8px; }
+    .match-center { flex: 0 0 110px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .match-time { color: #a1a1aa; font-size: 11px; font-weight: 600; margin-bottom: 6px; text-align: center; line-height: 1.2; }
+    @media screen and (max-width: 767px) {
+        .team-name { font-size: 12px; }
+        .match-center { flex: 0 0 90px; }
+    }
+</style>
+<div class="my-2" style="background: transparent;">
+         
+    <div class="div-main-box rounded-lg overflow-hidden">
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/WWE.png?v=1.4" alt="WWE Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>WWE</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/WWE-vs-Monday-Night-RAW/79261" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    WWE
+                    <img src="/images/teams/WWE.png" class="team-logo" alt="WWE" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Monday Night RAW.png" class="team-logo" alt="Monday Night RAW" onerror="this.style.display='none'">
+                    Monday Night RAW
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/tennis.png?v=1.4" alt="tennis Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>tennis</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Bybit-Stockholm-Open-vs-Tennis/80617" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Bybit Stockholm Open
+                    <img src="/images/teams/Bybit Stockholm Open.png" class="team-logo" alt="Bybit Stockholm Open" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Tennis.png" class="team-logo" alt="Tennis" onerror="this.style.display='none'">
+                    Tennis
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/rugby.png?v=1.4" alt="rugby Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>rugby</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Pakistan-vs-Uzbekistan/80200" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Pakistan
+                    <img src="/images/teams/Pakistan.png" class="team-logo" alt="Pakistan" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Uzbekistan.png" class="team-logo" alt="Uzbekistan" onerror="this.style.display='none'">
+                    Uzbekistan
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/nhl.png?v=1.4" alt="nhl Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>nhl</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Oilers-vs-Rangers/74310" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Oilers
+                    <img src="/images/teams/Oilers.png" class="team-logo" alt="Oilers" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Rangers.png" class="team-logo" alt="Rangers" onerror="this.style.display='none'">
+                    Rangers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Canucks-vs-Flyers/74311" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Canucks
+                    <img src="/images/teams/Canucks.png" class="team-logo" alt="Canucks" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Flyers.png" class="team-logo" alt="Flyers" onerror="this.style.display='none'">
+                    Flyers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Sharks-vs-Islanders/74312" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Sharks
+                    <img src="/images/teams/Sharks.png" class="team-logo" alt="Sharks" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Islanders.png" class="team-logo" alt="Islanders" onerror="this.style.display='none'">
+                    Islanders
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Senators-vs-Capitals/74375" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Senators
+                    <img src="/images/teams/Senators.png" class="team-logo" alt="Senators" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        15hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Capitals.png" class="team-logo" alt="Capitals" onerror="this.style.display='none'">
+                    Capitals
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Maple-Leaf-vs-Avalanche/74376" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Maple Leaf
+                    <img src="/images/teams/Maple Leaf.png" class="team-logo" alt="Maple Leaf" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        15hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Avalanche.png" class="team-logo" alt="Avalanche" onerror="this.style.display='none'">
+                    Avalanche
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Canadeins-vs-Wild/74377" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Canadeins
+                    <img src="/images/teams/Canadeins.png" class="team-logo" alt="Canadeins" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        15hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Wild.png" class="team-logo" alt="Wild" onerror="this.style.display='none'">
+                    Wild
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Jets-vs-Devils/74379" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Jets
+                    <img src="/images/teams/Jets.png" class="team-logo" alt="Jets" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        15hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Devils.png" class="team-logo" alt="Devils" onerror="this.style.display='none'">
+                    Devils
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Blue-Jackets-vs-Panthers/74378" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Blue Jackets
+                    <img src="/images/teams/Blue Jackets.png" class="team-logo" alt="Blue Jackets" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        16hr 19m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Panthers.png" class="team-logo" alt="Panthers" onerror="this.style.display='none'">
+                    Panthers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/nfl.png?v=1.4" alt="nfl Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>nfl</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Minnesota-Vikings-vs-Buffalo-Bills/69776" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Minnesota Vikings
+                    <img src="/images/teams/Minnesota Vikings.png" class="team-logo" alt="Minnesota Vikings" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Buffalo Bills.png" class="team-logo" alt="Buffalo Bills" onerror="this.style.display='none'">
+                    Buffalo Bills
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/Cricket.png?v=1.4" alt="Cricket Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>Cricket</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Pakistan-vs-Sri-Lanka/79406" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Pakistan
+                    <img src="/images/teams/Pakistan.png" class="team-logo" alt="Pakistan" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Sri Lanka.png" class="team-logo" alt="Sri Lanka" onerror="this.style.display='none'">
+                    Sri Lanka
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/New-Zealand-vs-India/79407" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    New Zealand
+                    <img src="/images/teams/New Zealand.png" class="team-logo" alt="New Zealand" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Started</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/India.png" class="team-logo" alt="India" onerror="this.style.display='none'">
+                    India
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/Copa Del Rey.png?v=1.4" alt="Copa Del Rey Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>Copa Del Rey</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Mijas-Las-Lagunas-vs-Real-Jaen/80391" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Mijas Las Lagunas
+                    <img src="/images/teams/Mijas Las Lagunas.png" class="team-logo" alt="Mijas Las Lagunas" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        11hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Real Jaen.png" class="team-logo" alt="Real Jaen" onerror="this.style.display='none'">
+                    Real Jaen
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Trival-Valderas-vs-Leganes/80392" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Trival Valderas
+                    <img src="/images/teams/Trival Valderas.png" class="team-logo" alt="Trival Valderas" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        11hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Leganes.png" class="team-logo" alt="Leganes" onerror="this.style.display='none'">
+                    Leganes
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/Tavernes-vs-Valencia/80393" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Tavernes
+                    <img src="/images/teams/Tavernes.png" class="team-logo" alt="Tavernes" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        12hr 49m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Valencia.png" class="team-logo" alt="Valencia" onerror="this.style.display='none'">
+                    Valencia
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Category Header -->
+        <div class="league-header mt-4 mb-3">
+            <img src="/images/nba.png?v=1.4" alt="nba Logo" class="leagueimg" onerror="this.style.display='none'">
+            <span>nba</span>
+        </div>
+        
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Atlanta-Hawks-vs-Los-Angeles-Lakers/75361" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Atlanta Hawks
+                    <img src="/images/teams/Atlanta Hawks.png" class="team-logo" alt="Atlanta Hawks" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Los Angeles Lakers.png" class="team-logo" alt="Los Angeles Lakers" onerror="this.style.display='none'">
+                    Los Angeles Lakers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Detroit-Pistons-vs-Washington-Wizards/75362" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Detroit Pistons
+                    <img src="/images/teams/Detroit Pistons.png" class="team-logo" alt="Detroit Pistons" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Washington Wizards.png" class="team-logo" alt="Washington Wizards" onerror="this.style.display='none'">
+                    Washington Wizards
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Charlotte-Hornets-vs-Cleveland-Cavaliers/75363" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Charlotte Hornets
+                    <img src="/images/teams/Charlotte Hornets.png" class="team-logo" alt="Charlotte Hornets" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Cleveland Cavaliers.png" class="team-logo" alt="Cleveland Cavaliers" onerror="this.style.display='none'">
+                    Cleveland Cavaliers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Toronto-Raptors-vs-Memphis-Grizzlies/75364" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Toronto Raptors
+                    <img src="/images/teams/Toronto Raptors.png" class="team-logo" alt="Toronto Raptors" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Memphis Grizzlies.png" class="team-logo" alt="Memphis Grizzlies" onerror="this.style.display='none'">
+                    Memphis Grizzlies
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Dallas-Mavericks-vs-Indiana-Pacers/75365" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Dallas Mavericks
+                    <img src="/images/teams/Dallas Mavericks.png" class="team-logo" alt="Dallas Mavericks" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Indiana Pacers.png" class="team-logo" alt="Indiana Pacers" onerror="this.style.display='none'">
+                    Indiana Pacers
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Houston-Rockets-vs-Denver-Nuggets/75366" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Houston Rockets
+                    <img src="/images/teams/Houston Rockets.png" class="team-logo" alt="Houston Rockets" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Denver Nuggets.png" class="team-logo" alt="Denver Nuggets" onerror="this.style.display='none'">
+                    Denver Nuggets
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Phoenix-Suns-vs-San-Antonio-Spurs/75367" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Phoenix Suns
+                    <img src="/images/teams/Phoenix Suns.png" class="team-logo" alt="Phoenix Suns" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/San Antonio Spurs.png" class="team-logo" alt="San Antonio Spurs" onerror="this.style.display='none'">
+                    San Antonio Spurs
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="https://hoofoot.is/Golden-State-Warriors-vs-New-Orleans-Pelicans/75368" class="modern-match-card" style="border-left-color: #3f3f46 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    Golden State Warriors
+                    <img src="/images/teams/Golden State Warriors.png" class="team-logo" alt="Golden State Warriors" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        <span>Match</span> <span>Ended</span>                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-highlight">Highlights</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/New Orleans Pelicans.png" class="team-logo" alt="New Orleans Pelicans" onerror="this.style.display='none'">
+                    New Orleans Pelicans
+                </div>
+                
+            </div>
+        </a>
+    
+            
+                
+        <!-- Modern Match Card -->
+        <a target="_blank" href="/New-York-Knicks-vs-Milwaukee-Bucks/75427" class="modern-match-card" style="border-left-color: #ff4e00 !important;">
+            <div class="match-row">
+                
+                <!-- Team One (Left) -->
+                <div class="team-name team-left">
+                    New York Knicks
+                    <img src="/images/teams/New York Knicks.png" class="team-logo" alt="New York Knicks" onerror="this.style.display='none'">
+                </div>
+                
+                <!-- Center Details (Time & Button) -->
+                <div class="match-center">
+                    <div class="match-time">
+                        16hr 19m <br>from now                    </div>
+                    <!-- The Button (Live Streams / Highlights) -->
+                    <span class="btn-live">Live Streams</span>
+                </div>
+                
+                <!-- Team Two (Right) -->
+                <div class="team-name team-right">
+                    <img src="/images/teams/Milwaukee Bucks.png" class="team-logo" alt="Milwaukee Bucks" onerror="this.style.display='none'">
+                    Milwaukee Bucks
+                </div>
+                
+            </div>
+        </a>
+    
+        
+    </div>
+</div>
+<!-- games ending --> 
+
+
+    
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<br><br>
+<h1>TOTALSPORTEK STREAMS - Best Soccer Streams Alternative</h1>
+    <p style="color:#FFFFFF"> Its been several years since reddit's very own <b> <a href="https://totalsportekl.is/">reddit soccer streams</a></b> sub was banned. Since then totalsportek network of sites been providing live streaming links to users for all big events of all major sports. We guide you through how you can access totalsportek streams via this site.</p>
+      <h2>TOTALSPORTEK F1 - Watch Formula 1 live streams Free</h1>
+    <p style="color:#FFFFFF"> This site (totalsportekl.is) is just another backup of the original totalsportek.com site. Here you will find same live streaming links as the official site but in much easier and faster way. We explain how.</p>
+    
+    <p style="color:#FFFFFF"> We have ensured simple, clean and fast way to access streams at this site. But we still got you this small guide which might help you and save you from any confusion arising.</p>
+    <p style="color:#FFFFFF"> 1). Visit one of our network sites in this case the site is totalsportekl.is</p>
+          <h2>TOTAL SPORTEK  - How you can find live streams ?</h1>
+
+    <p style="color:#FFFFFF"> 2). Once you are at the homepage you will find all the matches to be played that day. Matches are listed according to time and they are seperated by competitions/sports. Scrol down, find the competition/league of which the match you want to see. Once you find your game click on "Live stream" button next to the game.</p>
+    <p style="color:#FFFFFF"> 3). Once you are at the deicated page of the match you want to see, scroll down and you will find around 70+ working links for that game. (remember, links thread is opened 1 hour before the kickoff).</p>
+    <p style="color:#FFFFFF"> 4). The match page has so many links but the system is simple. The best streamers and their links are listed higher. So that ensure users get to best links as soon as possible. Streamers names are listed next to their links which ensure user can keep track of their favourite streams. Channel names and lanaguage are also listed in the link box to make sure best experience</p>
+            
+                <p style="color:#FFFFFF"> 5). You can also visit previous day matches and the upcoming matches by clicking on buttons above streaming options.</p>
+
+
+  <h2>SPORTEK offers Football Streams in UK ?</h2>
+                <p style="color:#FFFFFF"> 5)Yes, either you are from England, Wales, Scotland or Ireland, you can watch Football Streams right here right now for free</p>
+
+
+</div>
+
+
+
+
+
+
+<!-- right starting -->
+
+
+<style>
+    .blog-card {
+        background: rgba(10, 10, 10, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover {
+        border-color: rgba(255, 78, 0, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(255, 78, 0, 0.15);
+    }
+    
+    .blog-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-bottom: 2px solid #ff4e00;
+    }
+    
+    .blog-card-title {
+        color: #e4e4e7;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 12px;
+        margin: 0;
+        line-height: 1.4;
+    }
+    
+    .view-all-btn {
+        display: block;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        color: #ff4e00;
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none !important;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+    
+    .view-all-btn:hover {
+        background: rgba(255, 78, 0, 0.1);
+        color: #ffffff;
+    }
+</style>
+
+<div class="sidebar-glass">
+    <div class="sidebar-header">
+        <h2 class="sidebar-title">Top Teams</h2>
+    </div>
+    
+    <ul class="sidebar-list">
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/manchester-united-live-stream/">
+                <img alt="Manchester United logo" src="/images/premier/Manchester United.png" height="22" width="22">
+                <span>Manchester United</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/liverpool-streams/">
+                <img alt="Liverpool logo" src="/images/premier/Liverpool.png?v1.0" height="22" width="22">
+                <span>Liverpool</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/chelsea-live-stream/">
+                <img alt="Chelsea logo" src="/images/premier/Chelsea.png?v1.0" height="22" width="22">
+                <span>Chelsea</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/manchester-city-stream/">
+                <img alt="Manchester City logo" src="/images/premier/Manchester City.png?v1.1" height="22" width="22">
+                <span>Manchester City</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/arsenal-live-stream/">
+                <img alt="Arsenal logo" src="/images/premier/Arsenal.png?v1.0" height="22" width="22">
+                <span>Arsenal</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/premier-league/tottenham/">
+                <img alt="Tottenham logo" src="/images/premier/Tottenham Hotspur.png?v1.0" height="22" width="22">
+                <span>Tottenham</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/spanish-laliga/real-madrid-live-stream/">
+                <img alt="Real Madrid logo" src="/images/premier/Real Madrid.png?v1.0" height="22" width="22">
+                <span>Real Madrid</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/spanish-laliga/barcelona-stream/">
+                <img alt="Barcelona logo" src="/images/premier/Barcelona.png?v1.0" height="22" width="22">
+                <span>Barcelona</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/spanish-laliga/atletico-madrid-live-stream/">
+                <img alt="Atletico Madrid logo" src="/images/premier/Atlético Madrid.png?v1.0" height="22" width="22">
+                <span>Atletico Madrid</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/french-league/paris-saint-germain/">
+                <img alt="PSG logo" src="/images/premier/PSG.png?v1.0" height="22" width="22">
+                <span>PSG</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/bundesliga/bayern-munich-streams/">
+                <img alt="Bayern Munich logo" src="/images/premier/Bayern Munchen.png?v1.0" height="22" width="22">
+                <span>Bayern Munich</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/italian-serie-a/juventus-live-stream/">
+                <img alt="Juventus logo" src="/images/premier/Juventus.png?v1.0" height="22" width="22">
+                <span>Juventus</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a href="https://totalsportekl.is/football/italian-serie-a/inter-milan-live-stream/">
+                <img alt="Inter Milan logo" src="/images/premier/im.png?v1.0" height="22" width="22">
+                <span>Inter Milan</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+
+<!-- right ending --> 
+
+
+
+
+
+
+
+
+</div>
+
+        </div>
+    </main>
+    
+    <br><br><br>
+    <!-- footer start -->
+    <style>
+/* =========================================
+   PREMIUM NETWORK FOOTER UPGRADES
+   ========================================= */
+.premium-footer-box {
+    background: #0b0e14 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 0 30px;
+    margin-top: 50px;
+}
+
+.footer-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.footer-pill-grid .nav-link2 {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: #8b949e !important;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-pill-grid .nav-link2:hover {
+    background: rgba(0, 198, 255, 0.1);
+    border-color: rgba(0, 198, 255, 0.4);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 198, 255, 0.2);
+}
+
+.footer-pill-grid .nav-link2 span.text-active {
+    color: inherit !important;
+}
+
+.footer-disclaimer-box {
+    color: #8b949e !important;
+    font-size: 11px;
+    line-height: 1.6;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    text-align: center;
+    font-style: italic;
+}
+
+.copyright-text {
+    color: #6e7681 !important;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+</style>
+
+<footer class="mt-3 py-5 premium-footer-box">
+    <div class="container">
+        
+        <!-- Network Partner Pills (Retains every URL & Link) -->
+        <div class="footer-pill-grid">
+            <a href="https://streameast.gold" class="nav-link2"><span class="text-active">STREAMEAST</span></a>
+           <a href="https://totalsportekl.is" class="nav-link2"><span class="text-active">TOTALSPORTEK</span></a>
+            <a href="https://www.footybite.gold/" class="nav-link2"><span class="text-active">FOOTYBITE</span></a>
+            <a href="https://www.nflbite.is/" class="nav-link2"><span class="text-active">NFLBITE</span></a>
+            <a href="https://www.nbabitez.com/" class="nav-link2"><span class="text-active">NBABITE</span></a>
+            <a href="https://sportsurge.work/" class="nav-link2"><span class="text-active">SPORTSURGE</span></a>
+            <a href="https://www.soccerstreams.gold/" class="nav-link2"><span class="text-active">SOCCER STREAMS</span></a>
+            <a href="https://footballstreams.online/" class="nav-link2"><span class="text-active">FOOTBALL STREAMS</span></a>
+            <a href="https://f1streams.st/" class="nav-link2"><span class="text-active">F1 STREAMS</span></a>
+            <a href="https://hoofoot.is/" class="nav-link2"><span class="text-active">Hoofoot</span></a>
+        </div>
+
+        <!-- Disclaimer Box -->
+        <div class="footer-disclaimer-box">
+            Disclaimer: None of the videos is hosted by this site. Streams hosted on external sites like Youtube etc are provided with links here. This site is not responsible for the legality of the content. For legal issues, please contact appropriate media file owners/hosters.
+        </div>
+
+        <!-- DMCA -->
+        <center class="my-3">
+            <a href="https://www.dmca.com/" target="_blank">
+                <img src="/images/dmcaproteted.png" alt="DMCA PROTECTED BY DMCA.COM" width="125" height="62">
+            </a>
+        </center>
+
+        <!-- Copyright -->
+        <center>
+            <p class="copyright-text">
+                Copyrights © 2025. All rights reserved by TOTALSPORTEK
+            </p>
+        </center>
+    </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.querySelector(".btnShowNav");
+    if(btn) {
+        btn.addEventListener("click", function() {
+            const target = document.getElementById("navbarSupportedContent");
+            if(target) target.classList.toggle("collapse");
+        });
+    }
+});
+</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"b8a8e88d8fb84284addc6ae726ac264d","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,72 +1,120 @@
 {
   "Sports": [
     {
-      "Slug": "football",
-      "Name": "Football",
-      "Logo": "https://total-sportek.st/images/Premier-League.png?v=4",
+      "Slug": "important-matches",
+      "Name": "Important Matches",
+      "Logo": "https://placehold.co/120x120/1f2937/ffffff?text=IMP",
       "IsCustom": false
     },
     {
       "Slug": "wwe",
       "Name": "WWE",
-      "Logo": "https://total-sportek.st/images/WWE.png?v=4",
+      "Logo": "https://totalsportekl.is/images/WWE.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "uefa-nations-league",
+      "Name": "Uefa Nations League",
+      "Logo": "https://totalsportekl.is/images/UEFA NATIONS LEAGUE.png?v=1.4",
       "IsCustom": false
     },
     {
       "Slug": "tennis",
       "Name": "Tennis",
-      "Logo": "https://total-sportek.st/images/tennis.png?v=4",
+      "Logo": "https://totalsportekl.is/images/tennis.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "rugby",
+      "Name": "Rugby",
+      "Logo": "https://totalsportekl.is/images/rugby.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "nhl",
+      "Name": "Nhl",
+      "Logo": "https://totalsportekl.is/images/nhl.png?v=1.4",
       "IsCustom": false
     },
     {
       "Slug": "nfl",
       "Name": "NFL",
-      "Logo": "https://total-sportek.st/images/nfl.png?v=4",
+      "Logo": "https://totalsportekl.is/images/nfl.png?v=1.4",
       "IsCustom": false
     },
     {
-      "Slug": "baseball",
-      "Name": "Baseball",
-      "Logo": "https://total-sportek.st/images/mlb.png?v=4",
+      "Slug": "ncaa",
+      "Name": "Ncaa",
+      "Logo": "https://totalsportekl.is/images/NCAA.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "football",
+      "Name": "Football",
+      "Logo": "https://totalsportekl.is/images/La Liga 2.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "international-friendlies",
+      "Name": "International Friendlies",
+      "Logo": "https://totalsportekl.is/images/International Friendlies.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "golf",
+      "Name": "Golf",
+      "Logo": "https://totalsportekl.is/images/Golf.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "euro-u-21-qualifying",
+      "Name": "Euro U 21 Qualifying",
+      "Logo": "https://totalsportekl.is/images/Euro U-21 Qualifying.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "division-1-feminine",
+      "Name": "Division 1 Feminine",
+      "Logo": "https://totalsportekl.is/images/Division 1 Feminine.png?v=1.4",
       "IsCustom": false
     },
     {
       "Slug": "cricket",
       "Name": "Cricket",
-      "Logo": "https://total-sportek.st/images/Cricket.png?v=4",
+      "Logo": "https://totalsportekl.is/images/Cricket.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "copa-del-rey",
+      "Name": "Copa Del Rey",
+      "Logo": "https://totalsportekl.is/images/Copa Del Rey.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "concacaf-nations-league",
+      "Name": "Concacaf Nations League",
+      "Logo": "https://totalsportekl.is/images/CONCACAF Nations League.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "club-friendly",
+      "Name": "Club Friendly",
+      "Logo": "https://totalsportekl.is/images/Club Friendly.png?v=1.4",
+      "IsCustom": false
+    },
+    {
+      "Slug": "basketball",
+      "Name": "Basketball",
+      "Logo": "https://totalsportekl.is/images/nba.png?v=1.4",
       "IsCustom": false
     }
   ],
   "Leagues": [
     {
-      "Slug": "premier-league",
-      "Name": "Premier League",
-      "SportSlug": "football",
-      "Logo": "/img/logos/premier-league.webp",
-      "IsCustom": false,
-      "Hidden": false
-    },
-    {
-      "Slug": "la-liga",
-      "Name": "La Liga",
-      "SportSlug": "football",
-      "Logo": "/img/logos/la-liga.webp",
-      "IsCustom": false,
-      "Hidden": false
-    },
-    {
-      "Slug": "serie-a",
-      "Name": "Serie A",
-      "SportSlug": "football",
-      "Logo": "/img/logos/serie-a.webp",
-      "IsCustom": false,
-      "Hidden": false
-    },
-    {
-      "Slug": "ligue-1",
-      "Name": "Ligue 1",
-      "SportSlug": "football",
-      "Logo": "/img/logos/ligue-1.webp",
+      "Slug": "important-matches",
+      "Name": "Important Matches",
+      "SportSlug": "important-matches",
+      "Logo": "",
       "IsCustom": false,
       "Hidden": false
     },
@@ -74,7 +122,15 @@
       "Slug": "wwe",
       "Name": "WWE",
       "SportSlug": "wwe",
-      "Logo": "/img/category-placeholder.svg",
+      "Logo": "/img/logos/wwe.webp",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "uefa-nations-league",
+      "Name": "UEFA NATIONS LEAGUE",
+      "SportSlug": "uefa-nations-league",
+      "Logo": "/img/logos/uefa-nations-league.webp",
       "IsCustom": false,
       "Hidden": false
     },
@@ -87,18 +143,18 @@
       "Hidden": false
     },
     {
-      "Slug": "superlig",
-      "Name": "superlig",
-      "SportSlug": "football",
-      "Logo": "/img/logos/superlig.webp",
+      "Slug": "rugby",
+      "Name": "rugby",
+      "SportSlug": "rugby",
+      "Logo": "/img/logos/rugby.webp",
       "IsCustom": false,
       "Hidden": false
     },
     {
-      "Slug": "primeiraliga",
-      "Name": "Primeiraliga",
-      "SportSlug": "football",
-      "Logo": "/img/logos/primeiraliga.webp",
+      "Slug": "nhl",
+      "Name": "nhl",
+      "SportSlug": "nhl",
+      "Logo": "/img/logos/nhl.webp",
       "IsCustom": false,
       "Hidden": false
     },
@@ -111,34 +167,50 @@
       "Hidden": false
     },
     {
-      "Slug": "mls-next-pro",
-      "Name": "MLS Next Pro",
-      "SportSlug": "football",
-      "Logo": "/img/logos/mls-next-pro.webp",
+      "Slug": "ncaa",
+      "Name": "NCAA",
+      "SportSlug": "ncaa",
+      "Logo": "https://totalsportekl.is/images/NCAA.png?v=1.4",
       "IsCustom": false,
       "Hidden": false
     },
     {
-      "Slug": "mls",
-      "Name": "mls",
+      "Slug": "la-liga-2",
+      "Name": "La Liga 2",
       "SportSlug": "football",
-      "Logo": "/img/logos/mls.webp",
+      "Logo": "/img/logos/la-liga-2.webp",
       "IsCustom": false,
       "Hidden": false
     },
     {
-      "Slug": "mlb",
-      "Name": "mlb",
-      "SportSlug": "baseball",
-      "Logo": "/img/logos/mlb.webp",
+      "Slug": "international-friendlies",
+      "Name": "International Friendlies",
+      "SportSlug": "international-friendlies",
+      "Logo": "https://totalsportekl.is/images/International Friendlies.png?v=1.4",
       "IsCustom": false,
       "Hidden": false
     },
     {
-      "Slug": "ligue-2",
-      "Name": "Ligue 2",
-      "SportSlug": "football",
-      "Logo": "/img/category-placeholder.svg",
+      "Slug": "golf",
+      "Name": "Golf",
+      "SportSlug": "golf",
+      "Logo": "https://totalsportekl.is/images/Golf.png?v=1.4",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "euro-u-21-qualifying",
+      "Name": "Euro U 21 Qualifying",
+      "SportSlug": "euro-u-21-qualifying",
+      "Logo": "https://totalsportekl.is/images/Euro U-21 Qualifying.png?v=1.4",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "division-1-feminine",
+      "Name": "Division 1 Feminine",
+      "SportSlug": "division-1-feminine",
+      "Logo": "https://totalsportekl.is/images/Division 1 Feminine.png?v=1.4",
       "IsCustom": false,
       "Hidden": false
     },
@@ -149,158 +221,73 @@
       "Logo": "/img/logos/cricket.webp",
       "IsCustom": false,
       "Hidden": false
+    },
+    {
+      "Slug": "copa-del-rey",
+      "Name": "Copa Del Rey",
+      "SportSlug": "copa-del-rey",
+      "Logo": "/img/logos/copa-del-rey.webp",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "concacaf-nations-league",
+      "Name": "CONCACAF Nations League",
+      "SportSlug": "concacaf-nations-league",
+      "Logo": "/img/logos/concacaf-nations-league.webp",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "club-friendly",
+      "Name": "Club Friendly",
+      "SportSlug": "club-friendly",
+      "Logo": "https://totalsportekl.is/images/Club Friendly.png?v=1.4",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "africa-cup-of-nations",
+      "Name": "Africa Cup of Nations",
+      "SportSlug": "football",
+      "Logo": "/img/logos/africa-cup-of-nations.webp",
+      "IsCustom": false,
+      "Hidden": false
+    },
+    {
+      "Slug": "nba",
+      "Name": "nba",
+      "SportSlug": "basketball",
+      "Logo": "/img/logos/nba.webp",
+      "IsCustom": false,
+      "Hidden": false
     }
   ],
   "Teams": [
     {
-      "Slug": "leeds-united",
-      "Name": "Leeds United",
-      "Logo": "/img/logos/leeds-united.webp"
+      "Slug": "netherlands",
+      "Name": "Netherlands",
+      "Logo": "/img/logos/netherlands.webp"
     },
     {
-      "Slug": "newcastle-united",
-      "Name": "Newcastle United",
-      "Logo": "/img/logos/newcastle-united.webp"
+      "Slug": "greece",
+      "Name": "Greece",
+      "Logo": "/img/logos/greece.webp"
     },
     {
-      "Slug": "real-sociedad",
-      "Name": "Real Sociedad",
-      "Logo": "/img/logos/real-sociedad.webp"
+      "Slug": "serbia",
+      "Name": "Serbia",
+      "Logo": "/img/logos/serbia.webp"
     },
     {
-      "Slug": "atletico-madrid",
-      "Name": "Atletico Madrid",
-      "Logo": ""
+      "Slug": "germany",
+      "Name": "Germany",
+      "Logo": "/img/logos/germany.webp"
     },
     {
-      "Slug": "villarreal",
-      "Name": "Villarreal",
-      "Logo": "/img/logos/villarreal.webp"
-    },
-    {
-      "Slug": "real-betis",
-      "Name": "Real Betis",
-      "Logo": "/img/logos/real-betis.webp"
-    },
-    {
-      "Slug": "sassuolo",
-      "Name": "Sassuolo",
-      "Logo": "/img/logos/sassuolo.webp"
-    },
-    {
-      "Slug": "juventus",
-      "Name": "Juventus",
-      "Logo": "/img/logos/juventus.webp"
-    },
-    {
-      "Slug": "como",
-      "Name": "Como",
-      "Logo": "/img/logos/como.webp"
-    },
-    {
-      "Slug": "parma",
-      "Name": "Parma",
-      "Logo": "/img/logos/parma.webp"
-    },
-    {
-      "Slug": "torino",
-      "Name": "Torino",
-      "Logo": "/img/logos/torino.webp"
-    },
-    {
-      "Slug": "roma",
-      "Name": "Roma",
-      "Logo": "/img/logos/roma.webp"
-    },
-    {
-      "Slug": "internazionale",
-      "Name": "Internazionale",
-      "Logo": "/img/logos/internazionale.webp"
-    },
-    {
-      "Slug": "udinese",
-      "Name": "Udinese",
-      "Logo": "/img/logos/udinese.webp"
-    },
-    {
-      "Slug": "brest",
-      "Name": "Brest",
-      "Logo": "/img/logos/brest.webp"
-    },
-    {
-      "Slug": "psg",
-      "Name": "PSG",
-      "Logo": "/img/logos/psg.webp"
-    },
-    {
-      "Slug": "wwe",
-      "Name": "WWE",
-      "Logo": ""
-    },
-    {
-      "Slug": "triplemania-34-night-2",
-      "Name": "TripleMania 34 Night 2",
-      "Logo": ""
-    },
-    {
-      "Slug": "monday-night-raw",
-      "Name": "Monday Night RAW",
-      "Logo": ""
-    },
-    {
-      "Slug": "us-open",
-      "Name": "US Open",
-      "Logo": "/img/logos/us-open.webp"
-    },
-    {
-      "Slug": "tennis",
-      "Name": "Tennis",
-      "Logo": "/img/logos/tennis.webp"
-    },
-    {
-      "Slug": "gaziantep-fk",
-      "Name": "Gaziantep FK",
-      "Logo": ""
-    },
-    {
-      "Slug": "fenerbahce",
-      "Name": "Fenerbahce",
-      "Logo": ""
-    },
-    {
-      "Slug": "rio-ave",
-      "Name": "Rio Ave",
-      "Logo": ""
-    },
-    {
-      "Slug": "estrela",
-      "Name": "Estrela",
-      "Logo": ""
-    },
-    {
-      "Slug": "moreirense",
-      "Name": "Moreirense",
-      "Logo": "/img/logos/moreirense.webp"
-    },
-    {
-      "Slug": "maritimo",
-      "Name": "Maritimo",
-      "Logo": ""
-    },
-    {
-      "Slug": "sporting-braga",
-      "Name": "Sporting Braga",
-      "Logo": ""
-    },
-    {
-      "Slug": "estoril",
-      "Name": "Estoril",
-      "Logo": ""
-    },
-    {
-      "Slug": "nfl-redzone",
-      "Name": "NFL Redzone",
-      "Logo": ""
+      "Slug": "road-to-survivor-series-wargames",
+      "Name": "Road to Survivor Series WarGames",
+      "Logo": "https://totalsportekl.is/images/teams/Road to Survivor Series WarGames.png"
     },
     {
       "Slug": "live",
@@ -308,129 +295,269 @@
       "Logo": "/img/logos/live.webp"
     },
     {
-      "Slug": "nfl-network",
-      "Name": "NFL NETWORK",
-      "Logo": ""
+      "Slug": "czech-republic",
+      "Name": "Czech Republic",
+      "Logo": "https://totalsportekl.is/images/teams/Czech Republic.png"
     },
     {
-      "Slug": "detroit-lions",
-      "Name": "Detroit Lions",
-      "Logo": "/img/logos/detroit-lions.webp"
+      "Slug": "spain",
+      "Name": "Spain",
+      "Logo": "/img/logos/spain.webp"
     },
     {
-      "Slug": "new-orleans-saints",
-      "Name": "New Orleans Saints",
-      "Logo": "/img/logos/new-orleans-saints.webp"
+      "Slug": "england",
+      "Name": "England",
+      "Logo": "/img/logos/england.webp"
     },
     {
-      "Slug": "cincinnati-bengals",
-      "Name": "Cincinnati Bengals",
-      "Logo": "/img/logos/cincinnati-bengals.webp"
+      "Slug": "croatia",
+      "Name": "Croatia",
+      "Logo": "/img/logos/croatia.webp"
     },
     {
-      "Slug": "tampa-bay-buccaneers",
-      "Name": "Tampa Bay Buccaneers",
-      "Logo": "/img/logos/tampa-bay-buccaneers.webp"
+      "Slug": "italy",
+      "Name": "Italy",
+      "Logo": "/img/logos/italy.webp"
     },
     {
-      "Slug": "indianapolis-colts",
-      "Name": "Indianapolis Colts",
-      "Logo": "/img/logos/indianapolis-colts.webp"
+      "Slug": "france",
+      "Name": "France",
+      "Logo": "/img/logos/france.webp"
     },
     {
-      "Slug": "baltimore-ravens",
-      "Name": "Baltimore Ravens",
-      "Logo": "/img/logos/baltimore-ravens.webp"
+      "Slug": "moldova",
+      "Name": "Moldova",
+      "Logo": "/img/logos/moldova.webp"
     },
     {
-      "Slug": "jacksonville-jaguars",
-      "Name": "Jacksonville Jaguars",
-      "Logo": "/img/logos/jacksonville-jaguars.webp"
+      "Slug": "kazakhstan",
+      "Name": "Kazakhstan",
+      "Logo": "/img/logos/kazakhstan.webp"
     },
     {
-      "Slug": "cleveland-browns",
-      "Name": "Cleveland Browns",
-      "Logo": "/img/logos/cleveland-browns.webp"
+      "Slug": "andorra",
+      "Name": "Andorra",
+      "Logo": "/img/logos/andorra.webp"
     },
     {
-      "Slug": "tennessee-titans",
-      "Name": "Tennessee Titans",
-      "Logo": "/img/logos/tennessee-titans.webp"
+      "Slug": "gibraltar",
+      "Name": "Gibraltar",
+      "Logo": "/img/logos/gibraltar.webp"
     },
     {
-      "Slug": "new-york-jets",
-      "Name": "New York Jets",
-      "Logo": "/img/logos/new-york-jets.webp"
+      "Slug": "bulgaria",
+      "Name": "Bulgaria",
+      "Logo": "/img/logos/bulgaria.webp"
     },
     {
-      "Slug": "houston-texans",
-      "Name": "Houston Texans",
-      "Logo": "/img/logos/houston-texans.webp"
+      "Slug": "iceland",
+      "Name": "Iceland",
+      "Logo": "/img/logos/iceland.webp"
     },
     {
-      "Slug": "buffalo-bills",
-      "Name": "Buffalo Bills",
-      "Logo": "/img/logos/buffalo-bills.webp"
+      "Slug": "liechtenstein",
+      "Name": "Liechtenstein",
+      "Logo": "/img/logos/liechtenstein.webp"
     },
     {
-      "Slug": "pittsburgh-steelers",
-      "Name": "Pittsburgh Steelers",
-      "Logo": "/img/logos/pittsburgh-steelers.webp"
+      "Slug": "azerbaijan",
+      "Name": "Azerbaijan",
+      "Logo": "/img/logos/azerbaijan.webp"
     },
     {
-      "Slug": "atlanta-falcons",
-      "Name": "Atlanta Falcons",
-      "Logo": "/img/logos/atlanta-falcons.webp"
+      "Slug": "luxembourg",
+      "Name": "Luxembourg",
+      "Logo": "/img/logos/luxembourg.webp"
     },
     {
-      "Slug": "carolina-panthers",
-      "Name": "Carolina Panthers",
-      "Logo": "/img/logos/carolina-panthers.webp"
+      "Slug": "estonia",
+      "Name": "Estonia",
+      "Logo": "/img/logos/estonia.webp"
     },
     {
-      "Slug": "chicago-bears",
-      "Name": "Chicago Bears",
-      "Logo": "/img/logos/chicago-bears.webp"
+      "Slug": "scotland",
+      "Name": "Scotland",
+      "Logo": "/img/logos/scotland.webp"
     },
     {
-      "Slug": "minnesota-vikings",
-      "Name": "Minnesota Vikings",
-      "Logo": "/img/logos/minnesota-vikings.webp"
+      "Slug": "north-macedonia",
+      "Name": "North Macedonia",
+      "Logo": "/img/logos/north-macedonia.webp"
     },
     {
-      "Slug": "green-bay-packers",
-      "Name": "Green Bay Packers",
-      "Logo": "/img/logos/green-bay-packers.webp"
+      "Slug": "slovakia",
+      "Name": "Slovakia",
+      "Logo": "/img/logos/slovakia.webp"
     },
     {
-      "Slug": "los-angeles-chargers",
-      "Name": "Los Angeles Chargers",
-      "Logo": "/img/logos/los-angeles-chargers.webp"
+      "Slug": "faroe-islands",
+      "Name": "Faroe Islands",
+      "Logo": "/img/logos/faroe-islands.webp"
     },
     {
-      "Slug": "arizona-cardinals",
-      "Name": "Arizona Cardinals",
-      "Logo": "/img/logos/arizona-cardinals.webp"
+      "Slug": "slovenia",
+      "Name": "Slovenia",
+      "Logo": "/img/logos/slovenia.webp"
     },
     {
-      "Slug": "philadelphia-eagles",
-      "Name": "Philadelphia Eagles",
-      "Logo": "/img/logos/philadelphia-eagles.webp"
+      "Slug": "switzerland",
+      "Name": "Switzerland",
+      "Logo": "/img/logos/switzerland.webp"
     },
     {
-      "Slug": "washington-commanders",
-      "Name": "Washington Commanders",
-      "Logo": ""
+      "Slug": "bybit-stockholm-open",
+      "Name": "Bybit Stockholm Open",
+      "Logo": "https://totalsportekl.is/images/teams/Bybit Stockholm Open.png"
     },
     {
-      "Slug": "las-vegas-raiders",
-      "Name": "Las Vegas Raiders",
-      "Logo": ""
+      "Slug": "tennis",
+      "Name": "Tennis",
+      "Logo": "/img/logos/tennis.webp"
     },
     {
-      "Slug": "miami-dolphins",
-      "Name": "Miami Dolphins",
-      "Logo": "/img/logos/miami-dolphins.webp"
+      "Slug": "sale-sharks",
+      "Name": "Sale Sharks",
+      "Logo": "/img/logos/sale-sharks.webp"
+    },
+    {
+      "Slug": "exeter-chiefs",
+      "Name": "Exeter Chiefs",
+      "Logo": "/img/logos/exeter-chiefs.webp"
+    },
+    {
+      "Slug": "bedford",
+      "Name": "Bedford",
+      "Logo": "/img/logos/bedford.webp"
+    },
+    {
+      "Slug": "doncaster",
+      "Name": "Doncaster",
+      "Logo": "/img/logos/doncaster.webp"
+    },
+    {
+      "Slug": "south-africa",
+      "Name": "South Africa",
+      "Logo": "/img/logos/south-africa.webp"
+    },
+    {
+      "Slug": "paraguay",
+      "Name": "Paraguay",
+      "Logo": "/img/logos/paraguay.webp"
+    },
+    {
+      "Slug": "brazil",
+      "Name": "Brazil",
+      "Logo": "/img/logos/brazil.webp"
+    },
+    {
+      "Slug": "pakistan",
+      "Name": "Pakistan",
+      "Logo": "/img/logos/pakistan.webp"
+    },
+    {
+      "Slug": "uzbekistan",
+      "Name": "Uzbekistan",
+      "Logo": "/img/logos/uzbekistan.webp"
+    },
+    {
+      "Slug": "bruins",
+      "Name": "Bruins",
+      "Logo": "/img/logos/bruins.webp"
+    },
+    {
+      "Slug": "canadeins",
+      "Name": "Canadeins",
+      "Logo": "/img/logos/canadeins.webp"
+    },
+    {
+      "Slug": "senators",
+      "Name": "Senators",
+      "Logo": "/img/logos/senators.webp"
+    },
+    {
+      "Slug": "avalanche",
+      "Name": "Avalanche",
+      "Logo": "/img/logos/avalanche.webp"
+    },
+    {
+      "Slug": "maple-leaf",
+      "Name": "Maple Leaf",
+      "Logo": "/img/logos/maple-leaf.webp"
+    },
+    {
+      "Slug": "wild",
+      "Name": "Wild",
+      "Logo": "/img/logos/wild.webp"
+    },
+    {
+      "Slug": "devils",
+      "Name": "Devils",
+      "Logo": "/img/logos/devils.webp"
+    },
+    {
+      "Slug": "capitals",
+      "Name": "Capitals",
+      "Logo": "/img/logos/capitals.webp"
+    },
+    {
+      "Slug": "blue-jackets",
+      "Name": "Blue Jackets",
+      "Logo": "/img/logos/blue-jackets.webp"
+    },
+    {
+      "Slug": "lightning",
+      "Name": "Lightning",
+      "Logo": "/img/logos/lightning.webp"
+    },
+    {
+      "Slug": "panthers",
+      "Name": "Panthers",
+      "Logo": "/img/logos/panthers.webp"
+    },
+    {
+      "Slug": "red-wings",
+      "Name": "Red Wings",
+      "Logo": "/img/logos/red-wings.webp"
+    },
+    {
+      "Slug": "stars",
+      "Name": "Stars",
+      "Logo": "/img/logos/stars.webp"
+    },
+    {
+      "Slug": "jets",
+      "Name": "Jets",
+      "Logo": "/img/logos/jets.webp"
+    },
+    {
+      "Slug": "blackhawks",
+      "Name": "Blackhawks",
+      "Logo": "/img/logos/blackhawks.webp"
+    },
+    {
+      "Slug": "sabres",
+      "Name": "Sabres",
+      "Logo": "/img/logos/sabres.webp"
+    },
+    {
+      "Slug": "mammoth",
+      "Name": "Mammoth",
+      "Logo": "https://totalsportekl.is/images/teams/Mammoth.png"
+    },
+    {
+      "Slug": "blues",
+      "Name": "Blues",
+      "Logo": "/img/logos/blues.webp"
+    },
+    {
+      "Slug": "kings",
+      "Name": "Kings",
+      "Logo": "/img/logos/kings.webp"
+    },
+    {
+      "Slug": "islanders",
+      "Name": "Islanders",
+      "Logo": "/img/logos/islanders.webp"
     },
     {
       "Slug": "new-york-giants",
@@ -438,258 +565,573 @@
       "Logo": "/img/logos/new-york-giants.webp"
     },
     {
-      "Slug": "dallas-cowboys",
-      "Name": "Dallas Cowboys",
-      "Logo": "/img/logos/dallas-cowboys.webp"
+      "Slug": "washington-commanders",
+      "Name": "Washington Commanders",
+      "Logo": "/img/logos/washington-commanders.webp"
     },
     {
-      "Slug": "kansas-city-chiefs",
-      "Name": "Kansas City Chiefs",
-      "Logo": "/img/logos/kansas-city-chiefs.webp"
+      "Slug": "memphis-tigers",
+      "Name": "Memphis Tigers",
+      "Logo": "https://totalsportekl.is/images/teams/Memphis Tigers.png"
     },
     {
-      "Slug": "denver-broncos",
-      "Name": "Denver Broncos",
-      "Logo": "/img/logos/denver-broncos.webp"
+      "Slug": "south-florida-bulls",
+      "Name": "South Florida Bulls",
+      "Logo": "https://totalsportekl.is/images/teams/South Florida Bulls.png"
     },
     {
-      "Slug": "columbus-crew-ii",
-      "Name": "Columbus Crew II",
-      "Logo": "/img/logos/columbus-crew-ii.webp"
+      "Slug": "louisiana-ragin-cajuns",
+      "Name": "Louisiana Ragin Cajuns",
+      "Logo": "https://totalsportekl.is/images/teams/Louisiana Ragin Cajuns.png"
     },
     {
-      "Slug": "new-england-ii",
-      "Name": "New England II",
-      "Logo": "/img/logos/new-england-ii.webp"
+      "Slug": "ulm-warhawks",
+      "Name": "ULM Warhawks",
+      "Logo": "https://totalsportekl.is/images/teams/ULM Warhawks.png"
     },
     {
-      "Slug": "inter-miami-ii",
-      "Name": "Inter Miami II",
-      "Logo": "/img/logos/inter-miami-ii.webp"
+      "Slug": "pittsburgh-panthers",
+      "Name": "Pittsburgh Panthers",
+      "Logo": "https://totalsportekl.is/images/teams/Pittsburgh Panthers.png"
     },
     {
-      "Slug": "huntsville-city",
-      "Name": "Huntsville City",
-      "Logo": ""
+      "Slug": "florida-state-seminoles",
+      "Name": "Florida State Seminoles",
+      "Logo": "https://totalsportekl.is/images/teams/Florida State Seminoles.png"
     },
     {
-      "Slug": "new-york-rb-ii",
-      "Name": "New York RB II",
-      "Logo": ""
+      "Slug": "leganes",
+      "Name": "Leganes",
+      "Logo": "/img/logos/leganes.webp"
     },
     {
-      "Slug": "fc-cincinnati-ii",
-      "Name": "FC Cincinnati II",
-      "Logo": "/img/logos/fc-cincinnati-ii.webp"
+      "Slug": "burgos",
+      "Name": "Burgos",
+      "Logo": "/img/logos/burgos.webp"
     },
     {
-      "Slug": "orlando-city-b",
-      "Name": "Orlando City B",
-      "Logo": "/img/logos/orlando-city-b.webp"
+      "Slug": "mangere-united",
+      "Name": "Mangere United",
+      "Logo": "https://totalsportekl.is/images/teams/Mangere United.png"
     },
     {
-      "Slug": "toronto-ii",
-      "Name": "Toronto II",
-      "Logo": "/img/logos/toronto-ii.webp"
+      "Slug": "tonga",
+      "Name": "Tonga",
+      "Logo": "/img/logos/tonga.webp"
     },
     {
-      "Slug": "sporting-kc-ii",
-      "Name": "Sporting KC II",
-      "Logo": ""
+      "Slug": "chinese-taipei",
+      "Name": "Chinese Taipei",
+      "Logo": "https://totalsportekl.is/images/teams/Chinese Taipei.png"
     },
     {
-      "Slug": "los-angeles-ii",
-      "Name": "Los Angeles II",
-      "Logo": ""
+      "Slug": "kyrgyzstan",
+      "Name": "Kyrgyzstan",
+      "Logo": "/img/logos/kyrgyzstan.webp"
     },
     {
-      "Slug": "austin-ii",
-      "Name": "Austin II",
-      "Logo": "/img/logos/austin-ii.webp"
+      "Slug": "singapore",
+      "Name": "Singapore",
+      "Logo": "/img/logos/singapore.webp"
     },
     {
-      "Slug": "colorado-rapids-ii",
-      "Name": "Colorado Rapids II",
-      "Logo": ""
+      "Slug": "kuwait",
+      "Name": "Kuwait",
+      "Logo": "/img/logos/kuwait.webp"
     },
     {
-      "Slug": "north-texas",
-      "Name": "North Texas",
-      "Logo": ""
-    },
-    {
-      "Slug": "houston-dynamo-fc-ii",
-      "Name": "Houston Dynamo FC II",
-      "Logo": "/img/logos/houston-dynamo-fc-ii.webp"
-    },
-    {
-      "Slug": "ventura-county",
-      "Name": "Ventura County",
-      "Logo": ""
-    },
-    {
-      "Slug": "tacoma-defiance",
-      "Name": "Tacoma Defiance",
-      "Logo": ""
-    },
-    {
-      "Slug": "san-jose-earthquakes-ii",
-      "Name": "San Jose Earthquakes II",
-      "Logo": ""
-    },
-    {
-      "Slug": "real-monarchs",
-      "Name": "Real Monarchs",
-      "Logo": ""
-    },
-    {
-      "Slug": "portland-timbers-ii",
-      "Name": "Portland Timbers II",
-      "Logo": ""
-    },
-    {
-      "Slug": "st-louis-city-ii",
-      "Name": "St. Louis City II",
-      "Logo": ""
-    },
-    {
-      "Slug": "vancouver-whitecaps",
-      "Name": "Vancouver Whitecaps",
-      "Logo": ""
-    },
-    {
-      "Slug": "austin",
-      "Name": "Austin",
-      "Logo": ""
-    },
-    {
-      "Slug": "san-diego-fc",
-      "Name": "San Diego FC",
-      "Logo": ""
-    },
-    {
-      "Slug": "philadelphia-union",
-      "Name": "Philadelphia Union",
-      "Logo": ""
-    },
-    {
-      "Slug": "san-francisco-giants",
-      "Name": "San Francisco Giants",
-      "Logo": "/img/logos/san-francisco-giants.webp"
-    },
-    {
-      "Slug": "san-diego-padres",
-      "Name": "San Diego Padres",
-      "Logo": ""
-    },
-    {
-      "Slug": "cleveland-guardians",
-      "Name": "Cleveland Guardians",
-      "Logo": "/img/logos/cleveland-guardians.webp"
-    },
-    {
-      "Slug": "chicago-white-sox",
-      "Name": "Chicago White Sox",
-      "Logo": "/img/logos/chicago-white-sox.webp"
-    },
-    {
-      "Slug": "cincinnati-reds",
-      "Name": "Cincinnati Reds",
-      "Logo": "/img/logos/cincinnati-reds.webp"
-    },
-    {
-      "Slug": "los-angeles-dodgers",
-      "Name": "Los Angeles Dodgers",
-      "Logo": "/img/logos/los-angeles-dodgers.webp"
-    },
-    {
-      "Slug": "toronto-blue-jays",
-      "Name": "Toronto Blue Jays",
-      "Logo": "/img/logos/toronto-blue-jays.webp"
-    },
-    {
-      "Slug": "detroit-tigers",
-      "Name": "Detroit Tigers",
-      "Logo": "/img/logos/detroit-tigers.webp"
-    },
-    {
-      "Slug": "new-york-mets",
-      "Name": "New York Mets",
-      "Logo": "/img/logos/new-york-mets.webp"
-    },
-    {
-      "Slug": "baltimore-orioles",
-      "Name": "Baltimore Orioles",
-      "Logo": "/img/logos/baltimore-orioles.webp"
-    },
-    {
-      "Slug": "chicago-cubs",
-      "Name": "Chicago Cubs",
-      "Logo": "/img/logos/chicago-cubs.webp"
-    },
-    {
-      "Slug": "atlanta-braves",
-      "Name": "Atlanta Braves",
-      "Logo": "/img/logos/atlanta-braves.webp"
-    },
-    {
-      "Slug": "minnesota-twins",
-      "Name": "Minnesota Twins",
-      "Logo": "/img/logos/minnesota-twins.webp"
-    },
-    {
-      "Slug": "new-york-yankees",
-      "Name": "New York Yankees",
-      "Logo": "/img/logos/new-york-yankees.webp"
-    },
-    {
-      "Slug": "colorado-rockies",
-      "Name": "Colorado Rockies",
-      "Logo": "/img/logos/colorado-rockies.webp"
-    },
-    {
-      "Slug": "st-louis-cardinals",
-      "Name": "St. Louis Cardinals",
-      "Logo": "/img/logos/st-louis-cardinals.webp"
-    },
-    {
-      "Slug": "red-star",
-      "Name": "Red Star",
-      "Logo": ""
-    },
-    {
-      "Slug": "metz",
-      "Name": "Metz",
-      "Logo": "/img/logos/metz.webp"
-    },
-    {
-      "Slug": "malaysia",
-      "Name": "Malaysia",
-      "Logo": "/img/logos/malaysia.webp"
+      "Slug": "syria",
+      "Name": "Syria",
+      "Logo": "/img/logos/syria.webp"
     },
     {
       "Slug": "united-arab-emirates",
       "Name": "United Arab Emirates",
       "Logo": "/img/logos/united-arab-emirates.webp"
+    },
+    {
+      "Slug": "honduras",
+      "Name": "Honduras",
+      "Logo": "/img/logos/honduras.webp"
+    },
+    {
+      "Slug": "saudi-arabia",
+      "Name": "Saudi Arabia",
+      "Logo": "/img/logos/saudi-arabia.webp"
+    },
+    {
+      "Slug": "korea-republic",
+      "Name": "Korea Republic",
+      "Logo": "/img/logos/korea-republic.webp"
+    },
+    {
+      "Slug": "qatar",
+      "Name": "Qatar",
+      "Logo": "/img/logos/qatar.webp"
+    },
+    {
+      "Slug": "australia",
+      "Name": "Australia",
+      "Logo": "/img/logos/australia.webp"
+    },
+    {
+      "Slug": "iraq",
+      "Name": "Iraq",
+      "Logo": "/img/logos/iraq.webp"
+    },
+    {
+      "Slug": "lebanon",
+      "Name": "Lebanon",
+      "Logo": "/img/logos/lebanon.webp"
+    },
+    {
+      "Slug": "argentina",
+      "Name": "Argentina",
+      "Logo": "/img/logos/argentina.webp"
+    },
+    {
+      "Slug": "uruguay",
+      "Name": "Uruguay",
+      "Logo": "/img/logos/uruguay.webp"
+    },
+    {
+      "Slug": "austin-championship",
+      "Name": "Austin Championship",
+      "Logo": "https://totalsportekl.is/images/teams/Austin Championship.png"
+    },
+    {
+      "Slug": "golf",
+      "Name": "Golf",
+      "Logo": "https://totalsportekl.is/images/teams/Golf.png"
+    },
+    {
+      "Slug": "turkiye-u21",
+      "Name": "Turkiye U21",
+      "Logo": "https://totalsportekl.is/images/teams/Turkiye U21.png"
+    },
+    {
+      "Slug": "czechia-u21",
+      "Name": "Czechia U21",
+      "Logo": "https://totalsportekl.is/images/teams/Czechia U21.png"
+    },
+    {
+      "Slug": "finland-u21",
+      "Name": "Finland U21",
+      "Logo": "https://totalsportekl.is/images/teams/Finland U21.png"
+    },
+    {
+      "Slug": "republic-of-ireland-u21",
+      "Name": "Republic of Ireland U21",
+      "Logo": "https://totalsportekl.is/images/teams/Republic of Ireland U21.png"
+    },
+    {
+      "Slug": "denmark-u21",
+      "Name": "Denmark U21",
+      "Logo": "https://totalsportekl.is/images/teams/Denmark U21.png"
+    },
+    {
+      "Slug": "netherlands-u21",
+      "Name": "Netherlands U21",
+      "Logo": "https://totalsportekl.is/images/teams/Netherlands U21.png"
+    },
+    {
+      "Slug": "nantes",
+      "Name": "Nantes",
+      "Logo": "/img/logos/nantes.webp"
+    },
+    {
+      "Slug": "lens",
+      "Name": "Lens",
+      "Logo": "/img/logos/lens.webp"
+    },
+    {
+      "Slug": "sri-lanka",
+      "Name": "Sri Lanka",
+      "Logo": "/img/logos/sri-lanka.webp"
+    },
+    {
+      "Slug": "new-zealand",
+      "Name": "New Zealand",
+      "Logo": "/img/logos/new-zealand.webp"
+    },
+    {
+      "Slug": "india",
+      "Name": "India",
+      "Logo": "/img/logos/india.webp"
+    },
+    {
+      "Slug": "afghanistan",
+      "Name": "Afghanistan",
+      "Logo": "/img/logos/afghanistan.webp"
+    },
+    {
+      "Slug": "zimbabwe",
+      "Name": "Zimbabwe",
+      "Logo": "/img/logos/zimbabwe.webp"
+    },
+    {
+      "Slug": "salamanca-uds",
+      "Name": "Salamanca UDS",
+      "Logo": "https://totalsportekl.is/images/teams/Salamanca UDS.png"
+    },
+    {
+      "Slug": "celta-de-vigo",
+      "Name": "Celta de Vigo",
+      "Logo": "/img/logos/celta-de-vigo.webp"
+    },
+    {
+      "Slug": "antigua-and-barbuda",
+      "Name": "Antigua and Barbuda",
+      "Logo": "/img/logos/antigua-and-barbuda.webp"
+    },
+    {
+      "Slug": "trinidad-and-tobago",
+      "Name": "Trinidad and Tobago",
+      "Logo": "/img/logos/trinidad-and-tobago.webp"
+    },
+    {
+      "Slug": "curacao",
+      "Name": "Curacao",
+      "Logo": "/img/logos/curacao.webp"
+    },
+    {
+      "Slug": "panama",
+      "Name": "Panama",
+      "Logo": "/img/logos/panama.webp"
+    },
+    {
+      "Slug": "bermuda",
+      "Name": "Bermuda",
+      "Logo": "/img/logos/bermuda.webp"
+    },
+    {
+      "Slug": "st-lucia",
+      "Name": "St. Lucia",
+      "Logo": "https://totalsportekl.is/images/teams/St. Lucia.png"
+    },
+    {
+      "Slug": "puerto-rico",
+      "Name": "Puerto Rico",
+      "Logo": "/img/logos/puerto-rico.webp"
+    },
+    {
+      "Slug": "dominica",
+      "Name": "Dominica",
+      "Logo": "/img/logos/dominica.webp"
+    },
+    {
+      "Slug": "grenada",
+      "Name": "Grenada",
+      "Logo": "/img/logos/grenada.webp"
+    },
+    {
+      "Slug": "st-kitts-and-nevis",
+      "Name": "St. Kitts and Nevis",
+      "Logo": "https://totalsportekl.is/images/teams/St. Kitts and Nevis.png"
+    },
+    {
+      "Slug": "saint-martin",
+      "Name": "Saint Martin",
+      "Logo": "/img/logos/saint-martin.webp"
+    },
+    {
+      "Slug": "el-salvador",
+      "Name": "El Salvador",
+      "Logo": "/img/logos/el-salvador.webp"
+    },
+    {
+      "Slug": "bregenz",
+      "Name": "Bregenz",
+      "Logo": "https://totalsportekl.is/images/teams/Bregenz.png"
+    },
+    {
+      "Slug": "rheindorf-altach",
+      "Name": "Rheindorf Altach",
+      "Logo": "https://totalsportekl.is/images/teams/Rheindorf Altach.png"
+    },
+    {
+      "Slug": "mlada-boleslav",
+      "Name": "Mlada Boleslav",
+      "Logo": "https://totalsportekl.is/images/teams/Mlada Boleslav.png"
+    },
+    {
+      "Slug": "vysocina-jihlava",
+      "Name": "Vysocina Jihlava",
+      "Logo": "https://totalsportekl.is/images/teams/Vysocina Jihlava.png"
+    },
+    {
+      "Slug": "vasteras-sk",
+      "Name": "Vasteras SK",
+      "Logo": "https://totalsportekl.is/images/teams/Vasteras SK.png"
+    },
+    {
+      "Slug": "brommapojkarna",
+      "Name": "Brommapojkarna",
+      "Logo": "https://totalsportekl.is/images/teams/Brommapojkarna.png"
+    },
+    {
+      "Slug": "tps",
+      "Name": "TPS",
+      "Logo": "https://totalsportekl.is/images/teams/TPS.png"
+    },
+    {
+      "Slug": "ilves",
+      "Name": "Ilves",
+      "Logo": "https://totalsportekl.is/images/teams/Ilves.png"
+    },
+    {
+      "Slug": "bochum",
+      "Name": "Bochum",
+      "Logo": "/img/logos/bochum.webp"
+    },
+    {
+      "Slug": "verl",
+      "Name": "Verl",
+      "Logo": "https://totalsportekl.is/images/teams/Verl.png"
+    },
+    {
+      "Slug": "hartberg",
+      "Name": "Hartberg",
+      "Logo": "https://totalsportekl.is/images/teams/Hartberg.png"
+    },
+    {
+      "Slug": "floridsdorfer-ac",
+      "Name": "Floridsdorfer AC",
+      "Logo": "https://totalsportekl.is/images/teams/Floridsdorfer AC.png"
+    },
+    {
+      "Slug": "dynamo-dresden",
+      "Name": "Dynamo Dresden",
+      "Logo": "https://totalsportekl.is/images/teams/Dynamo Dresden.png"
+    },
+    {
+      "Slug": "dukla-praha",
+      "Name": "Dukla Praha",
+      "Logo": "https://totalsportekl.is/images/teams/Dukla Praha.png"
+    },
+    {
+      "Slug": "kapfenberger-sv",
+      "Name": "Kapfenberger SV",
+      "Logo": "https://totalsportekl.is/images/teams/Kapfenberger SV.png"
+    },
+    {
+      "Slug": "uljanik",
+      "Name": "Uljanik",
+      "Logo": "https://totalsportekl.is/images/teams/Uljanik.png"
+    },
+    {
+      "Slug": "austria-wien-ii",
+      "Name": "Austria Wien II",
+      "Logo": "https://totalsportekl.is/images/teams/Austria Wien II.png"
+    },
+    {
+      "Slug": "fach-donaufeld",
+      "Name": "Fach-Donaufeld",
+      "Logo": "https://totalsportekl.is/images/teams/Fach-Donaufeld.png"
+    },
+    {
+      "Slug": "rapid-wien-ii",
+      "Name": "Rapid Wien II",
+      "Logo": "https://totalsportekl.is/images/teams/Rapid Wien II.png"
+    },
+    {
+      "Slug": "donau",
+      "Name": "Donau",
+      "Logo": "https://totalsportekl.is/images/teams/Donau.png"
+    },
+    {
+      "Slug": "comoros",
+      "Name": "Comoros",
+      "Logo": "/img/logos/comoros.webp"
+    },
+    {
+      "Slug": "congo",
+      "Name": "Congo",
+      "Logo": "/img/logos/congo.webp"
+    },
+    {
+      "Slug": "mozambique",
+      "Name": "Mozambique",
+      "Logo": "/img/logos/mozambique.webp"
+    },
+    {
+      "Slug": "ethiopia",
+      "Name": "Ethiopia",
+      "Logo": "/img/logos/ethiopia.webp"
+    },
+    {
+      "Slug": "zambia",
+      "Name": "Zambia",
+      "Logo": "/img/logos/zambia.webp"
+    },
+    {
+      "Slug": "burundi",
+      "Name": "Burundi",
+      "Logo": "/img/logos/burundi.webp"
+    },
+    {
+      "Slug": "burkina-faso",
+      "Name": "Burkina Faso",
+      "Logo": "/img/logos/burkina-faso.webp"
+    },
+    {
+      "Slug": "mauritania",
+      "Name": "Mauritania",
+      "Logo": "/img/logos/mauritania.webp"
+    },
+    {
+      "Slug": "cape-verde-islands",
+      "Name": "Cape Verde Islands",
+      "Logo": "/img/logos/cape-verde-islands.webp"
+    },
+    {
+      "Slug": "liberia",
+      "Name": "Liberia",
+      "Logo": "/img/logos/liberia.webp"
+    },
+    {
+      "Slug": "gabon",
+      "Name": "Gabon",
+      "Logo": "https://totalsportekl.is/images/teams/Gabon.png"
+    },
+    {
+      "Slug": "lesotho",
+      "Name": "Lesotho",
+      "Logo": "https://totalsportekl.is/images/teams/Lesotho.png"
+    },
+    {
+      "Slug": "nigeria",
+      "Name": "Nigeria",
+      "Logo": "/img/logos/nigeria.webp"
+    },
+    {
+      "Slug": "tanzania",
+      "Name": "Tanzania",
+      "Logo": "/img/logos/tanzania.webp"
+    },
+    {
+      "Slug": "kenya",
+      "Name": "Kenya",
+      "Logo": "/img/logos/kenya.webp"
+    },
+    {
+      "Slug": "tunisia",
+      "Name": "Tunisia",
+      "Logo": "/img/logos/tunisia.webp"
+    },
+    {
+      "Slug": "libya",
+      "Name": "Libya",
+      "Logo": "https://totalsportekl.is/images/teams/Libya.png"
+    },
+    {
+      "Slug": "egypt",
+      "Name": "Egypt",
+      "Logo": "/img/logos/egypt.webp"
+    },
+    {
+      "Slug": "malawi",
+      "Name": "Malawi",
+      "Logo": "https://totalsportekl.is/images/teams/Malawi.png"
+    },
+    {
+      "Slug": "mali",
+      "Name": "Mali",
+      "Logo": "/img/logos/mali.webp"
+    },
+    {
+      "Slug": "rwanda",
+      "Name": "Rwanda",
+      "Logo": "/img/logos/rwanda.webp"
+    },
+    {
+      "Slug": "morocco",
+      "Name": "Morocco",
+      "Logo": "/img/logos/morocco.webp"
+    },
+    {
+      "Slug": "niger",
+      "Name": "Niger",
+      "Logo": "https://totalsportekl.is/images/teams/Niger.png"
+    },
+    {
+      "Slug": "washington-wizards",
+      "Name": "Washington Wizards",
+      "Logo": "/img/logos/washington-wizards.webp"
+    },
+    {
+      "Slug": "detroit-pistons",
+      "Name": "Detroit Pistons",
+      "Logo": "/img/logos/detroit-pistons.webp"
+    },
+    {
+      "Slug": "philadelphia-76ers",
+      "Name": "Philadelphia 76ers",
+      "Logo": "/img/logos/philadelphia-76ers.webp"
+    },
+    {
+      "Slug": "toronto-raptors",
+      "Name": "Toronto Raptors",
+      "Logo": "/img/logos/toronto-raptors.webp"
+    },
+    {
+      "Slug": "minnesota-timberwolves",
+      "Name": "Minnesota Timberwolves",
+      "Logo": "/img/logos/minnesota-timberwolves.webp"
+    },
+    {
+      "Slug": "dallas-mavericks",
+      "Name": "Dallas Mavericks",
+      "Logo": "/img/logos/dallas-mavericks.webp"
+    },
+    {
+      "Slug": "phoenix-suns",
+      "Name": "Phoenix Suns",
+      "Logo": "/img/logos/phoenix-suns.webp"
+    },
+    {
+      "Slug": "charlotte-hornets",
+      "Name": "Charlotte Hornets",
+      "Logo": "/img/logos/charlotte-hornets.webp"
+    },
+    {
+      "Slug": "orlando-magic",
+      "Name": "Orlando Magic",
+      "Logo": "/img/logos/orlando-magic.webp"
+    },
+    {
+      "Slug": "milwaukee-bucks",
+      "Name": "Milwaukee Bucks",
+      "Logo": "/img/logos/milwaukee-bucks.webp"
+    },
+    {
+      "Slug": "indiana-pacers",
+      "Name": "Indiana Pacers",
+      "Logo": "/img/logos/indiana-pacers.webp"
+    },
+    {
+      "Slug": "new-york-knicks",
+      "Name": "New York Knicks",
+      "Logo": "/img/logos/new-york-knicks.webp"
     }
   ],
   "Matches": [
     {
-      "Id": "a624c6f35e",
-      "Slug": "leeds-united-vs-newcastle-united-75850",
-      "LeagueSlug": "premier-league",
-      "SportSlug": "football",
-      "HomeTeam": "Leeds United",
-      "AwayTeam": "Newcastle United",
-      "HomeTeamLogo": "/img/logos/leeds-united.webp",
-      "AwayTeamLogo": "/img/logos/newcastle-united.webp",
-      "StartTimeUtc": "2026-09-14T19:07:40.2740094Z",
+      "Id": "0d5ba0045d",
+      "Slug": "Netherlands-vs-Greece",
+      "LeagueSlug": "important-matches",
+      "SportSlug": "important-matches",
+      "HomeTeam": "Netherlands",
+      "AwayTeam": "Greece",
+      "HomeTeamLogo": "/img/logos/netherlands.webp",
+      "AwayTeamLogo": "/img/logos/greece.webp",
+      "StartTimeUtc": "2026-11-13T19:06:38.6846171Z",
       "Status": "upcoming",
-      "SourceUrl": "/Leeds-United-vs-Newcastle-United/75850",
+      "SourceUrl": "https://totalsportekl.is/Netherlands-vs-Greece/80879",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Leeds-United-vs-Newcastle-United/75850"
+          "Url": "https://totalsportekl.is/Netherlands-vs-Greece/80879"
         }
       ],
       "Players": [],
@@ -700,21 +1142,21 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "b597f4afbf",
-      "Slug": "villarreal-vs-real-betis-76147",
-      "LeagueSlug": "la-liga",
-      "SportSlug": "football",
-      "HomeTeam": "Villarreal",
-      "AwayTeam": "Real Betis",
-      "HomeTeamLogo": "/img/logos/villarreal.webp",
-      "AwayTeamLogo": "/img/logos/real-betis.webp",
-      "StartTimeUtc": "2026-09-14T19:07:40.4272497Z",
+      "Id": "e6e02543c6",
+      "Slug": "Serbia-vs-Germany",
+      "LeagueSlug": "important-matches",
+      "SportSlug": "important-matches",
+      "HomeTeam": "Serbia",
+      "AwayTeam": "Germany",
+      "HomeTeamLogo": "/img/logos/serbia.webp",
+      "AwayTeamLogo": "/img/logos/germany.webp",
+      "StartTimeUtc": "2026-11-13T19:06:38.6924449Z",
       "Status": "upcoming",
-      "SourceUrl": "/Villarreal-vs-Real-Betis/76147",
+      "SourceUrl": "https://totalsportekl.is/Serbia-vs-Germany/80881",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Villarreal-vs-Real-Betis/76147"
+          "Url": "https://totalsportekl.is/Serbia-vs-Germany/80881"
         }
       ],
       "Players": [],
@@ -725,21 +1167,21 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "71f9eadebf",
-      "Slug": "como-vs-parma-76277",
-      "LeagueSlug": "serie-a",
-      "SportSlug": "football",
-      "HomeTeam": "Como",
-      "AwayTeam": "Parma",
-      "HomeTeamLogo": "/img/logos/como.webp",
-      "AwayTeamLogo": "/img/logos/parma.webp",
-      "StartTimeUtc": "2026-09-14T16:37:40.5262329Z",
+      "Id": "c761b8abf0",
+      "Slug": "moldova-vs-kazakhstan-80874",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Moldova",
+      "AwayTeam": "Kazakhstan",
+      "HomeTeamLogo": "/img/logos/moldova.webp",
+      "AwayTeamLogo": "/img/logos/kazakhstan.webp",
+      "StartTimeUtc": "2026-11-13T17:06:38.8160025Z",
       "Status": "upcoming",
-      "SourceUrl": "/Como-vs-Parma/76277",
+      "SourceUrl": "/Moldova-vs-Kazakhstan/80874",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Como-vs-Parma/76277"
+          "Url": "/Moldova-vs-Kazakhstan/80874"
         }
       ],
       "Players": [],
@@ -750,115 +1192,53 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "d2c9ca94e5",
-      "Slug": "torino-vs-roma-76278",
-      "LeagueSlug": "serie-a",
-      "SportSlug": "football",
-      "HomeTeam": "Torino",
-      "AwayTeam": "Roma",
-      "HomeTeamLogo": "/img/logos/torino.webp",
-      "AwayTeamLogo": "/img/logos/roma.webp",
-      "StartTimeUtc": "2026-09-14T16:37:40.5954726Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Torino-vs-Roma/76278",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Torino-vs-Roma/76278"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "06ea4c24ae",
-      "Slug": "internazionale-vs-udinese-76281",
-      "LeagueSlug": "serie-a",
-      "SportSlug": "football",
-      "HomeTeam": "Internazionale",
-      "AwayTeam": "Udinese",
-      "HomeTeamLogo": "/img/logos/internazionale.webp",
-      "AwayTeamLogo": "/img/logos/udinese.webp",
-      "StartTimeUtc": "2026-09-14T18:52:40.6688788Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Internazionale-vs-Udinese/76281",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Internazionale-vs-Udinese/76281"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "355eb76f24",
-      "Slug": "wwe-vs-triplemania-34-night-2-70985",
-      "LeagueSlug": "wwe",
-      "SportSlug": "wwe",
-      "HomeTeam": "WWE",
-      "AwayTeam": "TripleMania 34 Night 2",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:40.8979169Z",
+      "Id": "c7657286fd",
+      "Slug": "andorra-vs-gibraltar-80875",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Andorra",
+      "AwayTeam": "Gibraltar",
+      "HomeTeamLogo": "/img/logos/andorra.webp",
+      "AwayTeamLogo": "/img/logos/gibraltar.webp",
+      "StartTimeUtc": "2026-11-13T19:06:38.8761862Z",
       "Status": "live",
-      "SourceUrl": "/WWE-vs-TripleMania-34-Night-2/70985",
+      "SourceUrl": "/Andorra-vs-Gibraltar/80875",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/WWE-vs-TripleMania-34-Night-2/70985"
+          "Url": "/Andorra-vs-Gibraltar/80875"
         }
       ],
       "Players": [
         {
-          "Name": "Sportszone",
-          "Url": "https://sportsszone.cfd/stream/stream-756.php",
+          "Name": "Player 1",
+          "Url": "https://bill.alexhost.com/tickets/",
           "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "ROJADIRECT",
-          "Url": "https://hai8g.com/4/11542048",
-          "Enabled": true,
-          "IsCustom": false
+          "IsCustom": true
         }
       ],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
       "IsEnded": false,
-      "LiveStateLocked": false
+      "LiveStateLocked": true
     },
     {
-      "Id": "b109e9cdef",
-      "Slug": "wwe-vs-monday-night-raw-70986",
-      "LeagueSlug": "wwe",
-      "SportSlug": "wwe",
-      "HomeTeam": "WWE",
-      "AwayTeam": "Monday Night RAW",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T22:37:41.1318466Z",
+      "Id": "8f9d0b84cb",
+      "Slug": "bulgaria-vs-iceland-80876",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Bulgaria",
+      "AwayTeam": "Iceland",
+      "HomeTeamLogo": "/img/logos/bulgaria.webp",
+      "AwayTeamLogo": "/img/logos/iceland.webp",
+      "StartTimeUtc": "2026-11-13T19:06:38.9364082Z",
       "Status": "upcoming",
-      "SourceUrl": "/WWE-vs-Monday-Night-RAW/70986",
+      "SourceUrl": "/Bulgaria-vs-Iceland/80876",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/WWE-vs-Monday-Night-RAW/70986"
+          "Url": "/Bulgaria-vs-Iceland/80876"
         }
       ],
       "Players": [],
@@ -869,480 +1249,146 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "75ffed0c86",
-      "Slug": "us-open-vs-tennis-66780",
+      "Id": "6c8db57f0e",
+      "Slug": "liechtenstein-vs-azerbaijan-80877",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Liechtenstein",
+      "AwayTeam": "Azerbaijan",
+      "HomeTeamLogo": "/img/logos/liechtenstein.webp",
+      "AwayTeamLogo": "/img/logos/azerbaijan.webp",
+      "StartTimeUtc": "2026-11-13T19:06:38.9947348Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Liechtenstein-vs-Azerbaijan/80877",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Liechtenstein-vs-Azerbaijan/80877"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "488cae8e2e",
+      "Slug": "luxembourg-vs-estonia-80878",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Luxembourg",
+      "AwayTeam": "Estonia",
+      "HomeTeamLogo": "/img/logos/luxembourg.webp",
+      "AwayTeamLogo": "/img/logos/estonia.webp",
+      "StartTimeUtc": "2026-11-13T19:06:39.0590473Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Luxembourg-vs-Estonia/80878",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Luxembourg-vs-Estonia/80878"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "e2863d5362",
+      "Slug": "scotland-vs-north-macedonia-80880",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Scotland",
+      "AwayTeam": "North Macedonia",
+      "HomeTeamLogo": "/img/logos/scotland.webp",
+      "AwayTeamLogo": "/img/logos/north-macedonia.webp",
+      "StartTimeUtc": "2026-11-13T19:06:39.1135611Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Scotland-vs-North-Macedonia/80880",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Scotland-vs-North-Macedonia/80880"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d39e798ca4",
+      "Slug": "slovakia-vs-faroe-islands-80882",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Slovakia",
+      "AwayTeam": "Faroe Islands",
+      "HomeTeamLogo": "/img/logos/slovakia.webp",
+      "AwayTeamLogo": "/img/logos/faroe-islands.webp",
+      "StartTimeUtc": "2026-11-13T19:06:39.1667705Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Slovakia-vs-Faroe-Islands/80882",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Slovakia-vs-Faroe-Islands/80882"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "6a4a119e62",
+      "Slug": "slovenia-vs-switzerland-80883",
+      "LeagueSlug": "uefa-nations-league",
+      "SportSlug": "uefa-nations-league",
+      "HomeTeam": "Slovenia",
+      "AwayTeam": "Switzerland",
+      "HomeTeamLogo": "/img/logos/slovenia.webp",
+      "AwayTeamLogo": "/img/logos/switzerland.webp",
+      "StartTimeUtc": "2026-11-13T19:06:39.2269745Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Slovenia-vs-Switzerland/80883",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Slovenia-vs-Switzerland/80883"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "9120af3132",
+      "Slug": "bybit-stockholm-open-vs-tennis-80617",
       "LeagueSlug": "tennis",
       "SportSlug": "tennis",
-      "HomeTeam": "US Open",
+      "HomeTeam": "Bybit Stockholm Open",
       "AwayTeam": "Tennis",
-      "HomeTeamLogo": "/img/logos/us-open.webp",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Bybit Stockholm Open.png",
       "AwayTeamLogo": "/img/logos/tennis.webp",
-      "StartTimeUtc": "2026-09-14T07:00:41.2090117Z",
+      "StartTimeUtc": "2026-11-13T10:06:39.2817612Z",
       "Status": "live",
-      "SourceUrl": "/US-Open-vs-Tennis/66780",
+      "SourceUrl": "/Bybit-Stockholm-Open-vs-Tennis/80617",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/US-Open-vs-Tennis/66780"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "Alpha Streams",
-          "Url": "https://alphastreams.mom/2026/09/13/tennis-live/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "streamhd247",
-          "Url": "https://obplay.live/embed-player?stream=igm5bzjd4y",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Ripplestream4u",
-          "Url": "https://ripplestream.cyou/tennis-tv/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz",
-          "Url": "https://asiria.is/skytennisuk.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "PAPAHD Live",
-          "Url": "https://opturspapa.xyz/alexander-zverev-vs-ben-shelton",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "gomstream",
-          "Url": "https://gomstream.xyz/live/stream-40.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "sportylive.xyz",
-          "Url": "https://sportylive.xyz/2026/09/11/us-open-vs-tennis/",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Streamify",
-          "Url": "https://streamify.cfd/stream/stream-40.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "poscstreams",
-          "Url": "https://poscihub.cfd/live/stream-31.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Shootv",
-          "Url": "https://yallalive.yoga/emb/13.php",
-          "Enabled": false,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "a3830a5f76",
-      "Slug": "gaziantep-fk-vs-fenerbahce-76346",
-      "LeagueSlug": "superlig",
-      "SportSlug": "football",
-      "HomeTeam": "Gaziantep FK",
-      "AwayTeam": "Fenerbahce",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T17:07:41.4364168Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Gaziantep-FK-vs-Fenerbahce/76346",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Gaziantep-FK-vs-Fenerbahce/76346"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "e46364dd4a",
-      "Slug": "rio-ave-vs-estrela-76355",
-      "LeagueSlug": "primeiraliga",
-      "SportSlug": "football",
-      "HomeTeam": "Rio Ave",
-      "AwayTeam": "Estrela",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T17:52:41.6371879Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Rio-Ave-vs-Estrela/76355",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Rio-Ave-vs-Estrela/76355"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "24fbd032ee",
-      "Slug": "moreirense-vs-maritimo-76356",
-      "LeagueSlug": "primeiraliga",
-      "SportSlug": "football",
-      "HomeTeam": "Moreirense",
-      "AwayTeam": "Maritimo",
-      "HomeTeamLogo": "/img/logos/moreirense.webp",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T19:22:41.7744092Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Moreirense-vs-Maritimo/76356",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Moreirense-vs-Maritimo/76356"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "a4d10e0b51",
-      "Slug": "sporting-braga-vs-estoril-76357",
-      "LeagueSlug": "primeiraliga",
-      "SportSlug": "football",
-      "HomeTeam": "Sporting Braga",
-      "AwayTeam": "Estoril",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T19:52:41.9748812Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Sporting-Braga-vs-Estoril/76357",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Sporting-Braga-vs-Estoril/76357"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "dac0b912c8",
-      "Slug": "kansas-city-chiefs-vs-denver-broncos-68560",
-      "LeagueSlug": "nfl",
-      "SportSlug": "nfl",
-      "HomeTeam": "Kansas City Chiefs",
-      "AwayTeam": "Denver Broncos",
-      "HomeTeamLogo": "/img/logos/kansas-city-chiefs.webp",
-      "AwayTeamLogo": "/img/logos/denver-broncos.webp",
-      "StartTimeUtc": "2026-09-14T23:22:42.4271646Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Kansas-City-Chiefs-vs-Denver-Broncos/68560",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Kansas-City-Chiefs-vs-Denver-Broncos/68560"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "8956cb8854",
-      "Slug": "columbus-crew-ii-vs-new-england-ii-71536",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Columbus Crew II",
-      "AwayTeam": "New England II",
-      "HomeTeamLogo": "/img/logos/columbus-crew-ii.webp",
-      "AwayTeamLogo": "/img/logos/new-england-ii.webp",
-      "StartTimeUtc": "2026-09-14T07:00:42.4947347Z",
-      "Status": "live",
-      "SourceUrl": "/Columbus-Crew-II-vs-New-England-II/71536",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Columbus-Crew-II-vs-New-England-II/71536"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "Sportszone",
-          "Url": "https://sportsszone.cfd/stream/stream-598.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "d8087be03a",
-      "Slug": "inter-miami-ii-vs-huntsville-city-71537",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Inter Miami II",
-      "AwayTeam": "Huntsville City",
-      "HomeTeamLogo": "/img/logos/inter-miami-ii.webp",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:42.6971286Z",
-      "Status": "live",
-      "SourceUrl": "/Inter-Miami-II-vs-Huntsville-City/71537",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Inter-Miami-II-vs-Huntsville-City/71537"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "8fbd251ebd",
-      "Slug": "new-york-rb-ii-vs-fc-cincinnati-ii-71538",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "New York RB II",
-      "AwayTeam": "FC Cincinnati II",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "/img/logos/fc-cincinnati-ii.webp",
-      "StartTimeUtc": "2026-09-14T07:00:42.8384702Z",
-      "Status": "live",
-      "SourceUrl": "/New-York-RB-II-vs-FC-Cincinnati-II/71538",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/New-York-RB-II-vs-FC-Cincinnati-II/71538"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "cr7str",
-          "Url": "https://nflwebcast.site/event/53617",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "058b164261",
-      "Slug": "orlando-city-b-vs-toronto-ii-71539",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Orlando City B",
-      "AwayTeam": "Toronto II",
-      "HomeTeamLogo": "/img/logos/orlando-city-b.webp",
-      "AwayTeamLogo": "/img/logos/toronto-ii.webp",
-      "StartTimeUtc": "2026-09-14T07:00:42.8992503Z",
-      "Status": "live",
-      "SourceUrl": "/Orlando-City-B-vs-Toronto-II/71539",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Orlando-City-B-vs-Toronto-II/71539"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "gomstream",
-          "Url": "https://gomstream.xyz/live/stream-155.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "bfb2e7c2bb",
-      "Slug": "sporting-kc-ii-vs-los-angeles-ii-71542",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Sporting KC II",
-      "AwayTeam": "Los Angeles II",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:43.1240764Z",
-      "Status": "live",
-      "SourceUrl": "/Sporting-KC-II-vs-Los-Angeles-II/71542",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Sporting-KC-II-vs-Los-Angeles-II/71542"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "Sportszone",
-          "Url": "https://sportsszone.cfd/stream/stream-539.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "ef12e1bc3f",
-      "Slug": "austin-ii-vs-colorado-rapids-ii-71543",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Austin II",
-      "AwayTeam": "Colorado Rapids II",
-      "HomeTeamLogo": "/img/logos/austin-ii.webp",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:43.2796029Z",
-      "Status": "live",
-      "SourceUrl": "/Austin-II-vs-Colorado-Rapids-II/71543",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Austin-II-vs-Colorado-Rapids-II/71543"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "6ab06f2dfb",
-      "Slug": "north-texas-vs-houston-dynamo-fc-ii-71544",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "North Texas",
-      "AwayTeam": "Houston Dynamo FC II",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "/img/logos/houston-dynamo-fc-ii.webp",
-      "StartTimeUtc": "2026-09-14T07:00:43.4196525Z",
-      "Status": "live",
-      "SourceUrl": "/North-Texas-vs-Houston-Dynamo-FC-II/71544",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/North-Texas-vs-Houston-Dynamo-FC-II/71544"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
-        }
-      ],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": true,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "0051d76362",
-      "Slug": "ventura-county-vs-tacoma-defiance-71541",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Ventura County",
-      "AwayTeam": "Tacoma Defiance",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:44.2724518Z",
-      "Status": "live",
-      "SourceUrl": "/Ventura-County-vs-Tacoma-Defiance/71541",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Ventura-County-vs-Tacoma-Defiance/71541"
+          "Url": "/Bybit-Stockholm-Open-vs-Tennis/80617"
         }
       ],
       "Players": [],
@@ -1353,31 +1399,149 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "648b657aca",
-      "Slug": "san-jose-earthquakes-ii-vs-real-monarchs-71540",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "San Jose Earthquakes II",
-      "AwayTeam": "Real Monarchs",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:45.9282938Z",
-      "Status": "live",
-      "SourceUrl": "/San-Jose-Earthquakes-II-vs-Real-Monarchs/71540",
+      "Id": "8652ad75e7",
+      "Slug": "sale-sharks-vs-exeter-chiefs-72295",
+      "LeagueSlug": "rugby",
+      "SportSlug": "rugby",
+      "HomeTeam": "Sale Sharks",
+      "AwayTeam": "Exeter Chiefs",
+      "HomeTeamLogo": "/img/logos/sale-sharks.webp",
+      "AwayTeamLogo": "/img/logos/exeter-chiefs.webp",
+      "StartTimeUtc": "2026-11-13T18:06:39.3335424Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Sale-Sharks-vs-Exeter-Chiefs/72295",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/San-Jose-Earthquakes-II-vs-Real-Monarchs/71540"
+          "Url": "/Sale-Sharks-vs-Exeter-Chiefs/72295"
         }
       ],
-      "Players": [
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "8230356d72",
+      "Slug": "bedford-vs-doncaster-72427",
+      "LeagueSlug": "rugby",
+      "SportSlug": "rugby",
+      "HomeTeam": "Bedford",
+      "AwayTeam": "Doncaster",
+      "HomeTeamLogo": "/img/logos/bedford.webp",
+      "AwayTeamLogo": "/img/logos/doncaster.webp",
+      "StartTimeUtc": "2026-11-13T18:06:39.3861922Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Bedford-vs-Doncaster/72427",
+      "Streams": [
         {
-          "Name": "FUBO TV",
-          "Url": "https://omg10.com/4/9020608/",
-          "Enabled": true,
-          "IsCustom": false
+          "Label": "Watch on source",
+          "Url": "/Bedford-vs-Doncaster/72427"
         }
       ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "1ac5fa282c",
+      "Slug": "france-vs-south-africa-72296",
+      "LeagueSlug": "rugby",
+      "SportSlug": "rugby",
+      "HomeTeam": "France",
+      "AwayTeam": "South Africa",
+      "HomeTeamLogo": "/img/logos/france.webp",
+      "AwayTeamLogo": "/img/logos/south-africa.webp",
+      "StartTimeUtc": "2026-11-13T19:06:39.4560112Z",
+      "Status": "upcoming",
+      "SourceUrl": "/France-vs-South-Africa/72296",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/France-vs-South-Africa/72296"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d2bdf59d6b",
+      "Slug": "paraguay-vs-brazil-72422",
+      "LeagueSlug": "rugby",
+      "SportSlug": "rugby",
+      "HomeTeam": "Paraguay",
+      "AwayTeam": "Brazil",
+      "HomeTeamLogo": "/img/logos/paraguay.webp",
+      "AwayTeamLogo": "/img/logos/brazil.webp",
+      "StartTimeUtc": "2026-11-13T23:06:39.5025554Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Paraguay-vs-Brazil/72422",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Paraguay-vs-Brazil/72422"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "93d792983e",
+      "Slug": "pakistan-vs-uzbekistan-80618",
+      "LeagueSlug": "rugby",
+      "SportSlug": "rugby",
+      "HomeTeam": "Pakistan",
+      "AwayTeam": "Uzbekistan",
+      "HomeTeamLogo": "/img/logos/pakistan.webp",
+      "AwayTeamLogo": "/img/logos/uzbekistan.webp",
+      "StartTimeUtc": "2026-11-13T23:06:39.5460396Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Pakistan-vs-Uzbekistan/80618",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Pakistan-vs-Uzbekistan/80618"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d86471aed6",
+      "Slug": "bruins-vs-canadeins-74465",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Bruins",
+      "AwayTeam": "Canadeins",
+      "HomeTeamLogo": "/img/logos/bruins.webp",
+      "AwayTeamLogo": "/img/logos/canadeins.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.6012686Z",
+      "Status": "live",
+      "SourceUrl": "/Bruins-vs-Canadeins/74465",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Bruins-vs-Canadeins/74465"
+        }
+      ],
+      "Players": [],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
@@ -1385,104 +1549,24 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "85255872b9",
-      "Slug": "portland-timbers-ii-vs-st-louis-city-ii-71545",
-      "LeagueSlug": "mls-next-pro",
-      "SportSlug": "football",
-      "HomeTeam": "Portland Timbers II",
-      "AwayTeam": "St. Louis City II",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T20:07:47.8509047Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Portland-Timbers-II-vs-St.-Louis-City-II/71545",
+      "Id": "a5ee2c57f3",
+      "Slug": "senators-vs-avalanche-74466",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Senators",
+      "AwayTeam": "Avalanche",
+      "HomeTeamLogo": "/img/logos/senators.webp",
+      "AwayTeamLogo": "/img/logos/avalanche.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.6613805Z",
+      "Status": "live",
+      "SourceUrl": "/Senators-vs-Avalanche/74466",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Portland-Timbers-II-vs-St.-Louis-City-II/71545"
+          "Url": "/Senators-vs-Avalanche/74466"
         }
       ],
       "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "b83fcd70da",
-      "Slug": "vancouver-whitecaps-vs-austin-69677",
-      "LeagueSlug": "mls",
-      "SportSlug": "football",
-      "HomeTeam": "Vancouver Whitecaps",
-      "AwayTeam": "Austin",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:49.7822993Z",
-      "Status": "live",
-      "SourceUrl": "/Vancouver-Whitecaps-vs-Austin/69677",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Vancouver-Whitecaps-vs-Austin/69677"
-        }
-      ],
-      "Players": [
-        {
-          "Name": "Alpha Streams",
-          "Url": "https://rippleplays.cfd/newhub/stream-68.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Prostreams",
-          "Url": "https://prostreams.shop/now/stream-68.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz",
-          "Url": "https://dlive.sx/stream/stream-68.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Primestreams",
-          "Url": "https://primestreamd.cfd/live/stream-68.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Apexstreams",
-          "Url": "https://apexstreams.cfd/live/stream-68.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "techydeals",
-          "Url": "https://techydeals.best/totalsportek1909226/extraplayer/3.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Sportszone",
-          "Url": "https://sportsszone.cfd/stream/stream-832.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "forlive",
-          "Url": "https://sports247.ru/watch/vancouver-whitecaps-vs-austin-2026-09-13",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "soccerjumbo",
-          "Url": "https://mjumbo.icu/130926-1/2/106.html?id=106",
-          "Enabled": false,
-          "IsCustom": false
-        }
-      ],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
@@ -1490,85 +1574,24 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "72ea071ed2",
-      "Slug": "san-diego-fc-vs-philadelphia-union-69678",
-      "LeagueSlug": "mls",
-      "SportSlug": "football",
-      "HomeTeam": "San Diego FC",
-      "AwayTeam": "Philadelphia Union",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:51.8152367Z",
+      "Id": "b73aca60d3",
+      "Slug": "maple-leaf-vs-wild-74467",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Maple Leaf",
+      "AwayTeam": "Wild",
+      "HomeTeamLogo": "/img/logos/maple-leaf.webp",
+      "AwayTeamLogo": "/img/logos/wild.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.7120953Z",
       "Status": "live",
-      "SourceUrl": "/San-Diego-FC-vs-Philadelphia-Union/69678",
+      "SourceUrl": "/Maple-Leaf-vs-Wild/74467",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/San-Diego-FC-vs-Philadelphia-Union/69678"
+          "Url": "/Maple-Leaf-vs-Wild/74467"
         }
       ],
-      "Players": [
-        {
-          "Name": "streamhd247",
-          "Url": "https://obplay.live/embed-player?stream=cjh3ep5yka",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Apexstreams",
-          "Url": "https://apexstreams.cfd/live/stream-69.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz",
-          "Url": "https://streame.center/embed/ch30.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "techydeals",
-          "Url": "https://techydeals.best/totalsportek1909226/extraplayer/4.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "forlive",
-          "Url": "https://sports247.ru/watch/san-diego-vs-philadelphia-union-2026-09-14",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "soccerjumbo",
-          "Url": "https://mjumbo.icu/130926-1/2/105.html?id=105",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Livesport24",
-          "Url": "https://livesporthub.shop/live/stream-69.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "SoccermlbstreamLive",
-          "Url": "https://forprivateuse.sbs/embedextra/tv/4.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Topstreams",
-          "Url": "https://topstream.help/?p=6600",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Cricstreams",
-          "Url": "https://sportsslives.shop/embed/stream-69.php",
-          "Enabled": false,
-          "IsCustom": false
-        }
-      ],
+      "Players": [],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
@@ -1576,79 +1599,24 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "2288417ada",
-      "Slug": "san-francisco-giants-vs-san-diego-padres-69060",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "San Francisco Giants",
-      "AwayTeam": "San Diego Padres",
-      "HomeTeamLogo": "/img/logos/san-francisco-giants.webp",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T07:00:53.15527Z",
+      "Id": "7a66e7954d",
+      "Slug": "devils-vs-capitals-74468",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Devils",
+      "AwayTeam": "Capitals",
+      "HomeTeamLogo": "/img/logos/devils.webp",
+      "AwayTeamLogo": "/img/logos/capitals.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.7590016Z",
       "Status": "live",
-      "SourceUrl": "/San-Francisco-Giants-vs-San-Diego-Padres/69060",
+      "SourceUrl": "/Devils-vs-Capitals/74468",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/San-Francisco-Giants-vs-San-Diego-Padres/69060"
+          "Url": "/Devils-vs-Capitals/74468"
         }
       ],
-      "Players": [
-        {
-          "Name": "streamhd247",
-          "Url": "https://obplay.live/embed-player?stream=e91l7w4ktu",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Ripplestream4u",
-          "Url": "https://rippleplays.cfd/newhub/stream-1.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "PAPAHD Live",
-          "Url": "https://opturspapa.xyz/san-francisco-giants-vs-san-diego-padres-2026-09-12",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "sportylive.xyz",
-          "Url": "https://sportylive.xyz/2026/09/12/san-francisco-giants-vs-san-diego-padres-2/",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz",
-          "Url": "https://streame.center/embed/ch29.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Prostreams",
-          "Url": "https://prostreams.shop/now/stream-1.php",
-          "Enabled": true,
-          "IsCustom": false
-        },
-        {
-          "Name": "Prostreams",
-          "Url": "https://prostreams.shop/now/stream-15.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Supertipz",
-          "Url": "https://dlive.sx/stream/stream-66.php",
-          "Enabled": false,
-          "IsCustom": false
-        },
-        {
-          "Name": "Streamify",
-          "Url": "https://streamify.cfd/stream/stream-15.php",
-          "Enabled": false,
-          "IsCustom": false
-        }
-      ],
+      "Players": [],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
@@ -1656,21 +1624,221 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "86b29fb056",
-      "Slug": "cleveland-guardians-vs-chicago-white-sox-69083",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Cleveland Guardians",
-      "AwayTeam": "Chicago White Sox",
-      "HomeTeamLogo": "/img/logos/cleveland-guardians.webp",
-      "AwayTeamLogo": "/img/logos/chicago-white-sox.webp",
-      "StartTimeUtc": "2026-09-14T22:47:53.1800612Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Cleveland-Guardians-vs-Chicago-White-Sox/69083",
+      "Id": "6f64331286",
+      "Slug": "blue-jackets-vs-lightning-74470",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Blue Jackets",
+      "AwayTeam": "Lightning",
+      "HomeTeamLogo": "/img/logos/blue-jackets.webp",
+      "AwayTeamLogo": "/img/logos/lightning.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.8109342Z",
+      "Status": "live",
+      "SourceUrl": "/Blue-Jackets-vs-Lightning/74470",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Cleveland-Guardians-vs-Chicago-White-Sox/69083"
+          "Url": "/Blue-Jackets-vs-Lightning/74470"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "b4935d12a5",
+      "Slug": "panthers-vs-red-wings-74469",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Panthers",
+      "AwayTeam": "Red Wings",
+      "HomeTeamLogo": "/img/logos/panthers.webp",
+      "AwayTeamLogo": "/img/logos/red-wings.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.8645069Z",
+      "Status": "live",
+      "SourceUrl": "/Panthers-vs-Red-Wings/74469",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Panthers-vs-Red-Wings/74469"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "8e0cd73546",
+      "Slug": "stars-vs-jets-74471",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Stars",
+      "AwayTeam": "Jets",
+      "HomeTeamLogo": "/img/logos/stars.webp",
+      "AwayTeamLogo": "/img/logos/jets.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.9251319Z",
+      "Status": "live",
+      "SourceUrl": "/Stars-vs-Jets/74471",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Stars-vs-Jets/74471"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "57fd1f2219",
+      "Slug": "blackhawks-vs-sabres-74472",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Blackhawks",
+      "AwayTeam": "Sabres",
+      "HomeTeamLogo": "/img/logos/blackhawks.webp",
+      "AwayTeamLogo": "/img/logos/sabres.webp",
+      "StartTimeUtc": "2026-11-13T10:06:39.9752049Z",
+      "Status": "live",
+      "SourceUrl": "/Blackhawks-vs-Sabres/74472",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Blackhawks-vs-Sabres/74472"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f2caca14f6",
+      "Slug": "mammoth-vs-blues-74473",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Mammoth",
+      "AwayTeam": "Blues",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Mammoth.png",
+      "AwayTeamLogo": "/img/logos/blues.webp",
+      "StartTimeUtc": "2026-11-13T10:06:40.0280633Z",
+      "Status": "live",
+      "SourceUrl": "/Mammoth-vs-Blues/74473",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Mammoth-vs-Blues/74473"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "7c43499f33",
+      "Slug": "kings-vs-islanders-74474",
+      "LeagueSlug": "nhl",
+      "SportSlug": "nhl",
+      "HomeTeam": "Kings",
+      "AwayTeam": "Islanders",
+      "HomeTeamLogo": "/img/logos/kings.webp",
+      "AwayTeamLogo": "/img/logos/islanders.webp",
+      "StartTimeUtc": "2026-11-13T10:06:40.0829357Z",
+      "Status": "live",
+      "SourceUrl": "/Kings-vs-Islanders/74474",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Kings-vs-Islanders/74474"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "8316313280",
+      "Slug": "memphis-tigers-vs-south-florida-bulls-81125",
+      "LeagueSlug": "ncaa",
+      "SportSlug": "ncaa",
+      "HomeTeam": "Memphis Tigers",
+      "AwayTeam": "South Florida Bulls",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Memphis Tigers.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/South Florida Bulls.png",
+      "StartTimeUtc": "2026-11-13T10:06:40.1467834Z",
+      "Status": "live",
+      "SourceUrl": "/Memphis-Tigers-vs-South-Florida-Bulls/81125",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Memphis-Tigers-vs-South-Florida-Bulls/81125"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "9fb6bebb0d",
+      "Slug": "louisiana-ragin-cajuns-vs-ulm-warhawks-81126",
+      "LeagueSlug": "ncaa",
+      "SportSlug": "ncaa",
+      "HomeTeam": "Louisiana Ragin Cajuns",
+      "AwayTeam": "ULM Warhawks",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Louisiana Ragin Cajuns.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/ULM Warhawks.png",
+      "StartTimeUtc": "2026-11-13T10:06:40.2080861Z",
+      "Status": "live",
+      "SourceUrl": "/Louisiana-Ragin-Cajuns-vs-ULM-Warhawks/81126",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Louisiana-Ragin-Cajuns-vs-ULM-Warhawks/81126"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d14748adc0",
+      "Slug": "pittsburgh-panthers-vs-florida-state-seminoles-78895",
+      "LeagueSlug": "ncaa",
+      "SportSlug": "ncaa",
+      "HomeTeam": "Pittsburgh Panthers",
+      "AwayTeam": "Florida State Seminoles",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Pittsburgh Panthers.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Florida State Seminoles.png",
+      "StartTimeUtc": "2026-11-13T23:06:40.2653041Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Pittsburgh-Panthers-vs-Florida-State-Seminoles/78895",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Pittsburgh-Panthers-vs-Florida-State-Seminoles/78895"
         }
       ],
       "Players": [],
@@ -1681,196 +1849,21 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "09d88cf412",
-      "Slug": "cincinnati-reds-vs-los-angeles-dodgers-69084",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Cincinnati Reds",
-      "AwayTeam": "Los Angeles Dodgers",
-      "HomeTeamLogo": "/img/logos/cincinnati-reds.webp",
-      "AwayTeamLogo": "/img/logos/los-angeles-dodgers.webp",
-      "StartTimeUtc": "2026-09-14T22:47:53.2004313Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Cincinnati-Reds-vs-Los-Angeles-Dodgers/69084",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Cincinnati-Reds-vs-Los-Angeles-Dodgers/69084"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "478164351d",
-      "Slug": "toronto-blue-jays-vs-detroit-tigers-69085",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Toronto Blue Jays",
-      "AwayTeam": "Detroit Tigers",
-      "HomeTeamLogo": "/img/logos/toronto-blue-jays.webp",
-      "AwayTeamLogo": "/img/logos/detroit-tigers.webp",
-      "StartTimeUtc": "2026-09-14T23:14:53.2206584Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Toronto-Blue-Jays-vs-Detroit-Tigers/69085",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Toronto-Blue-Jays-vs-Detroit-Tigers/69085"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "6d646cb52b",
-      "Slug": "new-york-mets-vs-baltimore-orioles-69086",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "New York Mets",
-      "AwayTeam": "Baltimore Orioles",
-      "HomeTeamLogo": "/img/logos/new-york-mets.webp",
-      "AwayTeamLogo": "/img/logos/baltimore-orioles.webp",
-      "StartTimeUtc": "2026-09-14T23:17:53.2372453Z",
-      "Status": "upcoming",
-      "SourceUrl": "/New-York-Mets-vs-Baltimore-Orioles/69086",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/New-York-Mets-vs-Baltimore-Orioles/69086"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "13c0efa2b7",
-      "Slug": "chicago-cubs-vs-atlanta-braves-69087",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Chicago Cubs",
-      "AwayTeam": "Atlanta Braves",
-      "HomeTeamLogo": "/img/logos/chicago-cubs.webp",
-      "AwayTeamLogo": "/img/logos/atlanta-braves.webp",
-      "StartTimeUtc": "2026-09-14T23:47:53.2566467Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Chicago-Cubs-vs-Atlanta-Braves/69087",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Chicago-Cubs-vs-Atlanta-Braves/69087"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "5a09b83424",
-      "Slug": "minnesota-twins-vs-new-york-yankees-69088",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Minnesota Twins",
-      "AwayTeam": "New York Yankees",
-      "HomeTeamLogo": "/img/logos/minnesota-twins.webp",
-      "AwayTeamLogo": "/img/logos/new-york-yankees.webp",
-      "StartTimeUtc": "2026-09-14T23:47:53.2765707Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Minnesota-Twins-vs-New-York-Yankees/69088",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Minnesota-Twins-vs-New-York-Yankees/69088"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "c6ed50f19f",
-      "Slug": "colorado-rockies-vs-san-diego-padres-69090",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "Colorado Rockies",
-      "AwayTeam": "San Diego Padres",
-      "HomeTeamLogo": "/img/logos/colorado-rockies.webp",
-      "AwayTeamLogo": "",
-      "StartTimeUtc": "2026-09-14T23:47:53.3595938Z",
-      "Status": "upcoming",
-      "SourceUrl": "/Colorado-Rockies-vs-San-Diego-Padres/69090",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/Colorado-Rockies-vs-San-Diego-Padres/69090"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "8882a57648",
-      "Slug": "st-louis-cardinals-vs-san-francisco-giants-69089",
-      "LeagueSlug": "mlb",
-      "SportSlug": "baseball",
-      "HomeTeam": "St. Louis Cardinals",
-      "AwayTeam": "San Francisco Giants",
-      "HomeTeamLogo": "/img/logos/st-louis-cardinals.webp",
-      "AwayTeamLogo": "/img/logos/san-francisco-giants.webp",
-      "StartTimeUtc": "2026-09-14T23:52:53.3818648Z",
-      "Status": "upcoming",
-      "SourceUrl": "/St.-Louis-Cardinals-vs-San-Francisco-Giants/69089",
-      "Streams": [
-        {
-          "Label": "Watch on source",
-          "Url": "/St.-Louis-Cardinals-vs-San-Francisco-Giants/69089"
-        }
-      ],
-      "Players": [],
-      "IsCustom": false,
-      "Important": false,
-      "IsLive": false,
-      "IsEnded": false,
-      "LiveStateLocked": false
-    },
-    {
-      "Id": "03f69e8ac9",
-      "Slug": "red-star-vs-metz-76318",
-      "LeagueSlug": "ligue-2",
+      "Id": "6934e1e97f",
+      "Slug": "leganes-vs-burgos-79368",
+      "LeagueSlug": "la-liga-2",
       "SportSlug": "football",
-      "HomeTeam": "Red Star",
-      "AwayTeam": "Metz",
-      "HomeTeamLogo": "",
-      "AwayTeamLogo": "/img/logos/metz.webp",
-      "StartTimeUtc": "2026-09-14T18:52:55.3423602Z",
+      "HomeTeam": "Leganes",
+      "AwayTeam": "Burgos",
+      "HomeTeamLogo": "/img/logos/leganes.webp",
+      "AwayTeamLogo": "/img/logos/burgos.webp",
+      "StartTimeUtc": "2026-11-13T19:06:40.3301152Z",
       "Status": "upcoming",
-      "SourceUrl": "/Red-Star-vs-Metz/76318",
+      "SourceUrl": "/Leganes-vs-Burgos/79368",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Red-Star-vs-Metz/76318"
+          "Url": "/Leganes-vs-Burgos/79368"
         }
       ],
       "Players": [],
@@ -1881,31 +1874,1231 @@
       "LiveStateLocked": false
     },
     {
-      "Id": "8d46ea03fd",
-      "Slug": "malaysia-vs-united-arab-emirates-76283",
+      "Id": "d2a611b447",
+      "Slug": "mangere-united-vs-tonga-81086",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Mangere United",
+      "AwayTeam": "Tonga",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Mangere United.png",
+      "AwayTeamLogo": "/img/logos/tonga.webp",
+      "StartTimeUtc": "2026-11-13T10:06:40.3869688Z",
+      "Status": "live",
+      "SourceUrl": "/Mangere-United-vs-Tonga/81086",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Mangere-United-vs-Tonga/81086"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "5bfd89c134",
+      "Slug": "chinese-taipei-vs-kyrgyzstan-81087",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Chinese Taipei",
+      "AwayTeam": "Kyrgyzstan",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Chinese Taipei.png",
+      "AwayTeamLogo": "/img/logos/kyrgyzstan.webp",
+      "StartTimeUtc": "2026-11-13T12:06:40.4686261Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Chinese-Taipei-vs-Kyrgyzstan/81087",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Chinese-Taipei-vs-Kyrgyzstan/81087"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "171fab0374",
+      "Slug": "singapore-vs-paraguay-81088",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Singapore",
+      "AwayTeam": "Paraguay",
+      "HomeTeamLogo": "/img/logos/singapore.webp",
+      "AwayTeamLogo": "/img/logos/paraguay.webp",
+      "StartTimeUtc": "2026-11-13T12:06:40.5344595Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Singapore-vs-Paraguay/81088",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Singapore-vs-Paraguay/81088"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "dfd2cddd5a",
+      "Slug": "kuwait-vs-syria-81089",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Kuwait",
+      "AwayTeam": "Syria",
+      "HomeTeamLogo": "/img/logos/kuwait.webp",
+      "AwayTeamLogo": "/img/logos/syria.webp",
+      "StartTimeUtc": "2026-11-13T14:06:40.6212786Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Kuwait-vs-Syria/81089",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Kuwait-vs-Syria/81089"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "3030ee6a1b",
+      "Slug": "united-arab-emirates-vs-honduras-81090",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "United Arab Emirates",
+      "AwayTeam": "Honduras",
+      "HomeTeamLogo": "/img/logos/united-arab-emirates.webp",
+      "AwayTeamLogo": "/img/logos/honduras.webp",
+      "StartTimeUtc": "2026-11-13T14:06:40.6766162Z",
+      "Status": "upcoming",
+      "SourceUrl": "/United-Arab-Emirates-vs-Honduras/81090",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/United-Arab-Emirates-vs-Honduras/81090"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "035fdd422f",
+      "Slug": "saudi-arabia-vs-korea-republic-81091",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Saudi Arabia",
+      "AwayTeam": "Korea Republic",
+      "HomeTeamLogo": "/img/logos/saudi-arabia.webp",
+      "AwayTeamLogo": "/img/logos/korea-republic.webp",
+      "StartTimeUtc": "2026-11-13T14:06:40.739605Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Saudi-Arabia-vs-Korea-Republic/81091",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Saudi-Arabia-vs-Korea-Republic/81091"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "e2333bd87a",
+      "Slug": "qatar-vs-australia-81092",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Qatar",
+      "AwayTeam": "Australia",
+      "HomeTeamLogo": "/img/logos/qatar.webp",
+      "AwayTeamLogo": "/img/logos/australia.webp",
+      "StartTimeUtc": "2026-11-13T14:06:40.820658Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Qatar-vs-Australia/81092",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Qatar-vs-Australia/81092"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "62526b7872",
+      "Slug": "iraq-vs-lebanon-81093",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Iraq",
+      "AwayTeam": "Lebanon",
+      "HomeTeamLogo": "/img/logos/iraq.webp",
+      "AwayTeamLogo": "/img/logos/lebanon.webp",
+      "StartTimeUtc": "2026-11-13T15:06:40.8802886Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Iraq-vs-Lebanon/81093",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Iraq-vs-Lebanon/81093"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "e3793f5ddb",
+      "Slug": "argentina-vs-uruguay-81094",
+      "LeagueSlug": "international-friendlies",
+      "SportSlug": "international-friendlies",
+      "HomeTeam": "Argentina",
+      "AwayTeam": "Uruguay",
+      "HomeTeamLogo": "/img/logos/argentina.webp",
+      "AwayTeamLogo": "/img/logos/uruguay.webp",
+      "StartTimeUtc": "2026-11-13T23:06:40.9423759Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Argentina-vs-Uruguay/81094",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Argentina-vs-Uruguay/81094"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "06a0d55c92",
+      "Slug": "austin-championship-vs-golf-78919",
+      "LeagueSlug": "golf",
+      "SportSlug": "golf",
+      "HomeTeam": "Austin Championship",
+      "AwayTeam": "Golf",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Austin Championship.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Golf.png",
+      "StartTimeUtc": "2026-11-13T10:06:41.0316366Z",
+      "Status": "live",
+      "SourceUrl": "/Austin-Championship-vs-Golf/78919",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Austin-Championship-vs-Golf/78919"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d7b6341493",
+      "Slug": "turkiye-u21-vs-czechia-u21-81012",
+      "LeagueSlug": "euro-u-21-qualifying",
+      "SportSlug": "euro-u-21-qualifying",
+      "HomeTeam": "Turkiye U21",
+      "AwayTeam": "Czechia U21",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Turkiye U21.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Czechia U21.png",
+      "StartTimeUtc": "2026-11-13T16:06:41.1023093Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Turkiye-U21-vs-Czechia-U21/81012",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Turkiye-U21-vs-Czechia-U21/81012"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "1d205db00c",
+      "Slug": "finland-u21-vs-republic-of-ireland-u21-81013",
+      "LeagueSlug": "euro-u-21-qualifying",
+      "SportSlug": "euro-u-21-qualifying",
+      "HomeTeam": "Finland U21",
+      "AwayTeam": "Republic of Ireland U21",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Finland U21.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Republic of Ireland U21.png",
+      "StartTimeUtc": "2026-11-13T16:06:41.2008893Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Finland-U21-vs-Republic-of-Ireland-U21/81013",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Finland-U21-vs-Republic-of-Ireland-U21/81013"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "92f5574c36",
+      "Slug": "denmark-u21-vs-netherlands-u21-81014",
+      "LeagueSlug": "euro-u-21-qualifying",
+      "SportSlug": "euro-u-21-qualifying",
+      "HomeTeam": "Denmark U21",
+      "AwayTeam": "Netherlands U21",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Denmark U21.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Netherlands U21.png",
+      "StartTimeUtc": "2026-11-13T17:06:41.2784766Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Denmark-U21-vs-Netherlands-U21/81014",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Denmark-U21-vs-Netherlands-U21/81014"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "cbdfc9683b",
+      "Slug": "nantes-vs-lens-80120",
+      "LeagueSlug": "division-1-feminine",
+      "SportSlug": "division-1-feminine",
+      "HomeTeam": "Nantes",
+      "AwayTeam": "Lens",
+      "HomeTeamLogo": "/img/logos/nantes.webp",
+      "AwayTeamLogo": "/img/logos/lens.webp",
+      "StartTimeUtc": "2026-11-13T18:06:41.335984Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Nantes-vs-Lens/80120",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Nantes-vs-Lens/80120"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "49c36bbe7a",
+      "Slug": "pakistan-vs-sri-lanka-79406",
       "LeagueSlug": "cricket",
       "SportSlug": "cricket",
-      "HomeTeam": "Malaysia",
-      "AwayTeam": "United Arab Emirates",
-      "HomeTeamLogo": "/img/logos/malaysia.webp",
-      "AwayTeamLogo": "/img/logos/united-arab-emirates.webp",
-      "StartTimeUtc": "2026-09-14T07:00:55.362537Z",
+      "HomeTeam": "Pakistan",
+      "AwayTeam": "Sri Lanka",
+      "HomeTeamLogo": "/img/logos/pakistan.webp",
+      "AwayTeamLogo": "/img/logos/sri-lanka.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.4230656Z",
       "Status": "live",
-      "SourceUrl": "/Malaysia-vs-United-Arab-Emirates/76283",
+      "SourceUrl": "/Pakistan-vs-Sri-Lanka/79406",
       "Streams": [
         {
           "Label": "Watch on source",
-          "Url": "/Malaysia-vs-United-Arab-Emirates/76283"
+          "Url": "/Pakistan-vs-Sri-Lanka/79406"
         }
       ],
       "Players": [],
       "IsCustom": false,
       "Important": false,
       "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "fbc260c9bc",
+      "Slug": "new-zealand-vs-india-79408",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "New Zealand",
+      "AwayTeam": "India",
+      "HomeTeamLogo": "/img/logos/new-zealand.webp",
+      "AwayTeamLogo": "/img/logos/india.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.5152872Z",
+      "Status": "live",
+      "SourceUrl": "/New-Zealand-vs-India/79408",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/New-Zealand-vs-India/79408"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "e5246e8be2",
+      "Slug": "australia-vs-england-79409",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "Australia",
+      "AwayTeam": "England",
+      "HomeTeamLogo": "/img/logos/australia.webp",
+      "AwayTeamLogo": "/img/logos/england.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.5732517Z",
+      "Status": "live",
+      "SourceUrl": "/Australia-vs-England/79409",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Australia-vs-England/79409"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "6872d11d90",
+      "Slug": "afghanistan-vs-zimbabwe-79410",
+      "LeagueSlug": "cricket",
+      "SportSlug": "cricket",
+      "HomeTeam": "Afghanistan",
+      "AwayTeam": "Zimbabwe",
+      "HomeTeamLogo": "/img/logos/afghanistan.webp",
+      "AwayTeamLogo": "/img/logos/zimbabwe.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.6638573Z",
+      "Status": "live",
+      "SourceUrl": "/Afghanistan-vs-Zimbabwe/79410",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Afghanistan-vs-Zimbabwe/79410"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "23d82a7910",
+      "Slug": "salamanca-uds-vs-celta-de-vigo-80395",
+      "LeagueSlug": "copa-del-rey",
+      "SportSlug": "copa-del-rey",
+      "HomeTeam": "Salamanca UDS",
+      "AwayTeam": "Celta de Vigo",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Salamanca UDS.png",
+      "AwayTeamLogo": "/img/logos/celta-de-vigo.webp",
+      "StartTimeUtc": "2026-11-13T20:06:41.7283113Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Salamanca-UDS-vs-Celta-de-Vigo/80395",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Salamanca-UDS-vs-Celta-de-Vigo/80395"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "99fca65d04",
+      "Slug": "antigua-and-barbuda-vs-trinidad-and-tobago-80983",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Antigua and Barbuda",
+      "AwayTeam": "Trinidad and Tobago",
+      "HomeTeamLogo": "/img/logos/antigua-and-barbuda.webp",
+      "AwayTeamLogo": "/img/logos/trinidad-and-tobago.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.7917162Z",
+      "Status": "live",
+      "SourceUrl": "/Antigua-and-Barbuda-vs-Trinidad-and-Tobago/80983",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Antigua-and-Barbuda-vs-Trinidad-and-Tobago/80983"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "7d202f2384",
+      "Slug": "curacao-vs-panama-80984",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Curacao",
+      "AwayTeam": "Panama",
+      "HomeTeamLogo": "/img/logos/curacao.webp",
+      "AwayTeamLogo": "/img/logos/panama.webp",
+      "StartTimeUtc": "2026-11-13T10:06:41.870887Z",
+      "Status": "live",
+      "SourceUrl": "/Curacao-vs-Panama/80984",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Curacao-vs-Panama/80984"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": true,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "a87c9b5080",
+      "Slug": "bermuda-vs-st-lucia-80985",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Bermuda",
+      "AwayTeam": "St. Lucia",
+      "HomeTeamLogo": "/img/logos/bermuda.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/St. Lucia.png",
+      "StartTimeUtc": "2026-11-13T19:06:41.9701802Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Bermuda-vs-St.-Lucia/80985",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Bermuda-vs-St.-Lucia/80985"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d2d08401b7",
+      "Slug": "puerto-rico-vs-dominica-80986",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Puerto Rico",
+      "AwayTeam": "Dominica",
+      "HomeTeamLogo": "/img/logos/puerto-rico.webp",
+      "AwayTeamLogo": "/img/logos/dominica.webp",
+      "StartTimeUtc": "2026-11-13T19:06:42.0282637Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Puerto-Rico-vs-Dominica/80986",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Puerto-Rico-vs-Dominica/80986"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "8a1ffb8fe3",
+      "Slug": "grenada-vs-st-kitts-and-nevis-80987",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Grenada",
+      "AwayTeam": "St. Kitts and Nevis",
+      "HomeTeamLogo": "/img/logos/grenada.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/St. Kitts and Nevis.png",
+      "StartTimeUtc": "2026-11-13T20:06:42.1155566Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Grenada-vs-St.-Kitts-and-Nevis/80987",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Grenada-vs-St.-Kitts-and-Nevis/80987"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f8165a2bc4",
+      "Slug": "saint-martin-vs-el-salvador-80988",
+      "LeagueSlug": "concacaf-nations-league",
+      "SportSlug": "concacaf-nations-league",
+      "HomeTeam": "Saint Martin",
+      "AwayTeam": "El Salvador",
+      "HomeTeamLogo": "/img/logos/saint-martin.webp",
+      "AwayTeamLogo": "/img/logos/el-salvador.webp",
+      "StartTimeUtc": "2026-11-13T23:06:42.1949402Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Saint-Martin-vs-El-Salvador/80988",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Saint-Martin-vs-El-Salvador/80988"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f83e8bbdae",
+      "Slug": "bregenz-vs-rheindorf-altach-81033",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Bregenz",
+      "AwayTeam": "Rheindorf Altach",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Bregenz.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Rheindorf Altach.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.2854716Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Bregenz-vs-Rheindorf-Altach/81033",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Bregenz-vs-Rheindorf-Altach/81033"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "a4fb1feded",
+      "Slug": "mlada-boleslav-vs-vysocina-jihlava-81034",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Mlada Boleslav",
+      "AwayTeam": "Vysocina Jihlava",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Mlada Boleslav.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Vysocina Jihlava.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.3752629Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Mlada-Boleslav-vs-Vysocina-Jihlava/81034",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Mlada-Boleslav-vs-Vysocina-Jihlava/81034"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d0d269c6b1",
+      "Slug": "vasteras-sk-vs-brommapojkarna-80397",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Vasteras SK",
+      "AwayTeam": "Brommapojkarna",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Vasteras SK.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Brommapojkarna.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.4834762Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Vasteras-SK-vs-Brommapojkarna/80397",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Vasteras-SK-vs-Brommapojkarna/80397"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "3dde2d44cf",
+      "Slug": "tps-vs-ilves-80398",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "TPS",
+      "AwayTeam": "Ilves",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/TPS.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Ilves.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.5809226Z",
+      "Status": "upcoming",
+      "SourceUrl": "/TPS-vs-Ilves/80398",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/TPS-vs-Ilves/80398"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "34f6eb379a",
+      "Slug": "bochum-vs-verl-81035",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Bochum",
+      "AwayTeam": "Verl",
+      "HomeTeamLogo": "/img/logos/bochum.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Verl.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.6680333Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Bochum-vs-Verl/81035",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Bochum-vs-Verl/81035"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "3ad1308fae",
+      "Slug": "hartberg-vs-floridsdorfer-ac-81036",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Hartberg",
+      "AwayTeam": "Floridsdorfer AC",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Hartberg.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Floridsdorfer AC.png",
+      "StartTimeUtc": "2026-11-13T11:06:42.7322031Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Hartberg-vs-Floridsdorfer-AC/81036",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Hartberg-vs-Floridsdorfer-AC/81036"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "8f93ec5f1b",
+      "Slug": "dynamo-dresden-vs-dukla-praha-81037",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Dynamo Dresden",
+      "AwayTeam": "Dukla Praha",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Dynamo Dresden.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Dukla Praha.png",
+      "StartTimeUtc": "2026-11-13T12:06:42.7911244Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Dynamo-Dresden-vs-Dukla-Praha/81037",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Dynamo-Dresden-vs-Dukla-Praha/81037"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "11f6604e66",
+      "Slug": "kapfenberger-sv-vs-uljanik-81038",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Kapfenberger SV",
+      "AwayTeam": "Uljanik",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Kapfenberger SV.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Uljanik.png",
+      "StartTimeUtc": "2026-11-13T12:06:42.8507797Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Kapfenberger-SV-vs-Uljanik/81038",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Kapfenberger-SV-vs-Uljanik/81038"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "da41fbec7d",
+      "Slug": "austria-wien-ii-vs-fach-donaufeld-81039",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Austria Wien II",
+      "AwayTeam": "Fach-Donaufeld",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Austria Wien II.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Fach-Donaufeld.png",
+      "StartTimeUtc": "2026-11-13T16:06:42.9390862Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Austria-Wien-II-vs-Fach-Donaufeld/81039",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Austria-Wien-II-vs-Fach-Donaufeld/81039"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "66b9648730",
+      "Slug": "rapid-wien-ii-vs-donau-81040",
+      "LeagueSlug": "club-friendly",
+      "SportSlug": "club-friendly",
+      "HomeTeam": "Rapid Wien II",
+      "AwayTeam": "Donau",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Rapid Wien II.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Donau.png",
+      "StartTimeUtc": "2026-11-13T17:06:43.0217163Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Rapid-Wien-II-vs-Donau/81040",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Rapid-Wien-II-vs-Donau/81040"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f8fe14098c",
+      "Slug": "comoros-vs-congo-80940",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Comoros",
+      "AwayTeam": "Congo",
+      "HomeTeamLogo": "/img/logos/comoros.webp",
+      "AwayTeamLogo": "/img/logos/congo.webp",
+      "StartTimeUtc": "2026-11-13T13:06:43.1237224Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Comoros-vs-Congo/80940",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Comoros-vs-Congo/80940"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f659f32dab",
+      "Slug": "mozambique-vs-ethiopia-80941",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Mozambique",
+      "AwayTeam": "Ethiopia",
+      "HomeTeamLogo": "/img/logos/mozambique.webp",
+      "AwayTeamLogo": "/img/logos/ethiopia.webp",
+      "StartTimeUtc": "2026-11-13T13:06:43.2093758Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Mozambique-vs-Ethiopia/80941",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Mozambique-vs-Ethiopia/80941"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "df3f0c420a",
+      "Slug": "zambia-vs-burundi-80942",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Zambia",
+      "AwayTeam": "Burundi",
+      "HomeTeamLogo": "/img/logos/zambia.webp",
+      "AwayTeamLogo": "/img/logos/burundi.webp",
+      "StartTimeUtc": "2026-11-13T13:06:43.3189288Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Zambia-vs-Burundi/80942",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Zambia-vs-Burundi/80942"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "d45ef41fae",
+      "Slug": "burkina-faso-vs-mauritania-80943",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Burkina Faso",
+      "AwayTeam": "Mauritania",
+      "HomeTeamLogo": "/img/logos/burkina-faso.webp",
+      "AwayTeamLogo": "/img/logos/mauritania.webp",
+      "StartTimeUtc": "2026-11-13T16:06:43.4344687Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Burkina-Faso-vs-Mauritania/80943",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Burkina-Faso-vs-Mauritania/80943"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "53823f8681",
+      "Slug": "cape-verde-islands-vs-liberia-80944",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Cape Verde Islands",
+      "AwayTeam": "Liberia",
+      "HomeTeamLogo": "/img/logos/cape-verde-islands.webp",
+      "AwayTeamLogo": "/img/logos/liberia.webp",
+      "StartTimeUtc": "2026-11-13T16:06:43.5118642Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Cape-Verde-Islands-vs-Liberia/80944",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Cape-Verde-Islands-vs-Liberia/80944"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "c547f9422d",
+      "Slug": "gabon-vs-lesotho-80945",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Gabon",
+      "AwayTeam": "Lesotho",
+      "HomeTeamLogo": "https://totalsportekl.is/images/teams/Gabon.png",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Lesotho.png",
+      "StartTimeUtc": "2026-11-13T16:06:43.6197963Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Gabon-vs-Lesotho/80945",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Gabon-vs-Lesotho/80945"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "047100fb60",
+      "Slug": "nigeria-vs-tanzania-80946",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Nigeria",
+      "AwayTeam": "Tanzania",
+      "HomeTeamLogo": "/img/logos/nigeria.webp",
+      "AwayTeamLogo": "/img/logos/tanzania.webp",
+      "StartTimeUtc": "2026-11-13T16:06:43.7103799Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Nigeria-vs-Tanzania/80946",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Nigeria-vs-Tanzania/80946"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "983050325c",
+      "Slug": "south-africa-vs-kenya-80947",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "South Africa",
+      "AwayTeam": "Kenya",
+      "HomeTeamLogo": "/img/logos/south-africa.webp",
+      "AwayTeamLogo": "/img/logos/kenya.webp",
+      "StartTimeUtc": "2026-11-13T16:06:43.8148655Z",
+      "Status": "upcoming",
+      "SourceUrl": "/South-Africa-vs-Kenya/80947",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/South-Africa-vs-Kenya/80947"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "4f4dfee46e",
+      "Slug": "tunisia-vs-libya-80948",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Tunisia",
+      "AwayTeam": "Libya",
+      "HomeTeamLogo": "/img/logos/tunisia.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Libya.png",
+      "StartTimeUtc": "2026-11-13T16:06:43.8524686Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Tunisia-vs-Libya/80948",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Tunisia-vs-Libya/80948"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "9fd9ca92f7",
+      "Slug": "egypt-vs-malawi-80949",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Egypt",
+      "AwayTeam": "Malawi",
+      "HomeTeamLogo": "/img/logos/egypt.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Malawi.png",
+      "StartTimeUtc": "2026-11-13T19:06:43.926183Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Egypt-vs-Malawi/80949",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Egypt-vs-Malawi/80949"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "82018607b5",
+      "Slug": "mali-vs-rwanda-80950",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Mali",
+      "AwayTeam": "Rwanda",
+      "HomeTeamLogo": "/img/logos/mali.webp",
+      "AwayTeamLogo": "/img/logos/rwanda.webp",
+      "StartTimeUtc": "2026-11-13T19:06:43.9997093Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Mali-vs-Rwanda/80950",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Mali-vs-Rwanda/80950"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "5635f63e7e",
+      "Slug": "morocco-vs-niger-80951",
+      "LeagueSlug": "africa-cup-of-nations",
+      "SportSlug": "football",
+      "HomeTeam": "Morocco",
+      "AwayTeam": "Niger",
+      "HomeTeamLogo": "/img/logos/morocco.webp",
+      "AwayTeamLogo": "https://totalsportekl.is/images/teams/Niger.png",
+      "StartTimeUtc": "2026-11-13T20:06:44.1195327Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Morocco-vs-Niger/80951",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Morocco-vs-Niger/80951"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "f907140689",
+      "Slug": "orlando-magic-vs-milwaukee-bucks-75493",
+      "LeagueSlug": "nba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Orlando Magic",
+      "AwayTeam": "Milwaukee Bucks",
+      "HomeTeamLogo": "/img/logos/orlando-magic.webp",
+      "AwayTeamLogo": "/img/logos/milwaukee-bucks.webp",
+      "StartTimeUtc": "2026-11-13T23:06:44.332688Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Orlando-Magic-vs-Milwaukee-Bucks/75493",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Orlando-Magic-vs-Milwaukee-Bucks/75493"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
+      "IsEnded": false,
+      "LiveStateLocked": false
+    },
+    {
+      "Id": "83c31d6209",
+      "Slug": "indiana-pacers-vs-new-york-knicks-75494",
+      "LeagueSlug": "nba",
+      "SportSlug": "basketball",
+      "HomeTeam": "Indiana Pacers",
+      "AwayTeam": "New York Knicks",
+      "HomeTeamLogo": "/img/logos/indiana-pacers.webp",
+      "AwayTeamLogo": "/img/logos/new-york-knicks.webp",
+      "StartTimeUtc": "2026-11-13T23:06:44.4514492Z",
+      "Status": "upcoming",
+      "SourceUrl": "/Indiana-Pacers-vs-New-York-Knicks/75494",
+      "Streams": [
+        {
+          "Label": "Watch on source",
+          "Url": "/Indiana-Pacers-vs-New-York-Knicks/75494"
+        }
+      ],
+      "Players": [],
+      "IsCustom": false,
+      "Important": false,
+      "IsLive": false,
       "IsEnded": false,
       "LiveStateLocked": false
     }
   ],
   "NormalizeTimes": false,
-  "ScrapedAtUtc": "2026-09-14T07:00:55.3782594Z"
+  "ScrapedAtUtc": "2026-11-13T10:06:44.5599432Z"
 }
