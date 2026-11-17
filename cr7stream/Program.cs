@@ -126,8 +126,8 @@ app.UseResponseCaching();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
+// app.MapStaticAssets();
+app.UseStaticFiles();
 // Cache logos for 30 days.
 app.Map("/img/logos/{**path}", async (HttpContext context) =>
 {
@@ -166,8 +166,7 @@ app.MapGet("/sitemap.xml", (HttpContext context) =>
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 app.Run();
