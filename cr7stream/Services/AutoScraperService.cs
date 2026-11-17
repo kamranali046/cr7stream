@@ -26,12 +26,32 @@ public class AutoScraperService : BackgroundService
     {
         _logger.LogInformation("AutoScraperService background worker starting.");
 
-        // Two independent background loops: a daily full scrape and a frequent
-        // live-window monitor that keeps live/ended flags and player lists fresh.
-        var dailyTask = RunDailyScrapeLoopAsync(stoppingToken);
-        var liveTask = RunLiveWindowLoopAsync(stoppingToken);
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            try
+            {
+                var dailyTask = RunDailyScrapeLoopAsync(stoppingToken);
+                var liveTask = RunLiveWindowLoopAsync(stoppingToken);
 
-        await Task.WhenAll(dailyTask, liveTask);
+                await Task.WhenAll(dailyTask, liveTask);
+            }
+            catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
+            {
+                break;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Background scraper loops encountered an unhandled exception. Restarting loops in 10 seconds.");
+                try
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
+                }
+                catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
+                {
+                    break;
+                }
+            }
+        }
     }
 
     private async Task RunLiveWindowLoopAsync(CancellationToken stoppingToken)
