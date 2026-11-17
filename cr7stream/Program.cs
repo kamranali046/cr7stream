@@ -129,6 +129,7 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 // Cache logos for 30 days.
+// Cache logos for 30 days.
 app.Map("/img/logos/{**path}", async (HttpContext context) =>
 {
     var logosDir = Path.GetFullPath(Path.Combine(app.Environment.WebRootPath, "img", "logos"));
@@ -142,7 +143,9 @@ app.Map("/img/logos/{**path}", async (HttpContext context) =>
     {
         context.Response.Headers.CacheControl = "public, max-age=2592000, immutable";
         context.Response.Headers.Expires = DateTimeOffset.UtcNow.AddDays(30).ToString("R");
-        await context.Response.SendFileAsync(filePath);
+
+        var fileInfo = new FileInfo(filePath);
+        await context.Response.SendFileAsync(filePath, 0, fileInfo.Length, default);
     }
     else
     {
