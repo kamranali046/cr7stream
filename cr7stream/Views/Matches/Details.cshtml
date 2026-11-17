@@ -2,7 +2,7 @@
 @using cr7stream.Logic
 @{
     var m = Model.Match!;
-    ViewData["Title"] = m.HomeTeam + " vs " + m.AwayTeam + " - CR7Stream";
+    ViewData["Title"] = m.HomeTeam + " vs " + m.AwayTeam + " - KukuSports";
 
     var isEnded = m.IsEnded || m.Status == "replay";
     var isLive = m.IsLive && !isEnded;
