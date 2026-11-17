@@ -364,7 +364,7 @@ body, body.dark {
                             <!-- Tracking Code Kept Intact -->
                             <li class="nav-item">
                                 <!-- Google tag (gtag.js) -->
-                                <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJMB7B8SPF"></script>
+                                <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PHP5RNCX"></script>
                                 <script>
                                     window.dataLayer = window.dataLayer || [];
                                     function gtag(){dataLayer.push(arguments);}
