@@ -43,8 +43,6 @@
 <body>
     @await Component.InvokeAsync("MainNav")
 
-    @if (ViewData["ShowBanner"] as bool? ?? (await SettingsProvider.LoadAsync()).ShowBanner)
-    {
     <div class="banner-container">
         <script>
             atOptions = {
@@ -56,8 +54,7 @@
             };
         </script>
         <script src="https://www.highrevenueformat.com/d49d708c5aeba8a222ad6501d9e1e813/invoke.js"></script>
-     </div>
-    }
+    </div>
 
      <main class="container site-body">
          @RenderBody()
