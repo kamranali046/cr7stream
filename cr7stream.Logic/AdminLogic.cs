@@ -132,6 +132,7 @@ public class AdminLogic : IAdminLogic
         });
 
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task<bool> DeleteCategoryAsync(string slug, CancellationToken cancellationToken = default)
@@ -145,6 +146,7 @@ public class AdminLogic : IAdminLogic
 
         data.Matches.RemoveAll(m => m.LeagueSlug == slug);
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
         return true;
     }
 
@@ -212,6 +214,7 @@ public class AdminLogic : IAdminLogic
 
         data.Matches.Add(match);
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task<bool> DeleteMatchAsync(string categorySlug, string matchSlug, CancellationToken cancellationToken = default)
@@ -225,6 +228,7 @@ public class AdminLogic : IAdminLogic
         }
 
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
         return true;
     }
 
@@ -265,6 +269,7 @@ public class AdminLogic : IAdminLogic
 
         (data.Leagues[idx], data.Leagues[swap]) = (data.Leagues[swap], data.Leagues[idx]);
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task ToggleImportantAsync(string slug, CancellationToken cancellationToken = default)
@@ -278,6 +283,7 @@ public class AdminLogic : IAdminLogic
 
         match.Important = !match.Important;
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task ToggleMatchLiveAsync(string slug, CancellationToken cancellationToken = default)
@@ -302,6 +308,8 @@ public class AdminLogic : IAdminLogic
         match.LiveStateLocked = true;
 
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task ToggleMatchEndedAsync(string slug, CancellationToken cancellationToken = default)
@@ -326,8 +334,9 @@ public class AdminLogic : IAdminLogic
         match.LiveStateLocked = true;
 
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
+        MatchesControllerLogic.ClearPlayerCache();
     }
-
     public async Task UpdateMatchTimeAsync(string slug, DateTime startTimeUtc, CancellationToken cancellationToken = default)
     {
         var data = await _provider.LoadRawAsync();
@@ -339,6 +348,7 @@ public class AdminLogic : IAdminLogic
 
         match.StartTimeUtc = startTimeUtc;
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task AdjustAllMatchTimesAsync(int minutes, CancellationToken cancellationToken = default)
@@ -349,6 +359,7 @@ public class AdminLogic : IAdminLogic
             match.StartTimeUtc = match.StartTimeUtc.AddMinutes(-minutes);
         }
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task MoveMatchAsync(string slug, string direction, CancellationToken cancellationToken = default)
@@ -377,6 +388,7 @@ public class AdminLogic : IAdminLogic
         var ni = group[neighbor];
         (data.Matches[mi], data.Matches[ni]) = (data.Matches[ni], data.Matches[mi]);
         await _provider.SaveAsync(data, cancellationToken);
+        HomeControllerLogic.ClearHomeCache();
     }
 
     public async Task RefreshMatchPlayersAsync(string slug, CancellationToken cancellationToken = default)
@@ -391,6 +403,7 @@ public class AdminLogic : IAdminLogic
         var fetched = await _scraper.GetPlayersAsync(match.SourceUrl, cancellationToken);
         match.Players = MergePlayers(match.Players, fetched);
         await _provider.SaveAsync(data, cancellationToken);
+        MatchesControllerLogic.ClearPlayerCache();
     }
 
     public async Task AddPlayerAsync(string matchSlug, string name, string url, CancellationToken cancellationToken = default)
