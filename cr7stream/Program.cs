@@ -121,13 +121,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Serve static files (wwwroot) before routing so root-level files like
+// /sw.js, /favicon.ico are not swallowed by the {sport} catch-all route.
+app.UseStaticFiles();
 app.UseRouting();
 app.UseResponseCaching();
 app.UseAuthentication();
 app.UseAuthorization();
-
-// app.MapStaticAssets();
-app.UseStaticFiles();
 // Cache logos for 30 days.
 app.Map("/img/logos/{**path}", async (HttpContext context) =>
 {
