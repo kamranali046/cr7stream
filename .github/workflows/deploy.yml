@@ -25,7 +25,7 @@ jobs:
           cat > .env << EOF
           ADMIN_USERNAME=${{ secrets.ADMIN_USERNAME }}
           ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}
-          DATA_DIR=/home/cr7/data
+          DATA_DIR=/var/lib/cr7stream/data
           EOF
 
       - name: Deploy app files
@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "publish/*"
-          target: "/home/cr7/app"
+          target: "/var/www/cr7stream"
           strip_components: 0
 
       - name: Deploy .env
@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: ".env"
-          target: "/home/cr7/app"
+          target: "/var/www/cr7stream"
           strip_components: 0
 
       - name: Restart app
@@ -55,7 +55,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            mkdir -p /home/cr7/data
-            sudo chown -R cr7:cr7 /home/cr7/data
+            mkdir -p /var/lib/cr7stream/data
+            chown -R www-data:www-data /var/lib/cr7stream/data
+            rm -f /var/www/cr7stream/wwwroot/data/scraper-settings.json
             sudo systemctl restart cr7stream
             sudo systemctl status cr7stream --no-pager
