@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 using cr7stream.Logic.Models;
 
 namespace cr7stream.Logic.Services;
@@ -10,7 +11,8 @@ public class JsonFixtureProvider : IFixtureProvider
 {
     private readonly IWebHostEnvironment _environment;
     private readonly IMemoryCache _memoryCache;
-    private const string RelativePath = "data/fixtures.json";
+    private readonly IConfiguration _configuration;
+    private const string RelativeFileName = "fixtures.json";
     private const string CacheKey = "FixturesData";
 
     private static readonly JsonSerializerOptions s_readOptions = new() { PropertyNameCaseInsensitive = true };
@@ -23,10 +25,25 @@ public class JsonFixtureProvider : IFixtureProvider
     private static FixtureData? s_cache;
     private static DateTime s_cacheUtc = DateTime.MinValue;
 
-    public JsonFixtureProvider(IWebHostEnvironment environment, IMemoryCache memoryCache)
+    public JsonFixtureProvider(IWebHostEnvironment environment, IMemoryCache memoryCache, IConfiguration configuration)
     {
         _environment = environment;
         _memoryCache = memoryCache;
+        _configuration = configuration;
+    }
+
+    private string DataDir
+    {
+        get
+        {
+            var configured = _configuration["DataDir"]
+                             ?? Environment.GetEnvironmentVariable("DATA_DIR");
+            if (!string.IsNullOrWhiteSpace(configured))
+            {
+                return configured;
+            }
+            return Path.Combine(_environment.ContentRootPath, "wwwroot", "data");
+        }
     }
 
     public async Task<FixtureData> LoadRawAsync()
@@ -34,7 +51,7 @@ public class JsonFixtureProvider : IFixtureProvider
         await s_fileLock.WaitAsync();
         try
         {
-            var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
+            var path = Path.Combine(DataDir, RelativeFileName);
 
             if (!File.Exists(path))
             {
@@ -56,7 +73,7 @@ public class JsonFixtureProvider : IFixtureProvider
         await s_fileLock.WaitAsync(cancellationToken);
         try
         {
-            var path = Path.Combine(_environment.ContentRootPath, "wwwroot", RelativePath);
+            var path = Path.Combine(DataDir, RelativeFileName);
             var directory = Path.GetDirectoryName(path);
             if (!string.IsNullOrEmpty(directory))
             {
