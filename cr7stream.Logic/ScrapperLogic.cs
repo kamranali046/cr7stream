@@ -269,19 +269,19 @@ public class ScrapperLogic : IScrapperLogic
         {
             try
             {
-                if (match.LiveStateLocked)
-                {
-                    continue;
-                }
-
+                var isLocked = match.LiveStateLocked;
                 var isEnded = match.IsEnded || match.Status == "replay";
                 if (isEnded)
                 {
                     continue;
                 }
 
+                var timeToStart = match.StartTimeUtc - now;
+                var inWindow = timeToStart <= drillLead && timeToStart > -autoEnd;
+
                 // Auto-end a live match that has run past the configured cap.
-                if (match.IsLive && now > match.StartTimeUtc.Add(autoEnd))
+                // (Only for non-locked matches; manual choices win.)
+                if (!isLocked && match.IsLive && now > match.StartTimeUtc.Add(autoEnd))
                 {
                     match.IsLive = false;
                     match.IsEnded = true;
@@ -290,17 +290,15 @@ public class ScrapperLogic : IScrapperLogic
                     continue;
                 }
 
-                var timeToStart = match.StartTimeUtc - now;
-
-                // Active window: from the drill lead up until roughly the auto-end cap
-                // after kickoff. Outside this we leave the match alone.
-                var inWindow = timeToStart <= drillLead && timeToStart > -autoEnd;
+                // Drill players for any live/near-live match that has none yet,
+                // even when the match is admin-locked (so manually marked live
+                // matches still get their players fetched).
                 if (inWindow && !HasEnabledPlayers(match))
                 {
                     changed |= await TryDrillPlayersAsync(match, now, drillLead, cancellationToken);
                 }
 
-                if (timeToStart <= liveLead)
+                if (!isLocked && timeToStart <= liveLead)
                 {
                     if (!match.IsLive)
                     {
